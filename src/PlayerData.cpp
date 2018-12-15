@@ -1,8 +1,52 @@
 #include "PlayerData.hpp"
+#include <sstream>
 
-PlayerData::PlayerData(int Head, int Body, int Arms, int Waist, int Legs, bool gender) : _Head(Head), _Body(Body), _Arms(Arms), _Waist(Waist), _Legs(Legs), _Gender(gender) {}
+/// Begin PlayerData Class Member Functions
 
-///
+PlayerData::PlayerData(byte *CharDataBuffer, bool gender)
+{
+    for (int i=0;i<5;++i)
+        this->_ArmorData[i] = CharDataBuffer[i*4 ];
+    this->_empty = false;
+}
+
+void PlayerData::setArmorPiece(int num, int value)
+{
+    if (num > 4 || num < 0)
+        num = Armor::HEAD;
+    if (value >255 || value < 0)
+        value = 255;
+    this->_ArmorData[num] = value;
+}
+int PlayerData::getArmorPiece(int num) const
+{
+    if (num > 4 || num < 0)
+        num = Armor::HEAD;
+    return this->_ArmorData[num];
+}
+
+std::string PlayerData::Print() const
+{
+    std::stringstream Base;
+    Base << "Character Data Info : " << std::endl;
+    Base << "Gender : " << (this->_Gender ? "Female" : "Male") << std::endl;
+    for(int i=0;i<5;++i)
+    {
+        Base << std::to_string(i) << ". ";
+        Base << Armor::Names[i] <<"\t";
+        Base << (this->_ArmorData[i] ==255 ? "None" : std::to_string(this->_ArmorData[i]));
+        Base << std::endl;
+    }
+    return Base.str();
+}
+
+std::ostream &operator<<(std::ostream &out, PlayerData &Play)
+{
+    out<< Play.Print();
+    return out;
+}
+
+/// Begin Misc Functions
 
 DWORD FindDataAddress(Process &Proc)
 {
@@ -44,17 +88,16 @@ DWORD FindDataAddress(Process &Proc)
 
 PlayerData GetCharData(Process &Proc, DWORD charDataAddr, int slot)
 {
-    if (slot < 1)
-        slot = 1;
-    if (slot > 3)
-        slot = 3;
-    slot -= 1;
+    if (slot < 0)
+        slot = 0;
+    if (slot > 2)
+        slot = 2;
     byte *CharDataBuffer = Proc.ReadMemory(charDataAddr + 1285888*slot, 28);
     byte *lpBuffer = Proc.ReadMemory(charDataAddr + 1285888 * slot - 394460, 1);
     
     if (!CharDataBuffer || !lpBuffer)
         return PlayerData();
 
-    return PlayerData(CharDataBuffer[0], CharDataBuffer[4], CharDataBuffer[8], CharDataBuffer[12], CharDataBuffer[16], lpBuffer[0]);
+    return PlayerData(CharDataBuffer, lpBuffer[0]);
 }
 

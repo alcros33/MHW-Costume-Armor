@@ -1,5 +1,7 @@
 #include "Process.hpp"
 
+/// Start Module Class Member Definitions
+
 Module::Module(const HMODULE &HMod, const std::string &moduleName) : _hMod(HMod) , _Name(moduleName) {}
 
 std::ostream &operator<<(std::ostream &out, Module &Mod)
@@ -9,7 +11,7 @@ std::ostream &operator<<(std::ostream &out, Module &Mod)
     return out;
 }
 
-///
+/// Start Process Class Member Definitions
 
 Process::Process(const std::string &processName)
 {
@@ -22,7 +24,7 @@ Process::Process(const std::string &processName)
     {
         while (Process32Next(snapshot, &entry) == TRUE)
         {
-            if (stricmp(entry.szExeFile, processName.data()) == 0)
+            if (stricmp(entry.szExeFile, processName.c_str()) == 0)
             {
                 this->_id = entry.th32ProcessID;
                 this->_handleProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, entry.th32ProcessID);
@@ -74,10 +76,6 @@ Process::~Process()
     CloseHandle(Process::_handleProcess);
 }
 
-int BytesToInt(const byte buffer[4] )
-{
-    return int(buffer[3] << 24 | buffer[2] << 16 | buffer[1] << 8 | buffer[0] );
-}
 
 byte* Process::ReadMemory(DWORD address, int bytesToRead) const
 {
@@ -102,7 +100,35 @@ int Process::ReadMemoryInt(DWORD address ) const
     byte *buffer = this->ReadMemory(address, 4);
     if ( !buffer )
         return 0;
+    
     int Val = BytesToInt(buffer);
     delete buffer;
     return Val;
+}
+
+Module Process::getModuleByName(const std::string &ModuleName) const
+{
+    for (auto Mod : this->getModuleList())
+        if (Mod.getName() == ModuleName)
+            return Mod;
+    return Module();
+}
+
+/// Start Misc Functions Definitions
+
+int BytesToInt(const byte buffer[4] )
+{
+    return int(buffer[3] << 24 | buffer[2] << 16 | buffer[1] << 8 | buffer[0] );
+}
+
+
+std::string GetRegKeyValue(HKEY RootKey, const std::string &SubKey, const std::string &Value)
+{
+    char value[255];
+    DWORD BufferSize = 255;
+    auto status = RegGetValue(RootKey, SubKey.c_str(), Value.c_str(), RRF_RT_REG_SZ, NULL, (PVOID)&value, &BufferSize);
+    if (status != ERROR_SUCCESS)
+        return std::string();
+    
+    return std::string(value);
 }

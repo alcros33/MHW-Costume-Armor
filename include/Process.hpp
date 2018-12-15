@@ -20,6 +20,8 @@ public:
     DWORD_PTR getBaseAddress() const { return (DWORD_PTR)_hMod; }
     HMODULE getModuleHandler() const { return _hMod; }
 
+    bool isEmpty() const { return _Name.empty(); }
+
 private:
     HMODULE _hMod;
     std::string _Name;
@@ -39,6 +41,7 @@ public:
     int ReadMemoryInt(DWORD address) const;
 
     std::vector<Module> getModuleList() const;
+    Module getModuleByName(const std::string &ModuleName) const;
     DWORD getID() const { return this->_id; }
     HANDLE getHanlder() const { return this->_handleProcess; }
     bool isOpen() const;
@@ -48,3 +51,6 @@ private:
     DWORD _id = 0;
 };
 
+///
+
+std::string GetRegKeyValue(HKEY RootKey,const std::string &SubKey,const std::string &Value);

@@ -1,34 +1,37 @@
 #pragma once
 #include "Process.hpp"
 
+namespace Armor
+{
+    const int HEAD = 0;
+    const int BODY = 1;
+    const int ARMS = 2;
+    const int WAIST = 3;
+    const int LEGS = 4;
+    const std::vector<std::string> Names{"Head ","Body ", "Arms ","Waist","Legs "};
+}
+
 class PlayerData
 {
 public:
-    PlayerData(int Head, int Body, int Arms, int Waist, int Legs, bool gender);
+    PlayerData(byte *CharDataBuffer, bool gender);
     PlayerData(){}
-    bool isEmpty() const { return _Head == -1; }
-    std::string getGender() const { return _Gender ? "Female" :  "Male"; }
 
-    int getHead () const { return _Head ;}
-    int getBody () const { return _Body ;}
-    int getArms () const { return _Arms ;}
-    int getWaist() const { return _Waist;}
-    int getLegs () const { return _Legs ;}
-    
-    void setHead (int val) { this->_Head =val;}
-    void setBody (int val) { this->_Body =val;}
-    void setArms (int val) { this->_Arms =val;}
-    void setWaist(int val) { this->_Waist=val;}
-    void setLegs (int val) { this->_Legs =val;}
+    bool isEmpty() const { return _empty; }
+
+    std::string getGender() const { return _Gender ? "Female" :  "Male"; }
+    void setArmorPiece(int num, int value);
+    int getArmorPiece(int num) const;
+
+    std::string Print() const;
 
 private:
-    int _Head  = -1;
-    int _Body  = -1;
-    int _Arms  = -1;
-    int _Waist = -1;
-    int _Legs  = -1;
+    byte _ArmorData[5] = {255,255,255,255,255};
     bool _Gender; // true is female
+    bool _empty = true;
 };
+
+std::ostream &operator<<(std::ostream &out, PlayerData &Play);
 
 DWORD FindDataAddress(Process &Proc);
 

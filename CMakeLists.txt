@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 
 project(MHW_Mk_Armor)
-set(MAIN_APP_NAME "MHW Mk Armor")
+set(MAIN_APP_NAME "MHWMkArmor")
 set(MAIN_LIBRARY_NAME "MemoryHandler")
 
 enable_language(C CXX)
@@ -56,8 +56,8 @@ endif()
 # If you do not use any features that limits the standard required,
 # you could omit this line.
 
-set(CXX_STANDARD 14)
-set(CMAKE_CXX_STANDARD 14)
+set(CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 
@@ -110,7 +110,7 @@ target_link_libraries(${MAIN_LIBRARY_NAME} PSAPI)
 
 add_executable(${MAIN_APP_NAME} ${APPFILES} ${QT5_RESOURCES} ${WINDOWS_ICON_RESOURCE})
 add_dependencies(${MAIN_APP_NAME} ${MAIN_LIBRARY_NAME})     
-target_link_libraries(${MAIN_APP_NAME} ${MAIN_LIBRARY_NAME} Qt5::Widgets) 
+target_link_libraries(${MAIN_APP_NAME} ${MAIN_LIBRARY_NAME} Qt5::Widgets stdc++fs)
 
 # Deploy QT on Windows
 if(MINGW AND CMAKE_BUILD_TYPE STREQUAL "Release")
