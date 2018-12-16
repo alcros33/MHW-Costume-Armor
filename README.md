@@ -1,14 +1,13 @@
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bsamseth/cpp-project/blob/master/LICENCE)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENCE)
 
 # MHW MK. Armor
 
-MK. Armor is a C++ implementaion MOD Program for Monster Hunter World which allows you to select which layered skin your character should display.
+MK. Armor is a C++ graphic implementaion of the original [MHW Transmog](https://www.nexusmods.com/monsterhunterworld/mods/43) MOD based on a decompilation of it.
 
-It is based on a decompilation of MHWTransmog MOD
+## State of Development
+Memory reading working properly.
 
 ## Depndencies
-
-### Windows
 
 * CMake # [Download Link!](https://cmake.org/download/)
 * QT5 (Select MinGW 7.30)# [Download Link!](https://www.qt.io/download)
@@ -17,8 +16,6 @@ It is based on a decompilation of MHWTransmog MOD
 ## Building
 
 Build by making a build directory (i.e. `build/`), run `cmake` in that dir, and then use `mingw32-make` to build the desired target.
-
-### Windows
 
 ``` bash
 $ mkdir build && cd build
