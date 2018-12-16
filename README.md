@@ -2,7 +2,9 @@
 
 # MHW MK. Armor
 
-MK. Armor is a C++ graphic implementaion of the original [MHW Transmog](https://www.nexusmods.com/monsterhunterworld/mods/43) MOD based on a decompilation of it.
+MK. Armor is a Monster Hunter World graphic program to customize the current armor equiped.
+
+It is a C++ implementaion of the original [MHW Transmog](https://www.nexusmods.com/monsterhunterworld/mods/43) MOD based on a decompilation of it.
 
 ## State of Development
 Memory reading working properly.
