@@ -8,6 +8,7 @@ It is a C++ implementaion of the original [MHW Transmog](https://www.nexusmods.c
 
 ## State of Development
 Memory reading working properly.
+Memory writing working properly.
 
 ## Depndencies
 
