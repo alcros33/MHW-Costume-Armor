@@ -1,13 +1,9 @@
 // #include "qtexample.h"
 // #include <QApplication>
 #include <iostream>
-#include <filesystem>
 #include "Config.h"
 
-#include "Process.hpp"
-#include "PlayerData.hpp"
-
-namespace fs = std::filesystem;
+#include "MHMemory.hpp"
 
 std::string ProjectName()
 {
@@ -33,64 +29,52 @@ int main(int argc, char *argv[])
 
     std::cout << ProjectName() << std::endl;
 
-    Process MHW("MonsterHunterWorld.exe");
+    MH_Memory MHManager;
 
-    if (!MHW.isOpen())
+    if (!MHManager.ProcessOpen())
     {
-        std::cout << "MonsterHunterWorld Process Not Found" << std::endl;
+        std::cout << "Couldn't Find MonsterHunterWorld Process" << std::endl;
         return -1;
     }
 
     std::cout << "MonsterHunterWorld Process Found!!" << std::endl;
 
-
-    std::cout << "Searching for Steam Stuff..." << std::endl;
-
-    auto Mod = MHW.getModuleByName("steam_api64.dll");
-    int SteamID;
-    fs::path SteamGamePath;
-    if (!Mod.isEmpty())
+    if (MHManager.SteamFound() )
     {
-        SteamID = MHW.ReadMemoryInt(Mod.getBaseAddress() + 237592);
-        if (!SteamID)
-            std::cout<< "\tFailed to retrieve steam data."<<std::endl;
-        else
-        {
-            std::cout << "\tSteam UserData ID: " << SteamID <<std::endl;
-            SteamGamePath = GetRegKeyValue(HKEY_CURRENT_USER,"Software\\Valve\\Steam", "SteamPath");
-            if (!SteamGamePath.empty())
-            {
-                SteamGamePath.make_preferred();
-                SteamGamePath /= "userdata";
-                SteamGamePath /= std::to_string(SteamID);
-                SteamGamePath /= "582010";
-                std::cout << "\tSteam Game Directory: " << SteamGamePath << std::endl;
-            }
-        }
+        std::cout << "\tSteam UserData ID: " << MHManager.getSteamID() << std::endl;
+        std::cout << "\tSteam Game Directory: " << MHManager.getSteamPath() << std::endl;
     }
 
     // for (auto &p : fs::directory_iterator(SteamGamePath))
     //     std::cout << p.path() << std::endl;
 
     std::cout << "Please wait while we retrieve your data..." << std::endl;
-    DWORD ptr = FindDataAddress(MHW);
-    if (ptr == 0)
+    MHManager.FindAddress();
+    if (!MHManager.DataAddressFound())
     {
-        std::cout << "Failed to Find Data Adress" << std::endl;
+        std::cout << "Failed to Find Data Address" << std::endl;
         return -1;
     }
-    std::cout << "Data Adress Found Sucessful!!" << std::endl;
-    ptr -= 29;
+    std::cout << "Data Address Found Sucessfully!!" << std::endl;
 
-    auto Data = GetCharData(MHW,ptr,0);
+    std::cout << "Trying to read Data from Character Slot 1" << std::endl;
 
-    if (Data.isEmpty())
+    if (!MHManager.FetchPlayerData(0))
     {
-        std::cout << "Error Opening Game Data" << std::endl;
+        std::cout << "Error Reading Game Data" << std::endl;
         return -1;
     }
 
-    std::cout << Data << std::endl;
+    std::cout << MHManager.getPlayerData() << std::endl;
 
+    MHManager.getPlayerData().setArmorPiece(Armor::HEAD,125); // Xenojivia, Not crashing
+
+    if (MHManager.WriteArmor(0))
+    {
+        std::cout << "Armor Written Sucessfully!!" << std::endl;
+        MHManager.FetchPlayerData(0);
+        std::cout<< MHManager.getPlayerData() << std::endl;
+    }
+    std::cout << "Exiting..." << std::endl;
     return 0;
 }

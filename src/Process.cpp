@@ -76,6 +76,7 @@ Process::~Process()
     CloseHandle(Process::_handleProcess);
 }
 
+// -------- READ THINGS ---------------
 
 byte* Process::ReadMemory(DWORD address, int bytesToRead) const
 {
@@ -85,7 +86,6 @@ byte* Process::ReadMemory(DWORD address, int bytesToRead) const
     delete buffer;
     return nullptr;
 }
-
 byte *Process::ReadMemory(LPVOID address, int bytesToRead) const
 {
     byte *buffer = new byte[bytesToRead];
@@ -95,15 +95,25 @@ byte *Process::ReadMemory(LPVOID address, int bytesToRead) const
     return nullptr;
 }
 
-int Process::ReadMemoryInt(DWORD address ) const
+int Process::ReadMemoryInt(DWORD address) const
 {
-    byte *buffer = this->ReadMemory(address, 4);
+    byte *buffer = this->ReadMemory( address, 4);
     if ( !buffer )
         return 0;
-    
     int Val = BytesToInt(buffer);
     delete buffer;
     return Val;
+}
+
+// -------- Write THINGS ---------------
+
+bool Process::WriteMemory(DWORD address, byte Buffer[], int bytesToWrite)
+{
+    return WriteProcessMemory(this->_handleProcess, (LPVOID)address, Buffer, bytesToWrite, nullptr);
+}
+bool Process::WriteMemoryInt(DWORD address, int value)
+{
+    return WriteProcessMemory(this->_handleProcess, (LPVOID)address, &value, 4, nullptr);
 }
 
 Module Process::getModuleByName(const std::string &ModuleName) const
@@ -121,6 +131,16 @@ int BytesToInt(const byte buffer[4] )
     return int(buffer[3] << 24 | buffer[2] << 16 | buffer[1] << 8 | buffer[0] );
 }
 
+byte* IntToBytes(const int val )
+{
+    byte* buffer = new byte[4];
+    buffer[3] = val >> 24;
+    buffer[2] = val >> 16;
+    buffer[1] = val >> 8;
+    buffer[0] = (byte)val;
+    return buffer;
+}
+
 
 std::string GetRegKeyValue(HKEY RootKey, const std::string &SubKey, const std::string &Value)
 {
@@ -128,7 +148,12 @@ std::string GetRegKeyValue(HKEY RootKey, const std::string &SubKey, const std::s
     DWORD BufferSize = 255;
     auto status = RegGetValue(RootKey, SubKey.c_str(), Value.c_str(), RRF_RT_REG_SZ, NULL, (PVOID)&value, &BufferSize);
     if (status != ERROR_SUCCESS)
+    {
+        #ifndef NDEBUG
+            std::cout<< "Couldn't Get Registry value with error code : ";
+            PrintHexLine(status);
+        #endif
         return std::string();
-    
+    }
     return std::string(value);
 }

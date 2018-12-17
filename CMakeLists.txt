@@ -102,15 +102,16 @@ endif()
 # --------------------------------------------------------------------------------
 
 # Compile all sources into a library. Called engine here (change if you wish).
+
 add_library(${MAIN_LIBRARY_NAME} SHARED ${SOURCES} )
-target_link_libraries(${MAIN_LIBRARY_NAME} PSAPI)
+target_link_libraries(${MAIN_LIBRARY_NAME} PSAPI stdc++fs)
 
 # Add an executable for the file main.cpp, here called main.x.
 # If you add more executables, copy these three lines accordingly.
 
 add_executable(${MAIN_APP_NAME} ${APPFILES} ${QT5_RESOURCES} ${WINDOWS_ICON_RESOURCE})
 add_dependencies(${MAIN_APP_NAME} ${MAIN_LIBRARY_NAME})     
-target_link_libraries(${MAIN_APP_NAME} ${MAIN_LIBRARY_NAME} Qt5::Widgets stdc++fs)
+target_link_libraries(${MAIN_APP_NAME} stdc++fs ${MAIN_LIBRARY_NAME} Qt5::Widgets)
 
 # Deploy QT on Windows
 if(MINGW AND CMAKE_BUILD_TYPE STREQUAL "Release")

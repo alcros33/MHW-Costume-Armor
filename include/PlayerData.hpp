@@ -6,7 +6,7 @@ namespace Armor
     const int HEAD = 0;
     const int BODY = 1;
     const int ARMS = 2;
-    const int WAIST = 3;
+    const int WAIST= 3;
     const int LEGS = 4;
     const std::vector<std::string> Names{"Head ","Body ", "Arms ","Waist","Legs "};
 }

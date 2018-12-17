@@ -86,18 +86,3 @@ DWORD FindDataAddress(Process &Proc)
     return 0;
 }
 
-PlayerData GetCharData(Process &Proc, DWORD charDataAddr, int slot)
-{
-    if (slot < 0)
-        slot = 0;
-    if (slot > 2)
-        slot = 2;
-    byte *CharDataBuffer = Proc.ReadMemory(charDataAddr + 1285888*slot, 28);
-    byte *lpBuffer = Proc.ReadMemory(charDataAddr + 1285888 * slot - 394460, 1);
-    
-    if (!CharDataBuffer || !lpBuffer)
-        return PlayerData();
-
-    return PlayerData(CharDataBuffer, lpBuffer[0]);
-}
-
