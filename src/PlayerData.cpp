@@ -61,17 +61,20 @@ DWORD FindDataAddress(Process &Proc)
 {
     unsigned long long num1 = 0;
     LPVOID Ptr ;
+    byte* lpBuffer2 = nullptr;
     while (num1 < 140737488355323ULL)
     {
         Ptr = (LPVOID)num1;
-        MEMORY_BASIC_INFORMATION lpBuffer1 ;
+        MEMORY_BASIC_INFORMATION lpBuffer1;
         VirtualQueryEx(Proc.getHanlder(), Ptr, &lpBuffer1, sizeof(MEMORY_BASIC_INFORMATION) );
         num1 += (long)lpBuffer1.RegionSize - 1;
+
         QCoreApplication::processEvents();
+
         if ( lpBuffer1.AllocationProtect == 64 || lpBuffer1.AllocationProtect == 4)
         {
-            byte *lpBuffer2 = Proc.ReadMemory(lpBuffer1.AllocationBase, lpBuffer1.RegionSize);
-            if (lpBuffer2 == nullptr)
+            lpBuffer2 = Proc.ReadMemory(lpBuffer1.AllocationBase, lpBuffer1.RegionSize);
+            if (!lpBuffer2)
                 continue;
             for (int index = 0; index < (lpBuffer1.RegionSize - 3); ++index)
             {
@@ -85,10 +88,7 @@ DWORD FindDataAddress(Process &Proc)
                     {
                         unsigned long long num2 = (DWORD_PTR)(lpBuffer1.AllocationBase) + (unsigned long long)index;
                         if ( ( (long)num2 & 4095L)  == 1705L )
-                        {
-                            delete lpBuffer2;
                             return num2;
-                        }
                     }
                 }
             }

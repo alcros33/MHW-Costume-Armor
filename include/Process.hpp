@@ -4,6 +4,7 @@
 #include <tlhelp32.h>
 #include <psapi.h>
 
+#include <memory>
 #include <vector>
 #include <iostream>
 

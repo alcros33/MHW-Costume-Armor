@@ -86,9 +86,10 @@ byte* Process::ReadMemory(DWORD address, int bytesToRead) const
     delete buffer;
     return nullptr;
 }
-byte *Process::ReadMemory(LPVOID address, int bytesToRead) const
+
+byte* Process::ReadMemory(LPVOID address, int bytesToRead) const 
 {
-    byte *buffer = new byte[bytesToRead];
+    byte* buffer = new byte[bytesToRead] ;
     if (ReadProcessMemory(this->_handleProcess, address, buffer, bytesToRead, nullptr))
         return buffer;
     delete buffer;

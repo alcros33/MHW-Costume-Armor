@@ -23,10 +23,10 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    std::cout << ProjectName() << std::endl;
 
     MainWindow w;
     #ifndef NDEBUG
+        std::cout << ProjectName() << std::endl;
         w.debugPrints();
     #endif
 

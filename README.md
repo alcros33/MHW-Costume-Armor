@@ -9,9 +9,9 @@ It is a C++ implementaion of the original [MHW Transmog](https://www.nexusmods.c
 ## State of Development
 * Memory reading (working properly).
 * Memory writing (working properly).
-* GUI Basic Functions (50%).
-* GUI Design and vanity (pending...)
+* GUI Basic Functions (working properly).
 * GUI Additional features (pending...)
+* GUI Design and vanity (pending...)
 
 ## Depndencies
 

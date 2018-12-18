@@ -5,7 +5,8 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    _InputBoxes(5)
 {
     ui->setupUi(this);
     this->setWindowTitle("MHW Mk. Armor");
@@ -26,6 +27,12 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->SearchButton, SIGNAL(released()), this, SLOT(_FindAddr()));
     connect(ui->FetchButton, SIGNAL(released()), this, SLOT(_FetchData()));
     connect(ui->WriteButton, SIGNAL(released()), this, SLOT(_WriteData()));
+
+    _InputBoxes[0] = ui->headLineEdit ;
+    _InputBoxes[1] = ui->bodyLineEdit ;
+    _InputBoxes[2] = ui->armsLineEdit ;
+    _InputBoxes[3] = ui->waistLineEdit;
+    _InputBoxes[4] = ui->legsLineEdit ;
 }
 
 MainWindow::~MainWindow()
@@ -61,7 +68,7 @@ void MainWindow::_FindAddr()
     ui->WriteButton->setEnabled(true);
 }
 
-void MainWindow::_FetchData()
+void MainWindow::_FetchData(bool noMessage)
 {
     int slot = std::stoi(ui->comboBox->currentText().toUtf8().constData());
     if (!_MHManager.FetchPlayerData(slot-1))
@@ -71,23 +78,57 @@ void MainWindow::_FetchData()
         return;
     }
     auto Data = _MHManager.getPlayerData().getDataString();
+    for(int i=0;i<5;++i)
+        _InputBoxes[i]->setText(Data[i].c_str());
 
-    ui->headLineEdit->setText(Data[0].c_str());
-    ui->bodyLineEdit->setText(Data[1].c_str());
-    ui->armsLineEdit->setText(Data[2].c_str());
-    ui->waistLineEdit->setText(Data[3].c_str());
-    ui->legsLineEdit->setText(Data[4].c_str());
-
-    std::string msg = "Sucessfully Character Data for slot " + std::to_string(slot);
-    DialogMessage *Dia = new DialogMessage(this, "Sucess", msg);
-    Dia->show();
+    std::string msg = "Sucessfully fetched Character Data for slot " + std::to_string(slot);
+    if(!noMessage)
+    {
+        DialogMessage *Dia = new DialogMessage(this, "Sucess", msg);
+        Dia->show();
+    }
 }
 
 void MainWindow::_WriteData()
 {
-    DialogMessage *Dia = new DialogMessage(this, "Warning", "Not implemented...yet");
-    Dia->show();
+    int val;
+    for (int i = 0; i < 5; ++i)
+    {
+        try
+        {
+            std::string strVal = _InputBoxes[i]->text().toUtf8().constData();
+            std::transform(strVal.begin(), strVal.end(), strVal.begin(), ::tolower);
+            
+            if (strVal == "none")
+                val = 255;
+            else
+                val = std::stoi(strVal);
+            this->_MHManager.getPlayerData().setArmorPiece(i,val);
+        }
+        catch (std::exception &e)
+        {
+            
+            DialogMessage *Dia = new DialogMessage(this, "ERROR", "Invalid Value for armor");
+            Dia->show();
+            this->_FetchData(true);
+            return;
+        }
+    }
+
+    int slot = std::stoi(ui->comboBox->currentText().toUtf8().constData());
+    if (!_MHManager.WriteArmor(slot-1,_SafeMode))
+    {
+        DialogMessage *Dia = new DialogMessage(this, "ERROR", "Couldn't Write Save Data!");
+        Dia->show();
+    }
+    else
+    {
+        DialogMessage *Dia = new DialogMessage(this, "Sucess!!", "Enter you room to reload (Do not save before reloading!)");
+        Dia->show();
+    }
+    this->_FetchData(true);
 }
+
 void MainWindow::debugPrints() const
 {
     if (_MHManager.SteamFound())
@@ -98,6 +139,8 @@ void MainWindow::debugPrints() const
     else
         std::cout << "\tCouldn't Find Steam Data" << std::endl;
 }
+
+
 /// Begin About Window Member definitions
 
 AboutWindow::AboutWindow(QWidget *parent) : QDialog(parent), ui(new Ui::AboutWindow)

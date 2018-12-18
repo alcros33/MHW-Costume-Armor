@@ -82,9 +82,9 @@ std::string GetDateTime()
 {
     std::time_t t = std::time(nullptr);
 
-    std::stringstream Result ;
+    std::stringstream Result;
 
-    Result << std::put_time(localtime(&t), "%F %T");
+    Result << std::put_time(std::localtime(&t), "%Y-%m-%d %H-%M-%S");
 
     return Result.str();
 }
@@ -120,9 +120,18 @@ bool MH_Memory::BackupSaveData() const
     }
 
     auto DestPath = MH_Memory::BACKUP_DIR;
-    DestPath /= ("BackUp " + GetDateTime());
-
-    fs::copy(SourcePath, DestPath, fs::copy_options::overwrite_existing);
+    DestPath /= ("Backup " + GetDateTime());
+    try
+    {
+        fs::copy(SourcePath, DestPath);
+    }
+    catch (std::exception &e)
+    {
+        #ifndef NDEBUG
+            std::cout << "Couldn't Copy Save data. Error : " << e.what() << std::endl;
+        #endif
+        return false;
+    }
 
     return fs::exists(DestPath);
 }
@@ -133,10 +142,14 @@ bool MH_Memory::WriteArmor(int CharSlot, bool isSafe)
         return false;
     if (!this->BackupSaveData())
     {
-        std::cout << "Couldn't Backup SaveData" << std::endl;
+        #ifndef NDEBUG
+            std::cout << "Couldn't Backup SaveData" << std::endl;
+        #endif
         if(isSafe)
         {
-            std::cout << "Can't write without backup in safe mode." << std::endl;
+            #ifndef NDEBUG
+                std::cout << "Can't write to memory without backup in safe mode." << std::endl;
+            #endif
             return false;
         }
     }

@@ -279,7 +279,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
    </widget>
    <widget class="QMenu" name="menuArchivo">
     <property name="title">
-     <string>Archivo</string>
+     <string>File</string>
     </property>
     <addaction name="actionSave_Current_Armor"/>
     <addaction name="actionLoad_Armor"/>

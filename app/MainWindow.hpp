@@ -28,9 +28,11 @@ private:
     Ui::MainWindow *ui;
     MH_Memory _MHManager;
     json Settings;
+    std::vector<QLineEdit*> _InputBoxes;
+    bool _SafeMode = true;
 private slots:
     void _FindAddr();
-    void _FetchData();
+    void _FetchData(bool noMessage = false);
     void _WriteData();
     void _aboutInfo();
 };
