@@ -1,0 +1,7 @@
+<RCC>
+  <qresource>
+    <file>app_icon.ico</file>
+    <file>Icon.png</file>
+    <file>MIT_License.png</file>
+  </qresource>
+</RCC>

@@ -24,6 +24,7 @@ public:
     int getArmorPiece(int num) const;
 
     std::string Print() const;
+    std::vector<std::string> getDataString() const;
 
 private:
     byte _ArmorData[5] = {255,255,255,255,255};

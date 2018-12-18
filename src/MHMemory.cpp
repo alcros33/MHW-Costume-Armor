@@ -1,4 +1,7 @@
 #include "MHMemory.hpp"
+#include <iomanip>
+#include <ctime>
+#include <sstream>
 
 MH_Memory::MH_Memory(const std::string &ProcName, const std::string &SteamDLL) : _MHProcess(ProcName)
 {
@@ -31,6 +34,22 @@ MH_Memory::MH_Memory(const std::string &ProcName, const std::string &SteamDLL) :
     }
 }
 
+void MH_Memory::FindAddress()
+{
+    if ( !this->ProcessOpen() )
+        return;
+    
+    _DataPtr = FindDataAddress(_MHProcess);
+    if (_DataPtr == 0)
+        return;
+    _DataPtr -= 29;
+
+    #ifndef NDEBUG
+        std::cout<< "Address of the Characters Data : ";
+        PrintHexLine(_DataPtr);
+    #endif
+}
+
 bool MH_Memory::FetchPlayerData(int slot)
 {
     if ( !this->ProcessOpen() || !this->DataAddressFound() )
@@ -45,26 +64,30 @@ bool MH_Memory::FetchPlayerData(int slot)
     byte *lpBuffer = _MHProcess.ReadMemory(_DataPtr + 1285888 * slot - 394460, 1);
 
     if (!CharDataBuffer || !lpBuffer)
+    {
+        delete CharDataBuffer;
+        delete lpBuffer;
         return false;
+    }
 
     _Data = PlayerData(CharDataBuffer, lpBuffer[0]);
+    delete CharDataBuffer;
+    delete lpBuffer ;
     return true;
 }
 
-void MH_Memory::FindAddress()
-{
-    _DataPtr = FindDataAddress(_MHProcess);
-    if (_DataPtr == 0)
-        return;
-    _DataPtr -= 29;
-    
-    #ifndef NDEBUG
-        std::cout<< "Address of the Characters Data : ";
-        PrintHexLine(_DataPtr);
-    #endif
-}
-
 const fs::path MH_Memory::BACKUP_DIR = fs::current_path().append("Backups");
+
+std::string GetDateTime()
+{
+    std::time_t t = std::time(nullptr);
+
+    std::stringstream Result ;
+
+    Result << std::put_time(localtime(&t), "%F %T");
+
+    return Result.str();
+}
 
 bool MH_Memory::BackupSaveData() const
 {
@@ -97,12 +120,9 @@ bool MH_Memory::BackupSaveData() const
     }
 
     auto DestPath = MH_Memory::BACKUP_DIR;
-    DestPath /= "BackUp - 0"; // TODO Replace 0 with datetime
+    DestPath /= ("BackUp " + GetDateTime());
 
-    if (fs::exists(DestPath))
-        return false;
-    
-    fs::copy(SourcePath, DestPath);
+    fs::copy(SourcePath, DestPath, fs::copy_options::overwrite_existing);
 
     return fs::exists(DestPath);
 }

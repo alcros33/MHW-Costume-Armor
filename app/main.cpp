@@ -1,9 +1,9 @@
-// #include "qtexample.h"
-// #include <QApplication>
+#include <QApplication>
 #include <iostream>
-#include "Config.h"
 
+#include "MainWindow.hpp"
 #include "MHMemory.hpp"
+#include "Config.h"
 
 std::string ProjectName()
 {
@@ -21,60 +21,29 @@ std::string ProjectName()
 
 int main(int argc, char *argv[])
 {
-    // QApplication app(argc, argv);
-    // MHWMkArmor w;
-    // w.show();
-
-    // return app.exec();
+    QApplication app(argc, argv);
 
     std::cout << ProjectName() << std::endl;
 
-    MH_Memory MHManager;
+    MainWindow w;
+    #ifndef NDEBUG
+        w.debugPrints();
+    #endif
 
-    if (!MHManager.ProcessOpen())
-    {
-        std::cout << "Couldn't Find MonsterHunterWorld Process" << std::endl;
-        return -1;
-    }
+    w.show();
 
-    std::cout << "MonsterHunterWorld Process Found!!" << std::endl;
+    return app.exec();
 
-    if (MHManager.SteamFound() )
-    {
-        std::cout << "\tSteam UserData ID: " << MHManager.getSteamID() << std::endl;
-        std::cout << "\tSteam Game Directory: " << MHManager.getSteamPath() << std::endl;
-    }
+    // std::cout << MHManager.getPlayerData() << std::endl;
 
-    // for (auto &p : fs::directory_iterator(SteamGamePath))
-    //     std::cout << p.path() << std::endl;
+    // MHManager.getPlayerData().setArmorPiece(Armor::HEAD,125); // Xenojivia, Not crashing
 
-    std::cout << "Please wait while we retrieve your data..." << std::endl;
-    MHManager.FindAddress();
-    if (!MHManager.DataAddressFound())
-    {
-        std::cout << "Failed to Find Data Address" << std::endl;
-        return -1;
-    }
-    std::cout << "Data Address Found Sucessfully!!" << std::endl;
+    // if (MHManager.WriteArmor(0))
+    // {
+    //     std::cout << "Armor Written Sucessfully!!" << std::endl;
+    //     MHManager.FetchPlayerData(0);
+    //     std::cout<< MHManager.getPlayerData() << std::endl;
+    // }
 
-    std::cout << "Trying to read Data from Character Slot 1" << std::endl;
-
-    if (!MHManager.FetchPlayerData(0))
-    {
-        std::cout << "Error Reading Game Data" << std::endl;
-        return -1;
-    }
-
-    std::cout << MHManager.getPlayerData() << std::endl;
-
-    MHManager.getPlayerData().setArmorPiece(Armor::HEAD,125); // Xenojivia, Not crashing
-
-    if (MHManager.WriteArmor(0))
-    {
-        std::cout << "Armor Written Sucessfully!!" << std::endl;
-        MHManager.FetchPlayerData(0);
-        std::cout<< MHManager.getPlayerData() << std::endl;
-    }
-    std::cout << "Exiting..." << std::endl;
-    return 0;
+    // return 0;
 }

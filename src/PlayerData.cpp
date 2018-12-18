@@ -1,5 +1,6 @@
 #include "PlayerData.hpp"
 #include <sstream>
+#include <QCoreApplication>
 
 /// Begin PlayerData Class Member Functions
 
@@ -40,6 +41,14 @@ std::string PlayerData::Print() const
     return Base.str();
 }
 
+std::vector<std::string> PlayerData::getDataString() const
+{
+    std::vector<std::string> Result(5);
+    for(int i=0;i<5;++i)
+        Result[i] = (this->_ArmorData[i] == 255 ? "None" : std::to_string(this->_ArmorData[i]) );
+    return Result;
+}
+
 std::ostream &operator<<(std::ostream &out, PlayerData &Play)
 {
     out<< Play.Print();
@@ -58,6 +67,7 @@ DWORD FindDataAddress(Process &Proc)
         MEMORY_BASIC_INFORMATION lpBuffer1 ;
         VirtualQueryEx(Proc.getHanlder(), Ptr, &lpBuffer1, sizeof(MEMORY_BASIC_INFORMATION) );
         num1 += (long)lpBuffer1.RegionSize - 1;
+        QCoreApplication::processEvents();
         if ( lpBuffer1.AllocationProtect == 64 || lpBuffer1.AllocationProtect == 4)
         {
             byte *lpBuffer2 = Proc.ReadMemory(lpBuffer1.AllocationBase, lpBuffer1.RegionSize);
@@ -76,11 +86,13 @@ DWORD FindDataAddress(Process &Proc)
                         unsigned long long num2 = (DWORD_PTR)(lpBuffer1.AllocationBase) + (unsigned long long)index;
                         if ( ( (long)num2 & 4095L)  == 1705L )
                         {
+                            delete lpBuffer2;
                             return num2;
                         }
                     }
                 }
             }
+            delete lpBuffer2;
         }
     }
     return 0;

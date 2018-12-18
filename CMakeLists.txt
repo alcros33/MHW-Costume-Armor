@@ -36,6 +36,7 @@ set(CMAKE_AUTOMOC ON)
 
 # Find the QtWidgets library
 find_package(Qt5Widgets CONFIG REQUIRED)
+find_package(Qt5Core CONFIG REQUIRED)
 # Create code from a list of Qt designer ui files.
 set(CMAKE_AUTOUIC ON) # use this if you have CMake 3.x instead of the following
 
@@ -90,12 +91,12 @@ file(GLOB APPFILES "app/*.cpp")
 ##
 find_library (PSAPI Psapi)
 
-if(MINGW AND CMAKE_BUILD_TYPE STREQUAL "Release")
+if(MINGW)
     SET(WINDOWS_ICON_RESOURCE "${PROJECT_SOURCE_DIR}/resources/app_icon.rc")
 endif()
 
 # Resources Example
-# qt5_add_resources(QT5_RESOURCES "${PROJECT_SOURCE_DIR}/resources/Icons.qrc")
+qt5_add_resources(QT5_RESOURCES "${PROJECT_SOURCE_DIR}/resources/Icons.qrc")
 
 # --------------------------------------------------------------------------------
 #                            Build! (Change as needed)
@@ -104,7 +105,7 @@ endif()
 # Compile all sources into a library. Called engine here (change if you wish).
 
 add_library(${MAIN_LIBRARY_NAME} SHARED ${SOURCES} )
-target_link_libraries(${MAIN_LIBRARY_NAME} PSAPI stdc++fs)
+target_link_libraries(${MAIN_LIBRARY_NAME} PSAPI stdc++fs Qt5::Core)
 
 # Add an executable for the file main.cpp, here called main.x.
 # If you add more executables, copy these three lines accordingly.
