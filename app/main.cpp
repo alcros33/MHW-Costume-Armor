@@ -1,5 +1,6 @@
-#include <QApplication>
 #include <iostream>
+
+#include <QApplication>
 
 #include "MainWindow.hpp"
 #include "MHMemory.hpp"

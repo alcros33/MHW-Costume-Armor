@@ -1,7 +1,8 @@
-#include "MHMemory.hpp"
 #include <iomanip>
 #include <ctime>
 #include <sstream>
+
+#include "MHMemory.hpp"
 
 MH_Memory::MH_Memory(const std::string &ProcName, const std::string &SteamDLL) : _MHProcess(ProcName)
 {
@@ -23,13 +24,10 @@ MH_Memory::MH_Memory(const std::string &ProcName, const std::string &SteamDLL) :
         }
         else
         {
-            #ifndef NDEBUG
-                std::cout<< "Steam ID or Path NOT FOUND"<<std::endl;
-                std::cout<< "Current Steam Addr : ";
-                PrintHexLine(   (long) Mod.getBaseAddress() + 237592);
-                std::cout<< "Current Steam ID : " << _SteamID << std::endl;
-                std::cout << "Current Steam Path : " << _SteamPath << std::endl;
-            #endif
+            DEBUG_LOG("Steam ID or Path NOT FOUND");
+            DEBUG_LOG_HEX("Current Steam Addr : "<< ( (long) Mod.getBaseAddress() + 237592) );
+            DEBUG_LOG("Current Steam ID : " << _SteamID );
+            DEBUG_LOG("Current Steam Path : " << _SteamPath);
         }
     }
 }
@@ -44,10 +42,7 @@ void MH_Memory::FindAddress()
         return;
     _DataPtr -= 29;
 
-    #ifndef NDEBUG
-        std::cout<< "Address of the Characters Data : ";
-        PrintHexLine(_DataPtr);
-    #endif
+    DEBUG_LOG_HEX("Address of the Characters Data : "<< _DataPtr);
 }
 
 bool MH_Memory::FetchPlayerData(int slot)
@@ -93,17 +88,14 @@ bool MH_Memory::BackupSaveData() const
 {
     if (!this->SteamFound())
     {
-        #ifndef NDEBUG
-            std::cout<< "Steam Dir was not Found" <<std::endl;
-        #endif
+        DEBUG_LOG("Steam Dir was not Found");
         return false;
     }
+
     if (!fs::exists(MH_Memory::BACKUP_DIR))
         if (!fs::create_directory(MH_Memory::BACKUP_DIR))
         {
-            #ifndef NDEBUG
-                std::cout<< "Backup Dir was not Found and couldn't created" << std::endl;
-            #endif
+            DEBUG_LOG("Backup Dir was not Found and couldn't created");
             return false;
         }
 
@@ -113,9 +105,7 @@ bool MH_Memory::BackupSaveData() const
 
     if (!fs::exists(SourcePath))
     {
-        #ifndef NDEBUG
-            std::cout << "Couldn't Find Save Data" << std::endl;
-        #endif
+        DEBUG_LOG("Couldn't Find Save Data");
         return false;
     }
 
@@ -127,9 +117,7 @@ bool MH_Memory::BackupSaveData() const
     }
     catch (std::exception &e)
     {
-        #ifndef NDEBUG
-            std::cout << "Couldn't Copy Save data. Error : " << e.what() << std::endl;
-        #endif
+        DEBUG_LOG("Couldn't Copy Save data. Error : " << e.what() );
         return false;
     }
 
@@ -142,14 +130,10 @@ bool MH_Memory::WriteArmor(int CharSlot, bool isSafe)
         return false;
     if (!this->BackupSaveData())
     {
-        #ifndef NDEBUG
-            std::cout << "Couldn't Backup SaveData" << std::endl;
-        #endif
+        DEBUG_LOG("Couldn't Backup SaveData");
         if(isSafe)
         {
-            #ifndef NDEBUG
-                std::cout << "Can't write to memory without backup in safe mode." << std::endl;
-            #endif
+            DEBUG_LOG("Can't write to memory without backup in safe mode.");
             return false;
         }
     }

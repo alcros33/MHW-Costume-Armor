@@ -1,9 +1,10 @@
 #pragma once
-#include "ui_MainWindow.h"
-#include "ui_AboutWindow.h"
-#include "MHMemory.hpp"
 #include <QMainWindow>
 
+#include "ui_MainWindow.h"
+#include "ui_AboutWindow.h"
+
+#include "MHMemory.hpp"
 #include "json.hpp"
 
 // for convenience

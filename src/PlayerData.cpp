@@ -1,6 +1,7 @@
-#include "PlayerData.hpp"
 #include <sstream>
 #include <QCoreApplication>
+
+#include "PlayerData.hpp"
 
 /// Begin PlayerData Class Member Functions
 

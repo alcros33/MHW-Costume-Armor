@@ -150,10 +150,7 @@ std::string GetRegKeyValue(HKEY RootKey, const std::string &SubKey, const std::s
     auto status = RegGetValue(RootKey, SubKey.c_str(), Value.c_str(), RRF_RT_REG_SZ, NULL, (PVOID)&value, &BufferSize);
     if (status != ERROR_SUCCESS)
     {
-        #ifndef NDEBUG
-            std::cout<< "Couldn't Get Registry value with error code : ";
-            PrintHexLine(status);
-        #endif
+        DEBUG_LOG_HEX("Couldn't Get Registry value with error code : " << status);
         return std::string();
     }
     return std::string(value);

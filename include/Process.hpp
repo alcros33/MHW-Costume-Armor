@@ -1,12 +1,14 @@
 #pragma once
 #include <string>
+#include <memory>
+#include <vector>
+#include <iostream>
+
 #include <windows.h>
 #include <tlhelp32.h>
 #include <psapi.h>
 
-#include <memory>
-#include <vector>
-#include <iostream>
+#include "misc.hpp"
 
 using byte = unsigned char;
 
@@ -57,12 +59,6 @@ private:
 ///
 
 std::string GetRegKeyValue(HKEY RootKey,const std::string &SubKey,const std::string &Value);
-
-template <typename INTEGER>
-void PrintHexLine(INTEGER A)
-{
-    std::cout<< std::hex << A <<std::dec<<std::endl;
-}
 
 int BytesToInt(const byte[4]);
 byte *IntToBytes(const int val);
