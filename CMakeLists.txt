@@ -116,10 +116,11 @@ target_link_libraries(${MAIN_APP_NAME} stdc++fs ${MAIN_LIBRARY_NAME} Qt5::Widget
 
 # Deploy QT on Windows
 if(MINGW AND CMAKE_BUILD_TYPE STREQUAL "Release")
+    set(EXPORT_LIB_DIR "$<TARGET_FILE_DIR:${MAIN_APP_NAME}>/plugins")
     add_custom_command(
         TARGET ${MAIN_APP_NAME}
         POST_BUILD
-        COMMAND windeployqt --release $<TARGET_FILE:${MAIN_APP_NAME}> --no-translations --no-system-d3d-compiler )
+        COMMAND windeployqt --release $<TARGET_FILE:${MAIN_APP_NAME}> --no-translations --no-system-d3d-compiler --plugindir ${EXPORT_LIB_DIR})
 endif()
 
 # --------------------------------------------------------------------------------

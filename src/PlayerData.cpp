@@ -79,7 +79,7 @@ DWORD FindDataAddress(Process &Proc)
                 continue;
             for (int index = 0; index < (lpBuffer1.RegionSize - 3); ++index)
             {
-                if (lpBuffer2[index] == (byte)143 && lpBuffer2[index + 1] == (byte)187)
+                if (lpBuffer2[index] == (byte)231 && lpBuffer2[index + 1] == (byte)188)
                 {
                     if (lpBuffer2[index + 2] != (byte)66)
                         ++index;
@@ -98,4 +98,3 @@ DWORD FindDataAddress(Process &Proc)
     }
     return 0;
 }
-

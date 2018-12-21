@@ -1,6 +1,15 @@
 #include "MainWindow.hpp"
 #include "Config.h"
 
+// Dialog Close Main Window
+// ...
+// mDialog= new QDialog();
+// mDialog->show();
+// close();
+// ...
+
+// TODO PROGRESS BAR WITH QMovie
+
 /// Begin Main Window Member definitions
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -179,4 +188,6 @@ DialogMessage::DialogMessage(QWidget *parent, const std::string &Title, const st
     this->_okButton.setObjectName("okButton");
     this->_okButton.connect(&this->_okButton, SIGNAL(released()), this, SLOT(accept()));
     this->_okButton.setText("Ok");
+
+    this->setAttribute(Qt::WA_DeleteOnClose);
 }

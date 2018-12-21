@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include <QApplication>
 
 #include "MainWindow.hpp"
@@ -24,6 +23,7 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
+    QCoreApplication::addLibraryPath("./plugins");
 
     MainWindow w;
     #ifndef NDEBUG
@@ -34,17 +34,4 @@ int main(int argc, char *argv[])
     w.show();
 
     return app.exec();
-
-    // std::cout << MHManager.getPlayerData() << std::endl;
-
-    // MHManager.getPlayerData().setArmorPiece(Armor::HEAD,125); // Xenojivia, Not crashing
-
-    // if (MHManager.WriteArmor(0))
-    // {
-    //     std::cout << "Armor Written Sucessfully!!" << std::endl;
-    //     MHManager.FetchPlayerData(0);
-    //     std::cout<< MHManager.getPlayerData() << std::endl;
-    // }
-
-    // return 0;
 }
