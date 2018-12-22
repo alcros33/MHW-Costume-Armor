@@ -9,7 +9,7 @@ It is a C++ implementaion of the original [MHW Transmog](https://www.nexusmods.c
 Update 22/12/2018 Working as of Behemot update, Drachen Armor no longer crashes the game.
 
 ## Release!
-Checkout the latest [Release](https://github.com/alcros33/CardPrinter/releases) !
+Checkout the latest [Release](https://github.com/alcros33/MHW-Costume-Armor/releases) !
 
 ## State of Development
 * Memory reading (working properly).
