@@ -1,6 +1,5 @@
 #include <sstream>
 #include <QCoreApplication>
-
 #include "PlayerData.hpp"
 
 /// Begin PlayerData Class Member Functions
@@ -15,16 +14,22 @@ PlayerData::PlayerData(byte *CharDataBuffer, bool gender)
 void PlayerData::setArmorPiece(int num, int value)
 {
     if (num > 4 || num < 0)
-        num = Armor::HEAD;
-    if (value >255 || value < 0)
-        value = 255;
+        return;
+
+    if (value >= _byteLimit || value <=0 )
+        value = _byteLimit;
+
     this->_ArmorData[num] = value;
 }
-int PlayerData::getArmorPiece(int num) const
+u_int PlayerData::getArmorPiece(int num) const
 {
     if (num > 4 || num < 0)
         num = Armor::HEAD;
-    return this->_ArmorData[num];
+    u_int value = this->_ArmorData[num];
+
+    if (value >= _byteLimit)
+        value = std::numeric_limits<u_int>::max();
+    return value;
 }
 
 std::string PlayerData::Print() const
@@ -46,7 +51,7 @@ std::vector<std::string> PlayerData::getDataString() const
 {
     std::vector<std::string> Result(5);
     for(int i=0;i<5;++i)
-        Result[i] = (this->_ArmorData[i] == 255 ? "None" : std::to_string(this->_ArmorData[i]) );
+        Result[i] = (this->_ArmorData[i] == 255 ? "" : std::to_string(this->_ArmorData[i]) );
     return Result;
 }
 

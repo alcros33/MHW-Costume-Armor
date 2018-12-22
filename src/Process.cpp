@@ -116,6 +116,10 @@ bool Process::WriteMemoryInt(DWORD address, int value)
 {
     return WriteProcessMemory(this->_handleProcess, (LPVOID)address, &value, 4, nullptr);
 }
+bool Process::WriteMemoryUInt(DWORD address, u_int value)
+{
+    return WriteProcessMemory(this->_handleProcess, (LPVOID)address, &value, 4, nullptr);
+}
 
 Module Process::getModuleByName(const std::string &ModuleName) const
 {

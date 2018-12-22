@@ -18,12 +18,12 @@
     <rect>
      <x>110</x>
      <y>30</y>
-     <width>281</width>
+     <width>381</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:22pt; font-weight:600;&quot;&gt;MH MK. Armor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:600;&quot;&gt;MHW Costume Armor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="logo">
@@ -89,10 +89,33 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <family>MS Shell Dlg 2</family>
+     <pointsize>9</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover:!pressed
+{
+	background-color :rgb(66, 192, 251);
+	border: 3px solid rgb(48, 73, 157);
+}
+
+QPushButton
+{
+font: 9pt &quot;MS Shell Dlg 2&quot;;
+border: 3px solid #42c0fb;
+background-color: rgba(50, 50, 50);
+ border-radius: 6px;
+}
+
+QPushButton:pressed {
+background-color :rgb(48, 73, 157);
+border: 3px solid rgb(26, 40, 86);
+
+}</string>
    </property>
    <property name="text">
     <string>Close</string>

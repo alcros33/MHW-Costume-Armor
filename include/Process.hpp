@@ -44,6 +44,7 @@ public:
 
     bool WriteMemory(DWORD address, byte Buffer[], int bytesToWrite);
     bool WriteMemoryInt(DWORD address, int value);
+    bool WriteMemoryUInt(DWORD address, u_int value);
 
     std::vector<Module> getModuleList() const;
     Module getModuleByName(const std::string &ModuleName) const;

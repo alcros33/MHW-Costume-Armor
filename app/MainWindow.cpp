@@ -1,13 +1,6 @@
 #include "MainWindow.hpp"
 #include "Config.h"
 
-// Dialog Close Main Window
-// ...
-// mDialog= new QDialog();
-// mDialog->show();
-// close();
-// ...
-
 // TODO PROGRESS BAR WITH QMovie
 
 /// Begin Main Window Member definitions
@@ -18,20 +11,12 @@ MainWindow::MainWindow(QWidget *parent) :
     _InputBoxes(5)
 {
     ui->setupUi(this);
-    this->setWindowTitle("MHW Mk. Armor");
+    this->setWindowTitle(PROJECT_NAME);
     ui->FetchButton->setEnabled(false);
     ui->WriteButton->setEnabled(false);
 
     connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(_aboutInfo()));
-    
-    if (!this->_MHManager.ProcessOpen())
-    {
-        DialogMessage *Dia = new DialogMessage(this, "ERROR", "MHW is Closed,Open it and restart.");
-        Dia->show();
-        ui->SearchButton->setText("Plz Restart Application");
-        ui->SearchButton->setEnabled(false);
-        return;
-    }
+    connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(close()) );
 
     connect(ui->SearchButton, SIGNAL(released()), this, SLOT(_FindAddr()));
     connect(ui->FetchButton, SIGNAL(released()), this, SLOT(_FetchData()));
@@ -42,6 +27,17 @@ MainWindow::MainWindow(QWidget *parent) :
     _InputBoxes[2] = ui->armsLineEdit ;
     _InputBoxes[3] = ui->waistLineEdit;
     _InputBoxes[4] = ui->legsLineEdit ;
+}
+
+void MainWindow::show()
+{
+    QMainWindow::show();
+    if (!this->_MHManager.ProcessOpen())
+    {
+        DialogWindow *Dia = new DialogWindow(nullptr, "ERROR", "MHW is Closed\nPlease open it before starting.", Status::ERROR0);
+        Dia->show();
+        this->close();
+    }
 }
 
 MainWindow::~MainWindow()
@@ -64,7 +60,7 @@ void MainWindow::_FindAddr()
     if (!this->_MHManager.DataAddressFound())
     {
         ui->SearchButton->setEnabled(true);
-        DialogMessage *Dia = new DialogMessage(this, "ERROR", "Couldn't Find Save Data Address");
+        DialogWindow *Dia = new DialogWindow(this, "ERROR", "Couldn't Find Save Data Address", Status::ERROR0);
         Dia->show();
         ui->SearchButton->setText("Search For MHW Save Data");
         return;
@@ -82,7 +78,7 @@ void MainWindow::_FetchData(bool noMessage)
     int slot = std::stoi(ui->comboBox->currentText().toUtf8().constData());
     if (!_MHManager.FetchPlayerData(slot-1))
     {
-        DialogMessage *Dia = new DialogMessage(this, "ERROR", "Couldn't Fetch Character Data...");
+        DialogWindow *Dia = new DialogWindow(this, "ERROR", "Couldn't Fetch Character Data...", Status::ERROR0);
         Dia->show();
         return;
     }
@@ -90,11 +86,17 @@ void MainWindow::_FetchData(bool noMessage)
     for(int i=0;i<5;++i)
         _InputBoxes[i]->setText(Data[i].c_str());
 
-    std::string msg = "Sucessfully fetched Character Data for slot " + std::to_string(slot);
+    std::string msg = "Sucessfully fetched Data for Character Slot " + std::to_string(slot);
     if(!noMessage)
     {
-        DialogMessage *Dia = new DialogMessage(this, "Sucess", msg);
+        try{
+        DialogWindow *Dia = new DialogWindow(this, "Sucess!!", msg, Status::SUCCESS);
         Dia->show();
+        }
+        catch (std::exception &e)
+        {
+            DEBUG_LOG(e.what());
+        }
     }
 }
 
@@ -106,9 +108,8 @@ void MainWindow::_WriteData()
         try
         {
             std::string strVal = _InputBoxes[i]->text().toUtf8().constData();
-            std::transform(strVal.begin(), strVal.end(), strVal.begin(), ::tolower);
             
-            if (strVal == "none")
+            if (strVal == "")
                 val = 255;
             else
                 val = std::stoi(strVal);
@@ -116,8 +117,8 @@ void MainWindow::_WriteData()
         }
         catch (std::exception &e)
         {
-            
-            DialogMessage *Dia = new DialogMessage(this, "ERROR", "Invalid Value for armor");
+
+            DialogWindow *Dia = new DialogWindow(this, "ERROR", "Invalid Value for armor", Status::ERROR0);
             Dia->show();
             this->_FetchData(true);
             return;
@@ -127,12 +128,12 @@ void MainWindow::_WriteData()
     int slot = std::stoi(ui->comboBox->currentText().toUtf8().constData());
     if (!_MHManager.WriteArmor(slot-1,_SafeMode))
     {
-        DialogMessage *Dia = new DialogMessage(this, "ERROR", "Couldn't Write Save Data!");
+        DialogWindow *Dia = new DialogWindow(this, "ERROR", "Couldn't Write Save Data!", Status::ERROR0);
         Dia->show();
     }
     else
     {
-        DialogMessage *Dia = new DialogMessage(this, "Sucess!!", "Enter you room to reload (Do not save before reloading!)");
+        DialogWindow *Dia = new DialogWindow(this, "Sucess!!", "Sucess writting to Game!!\nEnter you room to reload (Do not save before reloading!)", Status::SUCCESS);
         Dia->show();
     }
     this->_FetchData(true);
@@ -174,20 +175,28 @@ AboutWindow::~AboutWindow()
 
 /// Begin Dialog Message Member definitions
 
-DialogMessage::DialogMessage(QWidget *parent, const std::string &Title, const std::string &Msg) : QDialog(parent), _Message(this), _okButton(this)
-{
-    this->resize(400, 100);
+DialogWindow::DialogWindow(QWidget *parent, const std::string &Title, const std::string &Msg, int status) :
+QDialog(parent), ui(new Ui::DialogWindow)
+{   
+    if (status > Status::ERROR0 || status < Status::SUCCESS)
+        status = Status::ERROR0;
+
+    ui->setupUi(this);
+
+    std::string statusIcon = ui->_iconLabel->text().toUtf8().constData();
+    statusIcon.replace(statusIcon.find("<++>"), 4, Status::Names[status]);
+    ui->_iconLabel->setText(statusIcon.c_str());
+
     this->setWindowTitle(Title.c_str());
 
-    this->_Message.setGeometry(QRect(50, 20, 350, 20));
-    this->_Message.setAlignment(Qt::AlignCenter);
-    this->_Message.setObjectName("Message");
-    this->_Message.setText(Msg.c_str());
+    ui->_Message->setText(Msg.c_str());
 
-    this->_okButton.setGeometry(QRect(150, 60, 100, 30));
-    this->_okButton.setObjectName("okButton");
-    this->_okButton.connect(&this->_okButton, SIGNAL(released()), this, SLOT(accept()));
-    this->_okButton.setText("Ok");
+    connect(ui->_okButton, SIGNAL(released()), this , SLOT(accept()));
 
     this->setAttribute(Qt::WA_DeleteOnClose);
+}
+
+DialogWindow::~DialogWindow()
+{
+    delete ui;
 }

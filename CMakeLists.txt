@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 
-project(MHW_Mk_Armor)
-set(MAIN_APP_NAME "MHWMkArmor")
+project(MHW_Costume_Armor)
+set(MAIN_APP_NAME "MHW Costume Armor")
 set(MAIN_LIBRARY_NAME "MemoryHandler")
 
 enable_language(C CXX)
@@ -110,17 +110,19 @@ target_link_libraries(${MAIN_LIBRARY_NAME} PSAPI stdc++fs Qt5::Core)
 # Add an executable for the file main.cpp, here called main.x.
 # If you add more executables, copy these three lines accordingly.
 
-add_executable(${MAIN_APP_NAME} ${APPFILES} ${QT5_RESOURCES} ${WINDOWS_ICON_RESOURCE})
-add_dependencies(${MAIN_APP_NAME} ${MAIN_LIBRARY_NAME})     
-target_link_libraries(${MAIN_APP_NAME} stdc++fs ${MAIN_LIBRARY_NAME} Qt5::Widgets)
+add_executable(${PROJECT_NAME} ${APPFILES} ${QT5_RESOURCES} ${WINDOWS_ICON_RESOURCE})
+add_dependencies(${PROJECT_NAME} ${MAIN_LIBRARY_NAME})     
+target_link_libraries(${PROJECT_NAME} stdc++fs ${MAIN_LIBRARY_NAME} Qt5::Widgets)
+
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${MAIN_APP_NAME})
 
 # Deploy QT on Windows
 if(MINGW AND CMAKE_BUILD_TYPE STREQUAL "Release")
-    set(EXPORT_LIB_DIR "$<TARGET_FILE_DIR:${MAIN_APP_NAME}>/plugins")
+    set(EXPORT_LIB_DIR "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins")
     add_custom_command(
-        TARGET ${MAIN_APP_NAME}
+        TARGET ${PROJECT_NAME}
         POST_BUILD
-        COMMAND windeployqt --release $<TARGET_FILE:${MAIN_APP_NAME}> --no-translations --no-system-d3d-compiler --plugindir ${EXPORT_LIB_DIR})
+        COMMAND windeployqt --release $<TARGET_FILE:${PROJECT_NAME}> --no-translations --no-system-d3d-compiler --plugindir ${EXPORT_LIB_DIR})
 endif()
 
 # --------------------------------------------------------------------------------

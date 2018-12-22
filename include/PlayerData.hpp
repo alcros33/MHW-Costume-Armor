@@ -1,5 +1,6 @@
 #pragma once
 #include "Process.hpp"
+#include <climits>
 
 namespace Armor
 {
@@ -21,11 +22,13 @@ public:
 
     std::string getGender() const { return _Gender ? "Female" :  "Male"; }
     void setArmorPiece(int num, int value);
-    int getArmorPiece(int num) const;
+    u_int getArmorPiece(int num) const;
 
     std::string Print() const;
     std::vector<std::string> getDataString() const;
 
+    static const byte _byteLimit = std::numeric_limits<byte>::max();
+    
 private:
     byte _ArmorData[5] = {255,255,255,255,255};
     bool _Gender; // true is female

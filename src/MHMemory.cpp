@@ -147,7 +147,7 @@ bool MH_Memory::WriteArmor(int CharSlot, bool isSafe)
 
     for (int index = 0; index < 5; ++index)
     {
-        Status &= _MHProcess.WriteMemoryInt(_DataPtr + index * 4 + 1285888 * CharSlot, _Data.getArmorPiece(index));
+        Status &= _MHProcess.WriteMemoryUInt(_DataPtr + index * 4 + 1285888 * CharSlot, _Data.getArmorPiece(index));
     }
 
     return Status;

@@ -6,12 +6,14 @@ MK. Armor is a Monster Hunter World graphic program to customize the current arm
 
 It is a C++ implementaion of the original [MHW Transmog](https://www.nexusmods.com/monsterhunterworld/mods/43) MOD based on a decompilation of it.
 
+Update 22/12/2018 Working as of Behemot update, Drachen Armor no longer crashes the game.
+
 ## State of Development
 * Memory reading (working properly).
 * Memory writing (working properly).
 * GUI Basic Functions (working properly).
+* GUI Design and vanity (A E S T H E T I C)
 * GUI Additional features (pending...)
-* GUI Design and vanity (pending...)
 
 ## Depndencies To Build
 

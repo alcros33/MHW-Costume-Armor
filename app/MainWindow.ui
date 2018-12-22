@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>651</width>
-    <height>434</height>
+    <width>957</width>
+    <height>540</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,16 +20,17 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">background-color: rgb(26, 26, 26);
+color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="Title">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>20</y>
-      <width>271</width>
-      <height>51</height>
+      <x>240</x>
+      <y>40</y>
+      <width>401</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -43,33 +44,14 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:22pt; font-weight:600;&quot;&gt;MH Mk. Armor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>61</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Icon.png&quot; height=&quot;60&quot; width=&quot;60&quot;  s/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:22pt; font-weight:600;&quot;&gt;MHW Costume Armor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>100</y>
+      <x>195</x>
+      <y>180</y>
       <width>40</width>
       <height>40</height>
      </rect>
@@ -87,7 +69,8 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 14pt &quot;MS Shell Dlg 2&quot;;</string>
+     <string notr="true">font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgba(40, 40, 40);</string>
     </property>
     <property name="sizeAdjustPolicy">
      <enum>QComboBox::AdjustToMinimumContentsLength</enum>
@@ -111,11 +94,11 @@ p, li { white-space: pre-wrap; }
      </property>
     </item>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="Character">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>110</y>
+      <x>120</x>
+      <y>140</y>
       <width>180</width>
       <height>30</height>
      </rect>
@@ -126,90 +109,47 @@ p, li { white-space: pre-wrap; }
       <verstretch>0</verstretch>
      </sizepolicy>
     </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Character Slot:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QFrame" name="formFrame">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>170</y>
-      <width>251</width>
-      <height>181</height>
-     </rect>
-    </property>
     <property name="styleSheet">
-     <string notr="true">font: 13pt &quot;MS Shell Dlg 2&quot;;</string>
+     <string notr="true">background-color: rgba(0,0,0,0);</string>
     </property>
-    <layout class="QFormLayout" name="formLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="headLabel">
-       <property name="text">
-        <string>Head</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="headLineEdit"/>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="bodyLabel">
-       <property name="text">
-        <string>Body</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="bodyLineEdit"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="armsLabel">
-       <property name="text">
-        <string>Arms</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="armsLineEdit"/>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="waistLabel">
-       <property name="text">
-        <string>Waist    </string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLineEdit" name="waistLineEdit"/>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="legsLabel">
-       <property name="text">
-        <string>Legs</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QLineEdit" name="legsLineEdit"/>
-     </item>
-    </layout>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Character&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="FetchButton">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>230</y>
-      <width>171</width>
-      <height>51</height>
+      <x>430</x>
+      <y>140</y>
+      <width>121</width>
+      <height>121</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+     <string notr="true">QPushButton:hover:!pressed
+{
+	background-color :rgb(66, 192, 251);
+	border: 10px solid rgb(48, 73, 157);
+}
+
+QPushButton
+{
+font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgba(50, 50, 50);
+border-radius:60px;
+border: 10px solid #42c0fb;
+}
+
+QPushButton:pressed {
+background-color :rgb(48, 73, 157);
+border: 10px solid rgb(26, 40, 86);
+
+}</string>
     </property>
     <property name="text">
-     <string>Fetch Save Data</string>
+     <string>Fetch
+Game
+Data</string>
     </property>
     <property name="autoDefault">
      <bool>false</bool>
@@ -221,60 +161,568 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="WriteButton">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>300</y>
-      <width>171</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Write Layered Armor</string>
-    </property>
-    <property name="flat">
-     <bool>false</bool>
-    </property>
-   </widget>
    <widget class="QPushButton" name="SearchButton">
     <property name="geometry">
      <rect>
-      <x>400</x>
-      <y>10</y>
+      <x>690</x>
+      <y>30</y>
       <width>221</width>
       <height>61</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
+     <string notr="true">QPushButton:hover:!pressed
+{
+	background-color :rgb(66, 192, 251);
+	border: 3px solid rgb(48, 73, 157);
+}
+
+QPushButton
+{
+font: 9pt &quot;MS Shell Dlg 2&quot;;
+border: 3px solid #42c0fb;
+background-color: rgba(50, 50, 50);
+ border-radius: 6px;
+}
+
+QPushButton:pressed {
+background-color :rgb(48, 73, 157);
+border: 3px solid rgb(26, 40, 86);
+
+}</string>
     </property>
     <property name="text">
      <string>Search For MHW Save Data</string>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
     </property>
     <property name="default">
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="Logo">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>101</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Icon.png&quot;  width=120  /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Slot">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>230</y>
+      <width>180</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0,0,0,0);</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Slot&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="CircleSlot">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>160</y>
+      <width>171</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0,0,0, 0);</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Circulo1.png&quot; width=130 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="FrameHead">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>380</y>
+      <width>130</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 13pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(0,0,0,0);</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="leftMargin">
+      <number>1</number>
+     </property>
+     <property name="topMargin">
+      <number>1</number>
+     </property>
+     <property name="rightMargin">
+      <number>1</number>
+     </property>
+     <property name="bottomMargin">
+      <number>1</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="headLabel">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Head&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="headLineEdit">
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>None</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QFrame" name="FrameBody">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>380</y>
+      <width>130</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 13pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(0,0,0,0);</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <property name="leftMargin">
+      <number>1</number>
+     </property>
+     <property name="topMargin">
+      <number>1</number>
+     </property>
+     <property name="rightMargin">
+      <number>1</number>
+     </property>
+     <property name="bottomMargin">
+      <number>1</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="bodyLabel">
+       <property name="text">
+        <string>Body</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="bodyLineEdit">
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>None</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QFrame" name="FrameArms">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>380</y>
+      <width>130</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 13pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(0,0,0,0);</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <property name="leftMargin">
+      <number>1</number>
+     </property>
+     <property name="topMargin">
+      <number>1</number>
+     </property>
+     <property name="rightMargin">
+      <number>1</number>
+     </property>
+     <property name="bottomMargin">
+      <number>1</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="armsLabel">
+       <property name="text">
+        <string>Arms</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="armsLineEdit">
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>None</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QFrame" name="FrameWaist">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>380</y>
+      <width>130</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 13pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(0,0,0,0);</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <property name="leftMargin">
+      <number>1</number>
+     </property>
+     <property name="topMargin">
+      <number>1</number>
+     </property>
+     <property name="rightMargin">
+      <number>1</number>
+     </property>
+     <property name="bottomMargin">
+      <number>1</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="waistLabel">
+       <property name="text">
+        <string>Waist</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="waistLineEdit">
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>None</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QFrame" name="FrameLegs">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>380</y>
+      <width>130</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 13pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(0,0,0,0);</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_5">
+     <property name="leftMargin">
+      <number>1</number>
+     </property>
+     <property name="topMargin">
+      <number>1</number>
+     </property>
+     <property name="rightMargin">
+      <number>1</number>
+     </property>
+     <property name="bottomMargin">
+      <number>1</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="legsLabel">
+       <property name="text">
+        <string>Legs</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="legsLineEdit">
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>None</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="WriteButton">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>140</y>
+      <width>131</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton:hover:!pressed
+{
+	background-color :rgb(66, 192, 251);
+	border: 10px solid rgb(48, 73, 157);
+}
+
+QPushButton
+{
+font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgba(50, 50, 50);
+border-radius:60px;
+border: 10px solid #42c0fb;
+}
+
+QPushButton:pressed {
+background-color :rgb(48, 73, 157);
+border: 10px solid rgb(26, 40, 86);
+
+}</string>
+    </property>
+    <property name="text">
+     <string>Write
+Armor</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QFrame" name="FrameIcons">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>95</x>
+      <y>281</y>
+      <width>821</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgba(0, 0, 0, 0);</string>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>50</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMinimumSize</enum>
+     </property>
+     <item>
+      <widget class="QLabel" name="iconHead">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/ArmorHead.png&quot; width=80 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="iconBody">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/ArmorBody.png&quot; width=80 heigh=80 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="iconArms">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/ArmorArms.png&quot; width=80 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="iconWaist">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/ArmorWaist.png&quot; width=80 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="iconLegs">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/ArmorLegs.png&quot; width=80 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QFrame" name="Bars">
+    <property name="geometry">
+     <rect>
+      <x>75</x>
+      <y>416</y>
+      <width>820</width>
+      <height>52</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgba(0, 0, 0, 0);</string>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="spacing">
+      <number>30</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMinimumSize</enum>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="bar1">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Barrita_caja_de_texto.png&quot; width=140 height=52 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="bar2">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Barrita_caja_de_texto.png&quot; width=140 height=52 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="bar3">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Barrita_caja_de_texto.png&quot; width=140 height=52 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="bar4">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Barrita_caja_de_texto.png&quot; width=140 height=52 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="bar5">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Barrita_caja_de_texto.png&quot; width=140 height=52 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="bg">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>-10</y>
+      <width>971</width>
+      <height>511</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::TabFocus</enum>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Gato_MH.png&quot; width= 800 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <zorder>bg</zorder>
+   <zorder>Bars</zorder>
+   <zorder>CircleSlot</zorder>
+   <zorder>Title</zorder>
+   <zorder>SearchButton</zorder>
+   <zorder>Logo</zorder>
+   <zorder>Character</zorder>
+   <zorder>Slot</zorder>
+   <zorder>comboBox</zorder>
+   <zorder>FrameHead</zorder>
+   <zorder>FrameBody</zorder>
+   <zorder>FrameArms</zorder>
+   <zorder>FrameWaist</zorder>
+   <zorder>FrameLegs</zorder>
+   <zorder>FrameIcons</zorder>
+   <zorder>FetchButton</zorder>
+   <zorder>WriteButton</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>651</width>
+     <width>957</width>
      <height>26</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuAbout">
+   <widget class="QMenu" name="menuHelp">
     <property name="title">
-     <string>Abo&amp;ut</string>
+     <string>Help</string>
     </property>
+    <addaction name="actionTutorial"/>
     <addaction name="actionAbout"/>
    </widget>
    <widget class="QMenu" name="menuArchivo">
@@ -291,15 +739,16 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
     <property name="title">
      <string>Options</string>
     </property>
+    <addaction name="actionSafe_Mode"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuOptions"/>
-   <addaction name="menuAbout"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionAbout">
    <property name="text">
-    <string>&amp;About</string>
+    <string>About</string>
    </property>
   </action>
   <action name="actionSave_Current_Armor">
@@ -325,7 +774,35 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
     <string>Ctrl+Q</string>
    </property>
   </action>
+  <action name="actionSafe_Mode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Safe Mode</string>
+   </property>
+  </action>
+  <action name="actionTutorial">
+   <property name="text">
+    <string>Instructions</string>
+   </property>
+  </action>
  </widget>
+ <tabstops>
+  <tabstop>SearchButton</tabstop>
+  <tabstop>FetchButton</tabstop>
+  <tabstop>WriteButton</tabstop>
+  <tabstop>bg</tabstop>
+  <tabstop>headLineEdit</tabstop>
+  <tabstop>bodyLineEdit</tabstop>
+  <tabstop>armsLineEdit</tabstop>
+  <tabstop>waistLineEdit</tabstop>
+  <tabstop>legsLineEdit</tabstop>
+  <tabstop>comboBox</tabstop>
+ </tabstops>
  <resources>
   <include location="../resources/Icons.qrc"/>
  </resources>

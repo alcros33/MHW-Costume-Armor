@@ -3,6 +3,7 @@
 
 #include "ui_MainWindow.h"
 #include "ui_AboutWindow.h"
+#include "ui_DialogWindow.h"
 
 #include "MHMemory.hpp"
 #include "json.hpp"
@@ -10,9 +11,18 @@
 // for convenience
 using json = nlohmann::json;
 
+namespace Status
+{
+    const int SUCCESS = 0;
+    const int WARNING = 1;
+    const int ERROR0 = 2;
+    const std::vector<std::string> Names{"success","warning","error"};
+} // namespace Status
+
 namespace Ui {
 class MainWindow;
 class AboutWindow;
+class DialogWindow;
 }
 
 class MainWindow : public QMainWindow
@@ -24,6 +34,7 @@ public:
     ~MainWindow();
 
     void debugPrints() const ;
+    void show();
 
 private:
     Ui::MainWindow *ui;
@@ -49,13 +60,13 @@ class AboutWindow : public QDialog
     Ui::AboutWindow *ui;
 };
 
-class DialogMessage : public QDialog
+class DialogWindow : public QDialog
 {
     Q_OBJECT
   public:
-    DialogMessage(QWidget *parent, const std::string &Title, const std::string &Message);
+    DialogWindow(QWidget *parent, const std::string &Title, const std::string &Message, int Status);
+    ~DialogWindow();
 
   private:
-    QLabel _Message;
-    QPushButton _okButton;
+    Ui::DialogWindow *ui;
 };

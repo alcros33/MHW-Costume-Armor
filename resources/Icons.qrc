@@ -1,5 +1,17 @@
 <RCC>
   <qresource>
+    <file>error.png</file>
+    <file>success.png</file>
+    <file>warning.png</file>
+    <file>ArmorArms.png</file>
+    <file>ArmorBody.png</file>
+    <file>ArmorHead.png</file>
+    <file>ArmorLegs.png</file>
+    <file>ArmorWaist.png</file>
+    <file>Barrita_caja_de_texto.png</file>
+    <file>Circulo1.png</file>
+    <file>Circulo3.png</file>
+    <file>Gato_MH.png</file>
     <file>app_icon.ico</file>
     <file>Icon.png</file>
     <file>MIT_License.png</file>
