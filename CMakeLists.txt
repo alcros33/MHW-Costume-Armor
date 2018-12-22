@@ -17,8 +17,8 @@ endif()
 # Set version number (change as needed). These definitions are available
 # by including "exampleConfig.h" in the source. 
 # See exampleConfig.h.in for some more details.
-set(PROJECT_VERSION_MAJOR 1)
-set(PROJECT_VERSION_MINOR 0)
+set(PROJECT_VERSION_MAJOR 0)
+set(PROJECT_VERSION_MINOR 2)
 set(PROJECT_VERSION_PATCH 0)
 
 #Include stuff. No change needed.

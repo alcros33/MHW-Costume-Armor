@@ -1,12 +1,15 @@
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENCE)
 
-# MHW MK. Armor
+# MHW Costume Armor
 
-MK. Armor is a Monster Hunter World graphic program to customize the current armor equiped.
+MHW Costume Armor is a Monster Hunter World MOD which includes graphic user interface to customize the layered armor equipped.
 
 It is a C++ implementaion of the original [MHW Transmog](https://www.nexusmods.com/monsterhunterworld/mods/43) MOD based on a decompilation of it.
 
 Update 22/12/2018 Working as of Behemot update, Drachen Armor no longer crashes the game.
+
+## Release!
+Checkout the latest [Release](https://github.com/alcros33/CardPrinter/releases) !
 
 ## State of Development
 * Memory reading (working properly).
@@ -14,6 +17,10 @@ Update 22/12/2018 Working as of Behemot update, Drachen Armor no longer crashes 
 * GUI Basic Functions (working properly).
 * GUI Design and vanity (A E S T H E T I C)
 * GUI Additional features (pending...)
+
+### GUI Preview
+![](Preview/preview1.png)
+![](Preview/preview2.png)
 
 ## Depndencies To Build
 
