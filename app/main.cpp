@@ -7,15 +7,12 @@
 
 std::string ProjectName()
 {
-    std::string Res = PROJECT_NAME;
-    Res += " (";
-    Res += std::to_string(PROJECT_VERSION_MAJOR);
-    Res += ".";
-    Res += std::to_string(PROJECT_VERSION_MINOR);
-    Res += ".";
-    Res += std::to_string(PROJECT_VERSION_PATCH);
-    Res += ")";
-    return Res;
+    std::stringstream Res;
+    Res << PROJECT_NAME;
+    Res << " (" << std::to_string(PROJECT_VERSION_MAJOR);
+    Res << "." << std::to_string(PROJECT_VERSION_MINOR);
+    Res << "." << std::to_string(PROJECT_VERSION_PATCH)  << ")";
+    return Res.str();
 }
 
 
@@ -26,10 +23,9 @@ int main(int argc, char *argv[])
     QCoreApplication::addLibraryPath("./plugins");
 
     MainWindow w;
-    #ifndef NDEBUG
-        std::cout << ProjectName() << std::endl;
-        w.debugPrints();
-    #endif
+
+    DEBUG_LOG( ProjectName() );
+    w.debugPrints();
 
     w.show();
 

@@ -1,6 +1,7 @@
 #include "MainWindow.hpp"
 #include "Config.h"
-
+#include <QThread>
+#include <QMovie>
 // TODO PROGRESS BAR WITH QMovie
 
 /// Begin Main Window Member definitions
@@ -21,6 +22,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->SearchButton, SIGNAL(released()), this, SLOT(_FindAddr()));
     connect(ui->FetchButton, SIGNAL(released()), this, SLOT(_FetchData()));
     connect(ui->WriteButton, SIGNAL(released()), this, SLOT(_WriteData()));
+
+    connect(ui->actionSave_Current_Armor, SIGNAL(triggered()), this, SLOT(_NotImplemented()));
+    connect(ui->actionManaged_Saved_Sets, SIGNAL(triggered()), this, SLOT(_NotImplemented()));
+    connect(ui->actionLoad_Armor, SIGNAL(triggered()), this, SLOT(_NotImplemented()));
+    connect(ui->actionTutorial, SIGNAL(triggered()), this, SLOT(_NotImplemented()));
 
     _InputBoxes[0] = ui->headLineEdit ;
     _InputBoxes[1] = ui->bodyLineEdit ;
@@ -56,7 +62,23 @@ void MainWindow::_FindAddr()
     ui->SearchButton->setText("Searching for Save Data...");
     ui->SearchButton->setEnabled(false);
 
-    this->_MHManager.FindAddress();
+    // DialogWindow *Dia = new DialogWindow(this, "Wait a Sec...", "Searching MHW for Character Data", Status::ERROR0);
+    // Dia->getIconLabel()->setText("");
+
+    // QMovie *movie = new QMovie(":/ajax-loader.gif");
+    // Dia->getIconLabel()->setMovie(movie);
+    // movie->start();
+    
+    // Dia->show();
+
+    QThread *thread = QThread::create( [this] {this->_MHManager.FindAddress(); });
+    thread->start();
+
+    while (thread->isRunning() )
+    {
+        QCoreApplication::processEvents();
+    }
+
     if (!this->_MHManager.DataAddressFound())
     {
         ui->SearchButton->setEnabled(true);
@@ -143,60 +165,17 @@ void MainWindow::debugPrints() const
 {
     if (_MHManager.SteamFound())
     {
-        std::cout << "\tSteam UserData ID: " << _MHManager.getSteamID() << std::endl;
-        std::cout << "\tSteam Game Directory: " << _MHManager.getSteamPath() << std::endl;
+        DEBUG_LOG( "\tSteam UserData ID: " << _MHManager.getSteamID() );
+        DEBUG_LOG( "\tSteam Game Directory: " << _MHManager.getSteamPath() );
     }
     else
-        std::cout << "\tCouldn't Find Steam Data" << std::endl;
+    {
+        DEBUG_LOG( "\tCouldn't Find Steam Data" );
+    }
 }
 
-
-/// Begin About Window Member definitions
-
-AboutWindow::AboutWindow(QWidget *parent) : QDialog(parent), ui(new Ui::AboutWindow)
+void MainWindow::_NotImplemented() 
 {
-    ui->setupUi(this);
-
-    std::string version = ui->version->text().toUtf8().constData();
-    version.replace(version.find("MAJOR"), 5, std::to_string(PROJECT_VERSION_MAJOR));
-    version.replace(version.find("MINOR"), 5, std::to_string(PROJECT_VERSION_MINOR));
-    version.replace(version.find("PATCH"), 5, std::to_string(PROJECT_VERSION_PATCH));
-
-    ui->version->setText(version.c_str());
-    ui->description->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    ui->description->setOpenExternalLinks(true);
-
-    connect(ui->closeButton, SIGNAL(released()), this, SLOT(accept()));
-}
-AboutWindow::~AboutWindow()
-{
-    delete ui;
-}
-
-/// Begin Dialog Message Member definitions
-
-DialogWindow::DialogWindow(QWidget *parent, const std::string &Title, const std::string &Msg, int status) :
-QDialog(parent), ui(new Ui::DialogWindow)
-{   
-    if (status > Status::ERROR0 || status < Status::SUCCESS)
-        status = Status::ERROR0;
-
-    ui->setupUi(this);
-
-    std::string statusIcon = ui->_iconLabel->text().toUtf8().constData();
-    statusIcon.replace(statusIcon.find("<++>"), 4, Status::Names[status]);
-    ui->_iconLabel->setText(statusIcon.c_str());
-
-    this->setWindowTitle(Title.c_str());
-
-    ui->_Message->setText(Msg.c_str());
-
-    connect(ui->_okButton, SIGNAL(released()), this , SLOT(accept()));
-
-    this->setAttribute(Qt::WA_DeleteOnClose);
-}
-
-DialogWindow::~DialogWindow()
-{
-    delete ui;
+    DialogWindow *Dia = new DialogWindow(this, "Warning", "Functionality Not Implemented... Yet", Status::WARNING);
+    Dia->show();
 }

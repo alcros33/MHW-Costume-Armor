@@ -18,6 +18,7 @@ public:
     fs::path getSteamPath() const { return _SteamPath; }
     PlayerData getPlayerData() const { return _Data; }
     PlayerData& getPlayerData() { return _Data; }
+    Process getProcess() const { return _MHProcess; }
 
     bool FetchPlayerData(int slot);
     void FindAddress();
@@ -31,6 +32,6 @@ private:
     int _SteamID = 0;
     fs::path _SteamPath;
     PlayerData _Data;
-    DWORD _DataPtr = 0 ;
+    DWORD64 _DataPtr = 0;
     bool _SteamFound = false;
 };

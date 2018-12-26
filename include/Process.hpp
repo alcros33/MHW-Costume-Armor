@@ -35,26 +35,26 @@ class Process
 {
 public:
     Process(const std::string &processName);
-    Process(const DWORD &processID);
+    Process(const DWORD64 &processID);
     ~Process();
 
-    byte* ReadMemory(DWORD address, int bytesToRead) const;
+    byte* ReadMemory(DWORD64 address, int bytesToRead) const;
     byte* ReadMemory(LPVOID address, int bytesToRead) const;
-    int ReadMemoryInt(DWORD address) const;
+    int ReadMemoryInt(DWORD64 address) const;
 
-    bool WriteMemory(DWORD address, byte Buffer[], int bytesToWrite);
-    bool WriteMemoryInt(DWORD address, int value);
-    bool WriteMemoryUInt(DWORD address, u_int value);
+    bool WriteMemory(DWORD64 address, byte Buffer[], int bytesToWrite);
+    bool WriteMemoryInt(DWORD64 address, int value);
+    bool WriteMemoryUInt(DWORD64 address, u_int value);
 
     std::vector<Module> getModuleList() const;
     Module getModuleByName(const std::string &ModuleName) const;
-    DWORD getID() const { return this->_id; }
+    DWORD64 getID() const { return this->_id; }
     HANDLE getHanlder() const { return this->_handleProcess; }
     bool isOpen() const;
 
 private:
     HANDLE _handleProcess = 0;
-    DWORD _id = 0;
+    DWORD64 _id = 0;
 };
 
 ///

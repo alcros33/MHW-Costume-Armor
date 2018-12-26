@@ -34,7 +34,7 @@ Process::Process(const std::string &processName)
     CloseHandle(snapshot);
 }
 
-Process::Process(const DWORD &processID)
+Process::Process(const DWORD64 &processID)
 {
     this->_id = processID;
     this->_handleProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, processID);
@@ -78,12 +78,12 @@ Process::~Process()
 
 // -------- READ THINGS ---------------
 
-byte* Process::ReadMemory(DWORD address, int bytesToRead) const
+byte* Process::ReadMemory(DWORD64 address, int bytesToRead) const
 {
     byte *buffer = new byte[bytesToRead];
     if (ReadProcessMemory(this->_handleProcess, (LPVOID)address, buffer, bytesToRead, nullptr))
         return buffer;
-    delete buffer;
+    delete[] buffer;
     return nullptr;
 }
 
@@ -92,31 +92,31 @@ byte* Process::ReadMemory(LPVOID address, int bytesToRead) const
     byte* buffer = new byte[bytesToRead] ;
     if (ReadProcessMemory(this->_handleProcess, address, buffer, bytesToRead, nullptr))
         return buffer;
-    delete buffer;
+    delete[] buffer;
     return nullptr;
 }
 
-int Process::ReadMemoryInt(DWORD address) const
+int Process::ReadMemoryInt(DWORD64 address) const
 {
     byte *buffer = this->ReadMemory( address, 4);
     if ( !buffer )
         return 0;
     int Val = BytesToInt(buffer);
-    delete buffer;
+    delete[] buffer;
     return Val;
 }
 
 // -------- Write THINGS ---------------
 
-bool Process::WriteMemory(DWORD address, byte Buffer[], int bytesToWrite)
+bool Process::WriteMemory(DWORD64 address, byte Buffer[], int bytesToWrite)
 {
     return WriteProcessMemory(this->_handleProcess, (LPVOID)address, Buffer, bytesToWrite, nullptr);
 }
-bool Process::WriteMemoryInt(DWORD address, int value)
+bool Process::WriteMemoryInt(DWORD64 address, int value)
 {
     return WriteProcessMemory(this->_handleProcess, (LPVOID)address, &value, 4, nullptr);
 }
-bool Process::WriteMemoryUInt(DWORD address, u_int value)
+bool Process::WriteMemoryUInt(DWORD64 address, u_int value)
 {
     return WriteProcessMemory(this->_handleProcess, (LPVOID)address, &value, 4, nullptr);
 }

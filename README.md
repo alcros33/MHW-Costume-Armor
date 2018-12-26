@@ -8,8 +8,16 @@ It is a C++ implementaion of the original [MHW Transmog](https://www.nexusmods.c
 
 Update 22/12/2018 Working as of Behemot update, Drachen Armor no longer crashes the game.
 
+## Sum Benchmarks
+I tested out agains original Transmog on My computer (i7 6700, GTX 970M, 8GB RAM) on what I considered "Normal" workload.
+AKA: MHW open, Firefox playing a youtube video and Discord Running in the back.
+
+I measured the time of the "data retreival" part and memory usage.
+* Original Transmog -> 23 seconds on Average and 250MB RAM (Peak)
+* Costume Armor -> 4 seconds on Average and 60MB RAM (Peak)
+
 ## Release!
-Checkout the latest [Release](https://github.com/alcros33/CardPrinter/releases) !
+Checkout the compiled binaries on the latest [Release](https://github.com/alcros33/CardPrinter/releases) !
 
 ## State of Development
 * Memory reading (working properly).
@@ -21,6 +29,8 @@ Checkout the latest [Release](https://github.com/alcros33/CardPrinter/releases) 
 ### GUI Preview
 ![](Preview/preview1.png)
 ![](Preview/preview2.png)
+
+# Building Using MinGW
 
 ## Depndencies To Build
 
@@ -39,7 +49,7 @@ pacman -S mingw-w64-x86_64-toolchain
 ```
 * Be sure to add the installation directory which is (C:\msys64\mingw64\bin) to Path (Guide [Info](https://www.computerhope.com/issues/ch000549.htm)).
 
-## Building Using MinGW
+## Building Instructions
 
 Build by making a build directory (i.e. `build/`), run `cmake` in that dir, and then use `mingw32-make` to build the desired target.
 
@@ -50,8 +60,8 @@ $ cmake .. -DCMAKE_BUILD_TYPE=[Debug | Release] -G "MinGW Makefiles"
 $ mingw32-make
 ```
 
-## Building Using Visual Studio
-Dunno, may be easier.
+# Building Using Visual Studio
+Pending...
  
 
 

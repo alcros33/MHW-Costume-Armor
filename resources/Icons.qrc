@@ -1,5 +1,6 @@
 <RCC>
   <qresource>
+    <file>ajax-loader.gif</file>
     <file>error.png</file>
     <file>success.png</file>
     <file>warning.png</file>

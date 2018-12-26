@@ -60,14 +60,14 @@ bool MH_Memory::FetchPlayerData(int slot)
 
     if (!CharDataBuffer || !lpBuffer)
     {
-        delete CharDataBuffer;
-        delete lpBuffer;
+        delete[] CharDataBuffer;
+        delete[] lpBuffer;
         return false;
     }
 
     _Data = PlayerData(CharDataBuffer, lpBuffer[0]);
-    delete CharDataBuffer;
-    delete lpBuffer ;
+    delete[] CharDataBuffer;
+    delete[] lpBuffer ;
     return true;
 }
 

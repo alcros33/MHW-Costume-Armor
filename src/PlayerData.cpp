@@ -63,42 +63,53 @@ std::ostream &operator<<(std::ostream &out, PlayerData &Play)
 
 /// Begin Misc Functions
 
-DWORD FindDataAddress(Process &Proc)
+/// Until now the byte Array to search changes on each MHW Patch.
+/// Hopefully we may find a pattern.
+
+// Observed Patterns for byte Array
+// Byte Arr: [143,187,66,1] -- Int Value : 21150607 
+// Byte Arr: [231,188,66,1] -- Int Value : 21150951 -- Number displayed on MHW window : 163956
+
+DWORD64 FindDataAddress(Process &Proc)
 {
-    unsigned long long num1 = 0;
-    LPVOID Ptr ;
-    byte* lpBuffer2 = nullptr;
-    while (num1 < 140737488355323ULL)
+    byte Pattern[] = {231,188,66,1}; // The byte array we are searching for
+    int LastBits = 1705; // The value of the least significant bits of the address
+
+    DWORD64 BaseAddr = 0;
+    byte *ReadBuffer = nullptr;
+    MEMORY_BASIC_INFORMATION MemBuffer;
+
+    while (BaseAddr < 0x7fffffffffffLL)
     {
-        Ptr = (LPVOID)num1;
-        MEMORY_BASIC_INFORMATION lpBuffer1;
-        VirtualQueryEx(Proc.getHanlder(), Ptr, &lpBuffer1, sizeof(MEMORY_BASIC_INFORMATION) );
-        num1 += (long)lpBuffer1.RegionSize - 1;
+        if (VirtualQueryEx(Proc.getHanlder(), (LPVOID)BaseAddr, &MemBuffer, sizeof(MEMORY_BASIC_INFORMATION)) == 0)
+            continue;
+        BaseAddr += (DWORD64)MemBuffer.RegionSize - 1; // Advance to next Memory Region
 
-        QCoreApplication::processEvents();
-
-        if ( lpBuffer1.AllocationProtect == 64 || lpBuffer1.AllocationProtect == 4)
+        if ( MemBuffer.AllocationProtect == 64 || MemBuffer.AllocationProtect == 4 )
         {
-            lpBuffer2 = Proc.ReadMemory(lpBuffer1.AllocationBase, lpBuffer1.RegionSize);
-            if (!lpBuffer2)
+            ReadBuffer = Proc.ReadMemory(MemBuffer.AllocationBase, MemBuffer.RegionSize);
+            if (!ReadBuffer)
                 continue;
-            for (int index = 0; index < (lpBuffer1.RegionSize - 3); ++index)
+
+            // Get 12 least significant bits
+            DWORD64 index = (DWORD_PTR)MemBuffer.AllocationBase & ( (1 << 12) - 1);
+            // Ensure Index + AllocationBase has the least significant bits we're searching for
+            if (index < LastBits)
+                index = LastBits - index;
+            else
+                index = ( (1 << 12) - index) + LastBits;
+
+            // On the for loop we only add ones at the 13th bit position
+            // To ensure we keep least significant bits value
+            for (; index < (MemBuffer.RegionSize - 3); index += (1 << 13) )
             {
-                if (lpBuffer2[index] == (byte)231 && lpBuffer2[index + 1] == (byte)188)
+                if (ReadBuffer[index] == Pattern[0] && ReadBuffer[index + 1] == Pattern[1] &&
+                    ReadBuffer[index + 2] == Pattern[2] && ReadBuffer[index + 3] == Pattern[3])
                 {
-                    if (lpBuffer2[index + 2] != (byte)66)
-                        ++index;
-                    else if (lpBuffer2[index + 3] != (byte)1)
-                        index += 2;
-                    else
-                    {
-                        unsigned long long num2 = (DWORD_PTR)(lpBuffer1.AllocationBase) + (unsigned long long)index;
-                        if ( ( (long)num2 & 4095L)  == 1705L )
-                            return num2;
-                    }
+                    return (DWORD_PTR)(MemBuffer.AllocationBase) + (DWORD64)index;
                 }
             }
-            delete lpBuffer2;
+            delete[] ReadBuffer;
         }
     }
     return 0;

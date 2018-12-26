@@ -37,6 +37,6 @@ private:
 
 std::ostream &operator<<(std::ostream &out, PlayerData &Play);
 
-DWORD FindDataAddress(Process &Proc);
+DWORD64 FindDataAddress(Process &Proc);
 
-PlayerData GetCharData(Process &Proc, DWORD charDataAddr, int slot);
+PlayerData GetCharData(Process &Proc, DWORD64 charDataAddr, int slot);
