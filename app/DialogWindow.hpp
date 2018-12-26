@@ -21,6 +21,8 @@ class DialogWindow : public QDialog
     ~DialogWindow();
 
     QLabel* getIconLabel() { return ui->_iconLabel; }
+    QPushButton* getOkButton() { return ui->_okButton; }
+    QLabel *getMsgLabel() { return ui->_Message; }
 
   private:
     Ui::DialogWindow *ui;

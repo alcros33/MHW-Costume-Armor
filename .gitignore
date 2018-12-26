@@ -34,8 +34,9 @@
 
 # Build directory
 build/
+bin/
 
-# Kdevelop shits
+# IDE shits
 *.kdev4
 .kdev4/
 .directory

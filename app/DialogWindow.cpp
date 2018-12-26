@@ -3,7 +3,7 @@
 /// Begin Dialog Message Member definitions
 
 DialogWindow::DialogWindow(QWidget *parent, const std::string &Title, const std::string &Msg, int status) :
-QDialog(parent), ui(new Ui::DialogWindow)
+QDialog(parent, Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint), ui(new Ui::DialogWindow)
 {   
     if (status > Status::ERROR0 || status < Status::SUCCESS)
         status = Status::ERROR0;

@@ -126,7 +126,7 @@ background-color: rgba(40, 40, 40);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton:hover:!pressed
+     <string notr="true">QPushButton:hover:!pressed:enabled
 {
 	background-color :rgb(66, 192, 251);
 	border: 10px solid rgb(48, 73, 157);
@@ -143,6 +143,12 @@ border: 10px solid #42c0fb;
 QPushButton:pressed {
 background-color :rgb(48, 73, 157);
 border: 10px solid rgb(26, 40, 86);
+
+}
+QPushButton:disabled {
+background-color : rgba(50, 50, 50.150);
+border: 5px solid rgba(66, 192, 251, 150);
+color: rgba(255,255,255,100);
 
 }</string>
     </property>
@@ -171,7 +177,7 @@ Data</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton:hover:!pressed
+     <string notr="true">QPushButton:hover:!pressed:enabled
 {
 	background-color :rgb(66, 192, 251);
 	border: 3px solid rgb(48, 73, 157);
@@ -182,12 +188,18 @@ QPushButton
 font: 9pt &quot;MS Shell Dlg 2&quot;;
 border: 3px solid #42c0fb;
 background-color: rgba(50, 50, 50);
- border-radius: 6px;
+border-radius: 6px;
 }
 
 QPushButton:pressed {
 background-color :rgb(48, 73, 157);
 border: 3px solid rgb(26, 40, 86);
+}
+
+QPushButton:disabled {
+background-color : rgba(50, 50, 50.150);
+border: 1px solid rgba(66, 192, 251, 150);
+color: rgba(255,255,255,100);
 
 }</string>
     </property>
@@ -502,7 +514,7 @@ background-color: rgb(0,0,0,0);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton:hover:!pressed
+     <string notr="true">QPushButton:hover:!pressed:enabled
 {
 	background-color :rgb(66, 192, 251);
 	border: 10px solid rgb(48, 73, 157);
@@ -519,6 +531,12 @@ border: 10px solid #42c0fb;
 QPushButton:pressed {
 background-color :rgb(48, 73, 157);
 border: 10px solid rgb(26, 40, 86);
+
+}
+QPushButton:disabled {
+background-color : rgba(50, 50, 50.150);
+border: 5px solid rgba(66, 192, 251, 150);
+color: rgba(255,255,255,100);
 
 }</string>
     </property>

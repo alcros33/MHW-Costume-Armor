@@ -41,6 +41,7 @@ void MainWindow::show()
     if (!this->_MHManager.ProcessOpen())
     {
         DialogWindow *Dia = new DialogWindow(nullptr, "ERROR", "MHW is Closed\nPlease open it before starting.", Status::ERROR0);
+        Dia->getOkButton()->setStyleSheet("");
         Dia->show();
         this->close();
     }
@@ -62,14 +63,19 @@ void MainWindow::_FindAddr()
     ui->SearchButton->setText("Searching for Save Data...");
     ui->SearchButton->setEnabled(false);
 
-    // DialogWindow *Dia = new DialogWindow(this, "Wait a Sec...", "Searching MHW for Character Data", Status::ERROR0);
-    // Dia->getIconLabel()->setText("");
+    DialogWindow *Dia = new DialogWindow(this, "Wait a Sec...", "Searching MHW for Character Data", Status::SUCCESS);
+    Dia->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint);
+    QLabel *IconLabel = Dia->getIconLabel();
+    std::string PrevText = IconLabel->text().toUtf8().constData();
+    QMovie *movie = new QMovie(":/ajax-loader.gif");
+    movie->setScaledSize(IconLabel->frameSize());
+    IconLabel->setMovie(movie);
+    movie->start();
 
-    // QMovie *movie = new QMovie(":/ajax-loader.gif");
-    // Dia->getIconLabel()->setMovie(movie);
-    // movie->start();
-    
-    // Dia->show();
+    Dia->getOkButton()->setEnabled(false);
+    Dia->setAttribute(Qt::WA_DeleteOnClose, false);
+
+    Dia->show();
 
     QThread *thread = QThread::create( [this] {this->_MHManager.FindAddress(); });
     thread->start();
@@ -81,12 +87,20 @@ void MainWindow::_FindAddr()
 
     if (!this->_MHManager.DataAddressFound())
     {
+        Dia->setAttribute(Qt::WA_DeleteOnClose, true);
+        Dia->close();
         ui->SearchButton->setEnabled(true);
         DialogWindow *Dia = new DialogWindow(this, "ERROR", "Couldn't Find Save Data Address", Status::ERROR0);
         Dia->show();
         ui->SearchButton->setText("Search For MHW Save Data");
         return;
     }
+    Dia->getOkButton()->setEnabled(true);
+    Dia->getIconLabel()->clear();
+    Dia->getIconLabel()->setText(PrevText.c_str());
+    Dia->getMsgLabel()->setText("MHW Data Found Successfully!");
+    Dia->setWindowTitle("Succes!!");
+    Dia->setAttribute(Qt::WA_DeleteOnClose, true);
 
     ui->SearchButton->setText("Ready To Go.");
     ui->SearchButton->setEnabled(false);
