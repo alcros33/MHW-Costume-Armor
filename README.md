@@ -17,7 +17,7 @@ I measured the time of the "data retreival" part and memory usage.
 * Costume Armor -> 4 seconds on Average and 60MB RAM (Peak)
 
 ## Release!
-Checkout the compiled binaries on the latest [Release](https://github.com/alcros33/CardPrinter/releases) !
+Checkout the compiled binaries on the latest [Release](https://github.com/alcros33/MHW-Costume-Armor/releases) !
 
 ## State of Development
 * Memory reading (working properly).
