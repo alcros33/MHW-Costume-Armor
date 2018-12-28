@@ -70,7 +70,7 @@ void MainWindow::_FindAddr()
     ui->SearchButton->setEnabled(false);
 
     DialogWindow *Dia = new DialogWindow(this, "Wait a Sec...", "Searching MHW for Character Data", Status::SUCCESS);
-    Dia->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint);
+    Dia->setWindowFlags(Qt::SplashScreen);
     QLabel *IconLabel = Dia->getIconLabel();
     std::string PrevText = IconLabel->text().toUtf8().constData();
     QMovie *movie = new QMovie(":/ajax-loader.gif");
