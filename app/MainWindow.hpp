@@ -37,5 +37,6 @@ private slots:
     void _FetchData(bool noMessage = false);
     void _WriteData();
     void _aboutInfo();
+    void _Instructions();
     void _NotImplemented();
 };

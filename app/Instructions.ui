@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Instructions</class>
+ <widget class="QDialog" name="Instructions">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>587</width>
+    <height>427</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Instructions</string>
+  </property>
+  <widget class="QLabel" name="title">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>30</y>
+     <width>211</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:600;&quot;&gt;Instructions:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="logo">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>30</y>
+     <width>285</width>
+     <height>381</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/nergigante.png&quot; width=320 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="description">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>90</y>
+     <width>291</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;span style=&quot; font-size:12pt;font-weight:bold&quot;&gt;
+ &lt;ol&gt;
+  &lt;li&gt;Search for MHW Save Data&lt;/li&gt;
+  &lt;li&gt;Select the character slot&lt;/li&gt;
+  &lt;li&gt;Fetch the Game Data&lt;/li&gt;
+&lt;li&gt; Change any value you want 
+&lt;br&gt;(list of IDs available
+&lt;a href=&quot;https://docs.google.com/spreadsheets/d/1rrDOfDw0g6jpmEMiqTNhPUwkOTsjjL8sMibTGNUa4gI/htmlview?sle=true&quot;&gt;
+here
+&lt;/a&gt;
+)&lt;/li&gt;
+&lt;li&gt;Write the current values!&lt;/li&gt;
+&lt;/ol&gt; 
+&lt;/span&gt;
+&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="closeButton">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>380</y>
+     <width>121</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>MS Shell Dlg 2</family>
+     <pointsize>9</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover:!pressed:enabled
+{
+	background-color :rgb(66, 192, 251);
+	border: 3px solid rgb(48, 73, 157);
+}
+
+QPushButton
+{
+font: 9pt &quot;MS Shell Dlg 2&quot;;
+border: 3px solid #42c0fb;
+background-color: rgba(50, 50, 50);
+ border-radius: 6px;
+}
+
+QPushButton:pressed {
+background-color :rgb(48, 73, 157);
+border: 3px solid rgb(26, 40, 86);
+
+}
+QPushButton:disabled {
+background-color : rgba(50, 50, 50.150);
+border: 1px solid rgba(66, 192, 251, 150);
+color: rgba(255,255,255,100);
+
+}</string>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../resources/Icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>

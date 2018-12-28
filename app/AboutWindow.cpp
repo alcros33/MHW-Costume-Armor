@@ -3,7 +3,9 @@
 
 /// Begin About Window Member definitions
 
-AboutWindow::AboutWindow(QWidget *parent) : QDialog(parent), ui(new Ui::AboutWindow)
+AboutWindow::AboutWindow(QWidget *parent) :
+QDialog(parent,Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint | Qt::MSWindowsFixedSizeDialogHint),
+ui(new Ui::AboutWindow)
 {
     ui->setupUi(this);
 
@@ -20,6 +22,25 @@ AboutWindow::AboutWindow(QWidget *parent) : QDialog(parent), ui(new Ui::AboutWin
     this->setAttribute(Qt::WA_DeleteOnClose, true);
 }
 AboutWindow::~AboutWindow()
+{
+    delete ui;
+}
+
+/// Begin Instructions Member definitions
+
+Instructions::Instructions(QWidget *parent) :
+QDialog(parent, Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint | Qt::MSWindowsFixedSizeDialogHint),
+ui(new Ui::Instructions)
+{
+    ui->setupUi(this);
+    
+    ui->description->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    ui->description->setOpenExternalLinks(true);
+
+    connect(ui->closeButton, SIGNAL(released()), this, SLOT(accept()));
+    this->setAttribute(Qt::WA_DeleteOnClose, true);
+}
+Instructions::~Instructions()
 {
     delete ui;
 }

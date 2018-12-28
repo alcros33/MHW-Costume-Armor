@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->WriteButton->setEnabled(false);
 
     connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(_aboutInfo()));
+    connect(ui->actionTutorial, SIGNAL(triggered()), this, SLOT(_Instructions()));
     connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(close()) );
 
     connect(ui->SearchButton, SIGNAL(released()), this, SLOT(_FindAddr()));
@@ -26,7 +27,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionSave_Current_Armor, SIGNAL(triggered()), this, SLOT(_NotImplemented()));
     connect(ui->actionManaged_Saved_Sets, SIGNAL(triggered()), this, SLOT(_NotImplemented()));
     connect(ui->actionLoad_Armor, SIGNAL(triggered()), this, SLOT(_NotImplemented()));
-    connect(ui->actionTutorial, SIGNAL(triggered()), this, SLOT(_NotImplemented()));
 
     _InputBoxes[0] = ui->headLineEdit ;
     _InputBoxes[1] = ui->bodyLineEdit ;
@@ -55,6 +55,12 @@ MainWindow::~MainWindow()
 void MainWindow::_aboutInfo()
 {
     AboutWindow *Dia = new AboutWindow(this);
+    Dia->show();
+}
+
+void MainWindow::_Instructions()
+{
+    Instructions *Dia = new Instructions(this);
     Dia->show();
 }
 
