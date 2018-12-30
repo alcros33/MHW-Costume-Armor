@@ -2,6 +2,7 @@
 #include "Config.h"
 #include <QThread>
 #include <QMovie>
+#include <QXmlStreamReader>
 // TODO PROGRESS BAR WITH QMovie
 
 /// Begin Main Window Member definitions
@@ -33,6 +34,20 @@ MainWindow::MainWindow(QWidget *parent) :
     _InputBoxes[2] = ui->armsLineEdit ;
     _InputBoxes[3] = ui->waistLineEdit;
     _InputBoxes[4] = ui->legsLineEdit ;
+    //load item details here
+    QFile f("armor.xml");
+    QXmlStreamReader reader(&f);
+    reader.readNextStartElement()
+    while (reader.readNextStartElement()) {
+        _data[0]=reader.readNextStartElement().readElementText();
+        for(i=0; i<5; i++){
+            ii=i+1;
+            _data[ii]=reader.readNextStartElement().readElementText();
+            if(_data[ii]!="?"){
+                _InputBoxes[i]->addItem(_data[ii], QVariant(_data[0]));
+            }
+        }
+    }
 }
 
 void MainWindow::show()
@@ -149,8 +164,8 @@ void MainWindow::_WriteData()
     {
         try
         {
-            std::string strVal = _InputBoxes[i]->text().toUtf8().constData();
-            
+            std::string strVal = _InputBoxes[i]->itemData(index).toUtf8().constData();
+
             if (strVal == "")
                 val = 255;
             else
@@ -194,7 +209,7 @@ void MainWindow::debugPrints() const
     }
 }
 
-void MainWindow::_NotImplemented() 
+void MainWindow::_NotImplemented()
 {
     DialogWindow *Dia = new DialogWindow(this, "Warning", "Functionality Not Implemented... Yet", Status::WARNING);
     Dia->show();
