@@ -8,7 +8,7 @@
 #include <tlhelp32.h>
 #include <psapi.h>
 
-#include "misc.hpp"
+#include "logger.hpp"
 
 using byte = unsigned char;
 

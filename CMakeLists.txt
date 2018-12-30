@@ -18,8 +18,8 @@ endif()
 # by including "exampleConfig.h" in the source. 
 # See exampleConfig.h.in for some more details.
 set(PROJECT_VERSION_MAJOR 0)
-set(PROJECT_VERSION_MINOR 4)
-set(PROJECT_VERSION_PATCH 1)
+set(PROJECT_VERSION_MINOR 5)
+set(PROJECT_VERSION_PATCH 0)
 
 #Include stuff. No change needed.
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
@@ -36,7 +36,6 @@ set(CMAKE_AUTOMOC ON)
 
 # Find the QtWidgets library
 find_package(Qt5Widgets CONFIG REQUIRED)
-find_package(Qt5Core CONFIG REQUIRED)
 # Create code from a list of Qt designer ui files.
 set(CMAKE_AUTOUIC ON) # use this if you have CMake 3.x instead of the following
 
@@ -85,10 +84,13 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/include/utils)
 
 # Make variables referring to all the sources and test files.
-file(GLOB SOURCES "src/*.cpp")
+file(GLOB SOURCES "src/*.cpp*")
 file(GLOB APPFILES "app/*.cpp")
 
-##
+## EasyLogging stuff
+add_definitions(-DELPP_NO_DEFAULT_LOG_FILE)
+
+## Windows API Stuff
 find_library (PSAPI Psapi)
 
 if(MINGW)
@@ -105,7 +107,7 @@ qt5_add_resources(QT5_RESOURCES "${PROJECT_SOURCE_DIR}/resources/Icons.qrc")
 # Compile all sources into a library. Called engine here (change if you wish).
 
 add_library(${MAIN_LIBRARY_NAME} SHARED ${SOURCES} )
-target_link_libraries(${MAIN_LIBRARY_NAME} PSAPI stdc++fs Qt5::Core)
+target_link_libraries(${MAIN_LIBRARY_NAME} PSAPI stdc++fs)
 
 # Add an executable for the file main.cpp, here called main.x.
 # If you add more executables, copy these three lines accordingly.

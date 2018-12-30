@@ -3,9 +3,12 @@
 #include <sstream>
 
 #include "MHMemory.hpp"
+INITIALIZE_EASYLOGGINGPP
 
 MH_Memory::MH_Memory(const std::string &ProcName, const std::string &SteamDLL) : _MHProcess(ProcName)
 {
+    INIT_LOGGER("CostumeArmor.log");
+
     if (!_MHProcess.isOpen())
         return;
 
@@ -24,10 +27,10 @@ MH_Memory::MH_Memory(const std::string &ProcName, const std::string &SteamDLL) :
         }
         else
         {
-            DEBUG_LOG("Steam ID or Path NOT FOUND");
-            DEBUG_LOG_HEX("Current Steam Addr : "<< ( (long) Mod.getBaseAddress() + 237592) );
-            DEBUG_LOG("Current Steam ID : " << _SteamID );
-            DEBUG_LOG("Current Steam Path : " << _SteamPath);
+            DEBUG_LOG(ERROR,"Steam ID or Path NOT FOUND");
+            DEBUG_LOG_HEX(DEBUG,"Current Steam Addr : "<< ( (long) Mod.getBaseAddress() + 237592) );
+            DEBUG_LOG(DEBUG,"Current Steam ID : " << _SteamID );
+            DEBUG_LOG(DEBUG,"Current Steam Path : " << _SteamPath);
         }
     }
 }
@@ -42,7 +45,7 @@ void MH_Memory::FindAddress()
         return;
     _DataPtr -= 29;
 
-    DEBUG_LOG_HEX("Address of the Characters Data : "<< _DataPtr);
+    DEBUG_LOG_HEX(DEBUG,"Address of the Characters Data : "<< _DataPtr);
 }
 
 bool MH_Memory::FetchPlayerData(int slot)
@@ -88,14 +91,14 @@ bool MH_Memory::BackupSaveData() const
 {
     if (!this->SteamFound())
     {
-        DEBUG_LOG("Steam Dir was not Found");
+        DEBUG_LOG(ERROR,"Steam Dir was not Found");
         return false;
     }
 
     if (!fs::exists(MH_Memory::BACKUP_DIR))
         if (!fs::create_directory(MH_Memory::BACKUP_DIR))
         {
-            DEBUG_LOG("Backup Dir was not Found and couldn't created");
+            DEBUG_LOG(ERROR,"Backup Dir was not Found and couldn't created");
             return false;
         }
 
@@ -105,7 +108,7 @@ bool MH_Memory::BackupSaveData() const
 
     if (!fs::exists(SourcePath))
     {
-        DEBUG_LOG("Couldn't Find Save Data");
+        DEBUG_LOG(ERROR,"Couldn't Find Save Data");
         return false;
     }
 
@@ -117,7 +120,7 @@ bool MH_Memory::BackupSaveData() const
     }
     catch (std::exception &e)
     {
-        DEBUG_LOG("Couldn't Copy Save data. Error : " << e.what() );
+        DEBUG_LOG(ERROR,"Couldn't Copy Save data. Error : " << e.what() );
         return false;
     }
 
@@ -130,10 +133,10 @@ bool MH_Memory::WriteArmor(int CharSlot, bool isSafe)
         return false;
     if (!this->BackupSaveData())
     {
-        DEBUG_LOG("Couldn't Backup SaveData");
+        DEBUG_LOG(ERROR,"Couldn't Backup SaveData");
         if(isSafe)
         {
-            DEBUG_LOG("Can't write to memory without backup in safe mode.");
+            DEBUG_LOG(WARNING,"Can't write to memory without backup in safe mode.");
             return false;
         }
     }

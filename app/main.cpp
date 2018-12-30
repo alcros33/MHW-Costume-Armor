@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 
     MainWindow w;
 
-    DEBUG_LOG( ProjectName() );
+    DEBUG_LOG(INFO, ProjectName() );
     w.debugPrints();
 
     w.show();

@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(_aboutInfo()));
     connect(ui->actionTutorial, SIGNAL(triggered()), this, SLOT(_Instructions()));
+    connect(ui->actionSafe_Mode, SIGNAL(triggered()), this, SLOT(_ToggleSafe() )  );
     connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(close()) );
 
     connect(ui->SearchButton, SIGNAL(released()), this, SLOT(_FindAddr()));
@@ -62,6 +63,17 @@ void MainWindow::_Instructions()
 {
     Instructions *Dia = new Instructions(this);
     Dia->show();
+}
+
+void MainWindow::_ToggleSafe()
+{
+    _SafeMode = !_SafeMode;
+    if (!_SafeMode)
+    {
+        DEBUG_LOG(WARNING,"Safe Mode was turned off");
+        DialogWindow *Dia = new DialogWindow(this, "Warning", "Safe Mode was turned OFF\nUse with caution.", Status::WARNING);
+        Dia->show();
+    }
 }
 
 void MainWindow::_FindAddr()
@@ -137,7 +149,7 @@ void MainWindow::_FetchData(bool noMessage)
         }
         catch (std::exception &e)
         {
-            DEBUG_LOG(e.what());
+            DEBUG_LOG(ERROR,e.what());
         }
     }
 }
@@ -185,12 +197,12 @@ void MainWindow::debugPrints() const
 {
     if (_MHManager.SteamFound())
     {
-        DEBUG_LOG( "\tSteam UserData ID: " << _MHManager.getSteamID() );
-        DEBUG_LOG( "\tSteam Game Directory: " << _MHManager.getSteamPath() );
+        DEBUG_LOG(DEBUG, "\tSteam UserData ID: " << _MHManager.getSteamID() );
+        DEBUG_LOG(DEBUG, "\tSteam Game Directory: " << _MHManager.getSteamPath() );
     }
     else
     {
-        DEBUG_LOG( "\tCouldn't Find Steam Data" );
+        DEBUG_LOG(ERROR, "\tCouldn't Find Steam Data" );
     }
 }
 

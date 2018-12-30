@@ -38,5 +38,7 @@ private slots:
     void _WriteData();
     void _aboutInfo();
     void _Instructions();
+    void _ToggleSafe();
+
     void _NotImplemented();
 };

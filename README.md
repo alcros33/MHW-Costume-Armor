@@ -39,6 +39,11 @@ Checkout the compiled binaries on the latest [Release](https://github.com/alcros
 * MinGW 64bits # Because I'm using std::filesystem, the only compiler that works is MinGW from Msys2, I apologize.
 * Msys2 # [Download Link!](http://www.msys2.org/)
 
+### Logging powered by EasyLogging++
+[Available here](https://github.com/zuhd-org/easyloggingpp)
+
+Sorry I'm to lazy to do the git submodule sutff.
+
 ### Installation of MinGW using Msys2
 * Install Msys2 (I recommend installing it on the root of C: drive)
 * Open Msys Command Prompt

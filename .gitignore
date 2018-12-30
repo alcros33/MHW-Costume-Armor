@@ -35,12 +35,16 @@
 # Build directory
 build/
 bin/
+debug_bin/
 
 # IDE shits
 *.kdev4
 .kdev4/
 .directory
 .vscode/
+
+# Ignore Rar Releases
+*.rar
 
 # Dunno
 *.qm
