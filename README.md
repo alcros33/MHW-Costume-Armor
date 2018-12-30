@@ -8,13 +8,13 @@ It is a C++ implementaion of the original [MHW Transmog](https://www.nexusmods.c
 
 Update 22/12/2018 Working as of Behemot update, Drachen Armor no longer crashes the game.
 
-## Sum Benchmarks
-I tested out agains original Transmog on My computer (i7 6700, GTX 970M, 8GB RAM) on what I considered "Normal" workload.
+## Some Benchmarks
+I tested out against original Transmog on My computer (i7 6700, GTX 970M, 8GB RAM) on what I considered "Normal" workload.
 AKA: MHW open, Firefox playing a youtube video and Discord Running in the back.
 
 I measured the time of the "data retreival" part and memory usage.
-* Original Transmog -> 23 seconds on Average and 250MB RAM (Peak)
-* Costume Armor -> 4 seconds on Average and 60MB RAM (Peak)
+* Original Transmog -> 23 seconds (Average) and 250MB RAM (Peak)
+* Costume Armor -> 4 seconds (Average) and 60MB RAM (Peak)
 
 ## Release!
 Checkout the compiled binaries on the latest [Release](https://github.com/alcros33/MHW-Costume-Armor/releases) !
