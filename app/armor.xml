@@ -1,0 +1,1259 @@
+<?xml version="1.0"?>
+<armor>
+   <item>
+    <value>36</name>
+    <name>Pulverizing Feather</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+   </item>
+   <item>
+    <value>37</name>
+    <name>Leather A</name>
+    <name>Leather A</name>
+    <name>Leather A</name>
+    <name>Leather A</name>
+    <name>Leather A</name>
+   </item>
+   <item>
+    <value>38</name>
+    <name>Leather B</name>
+    <name>Leather B</name>
+    <name>Leather B</name>
+    <name>Leather B</name>
+    <name>Leather B</name>
+   </item>
+   <item>
+    <value>39</name>
+    <name>Chainmail A</name>
+    <name>Chainmail A</name>
+    <name>Chainmail A</name>
+    <name>Chainmail A</name>
+    <name>Chainmail A</name>
+   </item>
+   <item>
+    <value>40</name>
+    <name>Chainmail B</name>
+    <name>Chainmail B</name>
+    <name>Chainmail B</name>
+    <name>Chainmail B</name>
+    <name>Chainmail B</name>
+   </item>
+   <item>
+    <value>41</name>
+    <name>Hunter A</name>
+    <name>Hunter A</name>
+    <name>Hunter A</name>
+    <name>Hunter A</name>
+    <name>Hunter A</name>
+   </item>
+   <item>
+    <value>42</name>
+    <name>Hunter B</name>
+    <name>Hunter B</name>
+    <name>Hunter B</name>
+    <name>Hunter B</name>
+    <name>Hunter B</name>
+   </item>
+   <item>
+    <value>43</name>
+    <name>Bone A</name>
+    <name>Bone A</name>
+    <name>Bone A</name>
+    <name>Bone A</name>
+    <name>Bone A</name>
+   </item>
+   <item>
+    <value>44</name>
+    <name>Bone B</name>
+    <name>Bone B</name>
+    <name>Bone B</name>
+    <name>Bone B</name>
+    <name>Bone B</name>
+   </item>
+   <item>
+    <value>45</name>
+    <name>Alloy A</name>
+    <name>Alloy A</name>
+    <name>Alloy A</name>
+    <name>Alloy A</name>
+    <name>Alloy A</name>
+   </item>
+   <item>
+    <value>46</name>
+    <name>Alloy B</name>
+    <name>Alloy B</name>
+    <name>Alloy B</name>
+    <name>Alloy B</name>
+    <name>Alloy B</name>
+   </item>
+   <item>
+    <value>47</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>Gajau A</name>
+   </item>
+   <item>
+    <value>48</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>Gajau B</name>
+   </item>
+   <item>
+    <value>49</name>
+    <name>Kestadon A</name>
+    <name>Kestadon A</name>
+    <name>Kestadon A</name>
+    <name>Kestadon A</name>
+    <name>Kestadon A</name>
+   </item>
+   <item>
+    <value>50</name>
+    <name>Kestadon B</name>
+    <name>Kestadon B</name>
+    <name>Kestadon B</name>
+    <name>Kestadon B</name>
+    <name>Kestadon B</name>
+   </item>
+   <item>
+    <value>51</name>
+    <name>Vespoid A</name>
+    <name>Vespoid A</name>
+    <name>Vespoid A</name>
+    <name>Vespoid A</name>
+    <name>Vespoid A</name>
+   </item>
+   <item>
+    <value>52</name>
+    <name>Vespoid B</name>
+    <name>Vespoid B</name>
+    <name>Vespoid B</name>
+    <name>Vespoid B</name>
+    <name>Vespoid B</name>
+   </item>
+   <item>
+    <value>53</name>
+    <name>Gastadon A</name>
+    <name>Gastadon A</name>
+    <name>Gastadon A</name>
+    <name>Gastadon A</name>
+    <name>Gastadon A</name>
+   </item>
+   <item>
+    <value>54</name>
+    <name>Gastadon B</name>
+    <name>Gastadon B</name>
+    <name>Gastadon B</name>
+    <name>Gastadon B</name>
+    <name>Gastadon B</name>
+   </item>
+   <item>
+    <value>55</name>
+    <name>Barnos A</name>
+    <name>Barnos A</name>
+    <name>Barnos A</name>
+    <name>Barnos A</name>
+    <name>Barnos A</name>
+   </item>
+   <item>
+    <value>56</name>
+    <name>Barnos B</name>
+    <name>Barnos B</name>
+    <name>Barnos B</name>
+    <name>Barnos B</name>
+    <name>Barnos B</name>
+   </item>
+   <item>
+    <value>57</name>
+    <name>Hornetaur A</name>
+    <name>Hornetaur A</name>
+    <name>Hornetaur A</name>
+    <name>Hornetaur A</name>
+    <name>Hornetaur A</name>
+   </item>
+   <item>
+    <value>58</name>
+    <name>Hornetaur B</name>
+    <name>Hornetaur B</name>
+    <name>Hornetaur B</name>
+    <name>Hornetaur B</name>
+    <name>Hornetaur B</name>
+   </item>
+   <item>
+    <value>61</name>
+    <name>Jagras A</name>
+    <name>Jagras A</name>
+    <name>Jagras A</name>
+    <name>Jagras A</name>
+    <name>Jagras A</name>
+   </item>
+   <item>
+    <value>62</name>
+    <name>Jagras B</name>
+    <name>Jagras B</name>
+    <name>Jagras B</name>
+    <name>Jagras B</name>
+    <name>Jagras B</name>
+   </item>
+   <item>
+    <value>63</name>
+    <name>Kulu Ya-Ku A</name>
+    <name>Kulu Ya-Ku A</name>
+    <name>Kulu Ya-Ku A</name>
+    <name>Kulu Ya-Ku A</name>
+    <name>Kulu Ya-Ku A</name>
+   </item>
+   <item>
+    <value>64</name>
+    <name>Kulu Ya-Ku B</name>
+    <name>Kulu Ya-Ku B</name>
+    <name>Kulu Ya-Ku B</name>
+    <name>Kulu Ya-Ku B</name>
+    <name>Kulu Ya-Ku B</name>
+   </item>
+   <item>
+    <value>65</name>
+    <name>Pukei-Pukei A</name>
+    <name>Pukei-Pukei A</name>
+    <name>Pukei-Pukei A</name>
+    <name>Pukei-Pukei A</name>
+    <name>Pukei-Pukei A</name>
+   </item>
+   <item>
+    <value>66</name>
+    <name>Pukei-Pukei B</name>
+    <name>Pukei-Pukei B</name>
+    <name>Pukei-Pukei B</name>
+    <name>Pukei-Pukei B</name>
+    <name>Pukei-Pukei B</name>
+   </item>
+   <item>
+    <value>67</name>
+    <name>Jyura A</name>
+    <name>Jyura A</name>
+    <name>Jyura A</name>
+    <name>Jyura A</name>
+    <name>Jyura A</name>
+   </item>
+   <item>
+    <value>68</name>
+    <name>Jyura B</name>
+    <name>Jyura B</name>
+    <name>Jyura B</name>
+    <name>Jyura B</name>
+    <name>Jyura B</name>
+   </item>
+   <item>
+    <value>69</name>
+    <name>Barroth A</name>
+    <name>Barroth A</name>
+    <name>Barroth A</name>
+    <name>Barroth A</name>
+    <name>Barroth A</name>
+   </item>
+   <item>
+    <value>70</name>
+    <name>Barroth B</name>
+    <name>Barroth B</name>
+    <name>Barroth B</name>
+    <name>Barroth B</name>
+    <name>Barroth B</name>
+   </item>
+   <item>
+    <value>71</name>
+    <name>Tobi-Kadachi A</name>
+    <name>Tobi-Kadachi A</name>
+    <name>Tobi-Kadachi A</name>
+    <name>Tobi-Kadachi A</name>
+    <name>Tobi-Kadachi A</name>
+   </item>
+   <item>
+    <value>72</name>
+    <name>Tobi-Kadachi B</name>
+    <name>Tobi-Kadachi B</name>
+    <name>Tobi-Kadachi B</name>
+    <name>Tobi-Kadachi B</name>
+    <name>Tobi-Kadachi B</name>
+   </item>
+   <item>
+    <value>73</name>
+    <name>Rathian A</name>
+    <name>Rathian A</name>
+    <name>Rathian A</name>
+    <name>Rathian A</name>
+    <name>Rathian A</name>
+   </item>
+   <item>
+    <value>74</name>
+    <name>Rathian B</name>
+    <name>Rathian B</name>
+    <name>Rathian B</name>
+    <name>Rathian B</name>
+    <name>Rathian B</name>
+   </item>
+   <item>
+    <value>75</name>
+    <name>Girros A</name>
+    <name>Girros A</name>
+    <name>Girros A</name>
+    <name>Girros A</name>
+    <name>Girros A</name>
+   </item>
+   <item>
+    <value>76</name>
+    <name>Girros B</name>
+    <name>Girros B</name>
+    <name>Girros B</name>
+    <name>Girros B</name>
+    <name>Girros B</name>
+   </item>
+   <item>
+    <value>77</name>
+    <name>Tziti Ya-Ku A</name>
+    <name>Tziti Ya-Ku A</name>
+    <name>Tziti Ya-Ku A</name>
+    <name>Tziti Ya-Ku A</name>
+    <name>Tziti Ya-Ku A</name>
+   </item>
+   <item>
+    <value>78</name>
+    <name>Tziti Ya-Ku B</name>
+    <name>Tziti Ya-Ku B</name>
+    <name>Tziti Ya-Ku B</name>
+    <name>Tziti Ya-Ku B</name>
+    <name>Tziti Ya-Ku B</name>
+   </item>
+   <item>
+    <value>79</name>
+    <name>Luma A</name>
+    <name>Luma A</name>
+    <name>Luma A</name>
+    <name>Luma A</name>
+    <name>Luma A</name>
+   </item>
+   <item>
+    <value>80</name>
+    <name>Luma B</name>
+    <name>Luma B</name>
+    <name>Luma B</name>
+    <name>Luma B</name>
+    <name>Luma B</name>
+   </item>
+   <item>
+    <value>81</name>
+    <name>Odogaron A</name>
+    <name>Odogaron A</name>
+    <name>Odogaron A</name>
+    <name>Odogaron A</name>
+    <name>Odogaron A</name>
+   </item>
+   <item>
+    <value>82</name>
+    <name>Odogaron B</name>
+    <name>Odogaron B</name>
+    <name>Odogaron B</name>
+    <name>Odogaron B</name>
+    <name>Odogaron B</name>
+   </item>
+   <item>
+    <value>83</name>
+    <name>Dodogama A</name>
+    <name>Dodogama A</name>
+    <name>Dodogama A</name>
+    <name>Dodogama A</name>
+    <name>Dodogama A</name>
+   </item>
+   <item>
+    <value>84</name>
+    <name>Dodogama B</name>
+    <name>Dodogama B</name>
+    <name>Dodogama B</name>
+    <name>Dodogama B</name>
+    <name>Dodogama B</name>
+   </item>
+   <item>
+    <value>85</name>
+    <name>Lavasioth A</name>
+    <name>Lavasioth A</name>
+    <name>Lavasioth A</name>
+    <name>Lavasioth A</name>
+    <name>Lavasioth A</name>
+   </item>
+   <item>
+    <value>86</name>
+    <name>Lavasioth B</name>
+    <name>Lavasioth B</name>
+    <name>Lavasioth B</name>
+    <name>Lavasioth B</name>
+    <name>Lavasioth B</name>
+   </item>
+   <item>
+    <value>87</name>
+    <name>Pink Rathian A</name>
+    <name>Pink Rathian A</name>
+    <name>Pink Rathian A</name>
+    <name>Pink Rathian A</name>
+    <name>Pink Rathian A</name>
+   </item>
+   <item>
+    <value>88</name>
+    <name>Pink Rathian B</name>
+    <name>Pink Rathian B</name>
+    <name>Pink Rathian B</name>
+    <name>Pink Rathian B</name>
+    <name>Pink Rathian B</name>
+   </item>
+   <item>
+    <value>89</name>
+    <name>High Metal A</name>
+    <name>High Metal A</name>
+    <name>High Metal A</name>
+    <name>High Metal A</name>
+    <name>High Metal A</name>
+   </item>
+   <item>
+    <value>90</name>
+    <name>High Metal B</name>
+    <name>High Metal B</name>
+    <name>High Metal B</name>
+    <name>High Metal B</name>
+    <name>High Metal B</name>
+   </item>
+   <item>
+    <value>91</name>
+    <name>Ingot A</name>
+    <name>Ingot A</name>
+    <name>Ingot A</name>
+    <name>Ingot A</name>
+    <name>Ingot A</name>
+   </item>
+   <item>
+    <value>92</name>
+    <name>Ingot B</name>
+    <name>Ingot B</name>
+    <name>Ingot B</name>
+    <name>Ingot B</name>
+    <name>Ingot B</name>
+   </item>
+   <item>
+    <value>93</name>
+    <name>Anjanath A</name>
+    <name>Anjanath A</name>
+    <name>Anjanath A</name>
+    <name>Anjanath A</name>
+    <name>Anjanath A</name>
+   </item>
+   <item>
+    <value>94</name>
+    <name>Anjanath B</name>
+    <name>Anjanath B</name>
+    <name>Anjanath B</name>
+    <name>Anjanath B</name>
+    <name>Anjanath B</name>
+   </item>
+   <item>
+    <value>95</name>
+    <name>Legiana A</name>
+    <name>Legiana A</name>
+    <name>Legiana A</name>
+    <name>Legiana A</name>
+    <name>Legiana A</name>
+   </item>
+   <item>
+    <value>96</name>
+    <name>Legiana B</name>
+    <name>Legiana B</name>
+    <name>Legiana B</name>
+    <name>Legiana B</name>
+    <name>Legiana B</name>
+   </item>
+   <item>
+    <value>97</name>
+    <name>Baan A</name>
+    <name>Baan A</name>
+    <name>Baan A</name>
+    <name>Baan A</name>
+    <name>Baan A</name>
+   </item>
+   <item>
+    <value>98</name>
+    <name>Baan B</name>
+    <name>Baan B</name>
+    <name>Baan B</name>
+    <name>Baan B</name>
+    <name>Baan B</name>
+   </item>
+   <item>
+    <value>99</name>
+    <name>Vaal Hazak A</name>
+    <name>Vaal Hazak A</name>
+    <name>Vaal Hazak A</name>
+    <name>Vaal Hazak A</name>
+    <name>Vaal Hazak A</name>
+   </item>
+   <item>
+    <value>100</name>
+    <name>Vaal Hazak B</name>
+    <name>Vaal Hazak B</name>
+    <name>Vaal Hazak B</name>
+    <name>Vaal Hazak B</name>
+    <name>Vaal Hazak B</name>
+   </item>
+   <item>
+    <value>101</name>
+    <name>Rathalos A</name>
+    <name>Rathalos A</name>
+    <name>Rathalos A</name>
+    <name>Rathalos A</name>
+    <name>Rathalos A</name>
+   </item>
+   <item>
+    <value>102</name>
+    <name>Rathalos B</name>
+    <name>Rathalos B</name>
+    <name>Rathalos B</name>
+    <name>Rathalos B</name>
+    <name>Rathalos B</name>
+   </item>
+   <item>
+    <value>103</name>
+    <name>Diablos A</name>
+    <name>Diablos A</name>
+    <name>Diablos A</name>
+    <name>Diablos A</name>
+    <name>Diablos A</name>
+   </item>
+   <item>
+    <value>104</name>
+    <name>Diablos B</name>
+    <name>Diablos B</name>
+    <name>Diablos B</name>
+    <name>Diablos B</name>
+    <name>Diablos B</name>
+   </item>
+   <item>
+    <value>105</name>
+    <name>Kirin A</name>
+    <name>Kirin A</name>
+    <name>Kirin A</name>
+    <name>Kirin A</name>
+    <name>Kirin A</name>
+   </item>
+   <item>
+    <value>106</name>
+    <name>Kirin B</name>
+    <name>Kirin B</name>
+    <name>Kirin B</name>
+    <name>Kirin B</name>
+    <name>Kirin B</name>
+   </item>
+   <item>
+    <value>107</name>
+    <name>Nergigante A</name>
+    <name>Nergigante A</name>
+    <name>Nergigante A</name>
+    <name>Nergigante A</name>
+    <name>Nergigante A</name>
+   </item>
+   <item>
+    <value>108</name>
+    <name>Nergigante B</name>
+    <name>Nergigante B</name>
+    <name>Nergigante B</name>
+    <name>Nergigante B</name>
+    <name>Nergigante B</name>
+   </item>
+   <item>
+    <value>109</name>
+    <name>Uragaan A</name>
+    <name>Uragaan A</name>
+    <name>Uragaan A</name>
+    <name>Uragaan A</name>
+    <name>Uragaan A</name>
+   </item>
+   <item>
+    <value>110</name>
+    <name>Uragaan B</name>
+    <name>Uragaan B</name>
+    <name>Uragaan B</name>
+    <name>Uragaan B</name>
+    <name>Uragaan B</name>
+   </item>
+   <item>
+    <value>111</name>
+    <name>Azure Rathalos A</name>
+    <name>Azure Rathalos A</name>
+    <name>Azure Rathalos A</name>
+    <name>Azure Rathalos A</name>
+    <name>Azure Rathalos A</name>
+   </item>
+   <item>
+    <value>112</name>
+    <name>Azure Rathalos B</name>
+    <name>Azure Rathalos B</name>
+    <name>Azure Rathalos B</name>
+    <name>Azure Rathalos B</name>
+    <name>Azure Rathalos B</name>
+   </item>
+   <item>
+    <value>113</name>
+    <name>Diablo Negro A</name>
+    <name>Diablo Negro A</name>
+    <name>Diablo Negro A</name>
+    <name>Diablo Negro A</name>
+    <name>Diablo Negro A</name>
+   </item>
+   <item>
+    <value>114</name>
+    <name>Diablo Negro B</name>
+    <name>Diablo Negro B</name>
+    <name>Diablo Negro B</name>
+    <name>Diablo Negro B</name>
+    <name>Diablo Negro B</name>
+   </item>
+   <item>
+    <value>115</name>
+    <name>Bazelguese A</name>
+    <name>Bazelguese A</name>
+    <name>Bazelguese A</name>
+    <name>Bazelguese A</name>
+    <name>Bazelguese A</name>
+   </item>
+   <item>
+    <value>116</name>
+    <name>Bazelguese B</name>
+    <name>Bazelguese B</name>
+    <name>Bazelguese B</name>
+    <name>Bazelguese B</name>
+    <name>Bazelguese B</name>
+   </item>
+   <item>
+    <value>117</name>
+    <name>King Beetle A</name>
+    <name>King Beetle A</name>
+    <name>King Beetle A</name>
+    <name>King Beetle A</name>
+    <name>King Beetle A</name>
+   </item>
+   <item>
+    <value>118</name>
+    <name>King Beetle B</name>
+    <name>King Beetle B</name>
+    <name>King Beetle B</name>
+    <name>King Beetle B</name>
+    <name>King Beetle B</name>
+   </item>
+   <item>
+    <value>119</name>
+    <name>Brigade A</name>
+    <name>Brigade A</name>
+    <name>Brigade A</name>
+    <name>Brigade A</name>
+    <name>Brigade A</name>
+   </item>
+   <item>
+    <value>120</name>
+    <name>Brigade B</name>
+    <name>Brigade B</name>
+    <name>Brigade B</name>
+    <name>Brigade B</name>
+    <name>Brigade B</name>
+   </item>
+   <item>
+    <value>121</name>
+    <name>Damascus A</name>
+    <name>Damascus A</name>
+    <name>Damascus A</name>
+    <name>Damascus A</name>
+    <name>Damascus A</name>
+   </item>
+   <item>
+    <value>122</name>
+    <name>Damascus B</name>
+    <name>Damascus B</name>
+    <name>Damascus B</name>
+    <name>Damascus B</name>
+    <name>Damascus B</name>
+   </item>
+   <item>
+    <value>123</name>
+    <name>Dober A</name>
+    <name>Dober A</name>
+    <name>Dober A</name>
+    <name>Dober A</name>
+    <name>Dober A</name>
+   </item>
+   <item>
+    <value>124</name>
+    <name>Dober B</name>
+    <name>Dober B</name>
+    <name>Dober B</name>
+    <name>Dober B</name>
+    <name>Dober B</name>
+   </item>
+   <item>
+    <value>125</name>
+    <name>Xeno A</name>
+    <name>Xeno A</name>
+    <name>Xeno A</name>
+    <name>Xeno A</name>
+    <name>Xeno A</name>
+   </item>
+   <item>
+    <value>126</name>
+    <name>Xeno B</name>
+    <name>Xeno B</name>
+    <name>Xeno B</name>
+    <name>Xeno B</name>
+    <name>Xeno B</name>
+   </item>
+   <item>
+    <value>127</name>
+    <name>Kaiser A</name>
+    <name>Kaiser A</name>
+    <name>Kaiser A</name>
+    <name>Kaiser A</name>
+    <name>Kaiser A</name>
+   </item>
+   <item>
+    <value>128</name>
+    <name>Kaiser B</name>
+    <name>Kaiser B</name>
+    <name>Kaiser B</name>
+    <name>Kaiser B</name>
+    <name>Kaiser B</name>
+   </item>
+   <item>
+    <value>129</name>
+    <name>Kushala A</name>
+    <name>Kushala A</name>
+    <name>Kushala A</name>
+    <name>Kushala A</name>
+    <name>Kushala A</name>
+   </item>
+   <item>
+    <value>130</name>
+    <name>Kushala B</name>
+    <name>Kushala B</name>
+    <name>Kushala B</name>
+    <name>Kushala B</name>
+    <name>Kushala B</name>
+   </item>
+   <item>
+    <value>131</name>
+    <name>Skull</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+   </item>
+   <item>
+    <value>133</name>
+    <name>Death Stench A</name>
+    <name>Death Stench A</name>
+    <name>Death Stench A</name>
+    <name>Death Stench A</name>
+    <name>Death Stench A</name>
+   </item>
+   <item>
+    <value>134</name>
+    <name>Death Stench B</name>
+    <name>Death Stench B</name>
+    <name>Death Stench B</name>
+    <name>Death Stench B</name>
+    <name>Death Stench B</name>
+   </item>
+   <item>
+    <value>135</name>
+    <name>Guild Cross A</name>
+    <name>Guild Cross A</name>
+    <name>Guild Cross A</name>
+    <name>Guild Cross A</name>
+    <name>Guild Cross A</name>
+   </item>
+   <item>
+    <value>136</name>
+    <name>Guild Cross B</name>
+    <name>Guild Cross B</name>
+    <name>Guild Cross B</name>
+    <name>Guild Cross B</name>
+    <name>Guild Cross B</name>
+   </item>
+   <item>
+    <value>139</name>
+    <name>Zorah Magdaros A</name>
+    <name>Zorah Magdaros A</name>
+    <name>Zorah Magdaros A</name>
+    <name>Zorah Magdaros A</name>
+    <name>Zorah Magdaros A</name>
+   </item>
+   <item>
+    <value>140</name>
+    <name>Zorah Magdaros B</name>
+    <name>Zorah Magdaros B</name>
+    <name>Zorah Magdaros B</name>
+    <name>Zorah Magdaros B</name>
+    <name>Zorah Magdaros B</name>
+   </item>
+   <item>
+    <value>141</name>
+    <name>Comission A</name>
+    <name>Comission A</name>
+    <name>Comission A</name>
+    <name>Comission A</name>
+    <name>Comission A</name>
+   </item>
+   <item>
+    <value>142</name>
+    <name>Comission B</name>
+    <name>Comission B</name>
+    <name>Comission B</name>
+    <name>Comission B</name>
+    <name>Comission B</name>
+   </item>
+   <item>
+    <value>145</name>
+    <name>Brigade Layered</name>
+    <name>Brigade Layered</name>
+    <name>Brigade Layered</name>
+    <name>Brigade Layered</name>
+    <name>Brigade Layered</name>
+   </item>
+   <item>
+    <value>147</name>
+    <name>Blossom</name>
+    <name>Blossom</name>
+    <name>Blossom</name>
+    <name>Blossom</name>
+    <name>Blossom</name>
+      </item>
+   <item>
+    <value>148</name>
+    <name>Diver</name>
+    <name>Diver</name>
+    <name>Diver</name>
+    <name>Diver</name>
+    <name>Diver</name>
+      </item>
+   <item>
+    <value>149</name>
+    <name>Harvest Layered</name>
+    <name>Harvest Layered</name>
+    <name>Harvest Layered</name>
+    <name>Harvest Layered</name>
+    <name>?</name>
+   </item>
+   <item>
+    <value>150</name>
+    <name>Orion Alpha</name>
+    <name>Orion Alpha</name>
+    <name>Orion Alpha</name>
+    <name>Orion Alpha</name>
+    <name>Orion Alpha</name>
+   </item>
+   <item>
+    <value>151</name>
+    <name>Faux Felyne</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+   </item>
+   <item>
+    <value>152</name>
+    <name>Mosswine</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+   </item>
+   <item>
+    <value>161</name>
+    <name>Shamos Goggles</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+   </item>
+   <item>
+    <value>162</name>
+    <name>Shamos Goggles A</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+   </item>
+   <item>
+    <value>163</name>
+    <name>Shamos Goggles B</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+   </item>
+   <item>
+    <value>164</name>
+    <name>Butterly</name>
+    <name>Butterly</name>
+    <name>Butterly</name>
+    <name>Butterly</name>
+    <name>Butterly</name>
+   </item>
+   <item>
+    <value>165</name>
+    <name>Butterly  A</name>
+    <name>Butterly  A</name>
+    <name>Butterly  A</name>
+    <name>Butterly  A</name>
+    <name>Butterly  A</name>
+   </item>
+   <item>
+    <value>166</name>
+    <name>Butterly  B</name>
+    <name>Butterly  B</name>
+    <name>Butterly  B</name>
+    <name>Butterly  B</name>
+    <name>Butterly  B</name>
+   </item>
+   <item>
+    <value>169</name>
+    <name>Origin</name>
+    <name>Origin</name>
+    <name>Origin</name>
+    <name>Origin</name>
+    <name>Origin</name>
+   </item>
+   <item>
+    <value>174</name>
+    <name>Dragon Earring</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+   </item>
+   <item>
+    <value>176</name>
+    <name>Strategist Spectacles</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+   </item>
+   <item>
+    <value>178</name>
+    <name>Dragonking Eyepatch A</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+   </item>
+   <item>
+    <value>183</name>
+    <name>Kulve Taroth A</name>
+    <name>Kulve Taroth A</name>
+    <name>Kulve Taroth A</name>
+    <name>Kulve Taroth A</name>
+    <name>Kulve Taroth A</name>
+   </item>
+   <item>
+    <value>184</name>
+    <name>Kulve Taroth B</name>
+    <name>Kulve Taroth B</name>
+    <name>Kulve Taroth B</name>
+    <name>Kulve Taroth B</name>
+    <name>Kulve Taroth B</name>
+   </item>
+   <item>
+    <value>185</name>
+    <name>Blossom</name>
+    <name>Blossom</name>
+    <name>Blossom</name>
+    <name>Blossom</name>
+    <name>Blossom</name>
+   </item>
+   <item>
+    <value>186</name>
+    <name>Diver</name>
+    <name>Diver</name>
+    <name>Diver</name>
+    <name>Diver</name>
+    <name>Diver</name>
+   </item>
+   <item>
+    <value>187</name>
+    <name>Harvest</name>
+    <name>Harvest</name>
+    <name>Harvest</name>
+    <name>Harvest</name>
+    <name>Harvest</name>
+   </item>
+   <item>
+    <value>188</name>
+    <name>Orion</name>
+    <name>Orion</name>
+    <name>Orion</name>
+    <name>Orion</name>
+    <name>Orion</name>
+   </item>
+   <item>
+    <value>190</name>
+    <name>Samurai</name>
+    <name>Samurai</name>
+    <name>Samurai</name>
+    <name>Samurai</name>
+    <name>Samurai</name>
+   </item>
+   <item>
+    <value>191</name>
+    <name>Vangis A</name>
+    <name>Vangis A</name>
+    <name>Vangis A</name>
+    <name>Vangis A</name>
+    <name>Vangis A</name>
+   </item>
+   <item>
+    <value>192</name>
+    <name>Vangis B</name>
+    <name>Vangis B</name>
+    <name>Vangis B</name>
+    <name>Vangis B</name>
+    <name>Vagnis B</name>
+   </item>
+   <item>
+    <value>194</name>
+    <name>Bushi 'Sabi'</name>
+    <name>Bushi 'Sabi'</name>
+    <name>Bushi 'Sabi'</name>
+    <name>Bushi 'Sabi'</name>
+    <name>Bushi 'Sabi'</name>
+   </item>
+   <item>
+    <value>195</name>
+    <name>Bushi 'Homare'</name>
+    <name>Bushi 'Homare'</name>
+    <name>Bushi 'Homare'</name>
+    <name>Bushi 'Homare'</name>
+    <name>Bushi 'Homare'</name>
+   </item>
+   <item>
+    <value>196</name>
+    <name>Drachen</name>
+    <name>Drachen</name>
+    <name>Drachen</name>
+    <name>Drachen</name>
+    <name>Drachen</name>
+   </item>
+   <item>
+    <value>197</name>
+    <name>Blossom A</name>
+    <name>Blossom A</name>
+    <name>Blossom A</name>
+    <name>Blossom A</name>
+    <name>Blossom A</name>
+   </item>
+   <item>
+    <value>198</name>
+    <name>Diver A</name>
+    <name>Diver A</name>
+    <name>Diver A</name>
+    <name>Diver A</name>
+    <name>Diver A</name>
+   </item>
+   <item>
+    <value>199</name>
+    <name>Harvest A</name>
+    <name>Harvest A</name>
+    <name>Harvest A</name>
+    <name>Harvest A</name>
+    <name>Harvest A</name>
+   </item>
+   <item>
+    <value>200</name>
+    <name>Orion</name>
+    <name>Orion</name>
+    <name>Orion</name>
+    <name>Orion</name>
+    <name>Orion</name>
+   </item>
+   <item>
+    <value>202</name>
+    <name>King Beetle</name>
+    <name>King Beetle</name>
+    <name>King Beetle</name>
+    <name>King Beetle</name>
+    <name>King Beetle</name>
+    <name>Male</name>   </item>
+   <item>
+    <value>203</name>
+    <name>King Beetle A</name>
+    <name>King Beetle A</name>
+    <name>King Beetle A</name>
+    <name>King Beetle A</name>
+    <name>King Beetle A</name>
+    <name>Male</name>   </item>
+   <item>
+    <value>204</name>
+    <name>King Beetle B</name>
+    <name>King Beetle B</name>
+    <name>King Beetle B</name>
+    <name>King Beetle B</name>
+    <name>King Beetle B</name>
+    <name>Male</name>   </item>
+   <item>
+    <value>205</name>
+    <name>Queen Beetle</name>
+    <name>Queen Beetle</name>
+    <name>Queen Beetle</name>
+    <name>Queen Beetle</name>
+    <name>Queen Beetle</name>
+    <name>Female</name>   </item>
+   <item>
+    <value>206</name>
+    <name>Queen Beetle A</name>
+    <name>Queen Beetle A</name>
+    <name>Queen Beetle A</name>
+    <name>Queen Beetle A</name>
+    <name>Queen Beetle A</name>
+    <name>Female</name>   </item>
+   <item>
+    <value>207</name>
+    <name>Queen Beetle B</name>
+    <name>Queen Beetle B</name>
+    <name>Queen Beetle B</name>
+    <name>Queen Beetle B</name>
+    <name>Queen Beetle B</name>
+    <name>Female</name>   </item>
+   <item>
+    <value>208</name>
+    <name>Vaal Hazak Y</name>
+    <name>Vaal Hazak Y</name>
+    <name>Vaal Hazak Y</name>
+    <name>Vaal Hazak Y</name>
+    <name>Vaal Hazak Y</name>
+   </item>
+   <item>
+    <value>209</name>
+    <name>Kirin Y</name>
+    <name>Kirin Y</name>
+    <name>Kirin Y</name>
+    <name>Kirin Y</name>
+    <name>Kirin Y</name>
+   </item>
+   <item>
+    <value>210</name>
+    <name>Kaiser Y</name>
+    <name>Kaiser Y</name>
+    <name>Kaiser Y</name>
+    <name>Kaiser Y</name>
+    <name>Kaiser Y</name>
+   </item>
+   <item>
+    <value>211</name>
+    <name>Kushala Y</name>
+    <name>Kushala Y</name>
+    <name>Kushala Y</name>
+    <name>Kushala Y</name>
+    <name>Kushala Y</name>
+   </item>
+   <item>
+    <value>219</name>
+    <name>Azure Starlord</name>
+    <name>Azure Starlord</name>
+    <name>Azure Starlord</name>
+    <name>Azure Starlord</name>
+    <name>Azure Starlord</name>
+   </item>
+   <item>
+    <value>220</name>
+    <name>Dante</name>
+    <name>Dante</name>
+    <name>Dante</name>
+    <name>Dante</name>
+    <name>Dante</name>
+   </item>
+   <item>
+    <value>221</name>
+    <name>Lunastra A</name>
+    <name>Lunastra A</name>
+    <name>Lunastra A</name>
+    <name>Lunastra A</name>
+    <name>Lunastra A</name>
+   </item>
+   <item>
+    <value>222</name>
+    <name>Lunastra B</name>
+    <name>Lunastra B</name>
+    <name>Lunastra B</name>
+    <name>Lunastra B</name>
+    <name>Lunastra B</name>
+   </item>
+   <item>
+    <value>223</name>
+    <name>Sealed Eyepatch</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+   </item>
+   <item>
+    <value>224</name>
+    <name>Shadow Shades A</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+   </item>
+   <item>
+    <value>225</name>
+    <name>Kulu Ya-Ku Head A</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    </item>
+   <item>
+    <value>226</name>
+    <name>Wriggler Head</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+   </item>
+   <item>
+    <value>227</name>
+    <name>Butterfly Layered</name>
+    <name>Butterfly Layered</name>
+    <name>Butterfly Layered</name>
+    <name>Butterfly Layered</name>
+    <name>Butterfly Layered</name>
+   </item>
+   <item>
+    <value>228</name>
+    <name>Death Stench Layered Armor</name>
+    <name>Death Stench Layered Armor</name>
+    <name>Death Stench Layered Armor</name>
+    <name>Death Stench Layered Armor</name>
+    <name>Death Stench Layered Armor</name>
+   </item>
+   <item>
+    <value>229</name>
+    <name>Shadow Shades Layered</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+    <name>?</name>
+   </item>
+   <item>
+    <value>233</name>
+    <name>Faux Felyne Layered</name>
+    <name>Faux Felyne Layered</name>
+    <name>Faux Felyne Layered</name>
+    <name>Faux Felyne Layered</name>
+    <name>?</name>
+   </item>
+</armor>

@@ -2,6 +2,8 @@
 #include "Config.h"
 #include <QThread>
 #include <QMovie>
+#include <QFile>
+#include <QXmlStreamReader>
 // TODO PROGRESS BAR WITH QMovie
 
 /// Begin Main Window Member definitions
@@ -9,7 +11,8 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    _InputBoxes(5)
+    _InputBoxes(5),
+    _data(6)
 {
     ui->setupUi(this);
     this->setWindowTitle(PROJECT_NAME);
@@ -18,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(_aboutInfo()));
     connect(ui->actionTutorial, SIGNAL(triggered()), this, SLOT(_Instructions()));
-    connect(ui->actionSafe_Mode, SIGNAL(triggered()), this, SLOT(_ToggleSafe() )  );
     connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(close()) );
 
     connect(ui->SearchButton, SIGNAL(released()), this, SLOT(_FindAddr()));
@@ -34,6 +36,20 @@ MainWindow::MainWindow(QWidget *parent) :
     _InputBoxes[2] = ui->armsLineEdit ;
     _InputBoxes[3] = ui->waistLineEdit;
     _InputBoxes[4] = ui->legsLineEdit ;
+    //load item details here
+    QFile f("armor.xml");
+    QXmlStreamReader reader(&f);
+    reader.readNextStartElement()
+    while (reader.readNextStartElement()) {
+        _data[0]=reader.readNextStartElement().readElementText();
+        for(i=0; i<5; i++){
+            ii=i+1;
+            _data[ii]=reader.readNextStartElement().readElementText();
+            if(_data[ii]!="?"){
+                _InputBoxes[i]->addItem(_data[ii], QVariant(_data[0]));
+            }
+        }
+    }
 }
 
 void MainWindow::show()
@@ -63,17 +79,6 @@ void MainWindow::_Instructions()
 {
     Instructions *Dia = new Instructions(this);
     Dia->show();
-}
-
-void MainWindow::_ToggleSafe()
-{
-    _SafeMode = !_SafeMode;
-    if (!_SafeMode)
-    {
-        DEBUG_LOG(WARNING,"Safe Mode was turned off");
-        DialogWindow *Dia = new DialogWindow(this, "Warning", "Safe Mode was turned OFF\nUse with caution.", Status::WARNING);
-        Dia->show();
-    }
 }
 
 void MainWindow::_FindAddr()
@@ -137,9 +142,9 @@ void MainWindow::_FetchData(bool noMessage)
         return;
     }
     auto Data = _MHManager.getPlayerData().getDataString();
-    for(int i=0;i<5;++i)
-        _InputBoxes[i]->setText(Data[i].c_str());
-
+    for(int i=0;i<5;++i){
+        _InputBoxes[i]->setCurrentIndex(Data[i].c_str());
+    }
     std::string msg = "Sucessfully fetched Data for Character Slot " + std::to_string(slot);
     if(!noMessage)
     {
@@ -149,7 +154,7 @@ void MainWindow::_FetchData(bool noMessage)
         }
         catch (std::exception &e)
         {
-            DEBUG_LOG(ERROR,e.what());
+            DEBUG_LOG(e.what());
         }
     }
 }
@@ -161,8 +166,8 @@ void MainWindow::_WriteData()
     {
         try
         {
-            std::string strVal = _InputBoxes[i]->text().toUtf8().constData();
-            
+            std::string strVal = _InputBoxes[i]->currentData().toUtf8().constData();
+
             if (strVal == "")
                 val = 255;
             else
@@ -197,16 +202,16 @@ void MainWindow::debugPrints() const
 {
     if (_MHManager.SteamFound())
     {
-        DEBUG_LOG(DEBUG, "\tSteam UserData ID: " << _MHManager.getSteamID() );
-        DEBUG_LOG(DEBUG, "\tSteam Game Directory: " << _MHManager.getSteamPath() );
+        DEBUG_LOG( "\tSteam UserData ID: " << _MHManager.getSteamID() );
+        DEBUG_LOG( "\tSteam Game Directory: " << _MHManager.getSteamPath() );
     }
     else
     {
-        DEBUG_LOG(ERROR, "\tCouldn't Find Steam Data" );
+        DEBUG_LOG( "\tCouldn't Find Steam Data" );
     }
 }
 
-void MainWindow::_NotImplemented() 
+void MainWindow::_NotImplemented()
 {
     DialogWindow *Dia = new DialogWindow(this, "Warning", "Functionality Not Implemented... Yet", Status::WARNING);
     Dia->show();
