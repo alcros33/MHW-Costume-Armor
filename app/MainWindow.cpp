@@ -209,10 +209,10 @@ void MainWindow::_FetchData(bool noMessage)
         return;
     }
     this->_UpdateArmorValues();
-    std::string msg = "Sucessfully fetched Data for Character Slot " + std::to_string(slot);
+    std::string msg = "Successfully fetched Data for Character Slot " + std::to_string(slot);
     if(!noMessage)
     {
-        DialogWindow *Dia = new DialogWindow(this, "Sucess!!", msg, Status::SUCCESS);
+        DialogWindow *Dia = new DialogWindow(this, "Success!!", msg, Status::SUCCESS);
         Dia->show();
     }
 }
@@ -297,7 +297,7 @@ void MainWindow::_SaveCurrentSet()
         Dia->show();
         return;
     }
-    DialogWindow *Dia = new DialogWindow(this, "Success", "Sucessfully saved set!", Status::SUCCESS);
+    DialogWindow *Dia = new DialogWindow(this, "Success", "Successfully saved set!", Status::SUCCESS);
     Dia->show();
 }
 
@@ -314,7 +314,7 @@ void MainWindow::_WriteData()
     }
     else
     {
-        DialogWindow *Dia = new DialogWindow(this, "Sucess!!", "Sucess writting to Game!!\nEnter you room to reload (Do not save before reloading!)", Status::SUCCESS);
+        DialogWindow *Dia = new DialogWindow(this, "Success!!", "Success writing to Game!!\nEnter your room to reload (Do not save before reloading!)", Status::SUCCESS);
         Dia->show();
     }
     this->_FetchData(true);
