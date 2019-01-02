@@ -140,11 +140,11 @@ void MainWindow::_FetchData(bool noMessage)
     for(int i=0;i<5;++i)
         _InputBoxes[i]->setText(Data[i].c_str());
 
-    std::string msg = "Sucessfully fetched Data for Character Slot " + std::to_string(slot);
+    std::string msg = "Successfully fetched Data for Character Slot " + std::to_string(slot);
     if(!noMessage)
     {
         try{
-        DialogWindow *Dia = new DialogWindow(this, "Sucess!!", msg, Status::SUCCESS);
+        DialogWindow *Dia = new DialogWindow(this, "Success!!", msg, Status::SUCCESS);
         Dia->show();
         }
         catch (std::exception &e)
@@ -187,7 +187,7 @@ void MainWindow::_WriteData()
     }
     else
     {
-        DialogWindow *Dia = new DialogWindow(this, "Sucess!!", "Sucess writting to Game!!\nEnter you room to reload (Do not save before reloading!)", Status::SUCCESS);
+        DialogWindow *Dia = new DialogWindow(this, "Success!!", "Success writing to Game!!\nEnter your room to reload (Do not save before reloading!)", Status::SUCCESS);
         Dia->show();
     }
     this->_FetchData(true);
