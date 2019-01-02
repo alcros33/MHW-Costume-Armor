@@ -8,6 +8,8 @@ It is a C++ implementaion of the original [MHW Transmog](https://www.nexusmods.c
 
 Update 22/12/2018 Working as of Behemot update, Drachen Armor no longer crashes the game.
 
+Available also at [Nexus Mods](https://www.nexusmods.com/monsterhunterworld/mods/672)
+
 ## Some Benchmarks
 I tested out against original Transmog on My computer (i7 6700, GTX 970M, 8GB RAM) on what I considered "Normal" workload.
 AKA: MHW open, Firefox playing a youtube video and Discord Running in the back.
@@ -24,7 +26,11 @@ Checkout the compiled binaries on the latest [Release](https://github.com/alcros
 * Memory writing (working properly).
 * GUI Basic Functions (working properly).
 * GUI Design and vanity (A E S T H E T I C)
-* GUI Additional features (pending...)
+* GUI Additional features :
+    * Select ComboBox Instead of ID Input (working beta).
+    * Save and Load ArmorSets by Name (working beta).
+    * Delete and Rename Saved Sets(pending...)
+    * "Unsafe Mode" (pending...)
 
 ### GUI Preview
 ![](Preview/preview1.png)

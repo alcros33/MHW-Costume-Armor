@@ -19,6 +19,9 @@
   <property name="windowTitle">
    <string>About</string>
   </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
   <widget class="QPushButton" name="_okButton">
    <property name="geometry">
     <rect>

@@ -1,5 +1,6 @@
 #pragma once
 #include <QMainWindow>
+#include <set>
 
 #include "ui_MainWindow.h"
 #include "AboutWindow.hpp"
@@ -26,18 +27,38 @@ public:
     void debugPrints() const ;
     void show();
 
+    fs::path SettingsFile = fs::current_path().append("Settings.json");
+    fs::path SavedSetsFile = fs::current_path().append("SavedSets.json");
+    fs::path ArmorDataFile = fs::current_path().append("ArmorData.json");
+
 private:
     Ui::MainWindow *ui;
     MH_Memory _MHManager;
-    json Settings;
-    std::vector<QLineEdit*> _InputBoxes;
+    json _Settings;
+    json _SavedSets;
+    json _ArmorData;
+    bool _ArmorDataFound;
+    std::array<QComboBox*,5> _InputBoxes = {nullptr,nullptr,nullptr,nullptr,nullptr};
     bool _SafeMode = true;
+    std::set<int> _SafeID;
+
 private slots:
-    void _FindAddr();
-    void _FetchData(bool noMessage = false);
-    void _WriteData();
-    void _aboutInfo();
     void _Instructions();
+    void _aboutInfo();
+
+    void _FindAddr();
+    void _PopulateComboBoxes();
+    bool _LoadConfigFiles();
+    
+    bool _ParseInputBoxes();
+    void _WriteData();
+    void _SaveCurrentSet();
+
+    void _UpdateArmorValues();
+    void _FetchData(bool noMessage = false);
+    void _LoadArmor();
+
+    bool _FlushSavedSets();
     void _ToggleSafe();
 
     void _NotImplemented();

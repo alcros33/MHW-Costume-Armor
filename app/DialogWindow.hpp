@@ -6,7 +6,7 @@ namespace Status
     const int SUCCESS = 0;
     const int WARNING = 1;
     const int ERROR0 = 2;
-    const std::vector<std::string> Names{"success","warning","error"};
+    const std::array<std::string,3> Names{"success","warning","error"};
 } // namespace Status
 
 namespace Ui {

@@ -1,6 +1,7 @@
 #pragma once
 #include "Process.hpp"
 #include <climits>
+#include <array>
 
 namespace Armor
 {
@@ -9,7 +10,7 @@ namespace Armor
     const int ARMS = 2;
     const int WAIST= 3;
     const int LEGS = 4;
-    const std::vector<std::string> Names{"Head ","Body ", "Arms ","Waist","Legs "};
+    const std::array<std::string,5> Names{"Head","Body", "Arms","Waist","Legs"};
 }
 
 class PlayerData
@@ -25,12 +26,13 @@ public:
     u_int getArmorPiece(int num) const;
 
     std::string Print() const;
-    std::vector<std::string> getDataString() const;
+    std::array<std::string,5> getDataString() const;
+    std::array<byte,5> getData() const { return _ArmorData; }
 
     static const byte _byteLimit = std::numeric_limits<byte>::max();
     
 private:
-    byte _ArmorData[5] = {255,255,255,255,255};
+    std::array<byte,5> _ArmorData = {255,255,255,255,255};
     bool _Gender; // true is female
     bool _empty = true;
 };

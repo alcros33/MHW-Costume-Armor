@@ -74,7 +74,6 @@ bool MH_Memory::FetchPlayerData(int slot)
     return true;
 }
 
-const fs::path MH_Memory::BACKUP_DIR = fs::current_path().append("Backups");
 
 std::string GetDateTime()
 {

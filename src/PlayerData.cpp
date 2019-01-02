@@ -15,7 +15,7 @@ void PlayerData::setArmorPiece(int num, int value)
     if (num > 4 || num < 0)
         return;
 
-    if (value >= _byteLimit || value <=0 )
+    if (value >= _byteLimit || value <= 0 )
         value = _byteLimit;
 
     this->_ArmorData[num] = value;
@@ -46,9 +46,9 @@ std::string PlayerData::Print() const
     return Base.str();
 }
 
-std::vector<std::string> PlayerData::getDataString() const
+std::array<std::string,5> PlayerData::getDataString() const
 {
-    std::vector<std::string> Result(5);
+    std::array<std::string,5> Result;
     for(int i=0;i<5;++i)
         Result[i] = (this->_ArmorData[i] == 255 ? "" : std::to_string(this->_ArmorData[i]) );
     return Result;

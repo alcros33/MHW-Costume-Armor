@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>957</width>
+    <width>1050</width>
     <height>540</height>
    </rect>
   </property>
@@ -18,13 +18,13 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>957</width>
+    <width>1050</width>
     <height>540</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>957</width>
+    <width>1050</width>
     <height>540</height>
    </size>
   </property>
@@ -35,12 +35,15 @@
    <string notr="true">background-color: rgb(26, 26, 26);
 color: rgb(255, 255, 255);</string>
   </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="Title">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>40</y>
+      <x>310</x>
+      <y>20</y>
       <width>401</width>
       <height>41</height>
      </rect>
@@ -134,7 +137,7 @@ background-color: rgba(40, 40, 40);</string>
    <widget class="QPushButton" name="FetchButton">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>460</x>
       <y>140</y>
       <width>121</width>
       <height>121</height>
@@ -185,8 +188,8 @@ Data</string>
    <widget class="QPushButton" name="SearchButton">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>30</y>
+      <x>780</x>
+      <y>20</y>
       <width>221</width>
       <height>61</height>
      </rect>
@@ -231,7 +234,7 @@ color: rgba(255,255,255,100);
    <widget class="QLabel" name="Logo">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>30</x>
       <y>0</y>
       <width>101</width>
       <height>111</height>
@@ -279,250 +282,10 @@ color: rgba(255,255,255,100);
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Circulo1.png&quot; width=130 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QFrame" name="FrameHead">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>380</y>
-      <width>130</width>
-      <height>80</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 13pt &quot;MS Shell Dlg 2&quot;;
-background-color: rgb(0,0,0,0);</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <property name="leftMargin">
-      <number>1</number>
-     </property>
-     <property name="topMargin">
-      <number>1</number>
-     </property>
-     <property name="rightMargin">
-      <number>1</number>
-     </property>
-     <property name="bottomMargin">
-      <number>1</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="headLabel">
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Head&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="headLineEdit">
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="placeholderText">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QFrame" name="FrameBody">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>380</y>
-      <width>130</width>
-      <height>80</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 13pt &quot;MS Shell Dlg 2&quot;;
-background-color: rgb(0,0,0,0);</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
-     <property name="leftMargin">
-      <number>1</number>
-     </property>
-     <property name="topMargin">
-      <number>1</number>
-     </property>
-     <property name="rightMargin">
-      <number>1</number>
-     </property>
-     <property name="bottomMargin">
-      <number>1</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="bodyLabel">
-       <property name="text">
-        <string>Body</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="bodyLineEdit">
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="placeholderText">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QFrame" name="FrameArms">
-    <property name="geometry">
-     <rect>
-      <x>420</x>
-      <y>380</y>
-      <width>130</width>
-      <height>80</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 13pt &quot;MS Shell Dlg 2&quot;;
-background-color: rgb(0,0,0,0);</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_3">
-     <property name="leftMargin">
-      <number>1</number>
-     </property>
-     <property name="topMargin">
-      <number>1</number>
-     </property>
-     <property name="rightMargin">
-      <number>1</number>
-     </property>
-     <property name="bottomMargin">
-      <number>1</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="armsLabel">
-       <property name="text">
-        <string>Arms</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="armsLineEdit">
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="placeholderText">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QFrame" name="FrameWaist">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>380</y>
-      <width>130</width>
-      <height>80</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 13pt &quot;MS Shell Dlg 2&quot;;
-background-color: rgb(0,0,0,0);</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_4">
-     <property name="leftMargin">
-      <number>1</number>
-     </property>
-     <property name="topMargin">
-      <number>1</number>
-     </property>
-     <property name="rightMargin">
-      <number>1</number>
-     </property>
-     <property name="bottomMargin">
-      <number>1</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="waistLabel">
-       <property name="text">
-        <string>Waist</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="waistLineEdit">
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="placeholderText">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QFrame" name="FrameLegs">
-    <property name="geometry">
-     <rect>
-      <x>760</x>
-      <y>380</y>
-      <width>130</width>
-      <height>80</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 13pt &quot;MS Shell Dlg 2&quot;;
-background-color: rgb(0,0,0,0);</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_5">
-     <property name="leftMargin">
-      <number>1</number>
-     </property>
-     <property name="topMargin">
-      <number>1</number>
-     </property>
-     <property name="rightMargin">
-      <number>1</number>
-     </property>
-     <property name="bottomMargin">
-      <number>1</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="legsLabel">
-       <property name="text">
-        <string>Legs</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="legsLineEdit">
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="placeholderText">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QPushButton" name="WriteButton">
     <property name="geometry">
      <rect>
-      <x>710</x>
+      <x>770</x>
       <y>140</y>
       <width>131</width>
       <height>121</height>
@@ -575,10 +338,10 @@ Armor</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>95</x>
-      <y>281</y>
-      <width>821</width>
-      <height>101</height>
+      <x>70</x>
+      <y>280</y>
+      <width>991</width>
+      <height>100</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -593,6 +356,18 @@ Armor</string>
      </property>
      <property name="sizeConstraint">
       <enum>QLayout::SetMinimumSize</enum>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
      </property>
      <item>
       <widget class="QLabel" name="iconHead">
@@ -637,9 +412,9 @@ Armor</string>
    <widget class="QFrame" name="Bars">
     <property name="geometry">
      <rect>
-      <x>75</x>
+      <x>29</x>
       <y>416</y>
-      <width>820</width>
+      <width>1011</width>
       <height>52</height>
      </rect>
     </property>
@@ -674,35 +449,35 @@ Armor</string>
      <item>
       <widget class="QLabel" name="bar1">
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Barrita_caja_de_texto.png&quot; width=140 height=52 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Barrita_caja_de_texto.png&quot; width=160 height=52 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="bar2">
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Barrita_caja_de_texto.png&quot; width=140 height=52 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Barrita_caja_de_texto.png&quot; width=160 height=52 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="bar3">
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Barrita_caja_de_texto.png&quot; width=140 height=52 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Barrita_caja_de_texto.png&quot; width=160 height=52 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="bar4">
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Barrita_caja_de_texto.png&quot; width=140 height=52 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Barrita_caja_de_texto.png&quot; width=160 height=52 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="bar5">
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Barrita_caja_de_texto.png&quot; width=140 height=52 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Barrita_caja_de_texto.png&quot; width=160 height=52 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -711,7 +486,7 @@ Armor</string>
    <widget class="QLabel" name="bg">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>110</x>
       <y>-10</y>
       <width>971</width>
       <height>511</height>
@@ -724,6 +499,179 @@ Armor</string>
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Gato_MH.png&quot; width= 800 /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
+   <widget class="QFrame" name="FrameLabels">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>370</y>
+      <width>1011</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 13pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(0,0,0,0);</string>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <property name="spacing">
+      <number>50</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMinimumSize</enum>
+     </property>
+     <item>
+      <widget class="QLabel" name="headLabel">
+       <property name="font">
+        <font>
+         <pointsize>13</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Head&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="bodyLabel">
+       <property name="text">
+        <string>Body</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="armsLabel">
+       <property name="text">
+        <string>Arms</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="waistLabel">
+       <property name="text">
+        <string>Waist</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="legsLabel">
+       <property name="text">
+        <string>Legs</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QComboBox" name="headEdit">
+    <property name="geometry">
+     <rect>
+      <x>28</x>
+      <y>430</y>
+      <width>170</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0,0,0,0);</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="bodyEdit">
+    <property name="geometry">
+     <rect>
+      <x>235</x>
+      <y>430</y>
+      <width>170</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0,0,0,0);</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="armsEdit">
+    <property name="geometry">
+     <rect>
+      <x>441</x>
+      <y>430</y>
+      <width>170</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0,0,0,0);</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="waistEdit">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>430</y>
+      <width>170</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0,0,0,0);</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="legsEdit">
+    <property name="geometry">
+     <rect>
+      <x>857</x>
+      <y>430</y>
+      <width>170</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0,0,0,0);</string>
+    </property>
+   </widget>
    <zorder>bg</zorder>
    <zorder>Bars</zorder>
    <zorder>CircleSlot</zorder>
@@ -733,21 +681,22 @@ Armor</string>
    <zorder>Character</zorder>
    <zorder>Slot</zorder>
    <zorder>comboBox</zorder>
-   <zorder>FrameHead</zorder>
-   <zorder>FrameBody</zorder>
-   <zorder>FrameArms</zorder>
-   <zorder>FrameWaist</zorder>
-   <zorder>FrameLegs</zorder>
    <zorder>FrameIcons</zorder>
    <zorder>FetchButton</zorder>
    <zorder>WriteButton</zorder>
+   <zorder>FrameLabels</zorder>
+   <zorder>headEdit</zorder>
+   <zorder>bodyEdit</zorder>
+   <zorder>armsEdit</zorder>
+   <zorder>waistEdit</zorder>
+   <zorder>legsEdit</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>957</width>
+     <width>1050</width>
      <height>26</height>
     </rect>
    </property>
@@ -829,11 +778,6 @@ Armor</string>
   <tabstop>FetchButton</tabstop>
   <tabstop>WriteButton</tabstop>
   <tabstop>bg</tabstop>
-  <tabstop>headLineEdit</tabstop>
-  <tabstop>bodyLineEdit</tabstop>
-  <tabstop>armsLineEdit</tabstop>
-  <tabstop>waistLineEdit</tabstop>
-  <tabstop>legsLineEdit</tabstop>
   <tabstop>comboBox</tabstop>
  </tabstops>
  <resources>

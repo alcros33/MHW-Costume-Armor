@@ -19,6 +19,9 @@
   <property name="windowTitle">
    <string>Instructions</string>
   </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
   <widget class="QLabel" name="title">
    <property name="geometry">
     <rect>
@@ -60,13 +63,9 @@
   &lt;li&gt;Search for MHW Save Data&lt;/li&gt;
   &lt;li&gt;Select the character slot&lt;/li&gt;
   &lt;li&gt;Fetch the Game Data&lt;/li&gt;
-&lt;li&gt; Change any value you want 
-&lt;br&gt;(list of IDs available
-&lt;a href=&quot;https://docs.google.com/spreadsheets/d/1rrDOfDw0g6jpmEMiqTNhPUwkOTsjjL8sMibTGNUa4gI/htmlview?sle=true&quot;&gt;
-here
-&lt;/a&gt;
-)&lt;/li&gt;
-&lt;li&gt;Write the current values!&lt;/li&gt;
+&lt;li&gt; Change any armor piece you want&lt;/li&gt;
+&lt;li&gt;Write the current values&lt;/li&gt;
+&lt;li&gt; Enjoy&lt;/li&gt;
 &lt;/ol&gt; 
 &lt;/span&gt;
 &lt;/body&gt;&lt;/html&gt;</string>

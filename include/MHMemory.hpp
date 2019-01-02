@@ -25,7 +25,7 @@ public:
     bool BackupSaveData() const ;
     bool WriteArmor(int CharSlot, bool isSafe = true);
 
-    static const fs::path BACKUP_DIR;
+    fs::path BACKUP_DIR = fs::current_path().append("Backups");
 
 private:
     Process _MHProcess;

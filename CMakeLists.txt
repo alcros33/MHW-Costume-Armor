@@ -18,7 +18,7 @@ endif()
 # by including "exampleConfig.h" in the source. 
 # See exampleConfig.h.in for some more details.
 set(PROJECT_VERSION_MAJOR 0)
-set(PROJECT_VERSION_MINOR 5)
+set(PROJECT_VERSION_MINOR 6)
 set(PROJECT_VERSION_PATCH 0)
 
 #Include stuff. No change needed.
@@ -97,7 +97,7 @@ if(MINGW)
     SET(WINDOWS_ICON_RESOURCE "${PROJECT_SOURCE_DIR}/resources/app_icon.rc")
 endif()
 
-# Resources Example
+# QT5 Resources
 qt5_add_resources(QT5_RESOURCES "${PROJECT_SOURCE_DIR}/resources/Icons.qrc")
 
 # --------------------------------------------------------------------------------
@@ -117,6 +117,13 @@ add_dependencies(${PROJECT_NAME} ${MAIN_LIBRARY_NAME})
 target_link_libraries(${PROJECT_NAME} stdc++fs ${MAIN_LIBRARY_NAME} Qt5::Widgets)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${MAIN_APP_NAME})
+
+# Script to generate ArmorData.json config file
+set(SCRIPTS_DIR "${PROJECT_SOURCE_DIR}/scripts")
+add_custom_command(
+    TARGET ${PROJECT_NAME}
+    POST_BUILD
+    COMMAND python "${SCRIPTS_DIR}/GenerateJson.py" --source "${SCRIPTS_DIR}/MHW Layered Armor.xlsx" --dest "${CMAKE_BINARY_DIR}/ArmorData.json" )
 
 # Deploy QT on Windows
 if(MINGW AND CMAKE_BUILD_TYPE STREQUAL "Release")

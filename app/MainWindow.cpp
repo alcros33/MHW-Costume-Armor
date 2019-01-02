@@ -2,14 +2,17 @@
 #include "Config.h"
 #include <QThread>
 #include <QMovie>
-// TODO PROGRESS BAR WITH QMovie
+#include <QInputDialog>
+
+// TODO :
+// - Design InputDialog for saved set features.
+// - "Unsafe Mode"
 
 /// Begin Main Window Member definitions
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow),
-    _InputBoxes(5)
+    ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     this->setWindowTitle(PROJECT_NAME);
@@ -25,27 +28,20 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->FetchButton, SIGNAL(released()), this, SLOT(_FetchData()));
     connect(ui->WriteButton, SIGNAL(released()), this, SLOT(_WriteData()));
 
-    connect(ui->actionSave_Current_Armor, SIGNAL(triggered()), this, SLOT(_NotImplemented()));
+    connect(ui->actionSave_Current_Armor, SIGNAL(triggered()), this, SLOT(_SaveCurrentSet()));
+    connect(ui->actionLoad_Armor, SIGNAL(triggered()), this, SLOT(_LoadArmor()) );
     connect(ui->actionManaged_Saved_Sets, SIGNAL(triggered()), this, SLOT(_NotImplemented()));
-    connect(ui->actionLoad_Armor, SIGNAL(triggered()), this, SLOT(_NotImplemented()));
 
-    _InputBoxes[0] = ui->headLineEdit ;
-    _InputBoxes[1] = ui->bodyLineEdit ;
-    _InputBoxes[2] = ui->armsLineEdit ;
-    _InputBoxes[3] = ui->waistLineEdit;
-    _InputBoxes[4] = ui->legsLineEdit ;
-}
+    _InputBoxes[0] = ui->headEdit ;
+    _InputBoxes[1] = ui->bodyEdit ;
+    _InputBoxes[2] = ui->armsEdit ;
+    _InputBoxes[3] = ui->waistEdit;
+    _InputBoxes[4] = ui->legsEdit ;
 
-void MainWindow::show()
-{
-    QMainWindow::show();
-    if (!this->_MHManager.ProcessOpen())
-    {
-        DialogWindow *Dia = new DialogWindow(nullptr, "ERROR", "MHW is Closed\nPlease open it before starting.", Status::ERROR0);
-        Dia->getOkButton()->setStyleSheet("");
-        Dia->show();
-        this->close();
-    }
+    this->_ArmorDataFound = _LoadConfigFiles();
+    if (!_ArmorDataFound || !this->_MHManager.ProcessOpen())
+        return;
+    _PopulateComboBoxes();
 }
 
 MainWindow::~MainWindow()
@@ -53,16 +49,75 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::_aboutInfo()
+void MainWindow::show()
 {
-    AboutWindow *Dia = new AboutWindow(this);
-    Dia->show();
+    if (!this->_ArmorDataFound)
+    {
+        DialogWindow *Dia = new DialogWindow(nullptr, "ERROR FATAL", "Couldn't find " +
+            ArmorDataFile.filename().string() +
+            "\nIt may have been deleted, if that's the case, re-download the program.", Status::ERROR0);
+        Dia->getOkButton()->setStyleSheet("");
+        Dia->show();
+        this->close();
+    }
+    else if (!this->_MHManager.ProcessOpen())
+    {
+        DialogWindow *Dia = new DialogWindow(nullptr, "ERROR", "MHW is Closed\nPlease open it before starting.", Status::ERROR0);
+        Dia->getOkButton()->setStyleSheet("");
+        Dia->show();
+        this->close();
+    }
+    else
+        QMainWindow::show();
 }
 
-void MainWindow::_Instructions()
+bool MainWindow::_LoadConfigFiles()
 {
-    Instructions *Dia = new Instructions(this);
-    Dia->show();
+    if (fs::exists(SettingsFile))
+    {
+        std::ifstream i(SettingsFile);
+        i >> _Settings;
+    }
+    if (fs::exists(SavedSetsFile))
+    {
+        std::ifstream i(SavedSetsFile);
+        i >> _SavedSets;
+    }
+    if(!fs::exists(ArmorDataFile))
+        return false;
+    
+    std::ifstream i(ArmorDataFile);
+    i >> _ArmorData;
+    return true;
+}
+
+void MainWindow::_PopulateComboBoxes()
+{
+    int i;
+    int ID;
+    std::string setName;
+
+    for (i = 0; i < 5; ++i)
+        this->_InputBoxes[i]->addItem("None (255)", 255);
+    
+    for (const auto &_set : _ArmorData)
+    {
+        if (_set["Danger"])
+            continue;
+
+        ID = _set["ID"];
+        _SafeID.insert( ID );
+
+        for(i=0; i<5; ++i)
+        {
+            setName = _set[Armor::Names[i]];
+            if (setName[0] == '?')
+                continue;
+            this->_InputBoxes[i]->addItem(setName.c_str(), ID );
+        }
+    }
+    for (i = 0; i < 5; ++i)
+        this->_InputBoxes[i]->addItem("Unknown (255)", 255);
 }
 
 void MainWindow::_ToggleSafe()
@@ -127,6 +182,23 @@ void MainWindow::_FindAddr()
     ui->WriteButton->setEnabled(true);
 }
 
+void MainWindow::_UpdateArmorValues()
+{
+    auto Data = _MHManager.getPlayerData().getData();
+    int index;
+    for (int i = 0; i < 5; ++i)
+    {
+        index = _InputBoxes[i]->findData((int)Data[i]);
+        if (index < 0)
+        {
+            index = _InputBoxes[i]->count() - 1;
+            _InputBoxes[i]->setItemText(index, std::string("Unknown (" + std::to_string(Data[i]) + ")").c_str());
+            DEBUG_LOG(WARNING, "Encountered unknown value (" << Data[i] << ") changing it to 255 for safety");
+        }
+        _InputBoxes[i]->setCurrentIndex(index);
+    }
+}
+
 void MainWindow::_FetchData(bool noMessage)
 {
     int slot = std::stoi(ui->comboBox->currentText().toUtf8().constData());
@@ -136,38 +208,57 @@ void MainWindow::_FetchData(bool noMessage)
         Dia->show();
         return;
     }
-    auto Data = _MHManager.getPlayerData().getDataString();
-    for(int i=0;i<5;++i)
-        _InputBoxes[i]->setText(Data[i].c_str());
-
+    this->_UpdateArmorValues();
     std::string msg = "Sucessfully fetched Data for Character Slot " + std::to_string(slot);
     if(!noMessage)
     {
-        try{
         DialogWindow *Dia = new DialogWindow(this, "Sucess!!", msg, Status::SUCCESS);
         Dia->show();
-        }
-        catch (std::exception &e)
-        {
-            DEBUG_LOG(ERROR,e.what());
-        }
     }
 }
 
-void MainWindow::_WriteData()
+void MainWindow::_LoadArmor()
 {
-    int val;
+    if (_SavedSets.empty())
+    {
+        DialogWindow *Dia = new DialogWindow(this, "Warning", "There are no saved sets", Status::WARNING);
+        Dia->show();
+        return;
+    }
+
+    QStringList items;
+    for (const auto &it : _SavedSets.items() )
+        items << it.key().c_str();
+    
+    bool ok;
+    QString text = QInputDialog::getItem(this, "Select Armor to Load", "Select set: ", items, 0, false, &ok);
+    if (!ok)
+        return;
+    
+    try
+    {
+        for(int i=0; i<5 ;++i)
+            _MHManager.getPlayerData().setArmorPiece(i, _SavedSets[text.toStdString()][i]);
+    }
+    catch (std::exception &e)
+    {
+        DialogWindow *Dia = new DialogWindow(this, "ERROR", "Invalid Value for armor", Status::ERROR0);
+        Dia->show();
+        DEBUG_LOG(ERROR,"Invalid value at json file. Error "<<e.what() );
+        return;
+    }
+    this->_UpdateArmorValues();
+}
+
+bool MainWindow::_ParseInputBoxes()
+{
+    int Val;
     for (int i = 0; i < 5; ++i)
     {
         try
         {
-            std::string strVal = _InputBoxes[i]->text().toUtf8().constData();
-            
-            if (strVal == "")
-                val = 255;
-            else
-                val = std::stoi(strVal);
-            this->_MHManager.getPlayerData().setArmorPiece(i,val);
+            Val = _InputBoxes[i]->currentData().toInt();
+            this->_MHManager.getPlayerData().setArmorPiece(i, Val);
         }
         catch (std::exception &e)
         {
@@ -175,9 +266,45 @@ void MainWindow::_WriteData()
             DialogWindow *Dia = new DialogWindow(this, "ERROR", "Invalid Value for armor", Status::ERROR0);
             Dia->show();
             this->_FetchData(true);
-            return;
+            return false;
         }
     }
+    return true;
+}
+
+void MainWindow::_SaveCurrentSet()
+{
+    if (!this->_ParseInputBoxes())
+        return;
+
+    bool ok;
+    QString text;
+    while (true)
+    {
+        text = QInputDialog::getText(this, "Saving Current Armor Set...","Name for the set: ", QLineEdit::Normal, "", &ok);
+        if (!ok)
+            return;
+        if(!text.isEmpty())
+            break;
+    }
+
+    auto Data = _MHManager.getPlayerData().getData();
+    _SavedSets[text.toUtf8().constData()] = Data;
+
+    if(!this->_FlushSavedSets())
+    {
+        DialogWindow *Dia = new DialogWindow(this, "ERROR", "Couldn't save set.", Status::ERROR0);
+        Dia->show();
+        return;
+    }
+    DialogWindow *Dia = new DialogWindow(this, "Success", "Sucessfully saved set!", Status::SUCCESS);
+    Dia->show();
+}
+
+void MainWindow::_WriteData()
+{
+    if (!this->_ParseInputBoxes())
+        return;
 
     int slot = std::stoi(ui->comboBox->currentText().toUtf8().constData());
     if (!_MHManager.WriteArmor(slot-1,_SafeMode))
@@ -193,17 +320,44 @@ void MainWindow::_WriteData()
     this->_FetchData(true);
 }
 
+bool MainWindow::_FlushSavedSets()
+{
+    try
+    {
+        std::ofstream o(SavedSetsFile.c_str());
+        o << std::setw(2) << _SavedSets << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        DEBUG_LOG(ERROR,"Couldn't write to file because " << e.what() );
+        return false;
+    }
+    return true;
+}
+
 void MainWindow::debugPrints() const
 {
     if (_MHManager.SteamFound())
     {
-        DEBUG_LOG(DEBUG, "\tSteam UserData ID: " << _MHManager.getSteamID() );
-        DEBUG_LOG(DEBUG, "\tSteam Game Directory: " << _MHManager.getSteamPath() );
+        DEBUG_LOG(DEBUG, "Steam UserData ID: " << _MHManager.getSteamID() );
+        DEBUG_LOG(DEBUG, "Steam Game Directory: " << _MHManager.getSteamPath() );
     }
     else
     {
-        DEBUG_LOG(ERROR, "\tCouldn't Find Steam Data" );
+        DEBUG_LOG(ERROR, "Couldn't Find Steam Data" );
     }
+}
+
+void MainWindow::_aboutInfo()
+{
+    AboutWindow *Dia = new AboutWindow(this);
+    Dia->show();
+}
+
+void MainWindow::_Instructions()
+{
+    Instructions *Dia = new Instructions(this);
+    Dia->show();
 }
 
 void MainWindow::_NotImplemented() 
