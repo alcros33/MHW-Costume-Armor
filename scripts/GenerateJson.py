@@ -9,23 +9,27 @@ parser.add_argument('--dest', type=str, default="resources/ArmorData.json",help=
 ArmorNames = ["Head","Body","Arms","Waist","Legs"] #Names of the armor pieces
 Chars = "BCDEF" # The spreadsheet columns
 
-def RowEmpty(i):
+
+# Checks if a cell has a bg color other than none
+def CellDanger(Sheet, i, c):
+    return (Sheet[f'{c}{i}'].fill.bgColor.value != "00000000")
+
+# Checks if the entire row is dangerous
+def RowDanger(Sheet,i):
+    if CellDanger(Sheet,i,'G'):
+        return True
     for c in Chars:
-        if Sheet[f'{c}{i}'].value != "?" :
+        if not CellDanger(Sheet,i,c):
             return False
     return True
 
-def RowDanger(i):
-    for c in "BCDEFG":
-        bgValue = Sheet[f'{c}{i}'].fill.bgColor.value
-        if bgValue != "00000000":
-            return True
-    return False
+# Returns the name of the Row
+def RowName(Sheet,i):
+    for c in Chars:
+        if Sheet[f'{c}{i}'].value != "?" :
+            return Sheet[f'{c}{i}'].value.replace("Armor", "")
+    return "?"
 
-def GetName(D):
-    for name in ArmorNames:
-        if D[name] != "?":
-            return D[name]
 
 if __name__ == "__main__":
     args = parser.parse_args()
@@ -38,15 +42,21 @@ if __name__ == "__main__":
         print(f"ERROR While opening {EXCEL_IN}")
         sys.exit(-1)
 
-    Dic = []
+    Dic = {}
     for i in range(2,255):    
-        if RowEmpty(i):
-            continue
-        Dic.append({ "ID": int(Sheet[f'A{i}'].value) , "Danger" : RowDanger(i) })
-        for c in range(5):
-            Dic[-1][ArmorNames[c]] = Sheet[f'{Chars[c]}{i}'].value.replace("Armor","")
+        Name = RowName(Sheet,i)
 
-    Dic = sorted(Dic,key = lambda x : GetName(x) )
+        if Name == "?":
+            continue
+
+        Dic[Name] = { "ID": int(Sheet[f'A{i}'].value) , "Danger" : RowDanger(Sheet,i) }
+        for c in range(5):
+            if CellDanger(Sheet, i, Chars[c]) and not Dic[Name]["Danger"]:
+                Dic[Name][ArmorNames[c]] = False
+            else :
+                Dic[Name][ArmorNames[c]] = True
+
+    Dic = dict(sorted(Dic.items()))
 
     with open(JSON_OUT, 'w') as f:
         print(f"Writting to {JSON_OUT}")

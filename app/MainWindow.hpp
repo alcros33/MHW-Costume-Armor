@@ -40,7 +40,8 @@ private:
     bool _ArmorDataFound;
     std::array<QComboBox*,5> _InputBoxes = {nullptr,nullptr,nullptr,nullptr,nullptr};
     bool _SafeMode = true;
-    std::set<int> _SafeID;
+    std::set<std::string> _UnSafeArmors;
+    std::array<int,5> _SafeCount = {0,0,0,0,0};
 
 private slots:
     void _Instructions();
@@ -57,9 +58,13 @@ private slots:
     void _UpdateArmorValues();
     void _FetchData(bool noMessage = false);
     void _LoadArmor();
+    void _ClearArmor();
 
     bool _FlushSavedSets();
+
     void _ToggleSafe();
+    void _AddUnsafe();
+    void _DeleteUnsafe();
 
     void _NotImplemented();
 };

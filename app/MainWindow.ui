@@ -68,7 +68,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>195</x>
+      <x>165</x>
       <y>180</y>
       <width>40</width>
       <height>40</height>
@@ -115,7 +115,7 @@ background-color: rgba(40, 40, 40);</string>
    <widget class="QLabel" name="Character">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>90</x>
       <y>140</y>
       <width>180</width>
       <height>30</height>
@@ -137,7 +137,7 @@ background-color: rgba(40, 40, 40);</string>
    <widget class="QPushButton" name="FetchButton">
     <property name="geometry">
      <rect>
-      <x>460</x>
+      <x>360</x>
       <y>140</y>
       <width>121</width>
       <height>121</height>
@@ -247,7 +247,7 @@ color: rgba(255,255,255,100);
    <widget class="QLabel" name="Slot">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>90</x>
       <y>230</y>
       <width>180</width>
       <height>30</height>
@@ -269,7 +269,7 @@ color: rgba(255,255,255,100);
    <widget class="QLabel" name="CircleSlot">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>120</x>
       <y>160</y>
       <width>171</width>
       <height>91</height>
@@ -285,7 +285,7 @@ color: rgba(255,255,255,100);
    <widget class="QPushButton" name="WriteButton">
     <property name="geometry">
      <rect>
-      <x>770</x>
+      <x>580</x>
       <y>140</y>
       <width>131</width>
       <height>121</height>
@@ -672,6 +672,55 @@ background-color: rgb(0,0,0,0);</string>
      <string notr="true">background-color: rgba(0,0,0,0);</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="ClearButton">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>160</y>
+      <width>81</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton:hover:!pressed:enabled
+{
+	background-color :rgb(66, 192, 251);
+	border: 10px solid rgb(48, 73, 157);
+}
+
+QPushButton
+{
+font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgba(50, 50, 50);
+border-radius:40px;
+border: 10px solid #42c0fb;
+}
+
+QPushButton:pressed {
+background-color :rgb(48, 73, 157);
+border: 10px solid rgb(26, 40, 86);
+
+}
+QPushButton:disabled {
+background-color : rgba(50, 50, 50.150);
+border: 5px solid rgba(66, 192, 251, 150);
+color: rgba(255,255,255,100);
+
+}</string>
+    </property>
+    <property name="text">
+     <string>Clear</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
    <zorder>bg</zorder>
    <zorder>Bars</zorder>
    <zorder>CircleSlot</zorder>
@@ -690,6 +739,7 @@ background-color: rgb(0,0,0,0);</string>
    <zorder>armsEdit</zorder>
    <zorder>waistEdit</zorder>
    <zorder>legsEdit</zorder>
+   <zorder>ClearButton</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

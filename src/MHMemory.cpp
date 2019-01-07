@@ -33,6 +33,15 @@ MH_Memory::MH_Memory(const std::string &ProcName, const std::string &SteamDLL) :
             DEBUG_LOG(DEBUG,"Current Steam Path : " << _SteamPath);
         }
     }
+    else
+    {
+        DEBUG_LOG(ERROR, "Module "<<SteamDLL<<" NOT FOUND");
+        std::stringstream S;
+        S << "Found Modules : ";
+        for(const auto &mod : _MHProcess.getModuleList() )
+            S << mod.getName() <<", ";
+        DEBUG_LOG(DEBUG, S.str() );
+    }
 }
 
 void MH_Memory::FindAddress()

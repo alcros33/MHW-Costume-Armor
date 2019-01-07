@@ -27,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->SearchButton, SIGNAL(released()), this, SLOT(_FindAddr()));
     connect(ui->FetchButton, SIGNAL(released()), this, SLOT(_FetchData()));
     connect(ui->WriteButton, SIGNAL(released()), this, SLOT(_WriteData()));
+    connect(ui->ClearButton, SIGNAL(released()), this, SLOT(_ClearArmor()));
 
     connect(ui->actionSave_Current_Armor, SIGNAL(triggered()), this, SLOT(_SaveCurrentSet()));
     connect(ui->actionLoad_Armor, SIGNAL(triggered()), this, SLOT(_LoadArmor()) );
@@ -95,29 +96,28 @@ void MainWindow::_PopulateComboBoxes()
 {
     int i;
     int ID;
-    std::string setName;
 
     for (i = 0; i < 5; ++i)
-        this->_InputBoxes[i]->addItem("None (255)", 255);
-    
-    for (const auto &_set : _ArmorData)
-    {
-        if (_set["Danger"])
-            continue;
+        this->_InputBoxes[i]->addItem("Nothing", 255);
 
-        ID = _set["ID"];
-        _SafeID.insert( ID );
+    for (auto &el : _ArmorData.items())
+    {
+        ID = el.value()["ID"];
+        
+        if (el.value()["Danger"])
+        {
+            _UnSafeArmors.insert(el.key());
+            continue;
+        }
 
         for(i=0; i<5; ++i)
         {
-            setName = _set[Armor::Names[i]];
-            if (setName[0] == '?')
-                continue;
-            this->_InputBoxes[i]->addItem(setName.c_str(), ID );
+            if (el.value()[Armor::Names[i]])
+                this->_InputBoxes[i]->addItem(el.key().c_str(), ID);
         }
     }
     for (i = 0; i < 5; ++i)
-        this->_InputBoxes[i]->addItem("Unknown (255)", 255);
+        _SafeCount[i] = this->_InputBoxes[i]->count();
 }
 
 void MainWindow::_ToggleSafe()
@@ -126,9 +126,12 @@ void MainWindow::_ToggleSafe()
     if (!_SafeMode)
     {
         DEBUG_LOG(WARNING,"Safe Mode was turned off");
-        DialogWindow *Dia = new DialogWindow(this, "Warning", "Safe Mode was turned OFF\nUse with caution.", Status::WARNING);
+        DialogWindow *Dia = new DialogWindow(this, "Warning", "Safe Mode was turned OFF\n(!) Marked Armors May Cause Game Crashes\nUse with caution.", Status::WARNING);
         Dia->show();
+        this->_AddUnsafe();
     }
+    else
+        this->_DeleteUnsafe();
 }
 
 void MainWindow::_FindAddr()
@@ -191,8 +194,7 @@ void MainWindow::_UpdateArmorValues()
         index = _InputBoxes[i]->findData((int)Data[i]);
         if (index < 0)
         {
-            index = _InputBoxes[i]->count() - 1;
-            _InputBoxes[i]->setItemText(index, std::string("Unknown (" + std::to_string(Data[i]) + ")").c_str());
+            index = 0;
             DEBUG_LOG(WARNING, "Encountered unknown value (" << Data[i] << ") changing it to 255 for safety");
         }
         _InputBoxes[i]->setCurrentIndex(index);
@@ -247,6 +249,13 @@ void MainWindow::_LoadArmor()
         DEBUG_LOG(ERROR,"Invalid value at json file. Error "<<e.what() );
         return;
     }
+    this->_UpdateArmorValues();
+}
+
+void MainWindow::_ClearArmor()
+{
+    for(int i=0; i<5 ;++i)
+        _MHManager.getPlayerData().setArmorPiece(i, 255);
     this->_UpdateArmorValues();
 }
 
@@ -333,6 +342,30 @@ bool MainWindow::_FlushSavedSets()
         return false;
     }
     return true;
+}
+
+void MainWindow::_AddUnsafe()
+{
+    int i;
+    int ID;
+    for(const auto &_Name : this->_UnSafeArmors)
+    {
+        ID = _ArmorData[_Name]["ID"];
+        for (i = 0; i < 5; ++i)
+        {
+            if (_ArmorData[_Name][Armor::Names[i]])
+                this->_InputBoxes[i]->addItem(std::string("(!) ").append(_Name).c_str(), ID);
+        }
+    }
+}
+
+void MainWindow::_DeleteUnsafe()
+{
+    for (int i = 0; i < 5; ++i)
+    {
+        for (int index = _InputBoxes[i]->count(); index >= _SafeCount[i]; --index)
+            _InputBoxes[i]->removeItem(index);
+    }
 }
 
 void MainWindow::debugPrints() const
