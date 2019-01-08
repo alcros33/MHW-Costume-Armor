@@ -16,8 +16,9 @@ del "MHW Costume Armor\*.log" 2>nul
 del "MHW Costume Armor\*.a" 2>nul
 del "MHW Costume Armor\SavedSets.json" 2>nul
 del "MHW Costume Armor\Settings.json" 2>nul
-rmdir "MHW Costume Armor\Backups" 2>nul
+rmdir /s /q "MHW Costume Armor\Backups" 2>nul
 
+del "MHW Costume Armor.rar" 2>nul
 "%ProgramFiles%\WinRAR\Rar.exe" a -ep1 -idq -r -y "MHW Costume Armor.rar" "MHW Costume Armor"
 
 rmdir /S /Q "MHW Costume Armor"

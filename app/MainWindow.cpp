@@ -245,8 +245,7 @@ void MainWindow::_LoadSavedSet()
         items << it.key().c_str();
     
     bool ok;
-    QString text = QInputDialog::getItem(this, "Select Armor Set", "Select set: ", items, 0, false, &ok,
-                                         Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint);
+    QString text = getItemInputDialog(this, "Select Armor Set", "Select set: ", items, &ok);
     if (!ok)
         return;
     
@@ -303,8 +302,9 @@ void MainWindow::_SaveCurrentSet()
     QString text;
     while (true)
     {
-        text = QInputDialog::getText(this, "Saving Armor Set...", "Name for the set: ", QLineEdit::Normal, "", &ok,
-                                     Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint );
+        text = getTextInputDialog(this, "Saving Armor Set...", "Name for the set: ",&ok);
+        if (!ok)
+            return;
 
         if (_SavedSets.find(text.toUtf8().constData()) != _SavedSets.end())
         {
@@ -315,8 +315,6 @@ void MainWindow::_SaveCurrentSet()
             continue;
         }
 
-        if (!ok)
-            return;
         if(!text.isEmpty())
             break;
     }

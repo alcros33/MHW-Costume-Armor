@@ -45,13 +45,13 @@ QPushButton:hover:!pressed:enabled
 QPushButton
 {
 font: 8pt &quot;MS Shell Dlg 2&quot;;
-border: 2px solid #42c0fb;
+border: 3px solid #42c0fb;
 background-color: rgba(50, 50, 50);
 }
 
 QPushButton:pressed {
 background-color :rgb(48, 73, 157);
-border: 2px solid rgb(26, 40, 86);
+border: 3px solid rgb(26, 40, 86);
 
 }
 QPushButton:disabled {
@@ -62,7 +62,14 @@ color: rgba(255,255,255,100);
 
 QMenu::item:selected {
  background-color : rgb(14, 109, 144);
- }</string>
+ }
+
+QComboBox QAbstractItemView
+{
+  selection-color: white;
+  selection-background-color:  rgb(14, 109, 144);
+}
+</string>
   </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
@@ -203,6 +210,9 @@ color: rgba(255,255,255,100);
      <string>Fetch
 Game
 Data</string>
+    </property>
+    <property name="shortcut">
+     <string>Ctrl+F</string>
     </property>
     <property name="autoDefault">
      <bool>false</bool>
@@ -350,6 +360,9 @@ color: rgba(255,255,255,100);
     <property name="text">
      <string>Write
 Armor</string>
+    </property>
+    <property name="shortcut">
+     <string>Ctrl+W</string>
     </property>
     <property name="autoDefault">
      <bool>false</bool>
@@ -816,10 +829,16 @@ color: rgba(255,255,255,100);
    <property name="text">
     <string>Save Current Armor</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
   </action>
   <action name="actionLoad_Armor">
    <property name="text">
     <string>Load Armor</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
    </property>
   </action>
   <action name="actionManaged_Saved_Sets">

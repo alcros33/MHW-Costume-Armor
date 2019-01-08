@@ -1,6 +1,9 @@
 #pragma once
 #include <QMainWindow>
 #include "ui_DialogWindow.h"
+
+#include <QInputDialog>
+
 namespace Status
 {
     const int SUCCESS = 0;
@@ -27,3 +30,6 @@ class DialogWindow : public QDialog
   private:
     Ui::DialogWindow *ui;
 };
+
+QString getTextInputDialog(QWidget *parent, const std::string &Title, const std::string &Message, bool *ok);
+QString getItemInputDialog(QWidget *parent, const std::string &Title, const std::string &Message, const QStringList &items, bool *ok);

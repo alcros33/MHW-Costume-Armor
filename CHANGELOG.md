@@ -10,6 +10,12 @@ For example : Using the Queen Beetle while having a male character or using a Lo
 - Saving sets Feature. "File > Save Current Armor" and then give the set a name.
 - Loading saved sets Feature. "File > Load Armor" and then select from your saved sets.
 - Added "Cancel" to the searching process to stop it from running forever.
+- Key Shortcuts as follows:
+    * Ctrl+S to Save Armor Set
+    * Ctrl+A to Load Armor Set (I Don't Really like this one)
+    * Ctrl+F to Fetch Game Data
+    * Ctrl+W to Write Armor to Game
+- Design to Input Dialogs
 
 ### Changed
 - The format of ArmorData.json.
