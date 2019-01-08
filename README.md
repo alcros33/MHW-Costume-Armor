@@ -25,12 +25,12 @@ Checkout the compiled binaries on the latest [Release](https://github.com/alcros
 * Memory reading (working properly).
 * Memory writing (working properly).
 * GUI Basic Functions (working properly).
-* GUI Design and vanity (A E S T H E T I C)
+* GUI Design and vanity (A E S T H E T I C).
 * GUI Additional features :
-    * Select ComboBox Instead of ID Input (working beta).
+    * Select ComboBox Instead of ID Input (working properly).
     * Save and Load ArmorSets by Name (working beta).
+    * "Unsafe Mode" (working beta).
     * Delete and Rename Saved Sets(pending...)
-    * "Unsafe Mode" (pending...)
 
 ### GUI Preview
 ![](Preview/preview1.png)
