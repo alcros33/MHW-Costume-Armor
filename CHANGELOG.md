@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [0.8.0] - 2019-01-08
 ### Added
 - The CHANGELOG itself.
 - "Unsafe Mode" In which you can select Armor sets that *may* crash the game or cause multiplayer issues.

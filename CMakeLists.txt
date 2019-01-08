@@ -18,7 +18,7 @@ endif()
 # by including "exampleConfig.h" in the source. 
 # See exampleConfig.h.in for some more details.
 set(PROJECT_VERSION_MAJOR 0)
-set(PROJECT_VERSION_MINOR 6)
+set(PROJECT_VERSION_MINOR 8)
 set(PROJECT_VERSION_PATCH 0)
 
 #Include stuff. No change needed.
