@@ -30,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->ClearButton, SIGNAL(released()), this, SLOT(_ClearArmor()));
 
     connect(ui->actionSave_Current_Armor, SIGNAL(triggered()), this, SLOT(_SaveCurrentSet()));
-    connect(ui->actionLoad_Armor, SIGNAL(triggered()), this, SLOT(_LoadArmor()) );
+    connect(ui->actionLoad_Armor, SIGNAL(triggered()), this, SLOT(_LoadSavedSet()) );
     connect(ui->actionManaged_Saved_Sets, SIGNAL(triggered()), this, SLOT(_NotImplemented()));
 
     _InputBoxes[0] = ui->headEdit ;
@@ -125,13 +125,17 @@ void MainWindow::_ToggleSafe()
     _SafeMode = !_SafeMode;
     if (!_SafeMode)
     {
+        this->setWindowTitle( QString(PROJECT_NAME) + "-Unsafe" );
         DEBUG_LOG(WARNING,"Safe Mode was turned off");
         DialogWindow *Dia = new DialogWindow(this, "Warning", "Safe Mode was turned OFF\n(!) Marked Armors May Cause Game Crashes\nUse with caution.", Status::WARNING);
         Dia->show();
         this->_AddUnsafe();
     }
     else
+    {
         this->_DeleteUnsafe();
+        this->setWindowTitle(PROJECT_NAME);
+    }
 }
 
 void MainWindow::_FindAddr()
@@ -148,7 +152,7 @@ void MainWindow::_FindAddr()
     IconLabel->setMovie(movie);
     movie->start();
 
-    Dia->getOkButton()->setEnabled(false);
+    Dia->getOkButton()->setText("Cancel");
     Dia->setAttribute(Qt::WA_DeleteOnClose, false);
 
     Dia->show();
@@ -158,6 +162,14 @@ void MainWindow::_FindAddr()
 
     while (thread->isRunning() )
     {
+        if(!Dia->isVisible())
+        {
+            thread->quit();
+            delete Dia;
+            ui->SearchButton->setEnabled(true);
+            ui->SearchButton->setText("Search For MHW Save Data");
+            return;
+        }
         QCoreApplication::processEvents();
     }
 
@@ -171,7 +183,7 @@ void MainWindow::_FindAddr()
         ui->SearchButton->setText("Search For MHW Save Data");
         return;
     }
-    Dia->getOkButton()->setEnabled(true);
+    Dia->getOkButton()->setText("Ok");
     Dia->getIconLabel()->clear();
     Dia->getIconLabel()->setText(PrevText.c_str());
     Dia->getMsgLabel()->setText("MHW Data Found Successfully!");
@@ -219,7 +231,7 @@ void MainWindow::_FetchData(bool noMessage)
     }
 }
 
-void MainWindow::_LoadArmor()
+void MainWindow::_LoadSavedSet()
 {
     if (_SavedSets.empty())
     {
@@ -233,7 +245,8 @@ void MainWindow::_LoadArmor()
         items << it.key().c_str();
     
     bool ok;
-    QString text = QInputDialog::getItem(this, "Select Armor to Load", "Select set: ", items, 0, false, &ok);
+    QString text = QInputDialog::getItem(this, "Select Armor Set", "Select set: ", items, 0, false, &ok,
+                                         Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint);
     if (!ok)
         return;
     
@@ -290,7 +303,18 @@ void MainWindow::_SaveCurrentSet()
     QString text;
     while (true)
     {
-        text = QInputDialog::getText(this, "Saving Current Armor Set...","Name for the set: ", QLineEdit::Normal, "", &ok);
+        text = QInputDialog::getText(this, "Saving Armor Set...", "Name for the set: ", QLineEdit::Normal, "", &ok,
+                                     Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint );
+
+        if (_SavedSets.find(text.toUtf8().constData()) != _SavedSets.end())
+        {
+            DialogWindow *Dia = new DialogWindow(this, "WARNING", "The name already exists.", Status::WARNING);
+            Dia->show();
+            while (Dia->isVisible())
+                QCoreApplication::processEvents();
+            continue;
+        }
+
         if (!ok)
             return;
         if(!text.isEmpty())

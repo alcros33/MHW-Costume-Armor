@@ -57,7 +57,7 @@ private slots:
 
     void _UpdateArmorValues();
     void _FetchData(bool noMessage = false);
-    void _LoadArmor();
+    void _LoadSavedSet();
     void _ClearArmor();
 
     bool _FlushSavedSets();
