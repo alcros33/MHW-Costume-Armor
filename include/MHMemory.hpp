@@ -5,6 +5,8 @@
 
 namespace fs = std::filesystem;
 
+fs::path CurrentExecutableName();
+
 class MH_Memory
 {
 public:
@@ -20,14 +22,18 @@ public:
     PlayerData& getPlayerData() { return _Data; }
     Process getProcess() const { return _MHProcess; }
 
+    void setSteamDirectory(const fs::path &Path);
+
     bool FetchPlayerData(int slot);
     void FindAddress();
     bool BackupSaveData() const ;
     bool WriteArmor(int CharSlot, bool isSafe = true);
 
-    fs::path BACKUP_DIR = fs::current_path().append("Backups");
+    fs::path ExeFilePath = CurrentExecutableName();
+    fs::path BACKUP_DIR = CurrentExecutableName().append("Backups");
+    fs::path LogPath = CurrentExecutableName().append("CostumeArmor.log");
 
-private:
+  private:
     Process _MHProcess;
     int _SteamID = 0;
     fs::path _SteamPath;

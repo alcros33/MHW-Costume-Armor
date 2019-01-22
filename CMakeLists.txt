@@ -18,7 +18,7 @@ endif()
 # by including "exampleConfig.h" in the source. 
 # See exampleConfig.h.in for some more details.
 set(PROJECT_VERSION_MAJOR 0)
-set(PROJECT_VERSION_MINOR 8)
+set(PROJECT_VERSION_MINOR 9)
 set(PROJECT_VERSION_PATCH 0)
 
 #Include stuff. No change needed.
@@ -132,6 +132,12 @@ if(MINGW AND CMAKE_BUILD_TYPE STREQUAL "Release")
         TARGET ${PROJECT_NAME}
         POST_BUILD
         COMMAND windeployqt --release $<TARGET_FILE:${PROJECT_NAME}> --no-translations --no-system-d3d-compiler --plugindir ${EXPORT_LIB_DIR})
+endif()
+
+if (CMAKE_BUILD_TYPE STREQUAL "Release")
+    configure_file (
+    "${PROJECT_SOURCE_DIR}/CHANGELOG.md"
+    "${CMAKE_BINARY_DIR}/CHANGELOG.md")
 endif()
 
 # --------------------------------------------------------------------------------

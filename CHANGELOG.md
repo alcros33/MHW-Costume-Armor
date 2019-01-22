@@ -1,6 +1,25 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.9.0] - 2019 - 01 - 21
+### Added
+- The "Change All" Button which changes all the current selected to an entire armor set.
+- A "writed values" entry to the log every time the program writes to the game.
+- "Change Steam Directory" button.
+- The settings.json file. All the custom settings will be writted here and the application will read it at start. If file is empty, the application will use default settings.
+Available settings to change:
+    * "Safe Mode" : true | false
+    * "Disable Unsafe Warning" : true | false
+    * "Steam Dir" : path_to_folder
+
+### Changed
+- The Displayed message when writting is successful.
+- The paths to files are no longer relative to the current directory, but rather the directory of the ".exe" file. Adding the capacity of making shortcuts of the application.
+
+### Fixed
+- Compatibility with game version 165889, (compatibility with game version 163956 was deprecated... for now).
+
+
 ## [0.8.0] - 2019-01-08
 ### Added
 - The CHANGELOG itself.

@@ -3,6 +3,7 @@
 #include <QThread>
 #include <QMovie>
 #include <QInputDialog>
+#include <QFileDialog>
 
 // TODO :
 // - Design InputDialog for saved set features.
@@ -22,15 +23,17 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(_aboutInfo()));
     connect(ui->actionTutorial, SIGNAL(triggered()), this, SLOT(_Instructions()));
     connect(ui->actionSafe_Mode, SIGNAL(triggered()), this, SLOT(_ToggleSafe() )  );
-    connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(close()) );
+    connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(close() ) );
 
     connect(ui->SearchButton, SIGNAL(released()), this, SLOT(_FindAddr()));
     connect(ui->FetchButton, SIGNAL(released()), this, SLOT(_FetchData()));
     connect(ui->WriteButton, SIGNAL(released()), this, SLOT(_WriteData()));
     connect(ui->ClearButton, SIGNAL(released()), this, SLOT(_ClearArmor()));
+    connect(ui->ChangeAllButton, SIGNAL(released()), this, SLOT(_ChangeAll()));
 
     connect(ui->actionSave_Current_Armor, SIGNAL(triggered()), this, SLOT(_SaveCurrentSet()));
     connect(ui->actionLoad_Armor, SIGNAL(triggered()), this, SLOT(_LoadSavedSet()) );
+    connect(ui->actionChange_Steam_Dir, SIGNAL(triggered()), this, SLOT(_GetCustomSteamPath() ) );
     connect(ui->actionManaged_Saved_Sets, SIGNAL(triggered()), this, SLOT(_NotImplemented()));
 
     _InputBoxes[0] = ui->headEdit ;
@@ -40,8 +43,16 @@ MainWindow::MainWindow(QWidget *parent) :
     _InputBoxes[4] = ui->legsEdit ;
 
     this->_ArmorDataFound = _LoadConfigFiles();
+
     if (!_ArmorDataFound || !this->_MHManager.ProcessOpen())
         return;
+
+    if (_Settings.find("Safe Mode") == _Settings.end())
+        _Settings["Safe Mode"] = true;
+    
+    if (_Settings.find("Steam Dir") != _Settings.end())
+        _MHManager.setSteamDirectory( _Settings["Steam Dir"].get<std::string>() );
+
     _PopulateComboBoxes();
 }
 
@@ -69,7 +80,14 @@ void MainWindow::show()
         this->close();
     }
     else
+    {
         QMainWindow::show();
+        if (!_Settings["Safe Mode"])
+        {
+            this->_UnsafeWarning();
+            ui->actionSafe_Mode->setChecked(false);
+        }
+    }
 }
 
 bool MainWindow::_LoadConfigFiles()
@@ -107,7 +125,9 @@ void MainWindow::_PopulateComboBoxes()
         if (el.value()["Danger"])
         {
             _UnSafeArmors.insert(el.key());
-            continue;
+
+            if (_Settings["Safe Mode"])
+                continue;
         }
 
         for(i=0; i<5; ++i)
@@ -122,20 +142,30 @@ void MainWindow::_PopulateComboBoxes()
 
 void MainWindow::_ToggleSafe()
 {
-    _SafeMode = !_SafeMode;
-    if (!_SafeMode)
+    _Settings["Safe Mode"] = !_Settings["Safe Mode"];
+    if (!_Settings["Safe Mode"])
     {
-        this->setWindowTitle( QString(PROJECT_NAME) + "-Unsafe" );
-        DEBUG_LOG(WARNING,"Safe Mode was turned off");
-        DialogWindow *Dia = new DialogWindow(this, "Warning", "Safe Mode was turned OFF\n(!) Marked Armors May Cause Game Crashes\nUse with caution.", Status::WARNING);
-        Dia->show();
-        this->_AddUnsafe();
+        this->_UnsafeWarning();
     }
     else
     {
         this->_DeleteUnsafe();
         this->setWindowTitle(PROJECT_NAME);
     }
+    _FlushSettings();
+}
+
+void MainWindow::_UnsafeWarning()
+{
+    if (_Settings.find("Disable Unsafe Warning") != _Settings.end() )
+        if (_Settings["Disable Unsafe Warning"] == true )
+            return;
+
+    this->setWindowTitle( QString(PROJECT_NAME) + "-UNSAFE" );
+    DEBUG_LOG(WARNING,"Safe Mode was turned off");
+    DialogWindow *Dia = new DialogWindow(this, "Warning", "You are not Running in SafeMode\n(!) Marked Armors May Cause Game Crashes\nUse with caution.", Status::WARNING);
+    Dia->show();
+    this->_AddUnsafe();
 }
 
 void MainWindow::_FindAddr()
@@ -146,7 +176,7 @@ void MainWindow::_FindAddr()
     DialogWindow *Dia = new DialogWindow(this, "Wait a Sec...", "Searching MHW for Character Data", Status::SUCCESS);
     Dia->setWindowFlags(Qt::SplashScreen);
     QLabel *IconLabel = Dia->getIconLabel();
-    std::string PrevText = IconLabel->text().toUtf8().constData();
+    std::string PrevText = IconLabel->text().toStdString();
     QMovie *movie = new QMovie(":/ajax-loader.gif");
     movie->setScaledSize(IconLabel->frameSize());
     IconLabel->setMovie(movie);
@@ -207,7 +237,7 @@ void MainWindow::_UpdateArmorValues()
         if (index < 0)
         {
             index = 0;
-            DEBUG_LOG(WARNING, "Encountered unknown value (" << Data[i] << ") changing it to 255 for safety");
+            DEBUG_LOG(WARNING, "Encountered unknown value (" << (int)Data[i] << ") changing it to 255 for safety");
         }
         _InputBoxes[i]->setCurrentIndex(index);
     }
@@ -215,7 +245,7 @@ void MainWindow::_UpdateArmorValues()
 
 void MainWindow::_FetchData(bool noMessage)
 {
-    int slot = std::stoi(ui->comboBox->currentText().toUtf8().constData());
+    int slot = std::stoi(ui->comboBox->currentText().toStdString() );
     if (!_MHManager.FetchPlayerData(slot-1))
     {
         DialogWindow *Dia = new DialogWindow(this, "ERROR", "Couldn't Fetch Character Data...", Status::ERROR0);
@@ -306,7 +336,7 @@ void MainWindow::_SaveCurrentSet()
         if (!ok)
             return;
 
-        if (_SavedSets.find(text.toUtf8().constData()) != _SavedSets.end())
+        if (_SavedSets.find(text.toStdString() ) != _SavedSets.end())
         {
             DialogWindow *Dia = new DialogWindow(this, "WARNING", "The name already exists.", Status::WARNING);
             Dia->show();
@@ -320,7 +350,7 @@ void MainWindow::_SaveCurrentSet()
     }
 
     auto Data = _MHManager.getPlayerData().getData();
-    _SavedSets[text.toUtf8().constData()] = Data;
+    _SavedSets[text.toStdString()] = Data;
 
     if(!this->_FlushSavedSets())
     {
@@ -337,33 +367,20 @@ void MainWindow::_WriteData()
     if (!this->_ParseInputBoxes())
         return;
 
-    int slot = std::stoi(ui->comboBox->currentText().toUtf8().constData());
-    if (!_MHManager.WriteArmor(slot-1,_SafeMode))
+    int slot = std::stoi(ui->comboBox->currentText().toStdString() );
+    if (!_MHManager.WriteArmor(slot - 1, _Settings["Safe Mode"]))
     {
         DialogWindow *Dia = new DialogWindow(this, "ERROR", "Couldn't Write Save Data!", Status::ERROR0);
         Dia->show();
     }
     else
     {
-        DialogWindow *Dia = new DialogWindow(this, "Success!!", "Success writing to Game!!\nEnter your room to reload (Do not save before reloading!)", Status::SUCCESS);
+        DialogWindow *Dia = new DialogWindow(this, "Success!!", "Success writing to Game!!"
+                "\nYou may preview the appearance by checking your Guild Card"
+                "\nBut be sure to reload by entering another area.", Status::SUCCESS);
         Dia->show();
     }
     this->_FetchData(true);
-}
-
-bool MainWindow::_FlushSavedSets()
-{
-    try
-    {
-        std::ofstream o(SavedSetsFile.c_str());
-        o << std::setw(2) << _SavedSets << std::endl;
-    }
-    catch (std::exception &e)
-    {
-        DEBUG_LOG(ERROR,"Couldn't write to file because " << e.what() );
-        return false;
-    }
-    return true;
 }
 
 void MainWindow::_AddUnsafe()
@@ -388,6 +405,79 @@ void MainWindow::_DeleteUnsafe()
         for (int index = _InputBoxes[i]->count(); index >= _SafeCount[i]; --index)
             _InputBoxes[i]->removeItem(index);
     }
+}
+
+void MainWindow::_ChangeAll()
+{
+    QStringList items;
+    bool isSet;
+    int i = 0;
+    for (auto &it : _ArmorData.items())
+    {
+        if (it.value()["Danger"] && _Settings["Safe Mode"])
+            continue;
+
+        isSet = true;
+        for(i=0; i<5; ++i)
+            if ( !it.value()[Armor::Names[i]] )
+            {
+                isSet = false;
+                break;
+            }
+        
+        if(isSet)
+            items << it.key().c_str();
+    }
+
+    bool ok;
+    QString text = getItemInputDialog(this, "Change All Armor", "Select set: ", items, &ok);
+    if (!ok)
+        return;
+    json Selected = _ArmorData[text.toStdString()];
+    for (i = 0; i < 5; ++i)
+        _MHManager.getPlayerData().setArmorPiece(i, Selected["ID"] );
+    
+    this->_UpdateArmorValues();
+}
+
+bool MainWindow::_FlushSavedSets()
+{
+    try
+    {
+        std::ofstream o(SavedSetsFile.c_str());
+        o << std::setw(2) << _SavedSets << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        DEBUG_LOG(ERROR,"Couldn't write to file because " << e.what() );
+        return false;
+    }
+    return true;
+}
+
+bool MainWindow::_FlushSettings()
+{
+    try
+    {
+        std::ofstream o(SettingsFile.c_str());
+        o << std::setw(2) << _Settings << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        DEBUG_LOG(ERROR, "Couldn't write settings to file because " << e.what());
+        return false;
+    }
+    return true;
+}
+
+void MainWindow::_GetCustomSteamPath()
+{
+    QString Dir = QFileDialog::getExistingDirectory(this, "Open Folder Containing Steam.exe", "C:\\", QFileDialog::ShowDirsOnly);
+    if (Dir.isEmpty())
+        return;
+    _Settings["Steam Dir"] = Dir.toStdString();
+    this->_MHManager.setSteamDirectory(Dir.toStdString());
+    this->_FlushSettings();
 }
 
 void MainWindow::debugPrints() const

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1050</width>
-    <height>540</height>
+    <height>600</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,13 +19,13 @@
   <property name="minimumSize">
    <size>
     <width>1050</width>
-    <height>540</height>
+    <height>600</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>1050</width>
-    <height>540</height>
+    <height>600</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -104,8 +104,8 @@ p, li { white-space: pre-wrap; }
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>165</x>
-      <y>180</y>
+      <x>185</x>
+      <y>150</y>
       <width>40</width>
       <height>40</height>
      </rect>
@@ -151,8 +151,8 @@ background-color: rgba(40, 40, 40);</string>
    <widget class="QLabel" name="Character">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>140</y>
+      <x>110</x>
+      <y>110</y>
       <width>180</width>
       <height>30</height>
      </rect>
@@ -173,10 +173,10 @@ background-color: rgba(40, 40, 40);</string>
    <widget class="QPushButton" name="FetchButton">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>140</y>
-      <width>121</width>
-      <height>121</height>
+      <x>460</x>
+      <y>110</y>
+      <width>120</width>
+      <height>120</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -286,8 +286,8 @@ color: rgba(255,255,255,100);
    <widget class="QLabel" name="Slot">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>230</y>
+      <x>110</x>
+      <y>200</y>
       <width>180</width>
       <height>30</height>
      </rect>
@@ -308,8 +308,8 @@ color: rgba(255,255,255,100);
    <widget class="QLabel" name="CircleSlot">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>160</y>
+      <x>140</x>
+      <y>130</y>
       <width>171</width>
       <height>91</height>
      </rect>
@@ -324,10 +324,10 @@ color: rgba(255,255,255,100);
    <widget class="QPushButton" name="WriteButton">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>140</y>
-      <width>131</width>
-      <height>121</height>
+      <x>800</x>
+      <y>110</y>
+      <width>120</width>
+      <height>120</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -381,7 +381,7 @@ Armor</string>
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>280</y>
+      <y>350</y>
       <width>991</width>
       <height>100</height>
      </rect>
@@ -455,7 +455,7 @@ Armor</string>
     <property name="geometry">
      <rect>
       <x>29</x>
-      <y>416</y>
+      <y>486</y>
       <width>1011</width>
       <height>52</height>
      </rect>
@@ -548,7 +548,7 @@ Armor</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>370</y>
+      <y>440</y>
       <width>1011</width>
       <height>51</height>
      </rect>
@@ -628,7 +628,7 @@ background-color: rgb(0,0,0,0);</string>
     <property name="geometry">
      <rect>
       <x>28</x>
-      <y>430</y>
+      <y>500</y>
       <width>170</width>
       <height>25</height>
      </rect>
@@ -646,7 +646,7 @@ background-color: rgb(0,0,0,0);</string>
     <property name="geometry">
      <rect>
       <x>235</x>
-      <y>430</y>
+      <y>500</y>
       <width>170</width>
       <height>25</height>
      </rect>
@@ -664,7 +664,7 @@ background-color: rgb(0,0,0,0);</string>
     <property name="geometry">
      <rect>
       <x>441</x>
-      <y>430</y>
+      <y>500</y>
       <width>170</width>
       <height>25</height>
      </rect>
@@ -682,7 +682,7 @@ background-color: rgb(0,0,0,0);</string>
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>430</y>
+      <y>500</y>
       <width>170</width>
       <height>25</height>
      </rect>
@@ -700,7 +700,7 @@ background-color: rgb(0,0,0,0);</string>
     <property name="geometry">
      <rect>
       <x>857</x>
-      <y>430</y>
+      <y>500</y>
       <width>170</width>
       <height>25</height>
      </rect>
@@ -717,10 +717,10 @@ background-color: rgb(0,0,0,0);</string>
    <widget class="QPushButton" name="ClearButton">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>160</y>
-      <width>81</width>
-      <height>81</height>
+      <x>635</x>
+      <y>220</y>
+      <width>120</width>
+      <height>120</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -734,7 +734,7 @@ QPushButton
 {
 font: 75 12pt &quot;MS Shell Dlg 2&quot;;
 background-color: rgba(50, 50, 50);
-border-radius:40px;
+border-radius:60px;
 border: 10px solid #42c0fb;
 }
 
@@ -752,6 +752,56 @@ color: rgba(255,255,255,100);
     </property>
     <property name="text">
      <string>Clear</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ChangeAllButton">
+    <property name="geometry">
+     <rect>
+      <x>295</x>
+      <y>220</y>
+      <width>120</width>
+      <height>120</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton:hover:!pressed:enabled
+{
+	background-color :rgb(66, 192, 251);
+	border: 10px solid rgb(48, 73, 157);
+}
+
+QPushButton
+{
+font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgba(50, 50, 50);
+border-radius:60px;
+border: 10px solid #42c0fb;
+}
+
+QPushButton:pressed {
+background-color :rgb(48, 73, 157);
+border: 10px solid rgb(26, 40, 86);
+
+}
+QPushButton:disabled {
+background-color : rgba(50, 50, 50.150);
+border: 5px solid rgba(66, 192, 251, 150);
+color: rgba(255,255,255,100);
+
+}</string>
+    </property>
+    <property name="text">
+     <string>Change
+All</string>
     </property>
     <property name="autoDefault">
      <bool>false</bool>
@@ -782,6 +832,7 @@ color: rgba(255,255,255,100);
    <zorder>waistEdit</zorder>
    <zorder>legsEdit</zorder>
    <zorder>ClearButton</zorder>
+   <zorder>ChangeAllButton</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -814,6 +865,7 @@ color: rgba(255,255,255,100);
      <string>Options</string>
     </property>
     <addaction name="actionSafe_Mode"/>
+    <addaction name="actionChange_Steam_Dir"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuOptions"/>
@@ -868,6 +920,11 @@ color: rgba(255,255,255,100);
   <action name="actionTutorial">
    <property name="text">
     <string>Instructions</string>
+   </property>
+  </action>
+  <action name="actionChange_Steam_Dir">
+   <property name="text">
+    <string>Change Steam Directory</string>
    </property>
   </action>
  </widget>

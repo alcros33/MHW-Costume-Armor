@@ -27,11 +27,11 @@ public:
     void debugPrints() const ;
     void show();
 
-    fs::path SettingsFile = fs::current_path().append("Settings.json");
-    fs::path SavedSetsFile = fs::current_path().append("SavedSets.json");
-    fs::path ArmorDataFile = fs::current_path().append("ArmorData.json");
+    fs::path SettingsFile = CurrentExecutableName().append("Settings.json");
+    fs::path SavedSetsFile = CurrentExecutableName().append("SavedSets.json");
+    fs::path ArmorDataFile = CurrentExecutableName().append("ArmorData.json");
 
-private:
+  private:
     Ui::MainWindow *ui;
     MH_Memory _MHManager;
     json _Settings;
@@ -39,7 +39,6 @@ private:
     json _ArmorData;
     bool _ArmorDataFound;
     std::array<QComboBox*,5> _InputBoxes = {nullptr,nullptr,nullptr,nullptr,nullptr};
-    bool _SafeMode = true;
     std::set<std::string> _UnSafeArmors;
     std::array<int,5> _SafeCount = {0,0,0,0,0};
 
@@ -59,9 +58,13 @@ private slots:
     void _FetchData(bool noMessage = false);
     void _LoadSavedSet();
     void _ClearArmor();
+    void _ChangeAll();
 
     bool _FlushSavedSets();
+    bool _FlushSettings();
+    void _GetCustomSteamPath();
 
+    void _UnsafeWarning();
     void _ToggleSafe();
     void _AddUnsafe();
     void _DeleteUnsafe();

@@ -7,7 +7,7 @@ INITIALIZE_EASYLOGGINGPP
 
 MH_Memory::MH_Memory(const std::string &ProcName, const std::string &SteamDLL) : _MHProcess(ProcName)
 {
-    INIT_LOGGER("CostumeArmor.log");
+    INIT_LOGGER( LogPath.string() );
 
     if (!_MHProcess.isOpen())
         return;
@@ -83,6 +83,16 @@ bool MH_Memory::FetchPlayerData(int slot)
     return true;
 }
 
+void MH_Memory::setSteamDirectory(const fs::path &Path)
+{
+    this->_SteamPath = Path;
+    _SteamPath.make_preferred();
+    _SteamPath /= "userdata";
+    _SteamPath /= std::to_string(_SteamID);
+    _SteamPath /= "582010";
+    _SteamFound = true;
+    DEBUG_LOG(DEBUG, "Steam Path customly set to "<<_SteamPath);
+}
 
 std::string GetDateTime()
 {
@@ -160,6 +170,24 @@ bool MH_Memory::WriteArmor(int CharSlot, bool isSafe)
     {
         Status &= _MHProcess.WriteMemoryUInt(_DataPtr + index * 4 + 1285888 * CharSlot, _Data.getArmorPiece(index));
     }
+    
+    std::stringstream S;
+    for( const auto d : _Data.getData() )
+        S << ( (int)d ) << ", ";
+    DEBUG_LOG(DEBUG,"Writed (" << S.str()<<") to the game." );
 
     return Status;
+}
+
+fs::path CurrentExecutableName()
+{
+    TCHAR Buffer[1024];
+    if (GetModuleFileName(nullptr, Buffer, 1024) != 0)
+    {
+        fs::path Path(Buffer);
+        Path.make_preferred();
+        return Path.parent_path();
+    }
+    DEBUG_LOG(ERROR, "Couldn't retrieve the name of current EXE File.");
+    return fs::current_path();
 }
