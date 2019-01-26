@@ -27,9 +27,9 @@ public:
     void debugPrints() const ;
     void show();
 
-    fs::path SettingsFile = CurrentExecutableName().append("Settings.json");
-    fs::path SavedSetsFile = CurrentExecutableName().append("SavedSets.json");
-    fs::path ArmorDataFile = CurrentExecutableName().append("ArmorData.json");
+    fs::path SettingsFile = CurrentExecutableDir().append("Settings.json");
+    fs::path SavedSetsFile = CurrentExecutableDir().append("SavedSets.json");
+    fs::path ArmorDataFile = CurrentExecutableDir().append("ArmorData.json");
 
   private:
     Ui::MainWindow *ui;

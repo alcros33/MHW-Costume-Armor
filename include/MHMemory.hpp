@@ -5,7 +5,7 @@
 
 namespace fs = std::filesystem;
 
-fs::path CurrentExecutableName();
+fs::path CurrentExecutableDir();
 
 class MH_Memory
 {
@@ -29,9 +29,9 @@ public:
     bool BackupSaveData() const ;
     bool WriteArmor(int CharSlot, bool isSafe = true);
 
-    fs::path ExeFilePath = CurrentExecutableName();
-    fs::path BACKUP_DIR = CurrentExecutableName().append("Backups");
-    fs::path LogPath = CurrentExecutableName().append("CostumeArmor.log");
+    fs::path ExeFilePath = CurrentExecutableDir();
+    fs::path BACKUP_DIR = CurrentExecutableDir().append("Backups");
+    fs::path LogPath = CurrentExecutableDir().append("CostumeArmor.log");
 
   private:
     Process _MHProcess;

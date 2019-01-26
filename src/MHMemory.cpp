@@ -179,7 +179,7 @@ bool MH_Memory::WriteArmor(int CharSlot, bool isSafe)
     return Status;
 }
 
-fs::path CurrentExecutableName()
+fs::path CurrentExecutableDir()
 {
     TCHAR Buffer[1024];
     if (GetModuleFileName(nullptr, Buffer, 1024) != 0)

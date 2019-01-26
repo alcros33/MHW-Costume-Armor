@@ -65,9 +65,10 @@ void MainWindow::show()
 {
     if (!this->_ArmorDataFound)
     {
+        DEBUG_LOG(ERROR, "Armor Data json file searched at " << ArmorDataFile<< " and not found");
         DialogWindow *Dia = new DialogWindow(nullptr, "ERROR FATAL", "Couldn't find " +
             ArmorDataFile.filename().string() +
-            "\nIt may have been deleted, if that's the case, re-download the program.", Status::ERROR0);
+            "\nIf It was deletd, re-download the program.", Status::ERROR0);
         Dia->getOkButton()->setStyleSheet("");
         Dia->show();
         this->close();

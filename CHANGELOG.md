@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.9.1] - 2019 - 01 - 26
+### Added
+- A log entry for when the armorData.json file is not found, it will output where was it trying to search for it.
+- The following armors:
+    * Lunastra Gamma
+    * Kushala Gamma
+    * Zorah Gamma
+    * Xeno Gamma
+    * Gala.
+
 ## [0.9.0] - 2019 - 01 - 21
 ### Added
 - The "Change All" Button which changes all the current selected to an entire armor set.

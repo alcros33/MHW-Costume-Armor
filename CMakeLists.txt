@@ -19,7 +19,7 @@ endif()
 # See exampleConfig.h.in for some more details.
 set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_VERSION_MINOR 9)
-set(PROJECT_VERSION_PATCH 0)
+set(PROJECT_VERSION_PATCH 1)
 
 #Include stuff. No change needed.
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
@@ -137,7 +137,7 @@ endif()
 if (CMAKE_BUILD_TYPE STREQUAL "Release")
     configure_file (
     "${PROJECT_SOURCE_DIR}/CHANGELOG.md"
-    "${CMAKE_BINARY_DIR}/CHANGELOG.md")
+    "${CMAKE_BINARY_DIR}/CHANGELOG.txt")
 endif()
 
 # --------------------------------------------------------------------------------
