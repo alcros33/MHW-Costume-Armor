@@ -53,7 +53,9 @@ if __name__ == "__main__":
         for c in range(5):
             if CellDanger(Sheet, i, Chars[c]) and not Dic[Name]["Danger"]:
                 Dic[Name][ArmorNames[c]] = False
-            else :
+            elif Sheet[f'{Chars[c]}{i}'].value == "?":
+                Dic[Name][ArmorNames[c]] = False
+            else:
                 Dic[Name][ArmorNames[c]] = True
 
     Dic = dict(sorted(Dic.items()))
