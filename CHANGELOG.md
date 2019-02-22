@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.9.3] - 2019 - 02 - 21
+### Fixed
+- Compatibility with game verison 166849, previous versions of the game are no longer compatible.
+
 ## [0.9.1] - 2019 - 01 - 26
 ### Added
 - A log entry for when the armorData.json file is not found, it will output where was it trying to search for it.
