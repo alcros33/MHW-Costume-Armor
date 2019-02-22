@@ -19,7 +19,7 @@ endif()
 # See exampleConfig.h.in for some more details.
 set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_VERSION_MINOR 9)
-set(PROJECT_VERSION_PATCH 1)
+set(PROJECT_VERSION_PATCH 2)
 
 #Include stuff. No change needed.
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")

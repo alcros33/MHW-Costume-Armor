@@ -69,10 +69,11 @@ std::ostream &operator<<(std::ostream &out, PlayerData &Play)
 // Byte Arr: [143,187,66,1] -- Int Value : 21150607 
 // Byte Arr: [231,188,66,1] -- Int Value : 21150951 -- Number displayed on MHW window : 163956
 // Byte Arr: [174,190,66,1] -- Int Value : 21151406 -- Number displayed on MHW window : 165889
+// Byte Arr: [ 47,192,66,1] -- Int Value : 21151791 -- Number displayed on MHW window : 166849
 
 DWORD64 FindDataAddress(Process &Proc)
 {
-    byte Pattern[] = {174, 190, 66, 1}; // The byte array we are searching for
+    byte Pattern[] = {47, 192, 66, 1}; // The byte array we are searching for
     int LastBits = 1705; // The value of the least significant bits of the address
 
     DWORD64 BaseAddr = 0;
