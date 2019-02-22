@@ -3,7 +3,7 @@
 #include <memory>
 #include <vector>
 #include <iostream>
-
+#define NOMINMAX
 #include <windows.h>
 #include <tlhelp32.h>
 #include <psapi.h>

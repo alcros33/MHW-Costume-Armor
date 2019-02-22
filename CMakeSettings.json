@@ -1,0 +1,23 @@
+﻿{
+    "configurations": [
+        {
+            "name": "x64-Debug",
+            "generator": "Ninja",
+            "inheritEnvironments": [ "msvc_x64_x64" ],
+            "buildRoot": "${projectDir}/build"
+        },
+        {
+            "name": "x64-Release",
+            "generator": "Ninja",
+            "inheritEnvironments": [ "msvc_x64_x64" ],
+            "buildRoot": "${projectDir}/build",
+            "cmakeCommandArgs": "",
+            "variables": [
+                {
+                    "name": "CMAKE_BUILD_TYPE",
+                    "value": "Release"
+                }
+            ]
+        }
+    ]
+}

@@ -36,19 +36,21 @@ Checkout the compiled binaries on the latest [Release](https://github.com/alcros
 ![](Preview/preview1.png)
 ![](Preview/preview2.png)
 
-# Building Using MinGW
-
-## Depndencies To Build
-
+# Dependencies To Build
 * CMake # [Download Link!](https://cmake.org/download/)
 * QT5 (Select MinGW 7.30)# [Download Link!](https://www.qt.io/download)
-* MinGW 64bits # Because I'm using std::filesystem, the only compiler that works is MinGW from Msys2, I apologize.
-* Msys2 # [Download Link!](http://www.msys2.org/)
+* Python 3 and `openpyxl` (`pip install openpyxl`)
 
-### Logging powered by EasyLogging++
+
+## Logging powered by EasyLogging++
 [Available here](https://github.com/zuhd-org/easyloggingpp)
 
 Sorry I'm to lazy to do the git submodule sutff.
+
+
+## Building Using MinGW
+* MinGW 64bits 
+* Msys2 # [Download Link!](http://www.msys2.org/)
 
 ### Installation of MinGW using Msys2
 * Install Msys2 (I recommend installing it on the root of C: drive)
@@ -71,10 +73,17 @@ $ cmake .. -DCMAKE_BUILD_TYPE=[Debug | Release] -G "MinGW Makefiles"
 $ mingw32-make
 ```
 
-# Building Using Visual Studio
-Pending...
- 
+## Building Using Visual Studio
+* Visual Studio 2017
+* Have MSVC x64 in your Qt install
 
+Build either with CMake directly, or use File > Open > CMake in Visual 
+Studio, then select Debug or Release, and press build.
 
-
+### Directly with CMake
+```cmake
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=[Debug | Release] -G "Visual Studio 15 2017 Win64"
+cmake --build . --config [Debug | Release]
+```
 

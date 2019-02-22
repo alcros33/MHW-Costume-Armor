@@ -48,3 +48,6 @@ debug_bin/
 
 # Dunno
 *.qm
+
+# Visual Studio
+.vs

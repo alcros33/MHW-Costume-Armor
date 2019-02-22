@@ -3,6 +3,8 @@
 #include "ui_DialogWindow.h"
 
 #include <QInputDialog>
+#include <array>
+#include <string>
 
 namespace Status
 {
