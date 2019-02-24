@@ -114,6 +114,10 @@ if (MSVC)
         "/std:c++17" 
         "/permissive-"
     )
+    target_compile_definitions(
+        ${MAIN_LIBRARY_NAME} PUBLIC
+        NOMINMAX=1
+    )
 else()
     target_link_libraries(
         ${MAIN_LIBRARY_NAME} PUBLIC 
@@ -126,7 +130,11 @@ endif()
 
 add_executable(${PROJECT_NAME} ${APPFILES} ${QT5_RESOURCES} ${WINDOWS_ICON_RESOURCE})
 add_dependencies(${PROJECT_NAME} ${MAIN_LIBRARY_NAME})     
-target_link_libraries(${PROJECT_NAME} ${MAIN_LIBRARY_NAME} Qt5::Widgets)
+if (MSVC)
+    target_link_libraries(${PROJECT_NAME} ${MAIN_LIBRARY_NAME} Qt5::Widgets)
+else()
+    target_link_libraries(${PROJECT_NAME} stdc++fs ${MAIN_LIBRARY_NAME} Qt5::Widgets)
+endif()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${MAIN_APP_NAME})
 
