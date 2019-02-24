@@ -66,10 +66,8 @@ if (NOT MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wpedantic -Wextra -Wno-sign-compare -Wno-unused-parameter")  
     # Build-type specific flags. Change as needed.
     SET(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
-    if(MINGW)
-        SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wl,-subsystem,windows")
-        SET(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
-    endif()
+    SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wl,-subsystem,windows")
+    SET(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
 endif()
 
 
@@ -94,9 +92,7 @@ add_definitions(-DELPP_NO_DEFAULT_LOG_FILE)
 ## Windows API Stuff
 find_library (PSAPI Psapi)
 
-if(WIN32)
-    SET(WINDOWS_ICON_RESOURCE "${PROJECT_SOURCE_DIR}/resources/app_icon.rc")
-endif()
+SET(WINDOWS_ICON_RESOURCE "${PROJECT_SOURCE_DIR}/resources/app_icon.rc")
 
 # QT5 Resources
 qt5_add_resources(QT5_RESOURCES "${PROJECT_SOURCE_DIR}/resources/Icons.qrc")
@@ -108,16 +104,22 @@ qt5_add_resources(QT5_RESOURCES "${PROJECT_SOURCE_DIR}/resources/Icons.qrc")
 # Compile all sources into a library. Called engine here (change if you wish).
 
 add_library(${MAIN_LIBRARY_NAME} SHARED ${SOURCES} )
-target_link_libraries(${MAIN_LIBRARY_NAME} PSAPI)
 if (MSVC)
+    target_link_libraries(
+        ${MAIN_LIBRARY_NAME} PUBLIC 
+        PSAPI
+    )
     target_compile_options(
         ${MAIN_LIBRARY_NAME} PUBLIC 
         "/std:c++17" 
         "/permissive-"
     )
-endif()
-if (NOT MSVC)
-    target_link_libraries(${MAIN_LIBRARY_NAME} PUBLIC stdc++fs)
+else()
+    target_link_libraries(
+        ${MAIN_LIBRARY_NAME} PUBLIC 
+        PSAPI 
+        stdc++fs
+    )
 endif()
 # Add an executable for the file main.cpp, here called main.x.
 # If you add more executables, copy these three lines accordingly.
