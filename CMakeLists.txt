@@ -62,14 +62,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 
 # Things to always include as flags. Change as needed.
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wpedantic -Wextra -Wno-sign-compare -Wno-unused-parameter")  
-# Build-type specific flags. Change as needed.
-SET(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
-if(MINGW)
+if (NOT MSVC)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wpedantic -Wextra -Wno-sign-compare -Wno-unused-parameter")  
+    # Build-type specific flags. Change as needed.
+    SET(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
     SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wl,-subsystem,windows")
+    SET(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
 endif()
-
-SET(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
 
 
 message(STATUS "Building with the following extra flags: ${CMAKE_CXX_FLAGS}")
@@ -93,9 +92,7 @@ add_definitions(-DELPP_NO_DEFAULT_LOG_FILE)
 ## Windows API Stuff
 find_library (PSAPI Psapi)
 
-if(MINGW)
-    SET(WINDOWS_ICON_RESOURCE "${PROJECT_SOURCE_DIR}/resources/app_icon.rc")
-endif()
+SET(WINDOWS_ICON_RESOURCE "${PROJECT_SOURCE_DIR}/resources/app_icon.rc")
 
 # QT5 Resources
 qt5_add_resources(QT5_RESOURCES "${PROJECT_SOURCE_DIR}/resources/Icons.qrc")
@@ -107,14 +104,37 @@ qt5_add_resources(QT5_RESOURCES "${PROJECT_SOURCE_DIR}/resources/Icons.qrc")
 # Compile all sources into a library. Called engine here (change if you wish).
 
 add_library(${MAIN_LIBRARY_NAME} SHARED ${SOURCES} )
-target_link_libraries(${MAIN_LIBRARY_NAME} PSAPI stdc++fs)
-
+if (MSVC)
+    target_link_libraries(
+        ${MAIN_LIBRARY_NAME} PUBLIC 
+        PSAPI
+    )
+    target_compile_options(
+        ${MAIN_LIBRARY_NAME} PUBLIC 
+        "/std:c++17" 
+        "/permissive-"
+    )
+    target_compile_definitions(
+        ${MAIN_LIBRARY_NAME} PUBLIC
+        NOMINMAX=1
+    )
+else()
+    target_link_libraries(
+        ${MAIN_LIBRARY_NAME} PUBLIC 
+        PSAPI 
+        stdc++fs
+    )
+endif()
 # Add an executable for the file main.cpp, here called main.x.
 # If you add more executables, copy these three lines accordingly.
 
 add_executable(${PROJECT_NAME} ${APPFILES} ${QT5_RESOURCES} ${WINDOWS_ICON_RESOURCE})
 add_dependencies(${PROJECT_NAME} ${MAIN_LIBRARY_NAME})     
-target_link_libraries(${PROJECT_NAME} stdc++fs ${MAIN_LIBRARY_NAME} Qt5::Widgets)
+if (MSVC)
+    target_link_libraries(${PROJECT_NAME} ${MAIN_LIBRARY_NAME} Qt5::Widgets)
+else()
+    target_link_libraries(${PROJECT_NAME} stdc++fs ${MAIN_LIBRARY_NAME} Qt5::Widgets)
+endif()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${MAIN_APP_NAME})
 
@@ -126,7 +146,7 @@ add_custom_command(
     COMMAND python "${SCRIPTS_DIR}/GenerateJson.py" --source "${SCRIPTS_DIR}/MHW Layered Armor.xlsx" --dest "${CMAKE_BINARY_DIR}/ArmorData.json" )
 
 # Deploy QT on Windows
-if(MINGW AND CMAKE_BUILD_TYPE STREQUAL "Release")
+if(WIN32 AND CMAKE_BUILD_TYPE STREQUAL "Release")
     set(EXPORT_LIB_DIR "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins")
     add_custom_command(
         TARGET ${PROJECT_NAME}

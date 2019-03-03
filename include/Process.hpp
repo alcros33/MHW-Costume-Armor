@@ -3,7 +3,6 @@
 #include <memory>
 #include <vector>
 #include <iostream>
-
 #include <windows.h>
 #include <tlhelp32.h>
 #include <psapi.h>
