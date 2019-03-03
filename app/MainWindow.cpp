@@ -4,10 +4,7 @@
 #include <QMovie>
 #include <QInputDialog>
 #include <QFileDialog>
-
-// TODO :
-// - Design InputDialog for saved set features.
-// - "Unsafe Mode"
+#include <QActionGroup>
 
 /// Begin Main Window Member definitions
 
@@ -20,21 +17,22 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->FetchButton->setEnabled(false);
     ui->WriteButton->setEnabled(false);
 
-    connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(_aboutInfo()));
-    connect(ui->actionTutorial, SIGNAL(triggered()), this, SLOT(_Instructions()));
-    connect(ui->actionSafe_Mode, SIGNAL(triggered()), this, SLOT(_ToggleSafe() )  );
-    connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(close() ) );
+    connect(ui->actionAbout, QAction::triggered, this, _aboutInfo);
+    connect(ui->actionTutorial, QAction::triggered, this, _Instructions);
+    connect(ui->actionSafe_Mode, QAction::triggered, this, _ToggleSafe);
+    connect(ui->actionExit, QAction::triggered, this, close);
 
-    connect(ui->SearchButton, SIGNAL(released()), this, SLOT(_FindAddr()));
+    connect(ui->SearchButton, QPushButton::released, this, _FindAddr);
     connect(ui->FetchButton, SIGNAL(released()), this, SLOT(_FetchData()));
-    connect(ui->WriteButton, SIGNAL(released()), this, SLOT(_WriteData()));
-    connect(ui->ClearButton, SIGNAL(released()), this, SLOT(_ClearArmor()));
-    connect(ui->ChangeAllButton, SIGNAL(released()), this, SLOT(_ChangeAll()));
+    connect(ui->WriteButton, QPushButton::released, this, _WriteData);
+    connect(ui->ClearButton, QPushButton::released, this, _ClearArmor);
+    connect(ui->ChangeAllButton, QPushButton::released, this, _ChangeAll);
 
-    connect(ui->actionSave_Current_Armor, SIGNAL(triggered()), this, SLOT(_SaveCurrentSet()));
-    connect(ui->actionLoad_Armor, SIGNAL(triggered()), this, SLOT(_LoadSavedSet()) );
-    connect(ui->actionChange_Steam_Dir, SIGNAL(triggered()), this, SLOT(_GetCustomSteamPath() ) );
-    connect(ui->actionManaged_Saved_Sets, SIGNAL(triggered()), this, SLOT(_NotImplemented()));
+    connect(ui->actionSave_Current_Armor, QAction::triggered, this, _SaveCurrentSet);
+    connect(ui->actionLoad_Armor, QAction::triggered, this, _LoadSavedSet);
+    connect(ui->actionChange_Steam_Path, QAction::triggered, this, _GetCustomSteamPath);
+
+    connect(ui->actionManaged_Saved_Sets, QAction::triggered, this, _NotImplemented);
 
     _InputBoxes[0] = ui->headEdit ;
     _InputBoxes[1] = ui->bodyEdit ;
@@ -49,9 +47,18 @@ MainWindow::MainWindow(QWidget *parent) :
 
     if (_Settings.find("Safe Mode") == _Settings.end())
         _Settings["Safe Mode"] = true;
+
+    if (_Settings.find("Game Version") == _Settings.end())
+        _Settings["Game Version"] = "Latest";
     
-    if (_Settings.find("Steam Dir") != _Settings.end())
-        _MHManager.setSteamDirectory( _Settings["Steam Dir"].get<std::string>() );
+    if (_Settings.find("Steam Path") != _Settings.end())
+    {
+        std::string SteamPath = _Settings["Steam Path"].get<std::string>();
+        _MHManager.setSteamDirectory(SteamPath);
+        ui->actionSteam_Current->setText(("Current : " + SteamPath).c_str());
+    }
+
+    _PopulateVersionSelector();
 
     _PopulateComboBoxes();
 }
@@ -109,6 +116,57 @@ bool MainWindow::_LoadConfigFiles()
     std::ifstream i(ArmorDataFile);
     i >> _ArmorData;
     return true;
+}
+
+void MainWindow::_PopulateVersionSelector()
+{
+    QMenu *menuVersions = new QMenu(ui->menuOptions);
+    menuVersions->setObjectName(QString::fromUtf8("menu_Versions"));
+    menuVersions->setTitle("Select Game Version");
+    ui->menuOptions->addAction(menuVersions->menuAction());
+
+    _VersionGroup = new QActionGroup(this);
+
+    QFont font;
+    font.setBold(true);
+
+    _VersionActions.reserve(MH_Memory::Versions.size());
+    std::string TargetVersion = _Settings["Game Version"];
+    for (auto it=MH_Memory::Versions.begin(); it!=MH_Memory::Versions.end(); ++it)
+    {
+        QAction *tmp = new QAction(this);
+        connect(tmp, QAction::triggered, this, _UpdateSelectedVersion);
+        tmp->setText(it->first.c_str());
+        tmp->setCheckable(true);
+        menuVersions->addAction(tmp);
+        _VersionGroup->addAction(tmp);
+        if (it->first == TargetVersion)
+        {
+            tmp->setChecked(true);
+            tmp->setFont(font);
+        }
+        _VersionActions.push_back(tmp);
+    }
+    if (_VersionGroup->checkedAction() == 0)
+    {
+        DEBUG_LOG(ERROR, "Encountered unknown game version " << TargetVersion << " setting it to 'Latest'");
+        _VersionActions.back()->setChecked(true);
+        _VersionActions.back()->setFont(font);
+    }
+}
+
+void MainWindow::_UpdateSelectedVersion()
+{
+    QAction *checked = _VersionGroup->checkedAction();
+    _Settings["Game Version"] = checked->text().toStdString();
+
+    QFont font;
+    for(auto verAction : _VersionActions)
+        verAction->setFont(font);
+    
+    font.setBold(true);
+    checked->setFont(font);
+    this->_FlushSettings();
 }
 
 void MainWindow::_PopulateComboBoxes()
@@ -177,7 +235,7 @@ void MainWindow::_FindAddr()
     DialogWindow *Dia = new DialogWindow(this, "Wait a Sec...", "Searching MHW for Character Data", Status::SUCCESS);
     Dia->setWindowFlags(Qt::SplashScreen);
     QLabel *IconLabel = Dia->getIconLabel();
-    std::string PrevText = IconLabel->text().toStdString();
+    QString PrevText = IconLabel->text(); // Save it for later
     QMovie *movie = new QMovie(":/ajax-loader.gif");
     movie->setScaledSize(IconLabel->frameSize());
     IconLabel->setMovie(movie);
@@ -188,21 +246,37 @@ void MainWindow::_FindAddr()
 
     Dia->show();
 
-    QThread *thread = QThread::create( [this] {this->_MHManager.FindAddress(); });
-    thread->start();
+    QThread *thread = QThread::create([this] { this->_MHManager.FindAddress(this->_Settings["Game Version"]); });
 
-    while (thread->isRunning() )
+    try
     {
-        if(!Dia->isVisible())
+        thread->start();
+        while (thread->isRunning())
         {
-            thread->quit();
-            delete Dia;
-            ui->SearchButton->setEnabled(true);
-            ui->SearchButton->setText("Search For MHW Save Data");
-            return;
+            if (!Dia->isVisible()) // User presed "Cancel"
+            {
+                thread->quit();
+                delete Dia;
+                ui->SearchButton->setEnabled(true);
+                ui->SearchButton->setText("Search For MHW Save Data");
+                return;
+            }
+            QCoreApplication::processEvents();
         }
-        QCoreApplication::processEvents();
     }
+    catch (std::system_error &e) // VritualQueryEx returned error code 0
+    {
+        Dia->setAttribute(Qt::WA_DeleteOnClose, true);
+        Dia->close();
+        ui->SearchButton->setText("Search For MHW Save Data");
+        ui->SearchButton->setEnabled(true);
+        DEBUG_LOG(ERROR, "VritualQueryEx returned error code 0");
+        DialogWindow *Dia = new DialogWindow(this, "ERROR",
+        "Error occurred during Searching process.\nConsider running the program as Adminstrator.", Status::ERROR0);
+        Dia->show();
+        return;
+    }
+    
 
     if (!this->_MHManager.DataAddressFound())
     {
@@ -216,7 +290,7 @@ void MainWindow::_FindAddr()
     }
     Dia->getOkButton()->setText("Ok");
     Dia->getIconLabel()->clear();
-    Dia->getIconLabel()->setText(PrevText.c_str());
+    Dia->getIconLabel()->setText(PrevText);
     Dia->getMsgLabel()->setText("MHW Data Found Successfully!");
     Dia->setWindowTitle("Succes!!");
     Dia->setAttribute(Qt::WA_DeleteOnClose, true);
@@ -283,7 +357,7 @@ void MainWindow::_LoadSavedSet()
     try
     {
         for(int i=0; i<5 ;++i)
-            _MHManager.getPlayerData().setArmorPiece(i, _SavedSets[text.toStdString()][i]);
+            _MHManager.getPlayerData().setArmorPiece(i, _SavedSets[text.toStdString()][i] );
     }
     catch (std::exception &e)
     {
@@ -307,19 +381,15 @@ bool MainWindow::_ParseInputBoxes()
     int Val;
     for (int i = 0; i < 5; ++i)
     {
-        try
+        Val = _InputBoxes[i]->currentData().toInt();
+        if (Val == 0) // Means Error btw
         {
-            Val = _InputBoxes[i]->currentData().toInt();
-            this->_MHManager.getPlayerData().setArmorPiece(i, Val);
-        }
-        catch (std::exception &e)
-        {
-
             DialogWindow *Dia = new DialogWindow(this, "ERROR", "Invalid Value for armor", Status::ERROR0);
             Dia->show();
             this->_FetchData(true);
             return false;
         }
+        this->_MHManager.getPlayerData().setArmorPiece(i, Val);
     }
     return true;
 }
@@ -443,31 +513,29 @@ void MainWindow::_ChangeAll()
 
 bool MainWindow::_FlushSavedSets()
 {
-    try
+    std::ofstream Out(SavedSetsFile.c_str());
+    if (!Out)
     {
-        std::ofstream o(SavedSetsFile.c_str());
-        o << std::setw(2) << _SavedSets << std::endl;
-    }
-    catch (std::exception &e)
-    {
-        DEBUG_LOG(ERROR,"Couldn't write to file because " << e.what() );
+        DEBUG_LOG(ERROR, "Couldn't open " << SavedSetsFile);
+        Out.close();
         return false;
     }
+    Out << std::setw(2) << _SavedSets << std::endl;
+    Out.close();
     return true;
 }
 
 bool MainWindow::_FlushSettings()
 {
-    try
+    std::ofstream Out(SettingsFile.c_str());
+    if (!Out)
     {
-        std::ofstream o(SettingsFile.c_str());
-        o << std::setw(2) << _Settings << std::endl;
-    }
-    catch (std::exception &e)
-    {
-        DEBUG_LOG(ERROR, "Couldn't write settings to file because " << e.what());
+        DEBUG_LOG(ERROR, "Couldn't open " << SavedSetsFile);
+        Out.close();
         return false;
     }
+    Out << std::setw(2) << _Settings << std::endl;
+    Out.close();
     return true;
 }
 
@@ -476,8 +544,9 @@ void MainWindow::_GetCustomSteamPath()
     QString Dir = QFileDialog::getExistingDirectory(this, "Open Folder Containing Steam.exe", "C:\\", QFileDialog::ShowDirsOnly);
     if (Dir.isEmpty())
         return;
-    _Settings["Steam Dir"] = Dir.toStdString();
+    _Settings["Steam Path"] = Dir.toStdString();
     this->_MHManager.setSteamDirectory(Dir.toStdString());
+    ui->actionSteam_Current->setText(("Current : " + Dir.toStdString()).c_str());
     this->_FlushSettings();
 }
 

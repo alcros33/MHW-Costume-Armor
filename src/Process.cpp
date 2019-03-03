@@ -136,6 +136,11 @@ int BytesToInt(const byte buffer[4] )
     return int(buffer[3] << 24 | buffer[2] << 16 | buffer[1] << 8 | buffer[0] );
 }
 
+int BytesToInt(const std::array<byte,4> &buffer)
+{
+    return int(buffer[3] << 24 | buffer[2] << 16 | buffer[1] << 8 | buffer[0] );
+}
+
 byte* IntToBytes(const int val )
 {
     byte* buffer = new byte[4];

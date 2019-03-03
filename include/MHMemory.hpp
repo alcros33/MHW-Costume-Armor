@@ -25,13 +25,15 @@ public:
     void setSteamDirectory(const fs::path &Path);
 
     bool FetchPlayerData(int slot);
-    void FindAddress();
+    void FindAddress(std::string Ver="Latest");
     bool BackupSaveData() const ;
     bool WriteArmor(int CharSlot, bool isSafe = true);
 
     fs::path ExeFilePath = CurrentExecutableDir();
     fs::path BACKUP_DIR = CurrentExecutableDir().append("Backups");
     fs::path LogPath = CurrentExecutableDir().append("CostumeArmor.log");
+
+    static std::map<std::string,int> Versions;
 
   private:
     Process _MHProcess;

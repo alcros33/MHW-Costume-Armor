@@ -60,8 +60,12 @@ border: 1px solid rgba(66, 192, 251, 150);
 color: rgba(255,255,255,100);
 }
 
-QMenu::item:selected {
+QMenu::item:selected:enabled {
  background-color : rgb(14, 109, 144);
+ }
+
+QMenu::item:!enabled {
+ color : rgb(200, 200, 200);
  }
 
 QComboBox QAbstractItemView
@@ -864,8 +868,15 @@ All</string>
     <property name="title">
      <string>Options</string>
     </property>
+    <widget class="QMenu" name="menuSteam_Path">
+     <property name="title">
+      <string>Steam Path</string>
+     </property>
+     <addaction name="actionSteam_Current"/>
+     <addaction name="actionChange_Steam_Path"/>
+    </widget>
     <addaction name="actionSafe_Mode"/>
-    <addaction name="actionChange_Steam_Dir"/>
+    <addaction name="menuSteam_Path"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuOptions"/>
@@ -922,9 +933,24 @@ All</string>
     <string>Instructions</string>
    </property>
   </action>
-  <action name="actionChange_Steam_Dir">
+  <action name="actionSteam_Current">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
-    <string>Change Steam Directory</string>
+    <string>Current: Default</string>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+  </action>
+  <action name="actionChange_Steam_Path">
+   <property name="text">
+    <string>Change Path</string>
    </property>
   </action>
  </widget>

@@ -5,6 +5,7 @@
 #include "MHMemory.hpp"
 INITIALIZE_EASYLOGGINGPP
 
+/// Begin MH_Memory Member definitions
 MH_Memory::MH_Memory(const std::string &ProcName, const std::string &SteamDLL) : _MHProcess(ProcName)
 {
     INIT_LOGGER( LogPath.string() );
@@ -44,12 +45,15 @@ MH_Memory::MH_Memory(const std::string &ProcName, const std::string &SteamDLL) :
     }
 }
 
-void MH_Memory::FindAddress()
+void MH_Memory::FindAddress(std::string Ver)
 {
     if ( !this->ProcessOpen() )
         return;
     
-    _DataPtr = FindDataAddress(_MHProcess);
+    if (MH_Memory::Versions.find(Ver) == MH_Memory::Versions.end()) // Safety Check
+        Ver = "Latest";
+
+    _DataPtr = FindDataAddress(_MHProcess, MH_Memory::Versions[Ver]);
     if (_DataPtr == 0)
         return;
     _DataPtr -= 29;
@@ -136,7 +140,7 @@ bool MH_Memory::BackupSaveData() const
     {
         fs::copy(SourcePath, DestPath);
     }
-    catch (std::exception &e)
+    catch (fs::filesystem_error &e)
     {
         DEBUG_LOG(ERROR,"Couldn't Copy Save data. Error : " << e.what() );
         return false;
@@ -179,6 +183,20 @@ bool MH_Memory::WriteArmor(int CharSlot, bool isSafe)
     return Status;
 }
 
+// ByteArray to search
+// Version : 163956, Byte Arr: [231,188,66,1]
+// Version : 165889, Byte Arr: [174,190,66,1]
+// Version : 166849, Byte Arr: [ 47,192,66,1]
+
+// Byte pattern to search given version
+std::map<std::string, int> MH_Memory::Versions{
+    {"163956", BytesToInt({231, 188, 66, 1})},
+    {"165889", BytesToInt({174, 190, 66, 1})},
+    {"166849", BytesToInt({ 47, 192, 66, 1})},
+    {"Latest", BytesToInt({ 47, 192, 66, 1})}
+};
+
+/// End MH_Memory Member definitions
 fs::path CurrentExecutableDir()
 {
     TCHAR Buffer[1024];

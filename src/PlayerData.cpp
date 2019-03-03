@@ -71,10 +71,10 @@ std::ostream &operator<<(std::ostream &out, PlayerData &Play)
 // Byte Arr: [174,190,66,1] -- Int Value : 21151406 -- Number displayed on MHW window : 165889
 // Byte Arr: [ 47,192,66,1] -- Int Value : 21151791 -- Number displayed on MHW window : 166849
 
-DWORD64 FindDataAddress(Process &Proc)
+DWORD64 FindDataAddress(Process &Proc, int IntPattern)
 {
-    byte Pattern[] = {47, 192, 66, 1}; // The byte array we are searching for
-    int LastBits = 1705; // The value of the least significant bits of the address
+    byte PatternBuffer[4];
+    int LastBits = (0x068C) + 29; // The value of the least significant bits of the address
 
     DWORD64 BaseAddr = 0;
     byte *ReadBuffer = nullptr;
@@ -83,7 +83,10 @@ DWORD64 FindDataAddress(Process &Proc)
     while (BaseAddr < 0x7fffffffffffLL)
     {
         if (VirtualQueryEx(Proc.getHanlder(), (LPVOID)BaseAddr, &MemBuffer, sizeof(MEMORY_BASIC_INFORMATION)) == 0)
-            continue;
+        {
+            throw std::system_error(std::error_code(), "VirtualQueryEx Returned Error Code 0");
+        }
+
         BaseAddr += (DWORD64)MemBuffer.RegionSize - 1; // Advance to next Memory Region
 
         if ( MemBuffer.AllocationProtect == 64 || MemBuffer.AllocationProtect == 4 )
@@ -104,8 +107,8 @@ DWORD64 FindDataAddress(Process &Proc)
             // To ensure we keep least significant bits value
             for (; index < (MemBuffer.RegionSize - 3); index += (1 << 13) )
             {
-                if (ReadBuffer[index] == Pattern[0] && ReadBuffer[index + 1] == Pattern[1] &&
-                    ReadBuffer[index + 2] == Pattern[2] && ReadBuffer[index + 3] == Pattern[3])
+                std::copy(ReadBuffer+index, ReadBuffer+(index+4), PatternBuffer);
+                if (IntPattern == BytesToInt(PatternBuffer))
                 {
                     return (DWORD_PTR)(MemBuffer.AllocationBase) + (DWORD64)index;
                 }

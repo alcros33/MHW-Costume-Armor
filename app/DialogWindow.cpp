@@ -20,7 +20,7 @@ ui(new Ui::DialogWindow)
 
     ui->_Message->setText(Msg.c_str());
 
-    connect(ui->_okButton, SIGNAL(released()), this , SLOT(accept()));
+    connect(ui->_okButton, QPushButton::released, this, accept);
 
     this->setAttribute(Qt::WA_DeleteOnClose,true);
 }

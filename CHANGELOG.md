@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.10.0] - 2019 - 03 - 02
+### Changed
+- Cleaned some exception handlers
+
+### Added
+- An error message with a suggestion to run as Administrator.
+- A status in the options menu displaying the current steam folder
+- **Important** You can now select your current game version (in case you have a different one) throught the options menu bar
+You can check your game version by reading the number displayed on the MHW Window.
+
 ## [0.9.3] - 2019 - 02 - 21
 ### Fixed
 - Compatibility with game verison 166849, previous versions of the game are no longer compatible.

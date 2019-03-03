@@ -33,12 +33,14 @@ public:
 
   private:
     Ui::MainWindow *ui;
+    QActionGroup *_VersionGroup = nullptr;
     MH_Memory _MHManager;
     json _Settings;
     json _SavedSets;
     json _ArmorData;
     bool _ArmorDataFound;
     std::array<QComboBox*,5> _InputBoxes = {nullptr,nullptr,nullptr,nullptr,nullptr};
+    std::vector<QAction*> _VersionActions;
     std::set<std::string> _UnSafeArmors;
     std::array<int,5> _SafeCount = {0,0,0,0,0};
 
@@ -49,6 +51,8 @@ private slots:
     void _FindAddr();
     void _PopulateComboBoxes();
     bool _LoadConfigFiles();
+    void _PopulateVersionSelector();
+    void _UpdateSelectedVersion();
     
     bool _ParseInputBoxes();
     void _WriteData();

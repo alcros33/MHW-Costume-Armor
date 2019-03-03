@@ -18,7 +18,7 @@ ui(new Ui::AboutWindow)
     ui->description->setTextInteractionFlags(Qt::TextBrowserInteraction);
     ui->description->setOpenExternalLinks(true);
 
-    connect(ui->closeButton, SIGNAL(released()), this, SLOT(accept()));
+    connect(ui->closeButton, QPushButton::released, this, accept);
     this->setAttribute(Qt::WA_DeleteOnClose, true);
 }
 AboutWindow::~AboutWindow()
@@ -37,7 +37,7 @@ ui(new Ui::Instructions)
     ui->description->setTextInteractionFlags(Qt::TextBrowserInteraction);
     ui->description->setOpenExternalLinks(true);
 
-    connect(ui->closeButton, SIGNAL(released()), this, SLOT(accept()));
+    connect(ui->closeButton, QPushButton::released, this, accept);
     this->setAttribute(Qt::WA_DeleteOnClose, true);
 }
 Instructions::~Instructions()

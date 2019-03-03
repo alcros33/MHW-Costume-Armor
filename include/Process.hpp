@@ -62,4 +62,5 @@ private:
 std::string GetRegKeyValue(HKEY RootKey,const std::string &SubKey,const std::string &Value);
 
 int BytesToInt(const byte[4]);
+int BytesToInt(const std::array<byte,4> &buffer);
 byte *IntToBytes(const int val);
