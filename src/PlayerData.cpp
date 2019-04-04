@@ -62,15 +62,8 @@ std::ostream &operator<<(std::ostream &out, PlayerData &Play)
 
 /// Begin Misc Functions
 
-/// Until now the byte Array to search changes on each MHW Patch.
-/// Hopefully we may find a pattern.
-
-// Observed Patterns for byte Array
-// Byte Arr: [143,187,66,1] -- Int Value : 21150607 
-// Byte Arr: [231,188,66,1] -- Int Value : 21150951 -- Number displayed on MHW window : 163956
-// Byte Arr: [174,190,66,1] -- Int Value : 21151406 -- Number displayed on MHW window : 165889
-// Byte Arr: [ 47,192,66,1] -- Int Value : 21151791 -- Number displayed on MHW window : 166849
-
+// Most important function.
+// Searches the memory for a pattern (that changes each version)
 DWORD64 FindDataAddress(Process &Proc, int IntPattern)
 {
     byte PatternBuffer[4];

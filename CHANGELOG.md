@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.10.1] - 2019 - 04 - 03
+### Added
+- Support for Game Version 167353
+
 ## [0.10.0] - 2019 - 03 - 02
 ### Changed
 - Cleaned some exception handlers

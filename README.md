@@ -6,8 +6,6 @@ MHW Costume Armor is a Monster Hunter World MOD which includes graphic user inte
 
 It is a C++ implementaion of the original [MHW Transmog](https://www.nexusmods.com/monsterhunterworld/mods/43) MOD based on a decompilation of it.
 
-Update 22/12/2018 Working as of Behemot update, Drachen Armor no longer crashes the game.
-
 Available also at [Nexus Mods](https://www.nexusmods.com/monsterhunterworld/mods/672)
 
 ## Some Benchmarks

@@ -187,14 +187,15 @@ bool MH_Memory::WriteArmor(int CharSlot, bool isSafe)
 // Version : 163956, Byte Arr: [231,188,66,1]
 // Version : 165889, Byte Arr: [174,190,66,1]
 // Version : 166849, Byte Arr: [ 47,192,66,1]
+// Version : 167353, Byte Arr: [ 55,193,66,1]
 
 // Byte pattern to search given version
 std::map<std::string, int> MH_Memory::Versions{
     {"163956", BytesToInt({231, 188, 66, 1})},
     {"165889", BytesToInt({174, 190, 66, 1})},
     {"166849", BytesToInt({ 47, 192, 66, 1})},
-    {"Latest", BytesToInt({ 47, 192, 66, 1})}
-};
+    {"167353", BytesToInt({ 55, 193, 66, 1})},
+    {"Latest", BytesToInt({ 55, 193, 66, 1})}};
 
 /// End MH_Memory Member definitions
 fs::path CurrentExecutableDir()
