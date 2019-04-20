@@ -1,6 +1,7 @@
 #pragma once
 #include <QMainWindow>
 #include <set>
+#include <iomanip>
 
 #include "ui_MainWindow.h"
 #include "AboutWindow.hpp"
@@ -12,9 +13,6 @@
 // for convenience
 using json = nlohmann::json;
 
-namespace Ui {
-class MainWindow;
-}
 
 class MainWindow : public QMainWindow
 {
@@ -26,6 +24,7 @@ public:
 
     void debugPrints() const ;
     void show();
+    void _show_test_gui();
 
     fs::path SettingsFile = CurrentExecutableDir().append("Settings.json");
     fs::path SavedSetsFile = CurrentExecutableDir().append("SavedSets.json");
@@ -63,6 +62,7 @@ private slots:
     void _LoadSavedSet();
     void _ClearArmor();
     void _ChangeAll();
+    void _debugInputValue();
 
     bool _FlushSavedSets();
     bool _FlushSettings();

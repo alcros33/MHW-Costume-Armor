@@ -9,12 +9,10 @@ ui(new Ui::AboutWindow)
 {
     ui->setupUi(this);
 
-    std::string version = ui->version->text().toUtf8().constData();
-    version.replace(version.find("MAJOR"), 5, std::to_string(PROJECT_VERSION_MAJOR));
-    version.replace(version.find("MINOR"), 5, std::to_string(PROJECT_VERSION_MINOR));
-    version.replace(version.find("PATCH"), 5, std::to_string(PROJECT_VERSION_PATCH));
-
-    ui->version->setText(version.c_str());
+    QString version = ui->version->text();
+    version = version.arg(PROJECT_VERSION_MAJOR).arg(PROJECT_VERSION_MINOR).arg(PROJECT_VERSION_PATCH);
+    ui->version->setText(version);
+    
     ui->description->setTextInteractionFlags(Qt::TextBrowserInteraction);
     ui->description->setOpenExternalLinks(true);
 
@@ -33,10 +31,6 @@ QDialog(parent, Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowClose
 ui(new Ui::Instructions)
 {
     ui->setupUi(this);
-    
-    ui->description->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    ui->description->setOpenExternalLinks(true);
-
     connect(ui->closeButton, QPushButton::released, this, accept);
     this->setAttribute(Qt::WA_DeleteOnClose, true);
 }

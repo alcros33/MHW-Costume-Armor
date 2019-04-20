@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1050</width>
-    <height>600</height>
+    <height>610</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,13 +19,13 @@
   <property name="minimumSize">
    <size>
     <width>1050</width>
-    <height>600</height>
+    <height>610</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>1050</width>
-    <height>600</height>
+    <height>610</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -36,28 +36,31 @@
 background-color: rgb(26, 26, 26);
 color: rgb(255, 255, 255);
 }
+
 QPushButton:hover:!pressed:enabled
 {
 	background-color :rgb(66, 192, 251);
-	border: 2px solid rgb(48, 73, 157);
+	border: 10px solid rgb(48, 73, 157);
 }
 
 QPushButton
 {
-font: 8pt &quot;MS Shell Dlg 2&quot;;
-border: 3px solid #42c0fb;
+font: 75 12pt &quot;MS Shell Dlg 2&quot;;
 background-color: rgba(50, 50, 50);
+border-radius:60px;
+border: 10px solid #42c0fb;
 }
 
 QPushButton:pressed {
 background-color :rgb(48, 73, 157);
-border: 3px solid rgb(26, 40, 86);
+border: 10px solid rgb(26, 40, 86);
 
 }
 QPushButton:disabled {
 background-color : rgba(50, 50, 50.150);
-border: 1px solid rgba(66, 192, 251, 150);
+border: 5px solid rgba(66, 192, 251, 150);
 color: rgba(255,255,255,100);
+
 }
 
 QMenu::item:selected:enabled {
@@ -73,7 +76,23 @@ QComboBox QAbstractItemView
   selection-color: white;
   selection-background-color:  rgb(14, 109, 144);
 }
-</string>
+
+QInputDialog *{
+	font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+}
+QInputDialog QPushButton:hover:!pressed:enabled {
+    border: 2px solid rgb(48, 73, 157);
+}
+QInputDialog QPushButton {
+    border: 3px solid #42c0fb;
+}
+QInputDialog QPushButton:pressed {
+	background-color :rgb(48, 73, 157);
+	border: 2px solid rgb(26, 40, 86);
+}
+QInputDialog QPushButton:disabled {
+    border: 1px solid rgba(66, 192, 251, 150);
+}</string>
   </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
@@ -82,10 +101,10 @@ QComboBox QAbstractItemView
    <widget class="QLabel" name="Title">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>170</x>
       <y>20</y>
-      <width>401</width>
-      <height>41</height>
+      <width>591</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -102,7 +121,7 @@ QComboBox QAbstractItemView
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:22pt; font-weight:600;&quot;&gt;MHW Costume Armor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:26pt; font-weight:600;&quot;&gt;MHW Costume Armor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBox">
@@ -184,31 +203,7 @@ background-color: rgba(40, 40, 40);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton:hover:!pressed:enabled
-{
-	background-color :rgb(66, 192, 251);
-	border: 10px solid rgb(48, 73, 157);
-}
-
-QPushButton
-{
-font: 75 12pt &quot;MS Shell Dlg 2&quot;;
-background-color: rgba(50, 50, 50);
-border-radius:60px;
-border: 10px solid #42c0fb;
-}
-
-QPushButton:pressed {
-background-color :rgb(48, 73, 157);
-border: 10px solid rgb(26, 40, 86);
-
-}
-QPushButton:disabled {
-background-color : rgba(50, 50, 50.150);
-border: 5px solid rgba(66, 192, 251, 150);
-color: rgba(255,255,255,100);
-
-}</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>Fetch
@@ -335,31 +330,7 @@ color: rgba(255,255,255,100);
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton:hover:!pressed:enabled
-{
-	background-color :rgb(66, 192, 251);
-	border: 10px solid rgb(48, 73, 157);
-}
-
-QPushButton
-{
-font: 75 14pt &quot;MS Shell Dlg 2&quot;;
-background-color: rgba(50, 50, 50);
-border-radius:60px;
-border: 10px solid #42c0fb;
-}
-
-QPushButton:pressed {
-background-color :rgb(48, 73, 157);
-border: 10px solid rgb(26, 40, 86);
-
-}
-QPushButton:disabled {
-background-color : rgba(50, 50, 50.150);
-border: 5px solid rgba(66, 192, 251, 150);
-color: rgba(255,255,255,100);
-
-}</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>Write
@@ -561,7 +532,7 @@ Armor</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 13pt &quot;MS Shell Dlg 2&quot;;
+     <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;
 background-color: rgb(0,0,0,0);</string>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -575,7 +546,11 @@ background-color: rgb(0,0,0,0);</string>
       <widget class="QLabel" name="headLabel">
        <property name="font">
         <font>
-         <pointsize>13</pointsize>
+         <family>MS Shell Dlg 2</family>
+         <pointsize>12</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
@@ -728,31 +703,7 @@ background-color: rgb(0,0,0,0);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton:hover:!pressed:enabled
-{
-	background-color :rgb(66, 192, 251);
-	border: 10px solid rgb(48, 73, 157);
-}
-
-QPushButton
-{
-font: 75 12pt &quot;MS Shell Dlg 2&quot;;
-background-color: rgba(50, 50, 50);
-border-radius:60px;
-border: 10px solid #42c0fb;
-}
-
-QPushButton:pressed {
-background-color :rgb(48, 73, 157);
-border: 10px solid rgb(26, 40, 86);
-
-}
-QPushButton:disabled {
-background-color : rgba(50, 50, 50.150);
-border: 5px solid rgba(66, 192, 251, 150);
-color: rgba(255,255,255,100);
-
-}</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>Clear</string>
@@ -776,32 +727,17 @@ color: rgba(255,255,255,100);
       <height>120</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>12</pointsize>
+      <weight>9</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton:hover:!pressed:enabled
-{
-	background-color :rgb(66, 192, 251);
-	border: 10px solid rgb(48, 73, 157);
-}
-
-QPushButton
-{
-font: 75 12pt &quot;MS Shell Dlg 2&quot;;
-background-color: rgba(50, 50, 50);
-border-radius:60px;
-border: 10px solid #42c0fb;
-}
-
-QPushButton:pressed {
-background-color :rgb(48, 73, 157);
-border: 10px solid rgb(26, 40, 86);
-
-}
-QPushButton:disabled {
-background-color : rgba(50, 50, 50.150);
-border: 5px solid rgba(66, 192, 251, 150);
-color: rgba(255,255,255,100);
-
-}</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>Change

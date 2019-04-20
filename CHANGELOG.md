@@ -1,6 +1,32 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## Unreleased - 2019 - 04 - 20
+### Added
+- Origin Layered and Kulve Y armors.
+- A global exception handler to print crash reasons in the log.
+- The entry for Queen Beetle Armor (Note that Butterfly and Queen Beetle are the same armor). After some experiments we determined what happens if you equip King or Queen Beetle Armors if your character is Male or Female.
+The armor displayed in game is as follows:
+
+If your character is Male:
+* if yoy equip King Beetle -> The Game Displays King Beetle.
+* if yoy equip Queen Beetle -> The Game Displays Butterfly.
+
+If your character is Female:
+* if yoy equip King Beetle -> The Game Displays Butterfly.
+* if yoy equip Queen Beetle -> The Game Displays King Beetle.
+
+Selecting Butterfly always displays Butterfly despite the gender.
+
+### Changed
+- The MHW_Armor_Data.xlsx file to a different format.
+- MainWindow.cpp was splitted into different files because it was getting too big.
+There should be no noticable changes due to this action
+- From std::filesystem to experimental::filesystem. So now it can be compiled using Mingw7.3 bundled with QT5.
+
+### Removed
+- The repeated entries for King Beetle armor
+
 ## [0.10.1] - 2019 - 04 - 03
 ### Added
 - Support for Game Version 167353

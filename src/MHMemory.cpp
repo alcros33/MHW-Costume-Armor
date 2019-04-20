@@ -20,7 +20,9 @@ MH_Memory::MH_Memory(const std::string &ProcName, const std::string &SteamDLL) :
         _SteamPath = GetRegKeyValue(HKEY_CURRENT_USER, "Software\\Valve\\Steam", "SteamPath");
         if (_SteamID != 0 && !_SteamPath.empty() )
         {
+            #ifdef NDEBUG
             _SteamPath.make_preferred();
+            #endif
             _SteamPath /= "userdata";
             _SteamPath /= std::to_string(_SteamID);
             _SteamPath /= "582010";
@@ -90,7 +92,9 @@ bool MH_Memory::FetchPlayerData(int slot)
 void MH_Memory::setSteamDirectory(const fs::path &Path)
 {
     this->_SteamPath = Path;
-    _SteamPath.make_preferred();
+    #ifdef NDEBUG
+    this->_SteamPath.make_preferred();
+    #endif
     _SteamPath /= "userdata";
     _SteamPath /= std::to_string(_SteamID);
     _SteamPath /= "582010";
@@ -204,7 +208,9 @@ fs::path CurrentExecutableDir()
     if (GetModuleFileName(nullptr, Buffer, 1024) != 0)
     {
         fs::path Path(Buffer);
+        #ifdef NDEBUG
         Path.make_preferred();
+        #endif
         return Path.parent_path();
     }
     DEBUG_LOG(ERROR, "Couldn't retrieve the name of current EXE File.");

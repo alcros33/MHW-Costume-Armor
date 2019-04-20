@@ -7,7 +7,7 @@ set(MAIN_LIBRARY_NAME "MemoryHandler")
 enable_language(C CXX)
 
 if (NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_BUILD_TYPE "Release")
 endif()
 
 # --------------------------------------------------------------------------------
@@ -18,17 +18,13 @@ endif()
 # by including "exampleConfig.h" in the source. 
 # See exampleConfig.h.in for some more details.
 set(PROJECT_VERSION_MAJOR 0)
-set(PROJECT_VERSION_MINOR 10)
-set(PROJECT_VERSION_PATCH 1)
+set(PROJECT_VERSION_MINOR 11)
+set(PROJECT_VERSION_PATCH 0)
 
 #Include stuff. No change needed.
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 include(ConfigSafeGuards)
 include(Colors)
-
-# Instruct CMake to run moc automatically when needed.
-set(CMAKE_AUTOMOC ON)
-
 
 # --------------------------------------------------------------------------------
 #                          Include packages, libraries, etc.
@@ -36,6 +32,8 @@ set(CMAKE_AUTOMOC ON)
 
 # Find the QtWidgets library
 find_package(Qt5Widgets CONFIG REQUIRED)
+# Instruct CMake to run moc automatically when needed.
+set(CMAKE_AUTOMOC ON)
 # Create code from a list of Qt designer ui files.
 set(CMAKE_AUTOUIC ON) # use this if you have CMake 3.x instead of the following
 
@@ -125,8 +123,6 @@ else()
         stdc++fs
     )
 endif()
-# Add an executable for the file main.cpp, here called main.x.
-# If you add more executables, copy these three lines accordingly.
 
 add_executable(${PROJECT_NAME} ${APPFILES} ${QT5_RESOURCES} ${WINDOWS_ICON_RESOURCE})
 add_dependencies(${PROJECT_NAME} ${MAIN_LIBRARY_NAME})     
@@ -143,7 +139,7 @@ set(SCRIPTS_DIR "${PROJECT_SOURCE_DIR}/scripts")
 add_custom_command(
     TARGET ${PROJECT_NAME}
     POST_BUILD
-    COMMAND python "${SCRIPTS_DIR}/GenerateJson.py" --source "${SCRIPTS_DIR}/MHW Layered Armor.xlsx" --dest "${CMAKE_BINARY_DIR}/ArmorData.json" )
+    COMMAND python "${SCRIPTS_DIR}/GenerateJson.py" --source "${SCRIPTS_DIR}/MHW_Armor_Data.xlsx" --dest "${CMAKE_BINARY_DIR}/ArmorData.json" )
 
 # Deploy QT on Windows
 if(WIN32 AND CMAKE_BUILD_TYPE STREQUAL "Release")

@@ -12,12 +12,11 @@ ui(new Ui::DialogWindow)
 
     ui->setupUi(this);
 
-    std::string statusIcon = ui->_iconLabel->text().toUtf8().constData();
-    statusIcon.replace(statusIcon.find("<++>"), 4, Status::Names[status]);
-    ui->_iconLabel->setText(statusIcon.c_str());
+    QString statusIcon = ui->_iconLabel->text();
+    statusIcon = statusIcon.arg(Status::Names[status]);
+    ui->_iconLabel->setText(statusIcon);
 
     this->setWindowTitle(Title.c_str());
-
     ui->_Message->setText(Msg.c_str());
 
     connect(ui->_okButton, QPushButton::released, this, accept);
@@ -32,39 +31,10 @@ DialogWindow::~DialogWindow()
 
 QString getTextInputDialog(QWidget *parent, const std::string &Title, const std::string &Message, bool *ok)
 {
-    QInputDialog *Dia = new QInputDialog(parent, Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint | Qt::MSWindowsFixedSizeDialogHint);
-    Dia->setInputMode( QInputDialog::TextInput);
-    Dia->setWindowTitle(Title.c_str());                        
-    Dia->setLabelText(Message.c_str());
-    Dia->resize(300,150);
-    Dia->setAttribute(Qt::WA_DeleteOnClose, true);
-
-    QLineEdit *edit = Dia->findChild<QLineEdit *>();
-    if (edit!=0)
-        edit->setAlignment(Qt::AlignCenter);
-
-    Dia->setStyleSheet("QWidget{"
-                        "font: 75 10pt \"MS Shell Dlg 2\";"
-                        "}");
-
-    (*ok) = Dia->exec();                                
-    return Dia->textValue();
+    return QInputDialog::getText(parent, Title.c_str(), Message.c_str(), QLineEdit::Normal, "", ok, Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint);
 }
 
 QString getItemInputDialog(QWidget *parent, const std::string &Title, const std::string &Message, const QStringList &items, bool *ok)
 {
-    QInputDialog *Dia = new QInputDialog(parent, Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint | Qt::MSWindowsFixedSizeDialogHint);
-    Dia->setInputMode( QInputDialog::TextInput);
-    Dia->setWindowTitle(Title.c_str());                        
-    Dia->setLabelText(Message.c_str());
-    Dia->resize(300,150);
-    Dia->setAttribute(Qt::WA_DeleteOnClose, true);
-    Dia->setComboBoxItems(items);
-
-    Dia->setStyleSheet("QWidget{"
-                        "font: 75 10pt \"MS Shell Dlg 2\";"
-                        "}");
-
-    (*ok) = Dia->exec();                                
-    return Dia->textValue();
+    return QInputDialog::getItem(parent, Title.c_str(), Message.c_str(), items, 0, false, ok, Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint);
 }
