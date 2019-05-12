@@ -199,7 +199,8 @@ std::map<std::string, int> MH_Memory::Versions{
     {"165889", BytesToInt({174, 190, 66, 1})},
     {"166849", BytesToInt({ 47, 192, 66, 1})},
     {"167353", BytesToInt({ 55, 193, 66, 1})},
-    {"Latest", BytesToInt({ 55, 193, 66, 1})}};
+    {"167541", BytesToInt({ 214, 199, 66, 1})},
+    {"Latest", BytesToInt({ 214, 199, 66, 1})}};
 
 /// End MH_Memory Member definitions
 fs::path CurrentExecutableDir()

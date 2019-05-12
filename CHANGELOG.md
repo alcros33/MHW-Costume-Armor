@@ -1,12 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## Unreleased - 2019 - 04 - 20
+## [0.10.2] - 2019 - 05 - 11
 ### Added
 - Origin Layered and Kulve Y armors.
 - A global exception handler to print crash reasons in the log.
 - The entry for Queen Beetle Armor (Note that Butterfly and Queen Beetle are the same armor). After some experiments we determined what happens if you equip King or Queen Beetle Armors if your character is Male or Female.
 The armor displayed in game is as follows:
+- Support for game version 167541
 
 If your character is Male:
 * if yoy equip King Beetle -> The Game Displays King Beetle.

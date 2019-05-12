@@ -67,7 +67,11 @@ std::ostream &operator<<(std::ostream &out, PlayerData &Play)
 DWORD64 FindDataAddress(Process &Proc, int IntPattern)
 {
     byte PatternBuffer[4];
-    int LastBits = (0x068C) + 29; // The value of the least significant bits of the address
+    int LastBits;
+    if (IntPattern >= BytesToInt({214, 199, 66, 1}))
+        LastBits = (0x06AC) + 29; // The value of the least significant bits of the address
+    else
+        LastBits = (0x068C) + 29; // The value of the least significant bits of the address
 
     DWORD64 BaseAddr = 0;
     byte *ReadBuffer = nullptr;

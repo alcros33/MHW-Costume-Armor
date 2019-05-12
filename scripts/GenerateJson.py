@@ -47,5 +47,5 @@ if __name__ == "__main__":
 
     with open(JSON_OUT, 'w') as f:
         print(f"Writting to {JSON_OUT}")
-        json.dump(Dic,f)
+        json.dump(Dic,f, indent=2, sort_keys=True)
             
