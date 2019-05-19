@@ -9,41 +9,41 @@
 /// These file contains Member definitions of the MainWindow class
 /// Related to handle settings
 
-void MainWindow::_UpdateSelectedVersion()
+void MainWindow::_updateSelectedVersion()
 {
-    QAction *checked = _VersionGroup->checkedAction();
+    QAction *checked = _versionGroup->checkedAction();
     _Settings["Game Version"] = checked->text().toStdString();
 
     QFont font;
-    for (auto verAction : _VersionActions)
+    for (auto verAction : _versionActions)
         verAction->setFont(font);
 
     font.setBold(true);
     checked->setFont(font);
-    this->_FlushSettings();
+    this->_flushSettings();
 }
 
-void MainWindow::_ToggleSafe()
+void MainWindow::_toggleSafe()
 {
     _Settings["Safe Mode"] = !_Settings["Safe Mode"];
     if (!_Settings["Safe Mode"])
     {
-        this->_UnsafeWarning();
+        this->_unsafeWarning();
     }
     else
     {
-        this->_DeleteUnsafe();
+        this->_deleteUnsafe();
         this->setWindowTitle(PROJECT_NAME);
     }
-    _FlushSettings();
+    _flushSettings();
 }
 
-bool MainWindow::_FlushSettings()
+bool MainWindow::_flushSettings()
 {
-    std::ofstream Out(SettingsFile.str());
+    std::ofstream Out(settingsFile.str());
     if (!Out)
     {
-        DEBUG_LOG(ERROR, "Couldn't open " << SavedSetsFile);
+        DEBUG_LOG(ERROR, "Couldn't open " << savedSetsFile);
         Out.close();
         return false;
     }
@@ -52,7 +52,7 @@ bool MainWindow::_FlushSettings()
     return true;
 }
 
-void MainWindow::_GetCustomSteamPath()
+void MainWindow::_getCustomSteamPath()
 {
     QString Dir = QFileDialog::getExistingDirectory(this, "Open Folder Containing Steam.exe", "C:\\", QFileDialog::ShowDirsOnly);
     if (Dir.isEmpty())
@@ -60,5 +60,5 @@ void MainWindow::_GetCustomSteamPath()
     _Settings["Steam Path"] = Dir.toStdString();
     this->_MHManager.setSteamDirectory(Dir.toStdString());
     ui->actionSteam_Current->setText(("Current : " + Dir.toStdString()).c_str());
-    this->_FlushSettings();
+    this->_flushSettings();
 }

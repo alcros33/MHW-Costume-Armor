@@ -8,7 +8,7 @@ INITIALIZE_EASYLOGGINGPP
 /// Begin MH_Memory Member definitions
 MH_Memory::MH_Memory(const std::string &ProcName, const std::string &SteamDLL) : _MHProcess(ProcName)
 {
-    INIT_LOGGER( LogPath.str() );
+    INIT_LOGGER( logPath.str() );
 
     if (!_MHProcess.isOpen())
         return;
@@ -17,21 +17,21 @@ MH_Memory::MH_Memory(const std::string &ProcName, const std::string &SteamDLL) :
     auto Mod = _MHProcess.getModuleByName(SteamDLL);
     if (!Mod.isEmpty())
     {
-        _SteamID = _MHProcess.ReadMemoryInt(Mod.getBaseAddress() + 237592);
-        _SteamPath = GetRegKeyValue(HKEY_CURRENT_USER, "Software\\Valve\\Steam", "SteamPath");
-        if (_SteamID != 0 && !_SteamPath.empty() )
+        _steamID = _MHProcess.readMemoryInt(Mod.getBaseAddress() + 237592);
+        _steamPath = GetRegKeyValue(HKEY_CURRENT_USER, "Software\\Valve\\Steam", "SteamPath");
+        if (_steamID != 0 && !_steamPath.empty() )
         {
-            _SteamPath /= "userdata";
-            _SteamPath /= std::to_string(_SteamID);
-            _SteamPath /= "582010";
-            _SteamFound = true;
+            _steamPath /= "userdata";
+            _steamPath /= std::to_string(_steamID);
+            _steamPath /= "582010";
+            _steamFound = true;
         }
         else
         {
             DEBUG_LOG(ERROR,"Steam ID or Path NOT FOUND");
             DEBUG_LOG_HEX(DEBUG,"Current Steam Addr : "<< ( (long) Mod.getBaseAddress() + 237592) );
-            DEBUG_LOG(DEBUG,"Current Steam ID : " << _SteamID );
-            DEBUG_LOG(DEBUG,"Current Steam Path : " << _SteamPath);
+            DEBUG_LOG(DEBUG,"Current Steam ID : " << _steamID );
+            DEBUG_LOG(DEBUG,"Current Steam Path : " << _steamPath);
         }
     }
     else
@@ -45,26 +45,26 @@ MH_Memory::MH_Memory(const std::string &ProcName, const std::string &SteamDLL) :
     }
 }
 
-void MH_Memory::FindAddress(std::string Ver)
+void MH_Memory::findAddress(std::string Ver)
 {
-    if (!this->ProcessOpen())
+    if (!this->processOpen())
         return;
     
     if (MH_Memory::Versions.find(Ver) == MH_Memory::Versions.end()) // Safety Check
         Ver = "Latest";
 
-    _DataPtr = FindDataAddress(_MHProcess, MH_Memory::Versions[Ver]);
-    if (_DataPtr == 0)
+    _dataPtr = FindDataAddress(_MHProcess, MH_Memory::Versions[Ver]);
+    if (_dataPtr == 0)
         return;
-    _DataPtr -= 29;
+    _dataPtr -= 29;
     _slotDist = MH_Memory::CharSlotDist[Ver];
 
-    DEBUG_LOG_HEX(DEBUG,"Address of the Characters Data : "<< _DataPtr);
+    DEBUG_LOG_HEX(DEBUG,"Address of the Characters Data : "<< _dataPtr);
 }
 
-bool MH_Memory::FetchPlayerData(int slot)
+bool MH_Memory::fetchPlayerData(int slot)
 {
-    if ( !this->ProcessOpen() || !this->DataAddressFound() )
+    if ( !this->processOpen() || !this->dataAddressFound() )
         return false;
 
     if (slot < 0)
@@ -72,8 +72,8 @@ bool MH_Memory::FetchPlayerData(int slot)
     if (slot > 2)
         slot = 2;
 
-    byte *CharDataBuffer = _MHProcess.ReadMemory(_DataPtr + _slotDist * slot, 28);
-    byte *lpBuffer = _MHProcess.ReadMemory(_DataPtr + _slotDist * slot - 394460, 1);
+    byte *CharDataBuffer = _MHProcess.readMemory(_dataPtr + _slotDist * slot, 28);
+    byte *lpBuffer = _MHProcess.readMemory(_dataPtr + _slotDist * slot - 394460, 1);
 
     if (!CharDataBuffer || !lpBuffer)
     {
@@ -90,12 +90,12 @@ bool MH_Memory::FetchPlayerData(int slot)
 
 void MH_Memory::setSteamDirectory(const fs::Path &p)
 {
-    this->_SteamPath = p;
-    _SteamPath /= "userdata";
-    _SteamPath /= std::to_string(_SteamID);
-    _SteamPath /= "582010";
-    _SteamFound = true;
-    DEBUG_LOG(DEBUG, "Steam Path customly set to "<<_SteamPath);
+    this->_steamPath = p;
+    _steamPath /= "userdata";
+    _steamPath /= std::to_string(_steamID);
+    _steamPath /= "582010";
+    _steamFound = true;
+    DEBUG_LOG(DEBUG, "Steam Path customly set to "<<_steamPath);
 }
 
 std::string GetDateTime()
@@ -109,22 +109,22 @@ std::string GetDateTime()
     return Result.str();
 }
 
-bool MH_Memory::BackupSaveData() const
+bool MH_Memory::backupSaveData() const
 {
-    if (!this->SteamFound())
+    if (!this->steamFound())
     {
         DEBUG_LOG(ERROR,"Steam Dir was not Found");
         return false;
     }
 
-    if (!MH_Memory::BACKUP_DIR.exists())
-        if (!fs::create_directory(MH_Memory::BACKUP_DIR))
+    if (!MH_Memory::backupDir.exists())
+        if (!fs::create_directory(MH_Memory::backupDir))
         {
             DEBUG_LOG(ERROR,"Backup Dir was not Found and couldn't created");
             return false;
         }
 
-    auto SourcePath = this->_SteamPath;
+    auto SourcePath = this->_steamPath;
     SourcePath /= "remote";
     SourcePath /= "SAVEDATA1000";
 
@@ -134,7 +134,7 @@ bool MH_Memory::BackupSaveData() const
         return false;
     }
 
-    auto DestPath = MH_Memory::BACKUP_DIR;
+    auto DestPath = MH_Memory::backupDir;
     DestPath /= ("Backup " + GetDateTime());
     try
     {
@@ -149,11 +149,11 @@ bool MH_Memory::BackupSaveData() const
     return DestPath.exists();
 }
 
-bool MH_Memory::WriteArmor(int CharSlot, bool isSafe)
+bool MH_Memory::writeArmor(int CharSlot, bool isSafe)
 {
-    if ( !this->ProcessOpen() || !this->DataAddressFound() )
+    if ( !this->processOpen() || !this->dataAddressFound() )
         return false;
-    if (!this->BackupSaveData())
+    if (!this->backupSaveData())
     {
         DEBUG_LOG(ERROR,"Couldn't Backup SaveData");
         if(isSafe)
@@ -172,7 +172,7 @@ bool MH_Memory::WriteArmor(int CharSlot, bool isSafe)
 
     for (int index = 0; index < 5; ++index)
     {
-        Status &= _MHProcess.WriteMemoryUInt(_DataPtr + index * 4 + _slotDist * CharSlot,
+        Status &= _MHProcess.writeMemoryUInt(_dataPtr + index * 4 + _slotDist * CharSlot,
                                             _Data.getArmorPiece(index));
     }
     

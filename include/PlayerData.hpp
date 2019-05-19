@@ -31,12 +31,10 @@ public:
     void setArmorPiece(int num, int value);
     u_int getArmorPiece(int num) const;
 
-    std::string Print() const;
+    std::string print() const;
     std::array<std::string,5> getDataString() const;
     std::array<byte,5> getData() const { return _ArmorData; }
 
-    static const byte _byteLimit = std::numeric_limits<byte>::max();
-    
 private:
     std::array<byte,5> _ArmorData = {255,255,255,255,255};
     bool _Gender; // true is female

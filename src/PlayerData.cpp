@@ -15,8 +15,8 @@ void PlayerData::setArmorPiece(int num, int value)
     if (num > 4 || num < 0)
         return;
 
-    if (value >= _byteLimit || value <= 0 )
-        value = _byteLimit;
+    if (value >= 255 || value <= 0 )
+        value = 255;
 
     this->_ArmorData[num] = value;
 }
@@ -26,12 +26,12 @@ u_int PlayerData::getArmorPiece(int num) const
         num = Armor::HEAD;
     u_int value = this->_ArmorData[num];
 
-    if (value >= _byteLimit)
+    if (value >= 255)
         value = std::numeric_limits<u_int>::max();
     return value;
 }
 
-std::string PlayerData::Print() const
+std::string PlayerData::print() const
 {
     std::stringstream Base;
     Base << "Character Data Info : " << std::endl;
@@ -56,7 +56,7 @@ std::array<std::string,5> PlayerData::getDataString() const
 
 std::ostream &operator<<(std::ostream &out, PlayerData &Play)
 {
-    out<< Play.Print();
+    out<< Play.print();
     return out;
 }
 
@@ -78,14 +78,15 @@ DWORD64 FindDataAddress(Process &Proc, SearchPattern Pa)
     {
         if (VirtualQueryEx(Proc.getHanlder(), (LPVOID)BaseAddr, &MemBuffer, sizeof(MEMORY_BASIC_INFORMATION)) == 0)
         {
-            throw std::system_error(std::error_code(), "VirtualQueryEx Returned Error Code 0");
+            throw std::system_error(std::error_code(),
+                                    "VirtualQueryEx Returned Error Code : "+std::to_string(GetLastError()));
         }
 
         BaseAddr += (DWORD64)MemBuffer.RegionSize - 1; // Advance to next Memory Region
 
         if ( MemBuffer.AllocationProtect == 64 || MemBuffer.AllocationProtect == 4 )
         {
-            ReadBuffer = Proc.ReadMemory(MemBuffer.AllocationBase, MemBuffer.RegionSize);
+            ReadBuffer = Proc.readMemory(MemBuffer.AllocationBase, MemBuffer.RegionSize);
             if (!ReadBuffer)
                 continue;
 

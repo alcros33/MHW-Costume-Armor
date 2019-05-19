@@ -37,13 +37,13 @@ public:
     Process(const DWORD64 &processID);
     ~Process();
 
-    byte* ReadMemory(DWORD64 address, int bytesToRead) const;
-    byte* ReadMemory(LPVOID address, int bytesToRead) const;
-    int ReadMemoryInt(DWORD64 address) const;
+    byte* readMemory(DWORD64 address, int bytesToRead) const;
+    byte* readMemory(LPVOID address, int bytesToRead) const;
+    int readMemoryInt(DWORD64 address) const;
 
-    bool WriteMemory(DWORD64 address, byte Buffer[], int bytesToWrite);
-    bool WriteMemoryInt(DWORD64 address, int value);
-    bool WriteMemoryUInt(DWORD64 address, u_int value);
+    bool writeMemory(DWORD64 address, byte Buffer[], int bytesToWrite);
+    bool writeMemoryInt(DWORD64 address, int value);
+    bool writeMemoryUInt(DWORD64 address, u_int value);
 
     std::vector<Module> getModuleList() const;
     Module getModuleByName(const std::string &ModuleName) const;

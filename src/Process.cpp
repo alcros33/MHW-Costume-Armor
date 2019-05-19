@@ -78,7 +78,7 @@ Process::~Process()
 
 // -------- READ THINGS ---------------
 
-byte* Process::ReadMemory(DWORD64 address, int bytesToRead) const
+byte* Process::readMemory(DWORD64 address, int bytesToRead) const
 {
     byte *buffer = new byte[bytesToRead];
     if (ReadProcessMemory(this->_handleProcess, (LPVOID)address, buffer, bytesToRead, nullptr))
@@ -87,7 +87,7 @@ byte* Process::ReadMemory(DWORD64 address, int bytesToRead) const
     return nullptr;
 }
 
-byte* Process::ReadMemory(LPVOID address, int bytesToRead) const 
+byte* Process::readMemory(LPVOID address, int bytesToRead) const 
 {
     byte* buffer = new byte[bytesToRead] ;
     if (ReadProcessMemory(this->_handleProcess, address, buffer, bytesToRead, nullptr))
@@ -96,9 +96,9 @@ byte* Process::ReadMemory(LPVOID address, int bytesToRead) const
     return nullptr;
 }
 
-int Process::ReadMemoryInt(DWORD64 address) const
+int Process::readMemoryInt(DWORD64 address) const
 {
-    byte *buffer = this->ReadMemory( address, 4);
+    byte *buffer = this->readMemory( address, 4);
     if ( !buffer )
         return 0;
     int Val = BytesToInt(buffer);
@@ -108,15 +108,15 @@ int Process::ReadMemoryInt(DWORD64 address) const
 
 // -------- Write THINGS ---------------
 
-bool Process::WriteMemory(DWORD64 address, byte Buffer[], int bytesToWrite)
+bool Process::writeMemory(DWORD64 address, byte Buffer[], int bytesToWrite)
 {
     return WriteProcessMemory(this->_handleProcess, (LPVOID)address, Buffer, bytesToWrite, nullptr);
 }
-bool Process::WriteMemoryInt(DWORD64 address, int value)
+bool Process::writeMemoryInt(DWORD64 address, int value)
 {
     return WriteProcessMemory(this->_handleProcess, (LPVOID)address, &value, 4, nullptr);
 }
-bool Process::WriteMemoryUInt(DWORD64 address, u_int value)
+bool Process::writeMemoryUInt(DWORD64 address, u_int value)
 {
     return WriteProcessMemory(this->_handleProcess, (LPVOID)address, &value, 4, nullptr);
 }

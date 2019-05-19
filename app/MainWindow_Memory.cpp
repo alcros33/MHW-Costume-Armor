@@ -10,7 +10,7 @@
 /// These file contains Member definitions of the MainWindow class
 /// Related to readying and writting to memory.
 
-void MainWindow::_FindAddr()
+void MainWindow::_findAddr()
 {
     ui->SearchButton->setText("Searching for Save Data...");
     ui->SearchButton->setEnabled(false);
@@ -29,7 +29,7 @@ void MainWindow::_FindAddr()
 
     Dia->show();
 
-    QThread *thread = QThread::create([this] { this->_MHManager.FindAddress(this->_Settings["Game Version"]); });
+    QThread *thread = QThread::create([this] { this->_MHManager.findAddress(this->_Settings["Game Version"]); });
 
     try
     {
@@ -47,20 +47,20 @@ void MainWindow::_FindAddr()
             QCoreApplication::processEvents();
         }
     }
-    catch (std::system_error &e) // VritualQueryEx returned error code 0
+    catch (std::system_error &e) // VritualQueryEx returned error code
     {
         Dia->setAttribute(Qt::WA_DeleteOnClose, true);
         Dia->close();
         ui->SearchButton->setText("Search For MHW Save Data");
         ui->SearchButton->setEnabled(true);
-        DEBUG_LOG(ERROR, "VritualQueryEx returned error code 0");
+        DEBUG_LOG(ERROR, e.what());
         DialogWindow *Dia = new DialogWindow(this, "ERROR",
                                              "Error occurred during Searching process.\nConsider running the program as Adminstrator.", Status::ERROR0);
         Dia->show();
         return;
     }
 
-    if (!this->_MHManager.DataAddressFound())
+    if (!this->_MHManager.dataAddressFound())
     {
         Dia->setAttribute(Qt::WA_DeleteOnClose, true);
         Dia->close();
@@ -83,16 +83,16 @@ void MainWindow::_FindAddr()
     ui->FetchButton->setEnabled(true);
     ui->WriteButton->setEnabled(true);
 }
-void MainWindow::_FetchData(bool noMessage)
+void MainWindow::_fetchData(bool noMessage)
 {
     int slot = std::stoi(ui->comboBox->currentText().toStdString());
-    if (!_MHManager.FetchPlayerData(slot - 1))
+    if (!_MHManager.fetchPlayerData(slot - 1))
     {
         DialogWindow *Dia = new DialogWindow(this, "ERROR", "Couldn't Fetch Character Data...", Status::ERROR0);
         Dia->show();
         return;
     }
-    this->_UpdateArmorValues();
+    this->_updateArmorValues();
     std::string msg = "Successfully fetched Data for Character Slot " + std::to_string(slot);
     if (!noMessage)
     {
@@ -101,13 +101,13 @@ void MainWindow::_FetchData(bool noMessage)
     }
 }
 
-void MainWindow::_WriteData()
+void MainWindow::_writeData()
 {
-    if (!this->_ParseInputBoxes())
+    if (!this->_parseInputBoxes())
         return;
 
     int slot = std::stoi(ui->comboBox->currentText().toStdString());
-    if (!_MHManager.WriteArmor(slot - 1, _Settings["Safe Mode"]))
+    if (!_MHManager.writeArmor(slot - 1, _Settings["Safe Mode"]))
     {
         DialogWindow *Dia = new DialogWindow(this, "ERROR", "Couldn't Write Save Data!", Status::ERROR0);
         Dia->show();
@@ -120,5 +120,5 @@ void MainWindow::_WriteData()
                                              Status::SUCCESS);
         Dia->show();
     }
-    this->_FetchData(true);
+    this->_fetchData(true);
 }

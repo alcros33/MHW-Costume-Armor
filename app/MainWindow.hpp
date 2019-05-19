@@ -24,54 +24,54 @@ public:
 
     void debugPrints() const ;
     void show();
-    void _show_test_gui();
+    void _showTestGui();
 
-    fs::Path SettingsFile = CurrentExecutableDir().append("Settings.json");
-    fs::Path SavedSetsFile = CurrentExecutableDir().append("SavedSets.json");
-    fs::Path ArmorDataFile = CurrentExecutableDir().append("ArmorData.json");
+    fs::Path settingsFile = CurrentExecutableDir().append("Settings.json");
+    fs::Path savedSetsFile = CurrentExecutableDir().append("SavedSets.json");
+    fs::Path armorDataFile = CurrentExecutableDir().append("ArmorData.json");
 
   private:
     Ui::MainWindow *ui;
-    QActionGroup *_VersionGroup = nullptr;
+    QActionGroup *_versionGroup = nullptr;
     MH_Memory _MHManager;
     json _Settings;
     json _SavedSets;
     json _ArmorData;
-    bool _ArmorDataFound;
-    std::array<QComboBox*,5> _InputBoxes = {nullptr,nullptr,nullptr,nullptr,nullptr};
-    std::vector<QAction*> _VersionActions;
-    std::set<std::string> _UnSafeArmors;
-    std::array<int,5> _SafeCount = {0,0,0,0,0};
+    bool _armorDataFound;
+    std::array<QComboBox*,5> _inputBoxes = {nullptr,nullptr,nullptr,nullptr,nullptr};
+    std::vector<QAction*> _versionActions;
+    std::set<std::string> _unsafeArmors;
+    std::array<int,5> _safeCount = {0,0,0,0,0};
 
-private slots:
-    void _Instructions();
+  private slots:
+    // Inits
+    bool _loadConfigFiles();
+    void _populateComboBoxes();
+    void _populateVersionSelector();
+    // Dialogs
+    void _instructions();
     void _aboutInfo();
-
-    void _FindAddr();
-    void _PopulateComboBoxes();
-    bool _LoadConfigFiles();
-    void _PopulateVersionSelector();
-    void _UpdateSelectedVersion();
-    
-    bool _ParseInputBoxes();
-    void _WriteData();
-    void _SaveCurrentSet();
-
-    void _UpdateArmorValues();
-    void _FetchData(bool noMessage = false);
-    void _LoadSavedSet();
-    void _ClearArmor();
-    void _ChangeAll();
+    void _unsafeWarning();
+    void _notImplemented();
+    // Memory
+    void _findAddr();
+    void _writeData();
+    void _fetchData(bool noMessage = false);
+    //Settings
+    void _updateSelectedVersion();
+    bool _flushSettings();
+    void _getCustomSteamPath();
+    void _toggleSafe();
+    //Saved Sets
+    bool _flushSavedSets();
+    void _saveCurrentSet();
+    void _loadSavedSet();
+    //Armor
+    bool _parseInputBoxes();
+    void _updateArmorValues();
+    void _clearArmor();
+    void _changeAll();
     void _debugInputValue();
-
-    bool _FlushSavedSets();
-    bool _FlushSettings();
-    void _GetCustomSteamPath();
-
-    void _UnsafeWarning();
-    void _ToggleSafe();
-    void _AddUnsafe();
-    void _DeleteUnsafe();
-
-    void _NotImplemented();
+    void _addUnsafe();
+    void _deleteUnsafe();
 };

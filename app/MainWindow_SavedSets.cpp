@@ -8,8 +8,9 @@
 
 /// These file contains Member definitions of the MainWindow class
 /// Related to the saving, loading and management of saved Armor Sets
+/// Also restoring backup
 
-void MainWindow::_LoadSavedSet()
+void MainWindow::_loadSavedSet()
 {
     if (_SavedSets.empty())
     {
@@ -39,12 +40,12 @@ void MainWindow::_LoadSavedSet()
         DEBUG_LOG(ERROR, "Invalid value at json file. Error " << e.what());
         return;
     }
-    this->_UpdateArmorValues();
+    this->_updateArmorValues();
 }
 
-void MainWindow::_SaveCurrentSet()
+void MainWindow::_saveCurrentSet()
 {
-    if (!this->_ParseInputBoxes())
+    if (!this->_parseInputBoxes())
         return;
 
     bool ok;
@@ -71,7 +72,7 @@ void MainWindow::_SaveCurrentSet()
     auto Data = _MHManager.getPlayerData().getData();
     _SavedSets[text.toStdString()] = Data;
 
-    if (!this->_FlushSavedSets())
+    if (!this->_flushSavedSets())
     {
         DialogWindow *Dia = new DialogWindow(this, "ERROR", "Couldn't save set.", Status::ERROR0);
         Dia->show();
@@ -81,12 +82,12 @@ void MainWindow::_SaveCurrentSet()
     Dia->show();
 }
 
-bool MainWindow::_FlushSavedSets()
+bool MainWindow::_flushSavedSets()
 {
-    std::ofstream Out(SavedSetsFile.str());
+    std::ofstream Out(savedSetsFile.str());
     if (!Out)
     {
-        DEBUG_LOG(ERROR, "Couldn't open " << SavedSetsFile);
+        DEBUG_LOG(ERROR, "Couldn't open " << savedSetsFile);
         Out.close();
         return false;
     }

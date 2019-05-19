@@ -9,7 +9,7 @@
 /// These file contains Member definitions of the MainWindow class
 /// Related to showing dialogs with information
 
-void MainWindow::_UnsafeWarning()
+void MainWindow::_unsafeWarning()
 {
     if (_Settings.find("Disable Unsafe Warning") != _Settings.end())
         if (_Settings["Disable Unsafe Warning"] == true)
@@ -19,12 +19,12 @@ void MainWindow::_UnsafeWarning()
     DEBUG_LOG(WARNING, "Safe Mode was turned off");
     DialogWindow *Dia = new DialogWindow(this, "Warning", "You are not Running in SafeMode\n(!) Marked Armors May Cause Game Crashes\nUse with caution.", Status::WARNING);
     Dia->show();
-    this->_AddUnsafe();
+    this->_addUnsafe();
 }
 
 void MainWindow::debugPrints() const
 {
-    if (_MHManager.SteamFound())
+    if (_MHManager.steamFound())
     {
         DEBUG_LOG(DEBUG, "Steam UserData ID: " << _MHManager.getSteamID());
         DEBUG_LOG(DEBUG, "Steam Game Directory: " << _MHManager.getSteamPath());
@@ -41,13 +41,13 @@ void MainWindow::_aboutInfo()
     Dia->show();
 }
 
-void MainWindow::_Instructions()
+void MainWindow::_instructions()
 {
     Instructions *Dia = new Instructions(this);
     Dia->show();
 }
 
-void MainWindow::_NotImplemented()
+void MainWindow::_notImplemented()
 {
     DialogWindow *Dia = new DialogWindow(this, "Warning", "Functionality Not Implemented... Yet", Status::WARNING);
     Dia->show();

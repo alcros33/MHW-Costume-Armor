@@ -12,36 +12,36 @@ class MH_Memory
 public:
     MH_Memory(const std::string &ProcName = "MonsterHunterWorld.exe", const std::string &SteamDLL = "steam_api64.dll");
 
-    bool ProcessOpen() const { return _MHProcess.isOpen(); }
-    bool SteamFound() const { return _SteamFound; }
-    bool DataAddressFound() const { return _DataPtr != 0; }
+    bool processOpen() const { return _MHProcess.isOpen(); }
+    bool steamFound() const { return _steamFound; }
+    bool dataAddressFound() const { return _dataPtr != 0; }
 
-    int getSteamID() const { return _SteamID;}
-    fs::Path getSteamPath() const { return _SteamPath; }
+    int getSteamID() const { return _steamID;}
+    fs::Path getSteamPath() const { return _steamPath; }
     PlayerData getPlayerData() const { return _Data; }
     PlayerData& getPlayerData() { return _Data; }
     Process getProcess() const { return _MHProcess; }
 
     void setSteamDirectory(const fs::Path &Path);
 
-    bool FetchPlayerData(int slot);
-    void FindAddress(std::string Ver="Latest");
-    bool BackupSaveData() const ;
-    bool WriteArmor(int CharSlot, bool isSafe = true);
+    bool fetchPlayerData(int slot);
+    void findAddress(std::string Ver="Latest");
+    bool backupSaveData() const ;
+    bool writeArmor(int CharSlot, bool isSafe = true);
 
-    fs::Path ExeFilePath = CurrentExecutableDir();
-    fs::Path BACKUP_DIR = CurrentExecutableDir().append("Backups");
-    fs::Path LogPath = CurrentExecutableDir().append("CostumeArmor.log");
+    fs::Path exeFilePath = CurrentExecutableDir();
+    fs::Path backupDir = CurrentExecutableDir().append("Backups");
+    fs::Path logPath = CurrentExecutableDir().append("CostumeArmor.log");
 
     static std::map<std::string, SearchPattern> Versions;
     static std::map<std::string, int> CharSlotDist;
 
   private:
     Process _MHProcess;
-    int _SteamID = 0;
-    fs::Path _SteamPath;
+    int _steamID = 0;
+    fs::Path _steamPath;
     PlayerData _Data;
-    DWORD64 _DataPtr = 0;
-    bool _SteamFound = false;
+    DWORD64 _dataPtr = 0;
+    bool _steamFound = false;
     int _slotDist;
 };
