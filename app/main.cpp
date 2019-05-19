@@ -17,19 +17,7 @@ int main(int argc, char *argv[])
     DEBUG_LOG(INFO, Project);
     w.debugPrints();
 
-    #ifndef NDEBUG
-        if (argc > 1)
-        {
-            if (std::string(argv[1]) == "--test-gui")
-                w._show_test_gui();
-            else
-                w.show();
-        }
-        else
-            w.show();
-    #else
-        w.show();
-    #endif
+    w.show();
     
     try
     {

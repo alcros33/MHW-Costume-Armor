@@ -53,7 +53,7 @@ std::vector<Module> Process::getModuleList() const
     {
         for (int i = 0; i < (cbNeeded / sizeof(HMODULE)); ++i)
         {
-            TCHAR Buffer[MAX_PATH];
+            char Buffer[MAX_PATH];
             if (GetModuleBaseNameA(this->_handleProcess, hMods[i], Buffer, MAX_PATH)!= 0)
             {
 
@@ -156,7 +156,7 @@ std::string GetRegKeyValue(HKEY RootKey, const std::string &SubKey, const std::s
 {
     char value[255];
     DWORD BufferSize = 255;
-    auto status = RegGetValue(RootKey, SubKey.c_str(), Value.c_str(), RRF_RT_REG_SZ, NULL, (PVOID)&value, &BufferSize);
+    auto status = RegGetValueA(RootKey, SubKey.c_str(), Value.c_str(), RRF_RT_REG_SZ, NULL, (PVOID)&value, &BufferSize);
     if (status != ERROR_SUCCESS)
     {
         DEBUG_LOG_HEX(ERROR,"Couldn't Get Registry value with error code : " << status);

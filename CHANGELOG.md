@@ -1,6 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.12.0] - 2019 - 05 - 19
+### Added
+- Bayak Layered, Ciri A, Geralt A
+
+### Fixed
+- The MOD not working on character slots 2 and 3
+- The backups were corrupted
+
+### Changed
+- Migrated from experimental::filesystem to own filesystem implementation
+
 ## [0.10.2] - 2019 - 05 - 11
 ### Added
 - Origin Layered and Kulve Y armors.

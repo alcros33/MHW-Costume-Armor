@@ -40,7 +40,7 @@ void MainWindow::_ToggleSafe()
 
 bool MainWindow::_FlushSettings()
 {
-    std::ofstream Out(SettingsFile.string());
+    std::ofstream Out(SettingsFile.str());
     if (!Out)
     {
         DEBUG_LOG(ERROR, "Couldn't open " << SavedSetsFile);

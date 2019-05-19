@@ -26,9 +26,9 @@ public:
     void show();
     void _show_test_gui();
 
-    fs::path SettingsFile = CurrentExecutableDir().append("Settings.json");
-    fs::path SavedSetsFile = CurrentExecutableDir().append("SavedSets.json");
-    fs::path ArmorDataFile = CurrentExecutableDir().append("ArmorData.json");
+    fs::Path SettingsFile = CurrentExecutableDir().append("Settings.json");
+    fs::Path SavedSetsFile = CurrentExecutableDir().append("SavedSets.json");
+    fs::Path ArmorDataFile = CurrentExecutableDir().append("ArmorData.json");
 
   private:
     Ui::MainWindow *ui;

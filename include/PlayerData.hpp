@@ -13,6 +13,12 @@ namespace Armor
     const std::array<std::string,5> Names{"Head","Body", "Arms","Waist","Legs"};
 }
 
+struct SearchPattern
+{
+    int int_pattern;
+    int last_bits;
+};
+
 class PlayerData
 {
 public:
@@ -39,6 +45,6 @@ private:
 
 std::ostream &operator<<(std::ostream &out, PlayerData &Play);
 
-DWORD64 FindDataAddress(Process &Proc, int IntPattern);
+DWORD64 FindDataAddress(Process &Proc, SearchPattern Pa);
 
 PlayerData GetCharData(Process &Proc, DWORD64 charDataAddr, int slot);

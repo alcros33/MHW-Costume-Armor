@@ -79,7 +79,7 @@ void MainWindow::show()
     {
         DEBUG_LOG(ERROR, "Armor Data json file searched at " << ArmorDataFile<< " and not found");
         DialogWindow *Dia = new DialogWindow(nullptr, "ERROR FATAL", "Couldn't find " +
-            ArmorDataFile.filename().string() +
+            ArmorDataFile.filename() +
             "\nIf It was deletd, re-download the program.", Status::ERROR0);
         Dia->getOkButton()->setStyleSheet("");
         Dia->show();
@@ -107,20 +107,20 @@ void MainWindow::_show_test_gui() {QMainWindow::show();}
 
 bool MainWindow::_LoadConfigFiles()
 {
-    if (fs::exists(SettingsFile))
+    if (SettingsFile.exists())
     {
-        std::ifstream i(SettingsFile.string());
+        std::ifstream i(SettingsFile.str());
         i >> _Settings;
     }
-    if (fs::exists(SavedSetsFile))
+    if (SavedSetsFile.exists())
     {
-        std::ifstream i(SavedSetsFile.string());
+        std::ifstream i(SavedSetsFile.str());
         i >> _SavedSets;
     }
-    if(!fs::exists(ArmorDataFile))
+    if(!ArmorDataFile.exists())
         return false;
     
-    std::ifstream i(ArmorDataFile.string());
+    std::ifstream i(ArmorDataFile.str());
     i >> _ArmorData;
     return true;
 }

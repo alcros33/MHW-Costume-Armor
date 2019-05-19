@@ -18,7 +18,7 @@ endif()
 # by including "exampleConfig.h" in the source. 
 # See exampleConfig.h.in for some more details.
 set(PROJECT_VERSION_MAJOR 0)
-set(PROJECT_VERSION_MINOR 11)
+set(PROJECT_VERSION_MINOR 12)
 set(PROJECT_VERSION_PATCH 0)
 
 #Include stuff. No change needed.
@@ -120,7 +120,6 @@ else()
     target_link_libraries(
         ${MAIN_LIBRARY_NAME} PUBLIC 
         PSAPI 
-        stdc++fs
     )
 endif()
 
@@ -129,7 +128,7 @@ add_dependencies(${PROJECT_NAME} ${MAIN_LIBRARY_NAME})
 if (MSVC)
     target_link_libraries(${PROJECT_NAME} ${MAIN_LIBRARY_NAME} Qt5::Widgets)
 else()
-    target_link_libraries(${PROJECT_NAME} stdc++fs ${MAIN_LIBRARY_NAME} Qt5::Widgets)
+    target_link_libraries(${PROJECT_NAME} ${MAIN_LIBRARY_NAME} Qt5::Widgets)
 endif()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${MAIN_APP_NAME})
@@ -147,7 +146,7 @@ if(WIN32 AND CMAKE_BUILD_TYPE STREQUAL "Release")
     add_custom_command(
         TARGET ${PROJECT_NAME}
         POST_BUILD
-        COMMAND windeployqt --release $<TARGET_FILE:${PROJECT_NAME}> --no-translations --no-system-d3d-compiler --plugindir ${EXPORT_LIB_DIR})
+        COMMAND windeployqt --release $<TARGET_FILE:${PROJECT_NAME}> --no-translations --plugindir ${EXPORT_LIB_DIR})
 endif()
 
 if (CMAKE_BUILD_TYPE STREQUAL "Release")

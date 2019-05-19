@@ -83,7 +83,7 @@ void MainWindow::_SaveCurrentSet()
 
 bool MainWindow::_FlushSavedSets()
 {
-    std::ofstream Out(SavedSetsFile.string());
+    std::ofstream Out(SavedSetsFile.str());
     if (!Out)
     {
         DEBUG_LOG(ERROR, "Couldn't open " << SavedSetsFile);
