@@ -1,5 +1,11 @@
 <RCC>
   <qresource>
+    <file>icons8-delete-104.png</file>
+    <file>icons8-user-manual-100.png</file>
+    <file>iconfinder_steam_3069710.png</file>
+    <file>icons8-about-104.png</file>
+    <file>icons8-save-52(1).png</file>
+    <file>visored-helm.png</file>
     <file>nergigante.png</file>
     <file>ajax-loader.gif</file>
     <file>error.png</file>

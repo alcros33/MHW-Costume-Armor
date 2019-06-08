@@ -108,15 +108,16 @@ void MainWindow::_changeAll()
     this->_updateArmorValues();
 }
 
-void MainWindow::_debugInputValue()
+void MainWindow::_manualInputValue()
 {
     bool ok;
-    int id = QInputDialog::getInt(this, "Manually Input Id",
+    int id = QInputDialog::getInt(this, "Manually Input ID",
                                  "Input Armor ID", 255, 1, 255, 1, &ok);
     if (!ok)
         return;
     for (int i = 0; i < 5; ++i)
-        _MHManager.getPlayerData().setArmorPiece(i, id);
-    int slot = std::stoi(ui->comboBox->currentText().toStdString());
-    _MHManager.writeArmor(slot - 1, _Settings["Safe Mode"]);
+    {
+        this->_inputBoxes[i]->insertItem(0, QString("Custom ID : %1").arg(id), id);
+        this->_inputBoxes[i]->setCurrentIndex(0);
+    }
 }

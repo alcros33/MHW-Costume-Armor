@@ -179,7 +179,7 @@ bool MH_Memory::writeArmor(int CharSlot, bool isSafe)
     std::stringstream S;
     for( const auto d : _Data.getData() )
         S << ( (int)d ) << ", ";
-    DEBUG_LOG(DEBUG,"Written (" << S.str()<<") to the game." );
+    DEBUG_LOG(DEBUG,"Written (" << S.str()<<") to slot " << CharSlot);
 
     return Status;
 }

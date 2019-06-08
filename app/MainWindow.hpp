@@ -65,13 +65,15 @@ public:
     //Saved Sets
     bool _flushSavedSets();
     void _saveCurrentSet();
+    void _deleteCurrentSet();
     void _loadSavedSet();
+    void _populateSavedSets();
     //Armor
     bool _parseInputBoxes();
     void _updateArmorValues();
     void _clearArmor();
     void _changeAll();
-    void _debugInputValue();
+    void _manualInputValue();
     void _addUnsafe();
     void _deleteUnsafe();
 };

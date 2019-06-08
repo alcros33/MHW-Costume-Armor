@@ -18,6 +18,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->FetchButton->setEnabled(false);
     ui->WriteButton->setEnabled(false);
 
+    ui->toolBar->insertSeparator(ui->actionLoad_Armor);
+    ui->toolBar->insertWidget(ui->actionLoad_Armor, ui->savedSetsLabel);
+    ui->toolBar->insertSeparator(ui->actionLoad_Armor);
+    ui->toolBar->insertWidget(ui->actionLoad_Armor, ui->savedComboBox);
+    ui->toolBar->insertSeparator(ui->actionLoad_Armor);
+
     connect(ui->actionAbout, QAction::triggered, this, _aboutInfo);
     connect(ui->actionTutorial, QAction::triggered, this, _instructions);
     connect(ui->actionSafe_Mode, QAction::triggered, this, _toggleSafe);
@@ -28,12 +34,12 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->WriteButton, QPushButton::released, this, _writeData);
     connect(ui->ClearButton, QPushButton::released, this, _clearArmor);
     connect(ui->ChangeAllButton, QPushButton::released, this, _changeAll);
+    connect(ui->actionManually_Input_ID, QAction::triggered, this, _manualInputValue);
 
     connect(ui->actionSave_Current_Armor, QAction::triggered, this, _saveCurrentSet);
     connect(ui->actionLoad_Armor, QAction::triggered, this, _loadSavedSet);
+    connect(ui->actionDelete_Armor, QAction::triggered, this, _deleteCurrentSet);
     connect(ui->actionChange_Steam_Path, QAction::triggered, this, _getCustomSteamPath);
-
-    connect(ui->actionManaged_Saved_Sets, QAction::triggered, this, _notImplemented);
 
     _inputBoxes[0] = ui->headEdit ;
     _inputBoxes[1] = ui->bodyEdit ;
@@ -57,15 +63,8 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     _populateVersionSelector();
-
+    _populateSavedSets();
     _populateComboBoxes();
-
-    #ifndef NDEBUG
-    QAction *tmp = new QAction(this);
-    connect(tmp, QAction::triggered, this, _debugInputValue);
-    tmp->setText("Debug Manual Input");
-    ui->menuOptions->addAction(tmp); 
-    #endif
 }
 
 MainWindow::~MainWindow()

@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.13.0] - 2019 - 06 - 08
+### Added 
+- Toolbar with editable combobox for saved sets
+- Option at menu to manually input an ID for an armor, use with caution
+- Nergigante Y
+
 ## [0.12.0] - 2019 - 05 - 19
 ### Added
 - Bayak Layered, Ciri A, Geralt A

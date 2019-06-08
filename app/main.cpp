@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
     DEBUG_LOG(INFO, Project);
     w.debugPrints();
 
+    // w._showTestGui();
     w.show();
     
     try

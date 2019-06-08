@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1050</width>
-    <height>610</height>
+    <height>650</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,13 +19,13 @@
   <property name="minimumSize">
    <size>
     <width>1050</width>
-    <height>610</height>
+    <height>650</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>1050</width>
-    <height>610</height>
+    <height>650</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -92,7 +92,28 @@ QInputDialog QPushButton:pressed {
 }
 QInputDialog QPushButton:disabled {
     border: 1px solid rgba(66, 192, 251, 150);
-}</string>
+}
+
+QToolBar{
+background-color: rgb(50, 50, 50);
+}
+
+QToolBar *{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(50, 50, 50);
+}
+
+QToolBar QComboBox:hover {
+    background-color : rgb(14, 109, 144);
+}
+
+QToolButton:hover:!pressed{
+	background-color : #42c0fb;
+}
+QToolButton:pressed{
+	background-color :rgb(48, 73, 157);
+}
+</string>
   </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
@@ -138,6 +159,15 @@ p, li { white-space: pre-wrap; }
       <horstretch>0</horstretch>
       <verstretch>0</verstretch>
      </sizepolicy>
+    </property>
+    <property name="font">
+     <font>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>14</pointsize>
+      <weight>9</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="toolTip">
      <string/>
@@ -753,6 +783,68 @@ All</string>
      <bool>false</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="savedSetsLabel">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>220</y>
+      <width>130</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>130</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>130</width>
+      <height>50</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>Saved Sets</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="savedComboBox">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>280</y>
+      <width>200</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>200</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>130</width>
+      <height>50</height>
+     </size>
+    </property>
+    <property name="editable">
+     <bool>true</bool>
+    </property>
+    <property name="currentText">
+     <string>&lt;set name&gt;</string>
+    </property>
+    <property name="insertPolicy">
+     <enum>QComboBox::NoInsert</enum>
+    </property>
+   </widget>
    <zorder>bg</zorder>
    <zorder>Bars</zorder>
    <zorder>CircleSlot</zorder>
@@ -773,6 +865,8 @@ All</string>
    <zorder>legsEdit</zorder>
    <zorder>ClearButton</zorder>
    <zorder>ChangeAllButton</zorder>
+   <zorder>savedSetsLabel</zorder>
+   <zorder>savedComboBox</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -796,7 +890,6 @@ All</string>
     </property>
     <addaction name="actionSave_Current_Armor"/>
     <addaction name="actionLoad_Armor"/>
-    <addaction name="actionManaged_Saved_Sets"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
@@ -813,36 +906,73 @@ All</string>
     </widget>
     <addaction name="actionSafe_Mode"/>
     <addaction name="menuSteam_Path"/>
+    <addaction name="actionManually_Input_ID"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuOptions"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionLoad_Armor"/>
+   <addaction name="actionSave_Current_Armor"/>
+   <addaction name="actionDelete_Armor"/>
+  </widget>
   <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="../resources/Icons.qrc">
+     <normaloff>:/icons8-about-104.png</normaloff>:/icons8-about-104.png</iconset>
+   </property>
    <property name="text">
     <string>About</string>
    </property>
   </action>
   <action name="actionSave_Current_Armor">
+   <property name="icon">
+    <iconset resource="../resources/Icons.qrc">
+     <normaloff>:/icons8-save-52(1).png</normaloff>:/icons8-save-52(1).png</iconset>
+   </property>
    <property name="text">
     <string>Save Current Armor</string>
+   </property>
+   <property name="iconText">
+    <string>Save</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
    </property>
   </action>
   <action name="actionLoad_Armor">
+   <property name="icon">
+    <iconset resource="../resources/Icons.qrc">
+     <normaloff>:/visored-helm.png</normaloff>:/visored-helm.png</iconset>
+   </property>
    <property name="text">
     <string>Load Armor</string>
    </property>
+   <property name="iconText">
+    <string>Load</string>
+   </property>
    <property name="shortcut">
     <string>Ctrl+A</string>
-   </property>
-  </action>
-  <action name="actionManaged_Saved_Sets">
-   <property name="text">
-    <string>Managed Saved Sets</string>
    </property>
   </action>
   <action name="actionExit">
@@ -865,6 +995,10 @@ All</string>
    </property>
   </action>
   <action name="actionTutorial">
+   <property name="icon">
+    <iconset resource="../resources/Icons.qrc">
+     <normaloff>:/icons8-user-manual-100.png</normaloff>:/icons8-user-manual-100.png</iconset>
+   </property>
    <property name="text">
     <string>Instructions</string>
    </property>
@@ -887,6 +1021,23 @@ All</string>
   <action name="actionChange_Steam_Path">
    <property name="text">
     <string>Change Path</string>
+   </property>
+  </action>
+  <action name="actionDelete_Armor">
+   <property name="icon">
+    <iconset resource="../resources/Icons.qrc">
+     <normaloff>:/icons8-delete-104.png</normaloff>:/icons8-delete-104.png</iconset>
+   </property>
+   <property name="text">
+    <string>Delete Armor</string>
+   </property>
+   <property name="iconText">
+    <string>Delete</string>
+   </property>
+  </action>
+  <action name="actionManually_Input_ID">
+   <property name="text">
+    <string>Manually Input ID</string>
    </property>
   </action>
  </widget>
