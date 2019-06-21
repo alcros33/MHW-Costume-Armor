@@ -29,22 +29,36 @@ if __name__ == "__main__":
         print(f"ERROR While opening {EXCEL_IN}")
         sys.exit(-1)
 
+    Langs = []
+    it  = 6
+    while True:
+        if not Sheet[1][it].value:
+            break
+        Langs.append(Sheet[1][it].value)
+        it += 1
+
     Dic = {}
+    DicNames = {}
     for i in range(2,255):    
         Name = Sheet[i][6].value
+        ID = Sheet[i][0].value
 
         if Name == "?":
             continue
 
-        if Name in Dic:
-            print(f"Oh shit {i}")
+        if Name in DicNames:
+            print(f"Duplicates {i}")
+        DicNames[Name] = 0
 
-        Dic[Name] = { "ID": int(Sheet[f'A{i}'].value) , "Danger" : RowDanger(Sheet,i) }
+        Dic[ID] = {Lng: LName.value for Lng, LName in zip(Langs, Sheet[i][6:])}
+        Dic[ID]["Danger"] = RowDanger(Sheet,i)
+        mode = ""
         for j in range(5):
-            Dic[Name][ArmorNames[j]] = (Sheet[i][j+1].value != "?")
+            mode += str(int(Sheet[i][j+1].value != "?"))
+        Dic[ID]["Mode"] = mode
 
-    Dic = dict(sorted(Dic.items()))
+    Dic = dict(sorted(Dic.items(), key=lambda x:x[1]["English"]))
 
     with open(JSON_OUT, 'w') as f:
         print(f"Writting to {JSON_OUT}")
-        f.write(json.dumps(Dic, sort_keys=True).replace("},", "},\n"))
+        f.write(json.dumps(Dic).replace("},", "},\n"))

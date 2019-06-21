@@ -55,6 +55,9 @@ MainWindow::MainWindow(QWidget *parent) :
     if (_Settings.find("Game Version") == _Settings.end())
         _Settings["Game Version"] = "Latest";
     
+    if (_Settings.find("Language") == _Settings.end())
+        _Settings["Language"] = "English";
+
     if (_Settings.find("Steam Path") != _Settings.end())
     {
         std::string SteamPath = _Settings["Steam Path"].get<std::string>();
@@ -64,7 +67,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     _populateVersionSelector();
     _populateSavedSets();
-    _populateComboBoxes();
+    _populateLanguages();
+    _translateArmorData();
 }
 
 MainWindow::~MainWindow()
@@ -161,18 +165,59 @@ void MainWindow::_populateVersionSelector()
     }
 }
 
+void MainWindow::_populateLanguages()
+{
+    QMenu *menuLangs = new QMenu(ui->menuOptions);
+    menuLangs->setObjectName(QString::fromUtf8("menu_Langs"));
+    menuLangs->setTitle("Language");
+    ui->menuOptions->addAction(menuLangs->menuAction());
+
+    _langGroup = new QActionGroup(this);
+
+    QFont font; font.setBold(true);
+
+    std::vector<std::string> Langs;
+    for (const auto &el :_ArmorData.front().items())
+        if (el.key() != "Mode" && el.key() != "Danger")
+            Langs.push_back(el.key());
+
+    _langActions.reserve(Langs.size());
+    std::string TargetLang = _Settings["Language"];
+    for (const auto &la : Langs)
+    {
+        QAction *tmp = new QAction(this);
+        connect(tmp, QAction::triggered, this, _translateArmorData);
+        tmp->setText(la.c_str());
+        tmp->setCheckable(true);
+        menuLangs->addAction(tmp);
+        _langGroup->addAction(tmp);
+        if (la == TargetLang)
+        {
+            tmp->setChecked(true);
+            tmp->setFont(font);
+        }
+        _langActions.push_back(tmp);
+    }
+    if (_langGroup->checkedAction() == 0)
+    {
+        DEBUG_LOG(ERROR, "Encountered unknown language " << TargetLang << " setting it to 'English'");
+        _langActions.back()->setChecked(true);
+        _langActions.back()->setFont(font);
+    }
+}
+
 void MainWindow::_populateComboBoxes()
 {
-    int i;
     int ID;
+    std::string Mode;
 
-    for (i = 0; i < 5; ++i)
+    for (int i = 0; i < 5; ++i)
         this->_inputBoxes[i]->addItem("Nothing", 255);
 
-    for (auto &el : _ArmorData.items())
+    for (auto &el : _transArmorData.items())
     {
         ID = el.value()["ID"];
-        
+
         if (el.value()["Danger"])
         {
             _unsafeArmors.insert(el.key());
@@ -180,13 +225,14 @@ void MainWindow::_populateComboBoxes()
             if (_Settings["Safe Mode"])
                 continue;
         }
-
-        for(i=0; i<5; ++i)
+        Mode = el.value()["Mode"];
+        
+        for (int i = 0; i < 5; ++i)
         {
-            if (el.value()[Armor::Names[i]])
+            if (Mode[i] == '1')
                 this->_inputBoxes[i]->addItem(el.key().c_str(), ID);
         }
     }
-    for (i = 0; i < 5; ++i)
+    for (int i = 0; i < 5; ++i)
         _safeCount[i] = this->_inputBoxes[i]->count();
 }

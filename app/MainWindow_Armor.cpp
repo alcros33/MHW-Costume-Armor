@@ -10,6 +10,34 @@
 /// These file contains Member definitions of the MainWindow class
 /// Related to The managment of input Comboboxes
 
+void MainWindow::_translateArmorData()
+{
+    QAction *checked = _langGroup->checkedAction();
+    _Settings["Language"] = checked->text().toStdString();
+    std::string Lang = _Settings["Language"];
+
+    QFont font;
+    for (auto lAction : _langActions)
+        lAction->setFont(font);
+
+    font.setBold(true);
+    checked->setFont(font);
+
+    _transArmorData.clear();
+
+    for(const auto &el : _ArmorData.items())
+    {
+        _transArmorData[el.value()[Lang].get<std::string>()] = el.value();
+        _transArmorData[el.value()[Lang].get<std::string>()]["ID"] = std::stoi(el.key());
+    }
+    for (int i = 0; i < 5; ++i)
+    {
+        this->_inputBoxes[i]->clear();
+    }
+    _populateComboBoxes();
+    this->_flushSettings();
+}
+
 void MainWindow::_updateArmorValues()
 {
     auto Data = _MHManager.getPlayerData().getData();
@@ -53,14 +81,15 @@ bool MainWindow::_parseInputBoxes()
 
 void MainWindow::_addUnsafe()
 {
-    int i;
     int ID;
-    for(const auto &_Name : this->_unsafeArmors)
+    std::string Mode;
+    for (const auto &_Name : this->_unsafeArmors)
     {
-        ID = _ArmorData[_Name]["ID"];
-        for (i = 0; i < 5; ++i)
+        ID = _transArmorData[_Name]["ID"];
+        Mode = _transArmorData[_Name]["Mode"];
+        for (int i=0; i<5; ++i)
         {
-            if (_ArmorData[_Name][Armor::Names[i]])
+            if (Mode[i] =='1')
                 this->_inputBoxes[i]->addItem(std::string("(!) ").append(_Name).c_str(), ID);
         }
     }
@@ -78,22 +107,13 @@ void MainWindow::_deleteUnsafe()
 void MainWindow::_changeAll()
 {
     QStringList items;
-    bool isSet;
     int i = 0;
-    for (auto &it : _ArmorData.items())
+    for (auto &it : _transArmorData.items())
     {
         if (it.value()["Danger"] && _Settings["Safe Mode"])
             continue;
 
-        isSet = true;
-        for(i=0; i<5; ++i)
-            if ( !it.value()[Armor::Names[i]] )
-            {
-                isSet = false;
-                break;
-            }
-        
-        if(isSet)
+        if (it.value()["Mode"] != "11111") // Means its a set
             items << it.key().c_str();
     }
 
@@ -101,10 +121,10 @@ void MainWindow::_changeAll()
     QString text = getItemInputDialog(this, "Change All Armor", "Select set: ", items, &ok);
     if (!ok)
         return;
-    json Selected = _ArmorData[text.toStdString()];
+    json Selected = _transArmorData[text.toStdString()];
     for (i = 0; i < 5; ++i)
-        _MHManager.getPlayerData().setArmorPiece(i, Selected["ID"] );
-    
+        _MHManager.getPlayerData().setArmorPiece(i, Selected["ID"]);
+
     this->_updateArmorValues();
 }
 

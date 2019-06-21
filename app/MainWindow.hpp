@@ -2,6 +2,7 @@
 #include <QMainWindow>
 #include <set>
 #include <iomanip>
+#include <map>
 
 #include "ui_MainWindow.h"
 #include "AboutWindow.hpp"
@@ -33,6 +34,7 @@ public:
   private:
     Ui::MainWindow *ui;
     QActionGroup *_versionGroup = nullptr;
+    QActionGroup *_langGroup = nullptr;
     MH_Memory _MHManager;
     json _Settings;
     json _SavedSets;
@@ -40,14 +42,17 @@ public:
     bool _armorDataFound;
     std::array<QComboBox*,5> _inputBoxes = {nullptr,nullptr,nullptr,nullptr,nullptr};
     std::vector<QAction*> _versionActions;
+    std::vector<QAction*> _langActions;
     std::set<std::string> _unsafeArmors;
     std::array<int,5> _safeCount = {0,0,0,0,0};
+    json _transArmorData;
 
   private slots:
     // Inits
     bool _loadConfigFiles();
     void _populateComboBoxes();
     void _populateVersionSelector();
+    void _populateLanguages();
     // Dialogs
     void _instructions();
     void _aboutInfo();
@@ -69,6 +74,7 @@ public:
     void _loadSavedSet();
     void _populateSavedSets();
     //Armor
+    void _translateArmorData();
     bool _parseInputBoxes();
     void _updateArmorValues();
     void _clearArmor();

@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.14.0] - 2019 - 06 - 21
+### Added
+- Chinese Armor Names
+
+### Fixed
+- Some armor names
+
 ## [0.13.0] - 2019 - 06 - 08
 ### Added 
 - Toolbar with editable combobox for saved sets
