@@ -1,9 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.14.1] - 2019 - 06 - 25
+### Added
+- Simplified Chinese Armor Names
+- Female and Male Butterfly Armors
+
 ## [0.14.0] - 2019 - 06 - 21
 ### Added
-- Chinese Armor Names
+- Traditional Chinese Armor Names
 
 ### Fixed
 - Some armor names

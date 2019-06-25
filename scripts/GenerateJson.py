@@ -18,6 +18,13 @@ def RowDanger(Sheet,i):
             return True
     return False
 
+def assertNamesNotNull(Entry, Langs, ID):
+    for i in Langs:
+        if not Entry[i] or Entry[i] == "":
+            print(f"Null value in spreadsheet ID={ID}")
+            sys.exit(-1)
+
+
 if __name__ == "__main__":
     args = parser.parse_args()
     EXCEL_IN = args.source
@@ -51,6 +58,7 @@ if __name__ == "__main__":
         DicNames[Name] = 0
 
         Dic[ID] = {Lng: LName.value for Lng, LName in zip(Langs, Sheet[i][6:])}
+        assertNamesNotNull(Dic[ID], Langs, ID)
         Dic[ID]["Danger"] = RowDanger(Sheet,i)
         mode = ""
         for j in range(5):
