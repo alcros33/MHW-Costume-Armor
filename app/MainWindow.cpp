@@ -18,11 +18,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->FetchButton->setEnabled(false);
     ui->WriteButton->setEnabled(false);
 
-    ui->toolBar->insertSeparator(ui->actionLoad_Armor);
-    ui->toolBar->insertWidget(ui->actionLoad_Armor, ui->savedSetsLabel);
-    ui->toolBar->insertSeparator(ui->actionLoad_Armor);
-    ui->toolBar->insertWidget(ui->actionLoad_Armor, ui->savedComboBox);
-    ui->toolBar->insertSeparator(ui->actionLoad_Armor);
+    ui->toolBar->insertSeparator(ui->actionLoad_Armor_Toolbar);
+    ui->toolBar->insertWidget(ui->actionLoad_Armor_Toolbar, ui->savedSetsLabel);
+    ui->toolBar->insertSeparator(ui->actionLoad_Armor_Toolbar);
+    ui->toolBar->insertWidget(ui->actionLoad_Armor_Toolbar, ui->savedComboBox);
+    ui->toolBar->insertSeparator(ui->actionLoad_Armor_Toolbar);
 
     connect(ui->actionAbout, QAction::triggered, this, _aboutInfo);
     connect(ui->actionTutorial, QAction::triggered, this, _instructions);
@@ -37,7 +37,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionManually_Input_ID, QAction::triggered, this, _manualInputValue);
 
     connect(ui->actionSave_Current_Armor, QAction::triggered, this, _saveCurrentSet);
-    connect(ui->actionLoad_Armor, QAction::triggered, this, _loadSavedSet);
+    connect(ui->actionLoad_Armor_Toolbar, QAction::triggered, this, _loadSavedSet);
+    connect(ui->actionLoad_Armor, QAction::triggered, this, _loadSavedSetPopup);
     connect(ui->actionDelete_Armor, QAction::triggered, this, _deleteCurrentSet);
     connect(ui->actionChange_Steam_Path, QAction::triggered, this, _getCustomSteamPath);
 

@@ -29,33 +29,44 @@ void MainWindow::_findAddr()
 
     Dia->show();
 
-    QThread *thread = QThread::create([this] { this->_MHManager.findAddress(this->_Settings["Game Version"]); });
+    std::string errorMessage = "";
 
-    try
-    {
-        thread->start();
-        while (thread->isRunning())
+    QThread *thread = QThread::create([this, &errorMessage] {
+        try
         {
-            if (!Dia->isVisible()) // User presed "Cancel"
-            {
-                thread->quit();
-                delete Dia;
-                ui->SearchButton->setEnabled(true);
-                ui->SearchButton->setText("Search For MHW Save Data");
-                return;
-            }
-            QCoreApplication::processEvents();
+            this->_MHManager.findAddress(this->_Settings["Game Version"]);
         }
+        catch (const std::exception &ex)
+        {
+            errorMessage = ex.what();
+        }
+    });
+
+    thread->start();
+    while (thread->isRunning())
+    {
+        if (!Dia->isVisible()) // User presed "Cancel"
+        {
+            thread->quit();
+            delete Dia;
+            ui->SearchButton->setEnabled(true);
+            ui->SearchButton->setText("Search For MHW Save Data");
+            return;
+        }
+        QCoreApplication::processEvents();
     }
-    catch (std::system_error &e) // VritualQueryEx returned error code
+    if (!errorMessage.empty())
+    // If errorMessage is NOT empty, that means VritualQueryEx returned error code
     {
         Dia->setAttribute(Qt::WA_DeleteOnClose, true);
         Dia->close();
         ui->SearchButton->setText("Search For MHW Save Data");
         ui->SearchButton->setEnabled(true);
-        DEBUG_LOG(ERROR, e.what());
+        DEBUG_LOG(ERROR, errorMessage);
         DialogWindow *Dia = new DialogWindow(this, "ERROR",
-                                             "Error occurred during Searching process.\nConsider running the program as Adminstrator.", Status::ERROR0);
+                                             "Error occurred during the searching process.\n"
+                                             "Check that the program is updated\n"
+                                             "Consider running the program as Adminstrator.", Status::ERROR0);
         Dia->show();
         return;
     }

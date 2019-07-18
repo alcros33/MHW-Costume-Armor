@@ -78,8 +78,8 @@ DWORD64 FindDataAddress(Process &Proc, SearchPattern Pa)
     {
         if (VirtualQueryEx(Proc.getHanlder(), (LPVOID)BaseAddr, &MemBuffer, sizeof(MEMORY_BASIC_INFORMATION)) == 0)
         {
-            throw std::system_error(std::error_code(),
-                                    "VirtualQueryEx Returned Error Code : "+std::to_string(GetLastError()));
+            throw std::runtime_error("VirtualQueryEx Returned Error Code : "
+                                    +std::to_string(GetLastError()));
         }
 
         BaseAddr += (DWORD64)MemBuffer.RegionSize - 1; // Advance to next Memory Region

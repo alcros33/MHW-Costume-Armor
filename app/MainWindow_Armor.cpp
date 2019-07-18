@@ -113,7 +113,7 @@ void MainWindow::_changeAll()
         if (it.value()["Danger"] && _Settings["Safe Mode"])
             continue;
 
-        if (it.value()["Mode"] != "11111") // Means its a set
+        if (it.value()["Mode"] == "11111") // Means its a set
             items << it.key().c_str();
     }
 

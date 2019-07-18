@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.14.2] - 2019 - 07 - 18
+### Added
+- Support for game version 167796
+- Korean armor names
+
+### Changed
+- The load saved set hotkey from ctrl+a to ctrl+d.
+- The behaivor of the Load button. The load button on the toolbar will remain the same, while 
+the one under the File menu and also the ctrl+d hotkey one will now pop a window prompting to select one of your saved sets, just like it did before the saved sets toolbar.
+
+### Fixed
+- When failing to search for game data, the application will no longer crash. Instead it will display a message.
+- The change all button was only displaying one-piece sets, instead of full-sets.
+
 ## [0.14.1] - 2019 - 06 - 25
 ### Added
 - Simplified Chinese Armor Names

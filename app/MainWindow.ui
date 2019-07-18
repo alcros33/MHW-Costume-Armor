@@ -813,7 +813,7 @@ All</string>
      <rect>
       <x>30</x>
       <y>280</y>
-      <width>200</width>
+      <width>300</width>
       <height>22</height>
      </rect>
     </property>
@@ -825,13 +825,13 @@ All</string>
     </property>
     <property name="minimumSize">
      <size>
-      <width>200</width>
+      <width>300</width>
       <height>20</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
-      <width>130</width>
+      <width>300</width>
       <height>50</height>
      </size>
     </property>
@@ -932,7 +932,7 @@ All</string>
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionLoad_Armor"/>
+   <addaction name="actionLoad_Armor_Toolbar"/>
    <addaction name="actionSave_Current_Armor"/>
    <addaction name="actionDelete_Armor"/>
   </widget>
@@ -972,7 +972,7 @@ All</string>
     <string>Load</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+A</string>
+    <string>Ctrl+D</string>
    </property>
   </action>
   <action name="actionExit">
@@ -1038,6 +1038,18 @@ All</string>
   <action name="actionManually_Input_ID">
    <property name="text">
     <string>Manually Input ID</string>
+   </property>
+  </action>
+  <action name="actionLoad_Armor_Toolbar">
+   <property name="icon">
+    <iconset resource="../resources/Icons.qrc">
+     <normaloff>:/visored-helm.png</normaloff>:/visored-helm.png</iconset>
+   </property>
+   <property name="text">
+    <string>Load Armor</string>
+   </property>
+   <property name="iconText">
+    <string>Load</string>
    </property>
   </action>
  </widget>

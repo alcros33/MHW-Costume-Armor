@@ -45,6 +45,40 @@ void MainWindow::_loadSavedSet()
     this->_updateArmorValues();
 }
 
+void MainWindow::_loadSavedSetPopup()
+{
+    if (_SavedSets.empty())
+    {
+        DialogWindow *Dia = new DialogWindow(this, "Warning", "There are no saved sets", Status::WARNING);
+        Dia->show();
+        return;
+    }
+
+    QStringList items;
+    for (const auto &it : _SavedSets.items())
+        items << it.key().c_str();
+    
+    bool ok;
+    QString text = getItemInputDialog(this, "Select Saved Set", "Select set: ", items, &ok);
+    if (!ok)
+        return;
+    int newIndex = std::max(0, ui->savedComboBox->findText(text));
+    ui->savedComboBox->setCurrentIndex(newIndex);
+    try
+    {
+        for (int i = 0; i < 5; ++i)
+            _MHManager.getPlayerData().setArmorPiece(i, _SavedSets[text.toStdString()][i]);
+    }
+    catch (std::exception &e)
+    {
+        DialogWindow *Dia = new DialogWindow(this, "ERROR", "Invalid Value for armor", Status::ERROR0);
+        Dia->show();
+        DEBUG_LOG(ERROR, "Invalid value at saved sets json file. Error " << e.what());
+        return;
+    }
+    this->_updateArmorValues();
+}
+
 void MainWindow::_saveCurrentSet()
 {
     if (!this->_parseInputBoxes())

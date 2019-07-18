@@ -72,6 +72,7 @@ public:
     void _saveCurrentSet();
     void _deleteCurrentSet();
     void _loadSavedSet();
+    void _loadSavedSetPopup();
     void _populateSavedSets();
     //Armor
     void _translateArmorData();

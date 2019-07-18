@@ -185,18 +185,14 @@ bool MH_Memory::writeArmor(int CharSlot, bool isSafe)
 }
 
 // ByteArray to search Given version
-// Version : 163956, Byte Arr: [231,188,66,1], last bits: (0x068C) + 29
-// Version : 165889, Byte Arr: [174,190,66,1], last bits: (0x068C) + 29
-// Version : 166849, Byte Arr: [ 47,192,66,1], last bits: (0x068C) + 29
-// Version : 167353, Byte Arr: [ 55,193,66,1], last bits: (0x06AC) + 29
 std::map<std::string, SearchPattern> MH_Memory::Versions{
-    {"163956", {BytesToInt({231, 188, 66, 1}), (0x068C)+29}},
-    {"165889", {BytesToInt({174, 190, 66, 1}), (0x068C)+29}},
-    {"166849", {BytesToInt({ 47, 192, 66, 1}), (0x068C)+29}},
-    {"167353", {BytesToInt({ 55, 193, 66, 1}), (0x068C)+29}},
-    {"167541", {BytesToInt({214, 199, 66, 1}), (0x06AC)+29}},
-    {"Latest", {BytesToInt({214, 199, 66, 1}), (0x06AC)+29}}
-};
+    {"163956", {BytesToInt({231, 188, 66, 1}), (0x068C) + 29}},
+    {"165889", {BytesToInt({174, 190, 66, 1}), (0x068C) + 29}},
+    {"166849", {BytesToInt({ 47, 192, 66, 1}), (0x068C) + 29}},
+    {"167353", {BytesToInt({ 55, 193, 66, 1}), (0x068C) + 29}},
+    {"167541", {BytesToInt({214, 199, 66, 1}), (0x06AC) + 29}},
+    {"167796", {BytesToInt({ 87, 200, 66, 1}), (0x06AC) + 29}},
+    {"Latest", {BytesToInt({ 87, 200, 66, 1}), (0x06AC) + 29}}};
 
 // The distance between the address of the data of the character slots
 std::map<std::string, int> MH_Memory::CharSlotDist{
@@ -205,6 +201,7 @@ std::map<std::string, int> MH_Memory::CharSlotDist{
     {"166849", 1285888},
     {"167353", 1285888},
     {"167541", 1285920},
+    {"167796", 1285920},
     {"Latest", 1285920}};
 
 /// End MH_Memory Member definitions
