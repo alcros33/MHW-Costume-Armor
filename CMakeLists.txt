@@ -101,7 +101,7 @@ qt5_add_resources(QT5_RESOURCES "${PROJECT_SOURCE_DIR}/resources/Icons.qrc")
 
 # Compile all sources into a library. Called engine here (change if you wish).
 
-add_library(${MAIN_LIBRARY_NAME} SHARED ${SOURCES} )
+add_library(${MAIN_LIBRARY_NAME} STATIC ${SOURCES} )
 if (MSVC)
     target_link_libraries(
         ${MAIN_LIBRARY_NAME} PUBLIC 
@@ -125,7 +125,7 @@ endif()
 
 add_executable(${PROJECT_NAME} ${APPFILES} ${QT5_RESOURCES} ${WINDOWS_ICON_RESOURCE})
 add_dependencies(${PROJECT_NAME} ${MAIN_LIBRARY_NAME})     
-target_link_libraries(${PROJECT_NAME} ${MAIN_LIBRARY_NAME} Qt5::Widgets)
+target_link_libraries(${PROJECT_NAME} ${MAIN_LIBRARY_NAME} Qt5::Widgets -static)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${MAIN_APP_NAME})
 
