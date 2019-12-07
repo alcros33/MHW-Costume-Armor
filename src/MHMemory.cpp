@@ -193,7 +193,8 @@ std::map<std::string, SearchPattern> MH_Memory::Versions{
     {"167541", {BytesToInt({214, 199, 66, 1}), (0x06AC) + 29}},
     {"167796", {BytesToInt({ 87, 200, 66, 1}), (0x06AC) + 29}},
     {"167898", {BytesToInt({103, 200, 66, 1}), (0x06AC) + 29}},
-    {"Latest", {BytesToInt({103, 200, 66, 1}), (0x06AC) + 29}}};
+    {"168030", {BytesToInt({119, 200, 66, 1}), (0x06AC) + 29}},
+    {"Latest", {BytesToInt({119, 200, 66, 1}), (0x06AC) + 29}}};
 
 // The distance between the address of the data of the character slots
 std::map<std::string, int> MH_Memory::CharSlotDist{
@@ -204,6 +205,7 @@ std::map<std::string, int> MH_Memory::CharSlotDist{
     {"167541", 1285920},
     {"167796", 1285920},
     {"167898", 1285920},
+    {"168030", 1285920},
     {"Latest", 1285920}};
 
 /// End MH_Memory Member definitions

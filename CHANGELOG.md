@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.14.4] - 2019 - 12 - 07
+### Added
+- Support for game version 168030
+- Defender alpha armor
+
 ## [0.14.2] - 2019 - 07 - 18
 ### Added
 - Support for game version 167796
