@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.15.0] - 2020 - 01 - 19
+### Added
+- Iceborne Compatibility
+- Support for game version 400974
+- Lots of Iceborne Armors (Hopefully All of them)
+
+### Changed
+- The maximum value for armor ID is now 512
+
 ## [0.14.4] - 2019 - 12 - 07
 ### Added
 - Support for game version 168030

@@ -48,7 +48,8 @@ void MainWindow::_updateArmorValues()
         if (index < 0)
         {
             index = 0;
-            DEBUG_LOG(WARNING, "Encountered unknown value (" << (int)Data[i] << ") changing it to 255 for safety");
+            DEBUG_LOG(WARNING, "Encountered unknown value (" << (int)Data[i] << ") changing it to "
+                     << Armor::NOTHING << " for safety");
         }
         _inputBoxes[i]->setCurrentIndex(index);
     }
@@ -57,7 +58,7 @@ void MainWindow::_updateArmorValues()
 void MainWindow::_clearArmor()
 {
     for(int i=0; i<5 ;++i)
-        _MHManager.getPlayerData().setArmorPiece(i, 255);
+        _MHManager.getPlayerData().setArmorPiece(i, Armor::NOTHING);
     this->_updateArmorValues();
 }
 
@@ -132,7 +133,7 @@ void MainWindow::_manualInputValue()
 {
     bool ok;
     int id = QInputDialog::getInt(this, "Manually Input ID",
-                                 "Input Armor ID", 255, 1, 255, 1, &ok);
+                                 "Input Armor ID", Armor::NOTHING, 1, Armor::NOTHING, 1, &ok);
     if (!ok)
         return;
     for (int i = 0; i < 5; ++i)

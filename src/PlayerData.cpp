@@ -6,7 +6,7 @@
 PlayerData::PlayerData(byte *CharDataBuffer, bool gender)
 {
     for (int i=0;i<5;++i)
-        this->_ArmorData[i] = CharDataBuffer[i*4 ];
+        this->_ArmorData[i] = BytesToInt(CharDataBuffer+(i*4));
     this->_empty = false;
 }
 
@@ -15,8 +15,8 @@ void PlayerData::setArmorPiece(int num, int value)
     if (num > 4 || num < 0)
         return;
 
-    if (value >= 255 || value <= 0 )
-        value = 255;
+    if (value >= Armor::NOTHING || value <= 0 )
+        value = Armor::NOTHING;
 
     this->_ArmorData[num] = value;
 }
@@ -26,8 +26,8 @@ u_int PlayerData::getArmorPiece(int num) const
         num = Armor::HEAD;
     u_int value = this->_ArmorData[num];
 
-    if (value >= 255)
-        value = std::numeric_limits<u_int>::max();
+    if (value >= Armor::NOTHING)
+        value = Armor::NOTHING;
     return value;
 }
 
@@ -40,7 +40,7 @@ std::string PlayerData::print() const
     {
         Base << std::to_string(i) << ". ";
         Base << Armor::Names[i] <<"\t";
-        Base << (this->_ArmorData[i] ==255 ? "None" : std::to_string(this->_ArmorData[i]));
+        Base << (this->_ArmorData[i] == Armor::NOTHING ? "None" : std::to_string(this->_ArmorData[i]));
         Base << std::endl;
     }
     return Base.str();
@@ -50,7 +50,7 @@ std::array<std::string,5> PlayerData::getDataString() const
 {
     std::array<std::string,5> Result;
     for(int i=0;i<5;++i)
-        Result[i] = (this->_ArmorData[i] == 255 ? "" : std::to_string(this->_ArmorData[i]) );
+        Result[i] = (this->_ArmorData[i] == Armor::NOTHING ? "" : std::to_string(this->_ArmorData[i]));
     return Result;
 }
 

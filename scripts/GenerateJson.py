@@ -46,7 +46,7 @@ if __name__ == "__main__":
 
     Dic = {}
     DicNames = {}
-    for i in range(2,255):    
+    for i in range(2, 512):    
         Name = Sheet[i][6].value
         ID = Sheet[i][0].value
 

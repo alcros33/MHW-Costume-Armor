@@ -10,7 +10,9 @@ namespace Armor
     const int ARMS = 2;
     const int WAIST= 3;
     const int LEGS = 4;
-    const std::array<std::string,5> Names{"Head","Body", "Arms","Waist","Legs"};
+    const std::array<std::string, 5> Names{"Head", "Body", "Arms","Waist", "Legs"};
+
+    const int NOTHING = 512;
 }
 
 struct SearchPattern
@@ -32,11 +34,11 @@ public:
     u_int getArmorPiece(int num) const;
 
     std::string print() const;
-    std::array<std::string,5> getDataString() const;
-    std::array<byte,5> getData() const { return _ArmorData; }
+    std::array<std::string, 5> getDataString() const;
+    std::array<int, 5> getData() const { return _ArmorData; }
 
 private:
-    std::array<byte,5> _ArmorData = {255,255,255,255,255};
+    std::array<int, 5> _ArmorData{Armor::NOTHING};
     bool _Gender; // true is female
     bool _empty = true;
 };

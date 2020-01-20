@@ -17,7 +17,9 @@ MH_Memory::MH_Memory(const std::string &ProcName, const std::string &SteamDLL) :
     auto Mod = _MHProcess.getModuleByName(SteamDLL);
     if (!Mod.isEmpty())
     {
-        _steamID = _MHProcess.readMemoryInt(Mod.getBaseAddress() + 237592);
+        // Old steam addr 237592
+        // New steam addr 237848
+        _steamID = _MHProcess.readMemoryInt(Mod.getBaseAddress() + 237848);
         _steamPath = GetRegKeyValue(HKEY_CURRENT_USER, "Software\\Valve\\Steam", "SteamPath");
         if (_steamID != 0 && !_steamPath.empty() )
         {
@@ -29,7 +31,7 @@ MH_Memory::MH_Memory(const std::string &ProcName, const std::string &SteamDLL) :
         else
         {
             DEBUG_LOG(ERROR,"Steam ID or Path NOT FOUND");
-            DEBUG_LOG_HEX(DEBUG,"Current Steam Addr : "<< ( (long) Mod.getBaseAddress() + 237592) );
+            DEBUG_LOG_HEX(DEBUG,"Current Steam Addr : "<< ( (long) Mod.getBaseAddress() + 237848) );
             DEBUG_LOG(DEBUG,"Current Steam ID : " << _steamID );
             DEBUG_LOG(DEBUG,"Current Steam Path : " << _steamPath);
         }
@@ -194,7 +196,8 @@ std::map<std::string, SearchPattern> MH_Memory::Versions{
     {"167796", {BytesToInt({ 87, 200, 66, 1}), (0x06AC) + 29}},
     {"167898", {BytesToInt({103, 200, 66, 1}), (0x06AC) + 29}},
     {"168030", {BytesToInt({119, 200, 66, 1}), (0x06AC) + 29}},
-    {"Latest", {BytesToInt({119, 200, 66, 1}), (0x06AC) + 29}}};
+    {"400974", {BytesToInt({ 32, 246, 66, 1}), (0x74B4) + 29}},
+    {"Latest", {BytesToInt({ 32, 246, 66, 1}), (0x74B4) + 29}}};
 
 // The distance between the address of the data of the character slots
 std::map<std::string, int> MH_Memory::CharSlotDist{
@@ -206,7 +209,8 @@ std::map<std::string, int> MH_Memory::CharSlotDist{
     {"167796", 1285920},
     {"167898", 1285920},
     {"168030", 1285920},
-    {"Latest", 1285920}};
+    {"400974", 2615792},
+    {"Latest", 2615792}};
 
 /// End MH_Memory Member definitions
 fs::Path CurrentExecutableDir()

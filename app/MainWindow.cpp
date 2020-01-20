@@ -213,7 +213,7 @@ void MainWindow::_populateComboBoxes()
     std::string Mode;
 
     for (int i = 0; i < 5; ++i)
-        this->_inputBoxes[i]->addItem("Nothing", 255);
+        this->_inputBoxes[i]->addItem("Nothing", Armor::NOTHING);
 
     for (auto &el : _transArmorData.items())
     {
