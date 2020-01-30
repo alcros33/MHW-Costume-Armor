@@ -76,7 +76,7 @@ DWORD64 FindDataAddress(Process &Proc, SearchPattern Pa)
 
     while (BaseAddr < 0x7fffffffffffLL)
     {
-        if (VirtualQueryEx(Proc.getHanlder(), (LPVOID)BaseAddr, &MemBuffer, sizeof(MEMORY_BASIC_INFORMATION)) == 0)
+        if (VirtualQueryEx(Proc.getHanlder(), (LPCVOID)BaseAddr, &MemBuffer, sizeof(MEMORY_BASIC_INFORMATION)) == 0)
         {
             throw std::runtime_error("VirtualQueryEx Returned Error Code : "
                                     +std::to_string(GetLastError()));
@@ -100,7 +100,7 @@ DWORD64 FindDataAddress(Process &Proc, SearchPattern Pa)
 
             // On the for loop we only add ones at the 13th bit position
             // To ensure we keep least significant bits value
-            for (; index < (MemBuffer.RegionSize - 3); index += (1 << 13) )
+            for (; index < (MemBuffer.RegionSize - 3); index += (1 << 12))
             {
                 std::copy(ReadBuffer+index, ReadBuffer+(index+4), PatternBuffer);
                 if (IntPattern == BytesToInt(PatternBuffer))

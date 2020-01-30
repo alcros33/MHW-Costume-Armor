@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.15.1] - 2020 - 01 - 29
+### Added
+- Support for game version 401727
+### Fixed
+- The Searching Data part not working sometimes
+
 ## [0.15.0] - 2020 - 01 - 19
 ### Added
 - Iceborne Compatibility
