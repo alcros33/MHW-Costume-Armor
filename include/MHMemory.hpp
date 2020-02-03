@@ -46,19 +46,19 @@ public:
 
     bool openProcess();
     void findSteamPath();
-    void findDataAddress(std::string selected_version="Latest");
+    void findDataAddress(QString selected_version="Latest");
     bool backupSaveData() const;
 
     bool readArmor(int slot);
-    bool writeArmor(int CharSlot, bool isSafe = true);
+    bool writeArmor(int char_slot, bool no_backup_ok = false);
 
     const QDir exeDir = QCoreApplication::applicationDirPath();
     const QDir backupDir = QCoreApplication::applicationDirPath() + "\\Backups";
     const std::string procName = "MonsterHunterWorld.exe";
     const std::string steamDLL = "steam_api64.dll";
 
-    static std::map<std::string, SearchPattern> versions;
-    static std::map<std::string, int> charSlotDist;
+    static std::map<QString, SearchPattern> versions;
+    static std::map<QString, int> charSlotDist;
 
   private:
     Process _MHProcess;

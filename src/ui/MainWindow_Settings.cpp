@@ -12,7 +12,7 @@
 void MainWindow::_updateSelectedVersion()
 {
     QAction *checked = _versionGroup->checkedAction();
-    _Settings["Game Version"] = checked->text().toStdString();
+    _settings.setValue("General/GameVersion",checked->text());
 
     QFont font;
     for (auto verAction : _versionActions)
@@ -20,14 +20,14 @@ void MainWindow::_updateSelectedVersion()
 
     font.setBold(true);
     checked->setFont(font);
-    this->_flushSettings();
+    this->_settings.sync();
 }
 
 void MainWindow::_updateSelectedLogLevel()
 {
     QAction *checked = _logGroup->checkedAction();
-    _Settings["Log Level"] = checked->text().toStdString();
-    GLOBAL_LOG_LEVEL = LOG_NAMES[_Settings["Log Level"]];
+    _settings.setValue("Debug/LogLevel", checked->text());
+    GLOBAL_LOG_LEVEL = checked->text();
 
     QFont font;
     for (auto act : _logGroup->actions())
@@ -35,63 +35,40 @@ void MainWindow::_updateSelectedLogLevel()
 
     font.setBold(true);
     checked->setFont(font);
-    this->_flushSettings();
+    this->_settings.sync();
 }
 
-void MainWindow::_toggleSafe()
+void MainWindow::_toggleNoBackup()
 {
-    _Settings["Safe Mode"] = !_Settings["Safe Mode"];
-    if (!_Settings["Safe Mode"])
-    {
-        this->_unsafeWarning();
-    }
-    else
-    {
-        this->_deleteUnsafe();
-        this->setWindowTitle(PROJECT_NAME);
-    }
-    _flushSettings();
-}
-
-bool MainWindow::_flushSettings()
-{
-    std::ofstream Out(settingsFile.fileName().toStdString());
-    if (!Out)
-    {
-        LOG_ENTRY(ERROR, "Couldn't open " << settingsFile);
-        Out.close();
-        return false;
-    }
-    Out << std::setw(2) << _Settings << std::endl;
-    Out.close();
-    return true;
+    _settings.setValue("General/NoBackupOk", !_settings.value("General/NoBackupOk",false).toBool());
+    _settings.sync();
 }
 
 void MainWindow::_getCustomSteamPath()
 {
-    QString Dir = QFileDialog::getExistingDirectory(this, "Select the folder", "C:\\", QFileDialog::ShowDirsOnly);
-    if (Dir.isEmpty())
+    QString dir = QFileDialog::getExistingDirectory(this, "Select the folder", "C:\\", QFileDialog::ShowDirsOnly);
+    if (dir.isEmpty())
         return;
-    _Settings["Steam Path"] = Dir.toStdWString();
-    _Settings["Auto Steam Path"] = false;
+    _settings.setValue("SteamPath/CustomPath", dir);
+    _settings.setValue("SteamPath/Auto", false);
     ui->actionAutoSteam->setChecked(false);
-    this->_MHManager.setSteamDirectory(Dir);
-    ui->actionSteam_Current->setText(("Current : " + Dir.toStdString()).c_str());
-    this->_flushSettings();
+    this->_MHManager.setSteamDirectory(dir);
+    ui->actionSteam_Current->setText(dir.prepend("Current : "));
+    this->_settings.sync();
 }
 
 void MainWindow::_setAutoSteam()
 {
-    if (_Settings["Auto Steam Path"])
+    if (_settings.value("SteamPath/Auto", true).toBool())
     {
         ui->actionAutoSteam->setChecked(true);
         return;
     }
 
-    _Settings["Auto Steam Path"] = true;
+    _settings.setValue("SteamPath/Auto", true);
     ui->actionAutoSteam->setChecked(true);
     this->_MHManager.unSetSteamDirectory();
-    this->_flushSettings();
+    this->_settings.sync();
     if (!this->_MHManager.processIsOpen())
     {
         auto Dia = new DialogWindow(this, "Automatic Steam Path", "Steam path has been set to automatic, but MHW seems to be closed. Open it and press Search MHW Character Data.", Status::WARNING);
@@ -103,6 +80,6 @@ void MainWindow::_setAutoSteam()
 
 void MainWindow::_toggleAutoUpdates()
 {
-    _Settings["Auto Steam Path"] = !_Settings["Auto Steam Path"];
-    this->_flushSettings();
+    _settings.setValue("SteamPath/Auto", !_settings.value("SteamPath/Auto", true).toBool());
+    this->_settings.sync();
 }

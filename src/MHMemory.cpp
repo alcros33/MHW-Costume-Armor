@@ -48,7 +48,7 @@ void MH_Memory::findSteamPath()
     LOG_ENTRY(DEBUG, "Steam Path : " << _steamPath);
 }
 
-void MH_Memory::findDataAddress(std::string selected_version)
+void MH_Memory::findDataAddress(QString selected_version)
 {
     if (!_MHProcess.isOpen())
         return;
@@ -92,17 +92,17 @@ bool MH_Memory::readArmor(int slot)
     return false;
 }
 
-bool MH_Memory::writeArmor(int char_slot, bool is_safe)
+bool MH_Memory::writeArmor(int char_slot, bool no_backup_ok)
 {
     if (!_MHProcess.isOpen() || !this->dataAddressFound())
         return false;
 
     if (!this->backupSaveData())
     {
-        LOG_ENTRY(ERROR, "Couldn't Backup SaveData");
-        if (is_safe)
+        LOG_ENTRY(ERROR, "Couldn't Backup the Save Data");
+        if (!no_backup_ok)
         {
-            LOG_ENTRY(WARNING, "Can't write to memory without backup in safe mode.");
+            LOG_ENTRY(WARNING, "Check \"Do not Backup Save Files\" to be able to write without backup");
             return false;
         }
     }
@@ -175,7 +175,7 @@ bool MH_Memory::backupSaveData() const
 }
 
 // ByteArray to search Given version
-std::map<std::string, SearchPattern> MH_Memory::versions{
+std::map<QString, SearchPattern> MH_Memory::versions{
     {"163956", {BytesToUInt({231, 188, 66, 1}), (0x68C) + 29}},
     {"165889", {BytesToUInt({174, 190, 66, 1}), (0x68C) + 29}},
     {"166849", {BytesToUInt({ 47, 192, 66, 1}), (0x68C) + 29}},
@@ -189,7 +189,7 @@ std::map<std::string, SearchPattern> MH_Memory::versions{
     {"Latest", {BytesToUInt({224, 241, 66, 1}), (0x4B4) + 29}}};
 
 // The distance between the address of the data of the character slots
-std::map<std::string, int> MH_Memory::charSlotDist{
+std::map<QString, int> MH_Memory::charSlotDist{
     {"163956", 1285888},
     {"165889", 1285888},
     {"166849", 1285888},

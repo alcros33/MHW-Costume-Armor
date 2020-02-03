@@ -4,15 +4,20 @@ All notable changes to this project will be documented in this file.
 ## [0.16.0] - UNRELEASED
 ### Added
 - Option to re-turn on Steam path automatic search
-- Added an auto-updater feature
+- Added an auto-updater feature and a Search for Updates option
 - An option to select the level of the log
 - Now the program can be opened before MHW and does not need to be closed if the game is restarted
+- An checkable option to write without backup save file
 
 ### Changed
-- SavedSets.json and Settings.json are now saved on %APPDATA%/Roaming/MHW Costume Armor, you may need to manually move those
+- Restructured the entire file tree
+- Manually Input ID moved to the Debug Menu
 - ArmorData.json is now embeded in the executable
-- Removed own filesystem in favor of Qt's filesystem
-- Restructured File tree
+- Changed own implementation of filesystem to use Qt's QDir and QFile
+- Settings is now a .ini file and almost every setting has changed its name, but currently there are no hidden settings that cannot be changed using the graphical interface
+
+### Removed
+- Removed safe mode and Low Rank Armors
 
 ## [0.15.1] - 2020 - 01 - 29
 ### Added

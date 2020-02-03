@@ -1,14 +1,13 @@
 #pragma once
-#include <QMainWindow>
 #include <set>
 #include <iomanip>
 #include <map>
-
+#include <QMainWindow>
+#include <QSettings>
 #include "ui_MainWindow.h"
 #include "AboutWindow.hpp"
 #include "DialogWindow.hpp"
 #include "UpdaterGithub.hpp"
-
 #include "MHMemory.hpp"
 #include "json.hpp"
 
@@ -24,10 +23,8 @@ public:
     MainWindow(QString github_repo, QString current_version, QWidget *parent=0);
     ~MainWindow();
 
-    void show();
-
-    QFile settingsFile = get_appdata_dir().absoluteFilePath("Settings.json");
-    QFile savedSetsFile = get_appdata_dir().absoluteFilePath("SavedSets.json");
+    QFile settingsFile = QCoreApplication::applicationDirPath() + "\\settings.ini";
+    QFile savedSetsFile = QCoreApplication::applicationDirPath() + "\\SavedSets.json";
     QFile armorDataFile = QFile(":/ArmorData.json");
 
 private:
@@ -36,13 +33,12 @@ private:
     QActionGroup *_langGroup = nullptr;
     QActionGroup *_logGroup = nullptr;
     MH_Memory _MHManager;
-    json _Settings;
+    QSettings _settings;
     json _SavedSets;
     json _ArmorData;
     std::array<QComboBox*,5> _inputBoxes = {nullptr,nullptr,nullptr,nullptr,nullptr};
     std::vector<QAction*> _versionActions;
     std::vector<QAction*> _langActions;
-    std::set<std::string> _unsafeArmors;
     std::array<int,5> _safeCount = {0,0,0,0,0};
     json _transArmorData;
     UpdaterGithub _updater;
@@ -53,13 +49,10 @@ private slots:
     void _populateComboBoxes();
     void _populateVersionSelector();
     void _populateLanguages();
-    void _setDefaultSettings();
-    void _updateSelectedLogLevel();
     // Dialogs
     void _instructions();
     void _checkForUpdates();
     void _aboutInfo();
-    void _unsafeWarning();
     void _notImplemented();
     // Memory
     void _setupForSearch(bool silent);
@@ -67,10 +60,10 @@ private slots:
     void _writeData();
     void _fetchData(bool noMessage = false);
     //Settings
+    void _updateSelectedLogLevel();
     void _updateSelectedVersion();
-    bool _flushSettings();
     void _getCustomSteamPath();
-    void _toggleSafe();
+    void _toggleNoBackup();
     void _setAutoSteam();
     void _toggleAutoUpdates();
     //Saved Sets
@@ -87,6 +80,4 @@ private slots:
     void _clearArmor();
     void _changeAll();
     void _manualInputValue();
-    void _addUnsafe();
-    void _deleteUnsafe();
 };

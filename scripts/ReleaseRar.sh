@@ -8,7 +8,7 @@ echo "Deleting Extra files..."
 rm "MHW Costume Armor"/*.log > /dev/null 2>&1
 rm "MHW Costume Armor"/*.a > /dev/null 2>&1
 rm "MHW Costume Armor"/SavedSets.json > /dev/null 2>&1
-rm "MHW Costume Armor"/Settings.json > /dev/null 2>&1
+rm "MHW Costume Armor"/settings.ini > /dev/null 2>&1
 rm -r "MHW Costume Armor"/Backups > /dev/null 2>&1
 
 echo "Compressing bin folder..."

@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 
     QString project = PROJECT_NAME;
     QVersionNumber version(PROJECT_VERSION_MAJOR, PROJECT_VERSION_MINOR, PROJECT_VERSION_PATCH);
-    project += version.toString();
+    project += " " + version.toString();
     MainWindow w("https://github.com/alcros33/MHW-Costume-Armor", version.toString());
 
     LOG_ENTRY(INFO, project);

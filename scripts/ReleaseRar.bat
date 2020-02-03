@@ -15,7 +15,7 @@ XCOPY /S /I bin "MHW Costume Armor"
 del "MHW Costume Armor\*.log" 2>nul
 del "MHW Costume Armor\*.a" 2>nul
 del "MHW Costume Armor\SavedSets.json" 2>nul
-del "MHW Costume Armor\Settings.json" 2>nul
+del "MHW Costume Armor\settings.ini" 2>nul
 rmdir /s /q "MHW Costume Armor\Backups" 2>nul
 
 del "MHW Costume Armor.rar" 2>nul

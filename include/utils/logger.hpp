@@ -2,6 +2,7 @@
 #include <map>
 #include <string>
 #include <iostream>
+#include <QString>
 
 #include "easylogging++.h"
 
@@ -26,38 +27,20 @@ inline void INIT_LOGGER(const std::string &Name)
     el::Loggers::reconfigureLogger("default", logConfig);
 }
 
-inline el::Level GLOBAL_LOG_LEVEL = el::Level::Debug;
+inline QString GLOBAL_LOG_LEVEL = "DEBUG";
 
 // Hierarchy
-inline std::map<el::Level, int> LOG_HIERARCHY{
-    {el::Level::Info, 4},
-    {el::Level::Fatal, 3},
-    {el::Level::Error, 2},
-    {el::Level::Warning, 1},
-    {el::Level::Debug, 0},
+inline std::map<QString, el::Level> LOG_HIERARCHY{
+    {"INFO", el::Level::Info},
+    {"FATAL", el::Level::Fatal},
+    {"ERROR", el::Level::Error},
+    {"WARNING", el::Level::Warning},
+    {"DEBUG", el::Level::Debug},
 };
 
-// Names
-inline std::map<std::string, el::Level> LOG_NAMES{
-    {"Info", el::Level::Info},
-    {"Fatal", el::Level::Fatal},
-    {"Error", el::Level::Error},
-    {"Warning", el::Level::Warning},
-    {"Debug", el::Level::Debug},
-};
-
-// Capitalized
-inline std::map<std::string, std::string> _capitalized{
-    {"INFO","Info"},
-    {"FATAL","Fatal"},
-    {"ERROR","Error"},
-    {"WARNING","Warning"},
-    {"DEBUG", "Debug"}
-};
-
-inline bool check_level(std::string S)
+inline bool check_level(QString S)
 {
-    return LOG_HIERARCHY[LOG_NAMES[_capitalized[S]]] >= LOG_HIERARCHY[GLOBAL_LOG_LEVEL];
+    return LOG_HIERARCHY[S] >= LOG_HIERARCHY[GLOBAL_LOG_LEVEL];
 }
 
 #define LOG_ENTRY(LEVEL,X) LOG_IF(check_level(#LEVEL), LEVEL) << X

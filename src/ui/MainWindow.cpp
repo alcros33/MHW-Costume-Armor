@@ -12,17 +12,13 @@
 MainWindow::MainWindow(QString github_repo, QString current_version, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
+    _settings(settingsFile.fileName(), QSettings::IniFormat, this),
     _updater(this, github_repo, current_version)
 {
     ui->setupUi(this);
     this->setWindowTitle(PROJECT_NAME);
     ui->FetchButton->setEnabled(false);
     ui->WriteButton->setEnabled(false);
-
-    auto appData = get_appdata_dir();
-    auto fName = appData.dirName();
-    appData.cdUp();
-    appData.mkpath(fName);
 
     ui->toolBar->insertSeparator(ui->actionLoad_Armor_Toolbar);
     ui->toolBar->insertWidget(ui->actionLoad_Armor_Toolbar, ui->savedSetsLabel);
@@ -32,7 +28,7 @@ MainWindow::MainWindow(QString github_repo, QString current_version, QWidget *pa
 
     connect(ui->actionAbout, QAction::triggered, this, _aboutInfo);
     connect(ui->actionTutorial, QAction::triggered, this, _instructions);
-    connect(ui->actionSafe_Mode, QAction::triggered, this, _toggleSafe);
+    connect(ui->actionNo_Backup_Ok, QAction::triggered, this, _toggleNoBackup);
     connect(ui->actionExit, QAction::triggered, this, close);
 
     connect(ui->SearchButton, QPushButton::released, this, _findAddress);
@@ -66,31 +62,28 @@ MainWindow::MainWindow(QString github_repo, QString current_version, QWidget *pa
 
     _loadConfigFiles();
 
-    if (_Settings.find("Auto Steam Path")!= _Settings.end())
+    if (!_settings.value("SteamPath/Auto", true).toBool())
     {
-        if (!_Settings["Auto Steam Path"] && _Settings.find("Steam Path") != _Settings.end())
+        if (!_settings.value("SteamPath/CustomPath", "").toString().isEmpty())
         {
-            QString SteamPath = QString::fromStdWString(_Settings["Steam Path"].get<std::wstring>());
-            _MHManager.setSteamDirectory(SteamPath);
-            ui->actionSteam_Current->setText(SteamPath.prepend("Current : "));
+            auto steamPath = _settings.value("SteamPath/CustomPath").toString();
+            _MHManager.setSteamDirectory(steamPath);
+            ui->actionSteam_Current->setText(steamPath.prepend("Current : "));
             ui->actionAutoSteam->setChecked(false);
         }
-    }
-
-    if(_Settings.find("Log Level") != _Settings.end())
-    {
-        std::string logLevel = _Settings["Log Level"];
-        if (LOG_NAMES.find(logLevel) != LOG_NAMES.end())
-            _Settings.erase("Log Level");
         else
-        {
-            for (auto act : _logGroup->actions())
-                if (act->text() == QString::fromStdString(logLevel))
-                    act->setChecked(true);
-        }
+            _settings.setValue("SteamPath/Auto", true);
     }
 
-    _setDefaultSettings();
+    auto logLevel = _settings.value("Debug/LogLevel", "DEBUG").toString();
+    if (LOG_HIERARCHY.find(logLevel) != LOG_HIERARCHY.end())
+        _settings.setValue("Debug/LogLevel", "DEBUG");
+    
+    for (auto act : _logGroup->actions())
+        if (act->text() == _settings.value("Debug/LogLevel").toString())
+            act->setChecked(true);
+
+    ui->actionNo_Backup_Ok->setChecked(_settings.value("General/NoBackupOk", false).toBool());
 
     _populateVersionSelector();
     _populateSavedSets();
@@ -98,7 +91,7 @@ MainWindow::MainWindow(QString github_repo, QString current_version, QWidget *pa
     _translateArmorData();
     _updateSelectedLogLevel();
 
-    if (_Settings["Auto Updates"])
+    if (_settings.value("General/AutoUpdates", true).toBool())
         _updater.checkForUpdates(true);
 }
 
@@ -107,23 +100,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::show()
-{
-    QMainWindow::show();
-    if (!_Settings["Safe Mode"])
-    {
-        this->_unsafeWarning();
-        ui->actionSafe_Mode->setChecked(false);
-    }
-}
-
 void MainWindow::_loadConfigFiles()
 {
-    if (settingsFile.exists())
-    {
-        std::ifstream i(settingsFile.fileName().toStdString());
-        i >> _Settings;
-    }
     if (savedSetsFile.exists())
     {
         std::ifstream i(savedSetsFile.fileName().toStdString());
@@ -133,30 +111,6 @@ void MainWindow::_loadConfigFiles()
     armorDataFile.open(QIODevice::ReadOnly);
     _ArmorData = json::parse(armorDataFile.readAll());
     armorDataFile.close();
-}
-
-void MainWindow::_setDefaultSettings()
-{
-    if (_Settings.find("Safe Mode") == _Settings.end())
-        _Settings["Safe Mode"] = true;
-
-    if (_Settings.find("Game Version") == _Settings.end())
-        _Settings["Game Version"] = "Latest";
-
-    if (_Settings.find("Language") == _Settings.end())
-        _Settings["Language"] = "English";
-    
-    if (_Settings.find("Auto Steam Path") == _Settings.end())
-        _Settings["Auto Steam Path"] = true;
-        
-    if (_Settings.find("Auto Updates") == _Settings.end())
-        _Settings["Auto Updates"] = true;
-
-    if (_Settings.find("Log Level") == _Settings.end())
-    {
-        _Settings["Log Level"] = "Debug";
-        ui->actionLevelDebug->setChecked(true);
-    }
 }
 
 void MainWindow::_populateVersionSelector()
@@ -172,16 +126,16 @@ void MainWindow::_populateVersionSelector()
     font.setBold(true);
 
     _versionActions.reserve(MH_Memory::versions.size());
-    std::string TargetVersion = _Settings["Game Version"];
+    auto targetVersion = _settings.value("General/GameVersion", "Latest").toString();
     for (auto it=MH_Memory::versions.begin(); it!=MH_Memory::versions.end(); ++it)
     {
         QAction *tmp = new QAction(this);
         connect(tmp, QAction::triggered, this, _updateSelectedVersion);
-        tmp->setText(it->first.c_str());
+        tmp->setText(it->first);
         tmp->setCheckable(true);
         menuVersions->addAction(tmp);
         _versionGroup->addAction(tmp);
-        if (it->first == TargetVersion)
+        if (it->first == targetVersion)
         {
             tmp->setChecked(true);
             tmp->setFont(font);
@@ -190,7 +144,7 @@ void MainWindow::_populateVersionSelector()
     }
     if (_versionGroup->checkedAction() == 0)
     {
-        LOG_ENTRY(ERROR, "Encountered unknown game version " << TargetVersion << " setting it to 'Latest'");
+        LOG_ENTRY(ERROR, "Encountered unknown game version " << targetVersion << " setting it to 'Latest'");
         _versionActions.back()->setChecked(true);
         _versionActions.back()->setFont(font);
     }
@@ -207,22 +161,22 @@ void MainWindow::_populateLanguages()
 
     QFont font; font.setBold(true);
 
-    std::vector<std::string> Langs;
+    std::vector<QString> Langs;
     for (const auto &el :_ArmorData.front().items())
         if (el.key() != "Mode" && el.key() != "Danger")
-            Langs.push_back(el.key());
+            Langs.push_back(QString::fromStdString(el.key()));
 
     _langActions.reserve(Langs.size());
-    std::string TargetLang = _Settings["Language"];
+    auto targetLang = _settings.value("General/Language", "English").toString();
     for (const auto &la : Langs)
     {
         QAction *tmp = new QAction(this);
         connect(tmp, QAction::triggered, this, _translateArmorData);
-        tmp->setText(la.c_str());
+        tmp->setText(la);
         tmp->setCheckable(true);
         menuLangs->addAction(tmp);
         _langGroup->addAction(tmp);
-        if (la == TargetLang)
+        if (la == targetLang)
         {
             tmp->setChecked(true);
             tmp->setFont(font);
@@ -231,7 +185,7 @@ void MainWindow::_populateLanguages()
     }
     if (_langGroup->checkedAction() == 0)
     {
-        LOG_ENTRY(ERROR, "Encountered unknown language " << TargetLang << " setting it to 'English'");
+        LOG_ENTRY(ERROR, "Encountered unknown language " << targetLang << " setting it to 'English'");
         _langActions.back()->setChecked(true);
         _langActions.back()->setFont(font);
     }
@@ -249,13 +203,6 @@ void MainWindow::_populateComboBoxes()
     {
         ID = el.value()["ID"];
 
-        if (el.value()["Danger"])
-        {
-            _unsafeArmors.insert(el.key());
-
-            if (_Settings["Safe Mode"])
-                continue;
-        }
         Mode = el.value()["Mode"];
         
         for (int i = 0; i < 5; ++i)

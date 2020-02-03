@@ -920,10 +920,9 @@ All</string>
      <addaction name="actionAutoSteam"/>
      <addaction name="actionChange_Steam_Path"/>
     </widget>
-    <addaction name="actionSafe_Mode"/>
-    <addaction name="menuSteam_Path"/>
     <addaction name="actionAutomatically_Check_for_Updates"/>
-    <addaction name="actionManually_Input_ID"/>
+    <addaction name="actionNo_Backup_Ok"/>
+    <addaction name="menuSteam_Path"/>
    </widget>
    <widget class="QMenu" name="menuDebug">
     <property name="title">
@@ -938,6 +937,7 @@ All</string>
      <addaction name="actionLevelDebug"/>
     </widget>
     <addaction name="menuLog_Level"/>
+    <addaction name="actionManually_Input_ID"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuOptions"/>
@@ -1015,15 +1015,15 @@ All</string>
     <string>Ctrl+Q</string>
    </property>
   </action>
-  <action name="actionSafe_Mode">
+  <action name="actionNo_Backup_Ok">
    <property name="checkable">
     <bool>true</bool>
    </property>
    <property name="checked">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="text">
-    <string>Safe Mode</string>
+    <string>Do not Backup Save Files</string>
    </property>
   </action>
   <action name="actionTutorial">
@@ -1105,7 +1105,7 @@ All</string>
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Error</string>
+    <string>ERROR</string>
    </property>
   </action>
   <action name="actionLevelWarning">
@@ -1113,7 +1113,7 @@ All</string>
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Warning</string>
+    <string>WARNING</string>
    </property>
   </action>
   <action name="actionLevelDebug">
@@ -1121,7 +1121,7 @@ All</string>
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Debug</string>
+    <string>DEBUG</string>
    </property>
   </action>
   <action name="actionAutoSteam">

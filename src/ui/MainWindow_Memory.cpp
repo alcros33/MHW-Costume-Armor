@@ -41,7 +41,7 @@ void MainWindow::_findAddress()
     QThread *thread = QThread::create([this] {
             if (!this->_MHManager.steamFound())
                 this->_MHManager.findSteamPath();
-            this->_MHManager.findDataAddress(this->_Settings["Game Version"]);
+            this->_MHManager.findDataAddress(_settings.value("General/GameVersion", "Latest").toString());
     });
 
     thread->start();
@@ -121,7 +121,7 @@ void MainWindow::_writeData()
         return;
 
     u_int slot = ui->comboBox->currentText().toUInt();
-    if (!_MHManager.writeArmor(slot - 1, _Settings["Safe Mode"]))
+    if (!_MHManager.writeArmor(slot - 1, _settings.value("General/NoBackupOk", false).toBool()))
     {
         DialogWindow *Dia = new DialogWindow(this, "ERROR", "Couldn't Write Save Data!", Status::ERROR0);
         Dia->show();

@@ -5,16 +5,16 @@ parser = argparse.ArgumentParser(description='Generates .json configuration file
 parser.add_argument('--source', type=str, default="scripts/MHW_Armor_Data.xlsx",help='The .xlsx file')
 parser.add_argument('--dest', type=str, default="resources/ArmorData.json",help='The where to write the .json file')
 
-ArmorNames = ["Head","Body","Arms","Waist","Legs"] #Names of the armor pieces
+ArmorNames = ["Head", "Body","Arms", "Waist", "Legs"] #Names of the armor pieces
 
 # Checks if a cell has a bg color other than none
-def CellDanger(Sheet, i, c):
+def cellDanger(Sheet, i, c):
     return (Sheet[i][c+1].fill.bgColor.value != "00000000")
 
 # Checks if the entire row is dangerous
-def RowDanger(Sheet,i):
+def rowDanger(Sheet,i):
     for c in range(5):
-        if CellDanger(Sheet,i,c):
+        if cellDanger(Sheet,i,c):
             return True
     return False
 
@@ -46,7 +46,9 @@ if __name__ == "__main__":
 
     Dic = {}
     DicNames = {}
-    for i in range(2, 512):    
+    for i in range(2, 512):
+        if rowDanger(Sheet,i):
+            continue 
         Name = Sheet[i][6].value
         ID = Sheet[i][0].value
 
@@ -59,11 +61,7 @@ if __name__ == "__main__":
 
         Dic[ID] = {Lng: LName.value for Lng, LName in zip(Langs, Sheet[i][6:])}
         assertNamesNotNull(Dic[ID], Langs, ID)
-        Dic[ID]["Danger"] = RowDanger(Sheet,i)
-        mode = ""
-        for j in range(5):
-            mode += str(int(Sheet[i][j+1].value != "?"))
-        Dic[ID]["Mode"] = mode
+        Dic[ID]["Mode"] = "".join(str(int(Sheet[i][j+1].value != "?")) for j in range(5))
 
     Dic = dict(sorted(Dic.items(), key=lambda x:x[1]["English"]))
 

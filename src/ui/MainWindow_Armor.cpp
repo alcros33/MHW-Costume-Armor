@@ -13,8 +13,8 @@
 void MainWindow::_translateArmorData()
 {
     QAction *checked = _langGroup->checkedAction();
-    _Settings["Language"] = checked->text().toStdString();
-    std::string Lang = _Settings["Language"];
+    _settings.setValue("General/Language", checked->text());
+    auto Lang = checked->text().toStdString();
 
     QFont font;
     for (auto lAction : _langActions)
@@ -35,7 +35,7 @@ void MainWindow::_translateArmorData()
         this->_inputBoxes[i]->clear();
     }
     _populateComboBoxes();
-    this->_flushSettings();
+    this->_settings.sync();
 }
 
 void MainWindow::_updateArmorValues()
@@ -80,43 +80,13 @@ bool MainWindow::_parseInputBoxes()
     return true;
 }
 
-void MainWindow::_addUnsafe()
-{
-    int ID;
-    std::string Mode;
-    for (const auto &_Name : this->_unsafeArmors)
-    {
-        ID = _transArmorData[_Name]["ID"];
-        Mode = _transArmorData[_Name]["Mode"];
-        for (int i=0; i<5; ++i)
-        {
-            if (Mode[i] =='1')
-                this->_inputBoxes[i]->addItem(std::string("(!) ").append(_Name).c_str(), ID);
-        }
-    }
-}
-
-void MainWindow::_deleteUnsafe()
-{
-    for (int i = 0; i < 5; ++i)
-    {
-        for (int index = _inputBoxes[i]->count(); index >= _safeCount[i]; --index)
-            _inputBoxes[i]->removeItem(index);
-    }
-}
-
 void MainWindow::_changeAll()
 {
     QStringList items;
     int i = 0;
     for (auto &it : _transArmorData.items())
-    {
-        if (it.value()["Danger"] && _Settings["Safe Mode"])
-            continue;
-
         if (it.value()["Mode"] == "11111") // Means its a set
             items << it.key().c_str();
-    }
 
     bool ok;
     QString text = getItemInputDialog(this, "Change All Armor", "Select set: ", items, &ok);
