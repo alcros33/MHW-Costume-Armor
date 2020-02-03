@@ -40,7 +40,7 @@ void MainWindow::_translateArmorData()
 
 void MainWindow::_updateArmorValues()
 {
-    auto Data = _MHManager.getPlayerData().getData();
+    auto Data = _MHManager.getPlayerData();
     int index;
     for (int i = 0; i < 5; ++i)
     {
@@ -48,7 +48,7 @@ void MainWindow::_updateArmorValues()
         if (index < 0)
         {
             index = 0;
-            DEBUG_LOG(WARNING, "Encountered unknown value (" << (int)Data[i] << ") changing it to "
+            LOG_ENTRY(WARNING, "Encountered unknown value (" << (int)Data[i] << ") changing it to "
                      << Armor::NOTHING << " for safety");
         }
         _inputBoxes[i]->setCurrentIndex(index);
@@ -58,7 +58,7 @@ void MainWindow::_updateArmorValues()
 void MainWindow::_clearArmor()
 {
     for(int i=0; i<5 ;++i)
-        _MHManager.getPlayerData().setArmorPiece(i, Armor::NOTHING);
+        _MHManager.getPlayerData()[i] = Armor::NOTHING;
     this->_updateArmorValues();
 }
 
@@ -75,7 +75,7 @@ bool MainWindow::_parseInputBoxes()
             this->_fetchData(true);
             return false;
         }
-        this->_MHManager.getPlayerData().setArmorPiece(i, Val);
+        this->_MHManager.getPlayerData()[i] = Val;
     }
     return true;
 }
@@ -124,7 +124,7 @@ void MainWindow::_changeAll()
         return;
     json Selected = _transArmorData[text.toStdString()];
     for (i = 0; i < 5; ++i)
-        _MHManager.getPlayerData().setArmorPiece(i, Selected["ID"]);
+        _MHManager.getPlayerData()[i] = Selected["ID"];
 
     this->_updateArmorValues();
 }

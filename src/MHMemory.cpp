@@ -6,101 +6,136 @@
 INITIALIZE_EASYLOGGINGPP
 
 /// Begin MH_Memory Member definitions
-MH_Memory::MH_Memory(const std::string &ProcName, const std::string &SteamDLL) : _MHProcess(ProcName)
+MH_Memory::MH_Memory()
 {
-    INIT_LOGGER( logPath.str() );
+    INIT_LOGGER(exeDir.absoluteFilePath("CostumeArmor.log").toStdString());
+    this->exeDir.mkdir("Backups");
+}
 
+bool MH_Memory::openProcess()
+{
+    _MHProcess.open(this->procName);
+    return _MHProcess.isOpen();
+}
+
+void MH_Memory::findSteamPath()
+{
+    if (!_MHProcess.isOpen())
+        return;
+    
+    auto Mod = _MHProcess.getModuleByName(this->steamDLL);
+    if (Mod.isEmpty())
+    {
+        LOG_ENTRY(ERROR, "Module " << this->steamDLL << " NOT FOUND");
+        return;
+    }
+
+    this->_steamID = _MHProcess.readMemoryUInt(Mod.getBaseAddress() + 237848);
+    auto path = get_reg_value(HKEY_CURRENT_USER, "Software\\Valve\\Steam", "SteamPath");
+    this->_steamPath.setPath(QString::fromStdString(path));
+    this->_steamPath.makeAbsolute();
+    this->_steamPath.cd("userdata");
+    this->_steamPath.cd(QString::number(_steamID));
+    this->_steamPath.cd("582010");
+    if (this->_steamPath.exists())
+        this->_steamFound = true;
+    else
+    {
+        this->_steamFound = false;
+        LOG_ENTRY(ERROR, "Steam ID or Path NOT FOUND");
+    }
+    LOG_ENTRY(DEBUG, "Steam ID : " << _steamID);
+    LOG_ENTRY(DEBUG, "Steam Path : " << _steamPath);
+}
+
+void MH_Memory::findDataAddress(std::string selected_version)
+{
     if (!_MHProcess.isOpen())
         return;
 
-    this->_slotDist = MH_Memory::CharSlotDist["Latest"];
-    auto Mod = _MHProcess.getModuleByName(SteamDLL);
-    if (!Mod.isEmpty())
-    {
-        // Old steam addr 237592
-        // New steam addr 237848
-        _steamID = _MHProcess.readMemoryInt(Mod.getBaseAddress() + 237848);
-        _steamPath = GetRegKeyValue(HKEY_CURRENT_USER, "Software\\Valve\\Steam", "SteamPath");
-        if (_steamID != 0 && !_steamPath.empty() )
-        {
-            _steamPath /= "userdata";
-            _steamPath /= std::to_string(_steamID);
-            _steamPath /= "582010";
-            _steamFound = true;
-        }
-        else
-        {
-            DEBUG_LOG(ERROR,"Steam ID or Path NOT FOUND");
-            DEBUG_LOG_HEX(DEBUG,"Current Steam Addr : "<< ( (long) Mod.getBaseAddress() + 237848) );
-            DEBUG_LOG(DEBUG,"Current Steam ID : " << _steamID );
-            DEBUG_LOG(DEBUG,"Current Steam Path : " << _steamPath);
-        }
-    }
-    else
-    {
-        DEBUG_LOG(ERROR, "Module "<<SteamDLL<<" NOT FOUND");
-        std::stringstream S;
-        S << "Found Modules : ";
-        for(const auto &mod : _MHProcess.getModuleList() )
-            S << mod.getName() <<", ";
-        DEBUG_LOG(DEBUG, S.str() );
-    }
-}
+    if (MH_Memory::versions.find(selected_version) == MH_Memory::versions.end()) // Safety Check
+        selected_version = "Latest";
 
-void MH_Memory::findAddress(std::string Ver)
-{
-    if (!this->processOpen())
-        return;
-    
-    if (MH_Memory::Versions.find(Ver) == MH_Memory::Versions.end()) // Safety Check
-        Ver = "Latest";
-
-    _dataPtr = FindDataAddress(_MHProcess, MH_Memory::Versions[Ver]);
+    _dataPtr = find_data_address(_MHProcess, MH_Memory::versions[selected_version]);
     if (_dataPtr == 0)
         return;
     _dataPtr -= 29;
-    _slotDist = MH_Memory::CharSlotDist[Ver];
+    _slotDist = MH_Memory::charSlotDist[selected_version];
 
-    DEBUG_LOG_HEX(DEBUG,"Address of the Characters Data : "<< _dataPtr);
+    LOG_ENTRY_HEX(DEBUG,"Address of the Characters Data : "<< _dataPtr);
 }
 
-bool MH_Memory::fetchPlayerData(int slot)
+bool MH_Memory::validateProcess()
 {
-    if ( !this->processOpen() || !this->dataAddressFound() )
+    if (_MHProcess.isOpen())
+        return true;
+    _MHProcess.close();
+    _dataPtr = 0;
+    return false;
+}
+
+bool MH_Memory::readArmor(int slot)
+{
+    if (!this->_MHProcess.isOpen() || !this->dataAddressFound())
         return false;
+    
+    byte *charDataBuffer = _MHProcess.readMemory(_dataPtr + _slotDist * slot, 20);
 
-    if (slot < 0)
-        slot = 0;
-    if (slot > 2)
-        slot = 2;
-
-    byte *CharDataBuffer = _MHProcess.readMemory(_dataPtr + _slotDist * slot, 28);
-    byte *lpBuffer = _MHProcess.readMemory(_dataPtr + _slotDist * slot - 394460, 1);
-
-    if (!CharDataBuffer || !lpBuffer)
+    if (charDataBuffer)
     {
-        delete[] CharDataBuffer;
-        delete[] lpBuffer;
-        return false;
+        for (int i = 0; i < 5; ++i)
+            this->_data[i] = BytesToUInt(charDataBuffer + (i * 4));
+        return true;
     }
 
-    _Data = PlayerData(CharDataBuffer, lpBuffer[0]);
-    delete[] CharDataBuffer;
-    delete[] lpBuffer ;
-    return true;
+    delete[] charDataBuffer;
+    return false;
 }
 
-void MH_Memory::setSteamDirectory(const fs::Path &p)
+bool MH_Memory::writeArmor(int char_slot, bool is_safe)
+{
+    if (!_MHProcess.isOpen() || !this->dataAddressFound())
+        return false;
+
+    if (!this->backupSaveData())
+    {
+        LOG_ENTRY(ERROR, "Couldn't Backup SaveData");
+        if (is_safe)
+        {
+            LOG_ENTRY(WARNING, "Can't write to memory without backup in safe mode.");
+            return false;
+        }
+    }
+
+    bool status = true;
+    for (int index = 0; index < 5; ++index)
+    {
+        status &= _MHProcess.writeMemoryUInt(_dataPtr + (index * 4) + _slotDist * char_slot,
+                                             _data[index]);
+    }
+
+    std::stringstream S;
+    for (const auto d : _data)
+        S << d << ", ";
+    LOG_ENTRY(DEBUG, "Written (" << S.str() << ") to slot " << char_slot+1);
+
+    return status;
+}
+
+void MH_Memory::setSteamDirectory(const QDir &p)
 {
     this->_steamPath = p;
-    _steamPath /= "userdata";
-    _steamPath /= std::to_string(_steamID);
-    _steamPath /= "582010";
-    _steamFound = true;
-    DEBUG_LOG(DEBUG, "Steam Path customly set to "<<_steamPath);
+    this->_steamFound = true;
+    LOG_ENTRY(DEBUG, "Steam Path customly set to " << _steamPath);
 }
 
-std::string GetDateTime()
+void MH_Memory::unSetSteamDirectory()
+{
+    this->_steamPath.setPath("");
+    this->_steamFound = false;
+}
+
+std::string get_date_time()
 {
     std::time_t t = std::time(nullptr);
 
@@ -113,95 +148,48 @@ std::string GetDateTime()
 
 bool MH_Memory::backupSaveData() const
 {
-    if (!this->steamFound())
+    if (!this->_steamFound)
     {
-        DEBUG_LOG(ERROR,"Steam Dir was not Found");
+        LOG_ENTRY(ERROR,"Steam Dir was not Found");
         return false;
     }
 
-    if (!MH_Memory::backupDir.exists())
-        if (!fs::create_directory(MH_Memory::backupDir))
-        {
-            DEBUG_LOG(ERROR,"Backup Dir was not Found and couldn't created");
-            return false;
-        }
-
-    auto SourcePath = this->_steamPath;
-    SourcePath /= "remote";
-    SourcePath /= "SAVEDATA1000";
-
-    if (!SourcePath.exists())
+    if (!this->backupDir.exists())
     {
-        DEBUG_LOG(ERROR,"Couldn't Find Save Data");
+        LOG_ENTRY(ERROR,"Backup Dir was not Found and couldn't created");
         return false;
     }
 
-    auto DestPath = MH_Memory::backupDir;
-    DestPath /= ("Backup " + GetDateTime());
-    try
+    auto sourcePath = this->_steamPath;
+    sourcePath.cd("remote");
+
+    if (!sourcePath.exists("SAVEDATA1000"))
     {
-        fs::copy_file(SourcePath, DestPath);
-    }
-    catch (fs::FilesystemError &e)
-    {
-        DEBUG_LOG(ERROR,"Couldn't Copy Save data. Error : " << e.what() );
+        LOG_ENTRY(ERROR,"Couldn't Find Save Data");
         return false;
     }
-
-    return DestPath.exists();
-}
-
-bool MH_Memory::writeArmor(int CharSlot, bool isSafe)
-{
-    if ( !this->processOpen() || !this->dataAddressFound() )
-        return false;
-    if (!this->backupSaveData())
-    {
-        DEBUG_LOG(ERROR,"Couldn't Backup SaveData");
-        if(isSafe)
-        {
-            DEBUG_LOG(WARNING,"Can't write to memory without backup in safe mode.");
-            return false;
-        }
-    }
-
-    if (CharSlot < 0)
-        CharSlot = 0;
-    if (CharSlot > 2)
-        CharSlot = 2;
-
-    bool Status = true;
-
-    for (int index = 0; index < 5; ++index)
-    {
-        Status &= _MHProcess.writeMemoryUInt(_dataPtr + index * 4 + _slotDist * CharSlot,
-                                            _Data.getArmorPiece(index));
-    }
-    
-    std::stringstream S;
-    for( const auto d : _Data.getData() )
-        S << ( (int)d ) << ", ";
-    DEBUG_LOG(DEBUG,"Written (" << S.str()<<") to slot " << CharSlot);
-
-    return Status;
+    QString saveFileName("Backup ");
+    saveFileName.append(get_date_time().c_str());
+    return QFile::copy(sourcePath.absoluteFilePath("SAVEDATA1000"),
+                       this->backupDir.absoluteFilePath(saveFileName));
 }
 
 // ByteArray to search Given version
-std::map<std::string, SearchPattern> MH_Memory::Versions{
-    {"163956", {BytesToInt({231, 188, 66, 1}), (0x68C) + 29}},
-    {"165889", {BytesToInt({174, 190, 66, 1}), (0x68C) + 29}},
-    {"166849", {BytesToInt({ 47, 192, 66, 1}), (0x68C) + 29}},
-    {"167353", {BytesToInt({ 55, 193, 66, 1}), (0x68C) + 29}},
-    {"167541", {BytesToInt({214, 199, 66, 1}), (0x6AC) + 29}},
-    {"167796", {BytesToInt({ 87, 200, 66, 1}), (0x6AC) + 29}},
-    {"167898", {BytesToInt({103, 200, 66, 1}), (0x6AC) + 29}},
-    {"168030", {BytesToInt({119, 200, 66, 1}), (0x6AC) + 29}},
-    {"400974", {BytesToInt({ 32, 246, 66, 1}), (0x4B4) + 29}},
-    {"401727", {BytesToInt({224, 241, 66, 1}), (0x4B4) + 29}},
-    {"Latest", {BytesToInt({224, 241, 66, 1}), (0x4B4) + 29}}};
+std::map<std::string, SearchPattern> MH_Memory::versions{
+    {"163956", {BytesToUInt({231, 188, 66, 1}), (0x68C) + 29}},
+    {"165889", {BytesToUInt({174, 190, 66, 1}), (0x68C) + 29}},
+    {"166849", {BytesToUInt({ 47, 192, 66, 1}), (0x68C) + 29}},
+    {"167353", {BytesToUInt({ 55, 193, 66, 1}), (0x68C) + 29}},
+    {"167541", {BytesToUInt({214, 199, 66, 1}), (0x6AC) + 29}},
+    {"167796", {BytesToUInt({ 87, 200, 66, 1}), (0x6AC) + 29}},
+    {"167898", {BytesToUInt({103, 200, 66, 1}), (0x6AC) + 29}},
+    {"168030", {BytesToUInt({119, 200, 66, 1}), (0x6AC) + 29}},
+    {"400974", {BytesToUInt({ 32, 246, 66, 1}), (0x4B4) + 29}},
+    {"401727", {BytesToUInt({224, 241, 66, 1}), (0x4B4) + 29}},
+    {"Latest", {BytesToUInt({224, 241, 66, 1}), (0x4B4) + 29}}};
 
 // The distance between the address of the data of the character slots
-std::map<std::string, int> MH_Memory::CharSlotDist{
+std::map<std::string, int> MH_Memory::charSlotDist{
     {"163956", 1285888},
     {"165889", 1285888},
     {"166849", 1285888},
@@ -215,14 +203,56 @@ std::map<std::string, int> MH_Memory::CharSlotDist{
     {"Latest", 2615792}};
 
 /// End MH_Memory Member definitions
-fs::Path CurrentExecutableDir()
+
+/// Begin Misc Functions
+// Most important function.
+// Searches the memory for a pattern (that changes each version)
+DWORD64 find_data_address(Process &Proc, SearchPattern Pa)
 {
-    wchar_t Buffer[1024];
-    if (GetModuleFileNameW(nullptr, Buffer, 1024) != 0)
+    byte PatternBuffer[4];
+    u_int lastBits = Pa.lastBits;
+    u_int uintPattern = Pa.uintPattern;
+
+    DWORD64 baseAddr = 0;
+    byte *readBuffer = nullptr;
+    MEMORY_BASIC_INFORMATION MemBuffer;
+
+    while (baseAddr < 0x7fffffffffffLL)
     {
-        fs::Path Path(Buffer);
-        return Path.parent_path();
+        if (VirtualQueryEx(Proc.getHanlder(), (LPCVOID)baseAddr, &MemBuffer, sizeof(MemBuffer)) == 0)
+        {
+            LOG_ENTRY(ERROR, "VirtualQueryEx Returned Error Code : " << std::to_string(GetLastError()));
+            return 0;
+        }
+
+        baseAddr += (DWORD64)MemBuffer.RegionSize - 1; // Advance to next Memory Region
+
+        if (MemBuffer.AllocationProtect == 64 || MemBuffer.AllocationProtect == 4)
+        {
+            readBuffer = Proc.readMemory(MemBuffer.AllocationBase, MemBuffer.RegionSize);
+            if (!readBuffer)
+                continue;
+
+            // Get 12 least significant bits
+            DWORD64 index = (DWORD_PTR)MemBuffer.AllocationBase & ((1 << 12) - 1);
+            // Ensure Index + AllocationBase has the least significant bits we're searching for
+            if (index < lastBits)
+                index = lastBits - index;
+            else
+                index = ((1 << 12) - index) + lastBits;
+
+            // On the for loop we only add ones at the 13th bit position
+            // To ensure we keep least significant bits value
+            for (; index <= (MemBuffer.RegionSize - 4); index += (1 << 12))
+            {
+                std::copy(readBuffer + index, readBuffer + (index + 4), PatternBuffer);
+                if (uintPattern == BytesToUInt(PatternBuffer))
+                {
+                    return (DWORD_PTR)(MemBuffer.AllocationBase) + (DWORD64)index;
+                }
+            }
+            delete[] readBuffer;
+        }
     }
-    DEBUG_LOG(ERROR, "Couldn't retrieve the name of current EXE File.");
-    return fs::current_path();
+    return 0;
 }

@@ -16,23 +16,10 @@ void MainWindow::_unsafeWarning()
             return;
 
     this->setWindowTitle(QString(PROJECT_NAME) + "-UNSAFE");
-    DEBUG_LOG(WARNING, "Safe Mode was turned off");
+    LOG_ENTRY(WARNING, "Safe Mode was turned off");
     DialogWindow *Dia = new DialogWindow(this, "Warning", "You are not Running in SafeMode\n(!) Marked Armors May Cause Game Crashes\nUse with caution.", Status::WARNING);
     Dia->show();
     this->_addUnsafe();
-}
-
-void MainWindow::debugPrints() const
-{
-    if (_MHManager.steamFound())
-    {
-        DEBUG_LOG(DEBUG, "Steam UserData ID: " << _MHManager.getSteamID());
-        DEBUG_LOG(DEBUG, "Steam Game Directory: " << _MHManager.getSteamPath());
-    }
-    else
-    {
-        DEBUG_LOG(ERROR, "Couldn't Find Steam Data");
-    }
 }
 
 void MainWindow::_aboutInfo()
@@ -51,4 +38,9 @@ void MainWindow::_notImplemented()
 {
     DialogWindow *Dia = new DialogWindow(this, "Warning", "Functionality Not Implemented... Yet", Status::WARNING);
     Dia->show();
+}
+
+void MainWindow::_checkForUpdates()
+{
+    _updater.checkForUpdates(false);
 }

@@ -1,6 +1,19 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.16.0] - UNRELEASED
+### Added
+- Option to re-turn on Steam path automatic search
+- Added an auto-updater feature
+- An option to select the level of the log
+- Now the program can be opened before MHW and does not need to be closed if the game is restarted
+
+### Changed
+- SavedSets.json and Settings.json are now saved on %APPDATA%/Roaming/MHW Costume Armor, you may need to manually move those
+- ArmorData.json is now embeded in the executable
+- Removed own filesystem in favor of Qt's filesystem
+- Restructured File tree
+
 ## [0.15.1] - 2020 - 01 - 29
 ### Added
 - Support for game version 401727

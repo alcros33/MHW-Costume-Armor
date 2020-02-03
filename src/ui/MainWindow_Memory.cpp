@@ -10,36 +10,38 @@
 /// These file contains Member definitions of the MainWindow class
 /// Related to readying and writting to memory.
 
-void MainWindow::_findAddr()
+void MainWindow::_findAddress()
 {
+    if (!this->_MHManager.openProcess())
+    {
+        DialogWindow *Dia = new DialogWindow(this, "ERROR", "MHW World doesn't seem to be open",
+                                             Status::ERROR0);
+        Dia->show();
+        return;
+    }
+
     ui->SearchButton->setText("Searching for Save Data...");
     ui->SearchButton->setEnabled(false);
 
-    DialogWindow *Dia = new DialogWindow(this, "Wait a Sec...", "Searching MHW for Character Data", Status::SUCCESS);
-    Dia->setWindowFlags(Qt::SplashScreen);
-    QLabel *IconLabel = Dia->getIconLabel();
-    QString PrevText = IconLabel->text(); // Save it for later
-    QMovie *movie = new QMovie(":/ajax-loader.gif");
-    movie->setScaledSize(IconLabel->frameSize());
-    IconLabel->setMovie(movie);
-    movie->start();
+    DialogWindow *Dia = new DialogWindow(this, "Wait a Sec...",
+                                        "Searching MHW for Character Data", Status::SUCCESS);
 
+    QString prevText = Dia->getIconLabel()->text(); // Save it for later
     Dia->getOkButton()->setText("Cancel");
     Dia->setAttribute(Qt::WA_DeleteOnClose, false);
+    Dia->setWindowFlags(Qt::SplashScreen);
+
+    QMovie *movie = new QMovie(":/ajax-loader.gif");
+    movie->setScaledSize(Dia->getIconLabel()->frameSize());
+    Dia->getIconLabel()->setMovie(movie);
+    movie->start();
 
     Dia->show();
 
-    std::string errorMessage = "";
-
-    QThread *thread = QThread::create([this, &errorMessage] {
-        try
-        {
-            this->_MHManager.findAddress(this->_Settings["Game Version"]);
-        }
-        catch (const std::exception &ex)
-        {
-            errorMessage = ex.what();
-        }
+    QThread *thread = QThread::create([this] {
+            if (!this->_MHManager.steamFound())
+                this->_MHManager.findSteamPath();
+            this->_MHManager.findDataAddress(this->_Settings["Game Version"]);
     });
 
     thread->start();
@@ -48,21 +50,19 @@ void MainWindow::_findAddr()
         if (!Dia->isVisible()) // User presed "Cancel"
         {
             thread->quit();
-            delete Dia;
-            ui->SearchButton->setEnabled(true);
-            ui->SearchButton->setText("Search For MHW Save Data");
+            Dia->setAttribute(Qt::WA_DeleteOnClose, true);
+            Dia->close();
+            this->_setupForSearch(true);
             return;
         }
         QCoreApplication::processEvents();
     }
-    if (!errorMessage.empty())
-    // If errorMessage is NOT empty, that means VritualQueryEx returned error code
+
+    if (!this->_MHManager.dataAddressFound())
     {
         Dia->setAttribute(Qt::WA_DeleteOnClose, true);
         Dia->close();
-        ui->SearchButton->setText("Search For MHW Save Data");
-        ui->SearchButton->setEnabled(true);
-        DEBUG_LOG(ERROR, errorMessage);
+        this->_setupForSearch(true);
         DialogWindow *Dia = new DialogWindow(this, "ERROR",
                                              "Error occurred during the searching process.\n"
                                              "Check that the program is updated\n"
@@ -71,33 +71,30 @@ void MainWindow::_findAddr()
         return;
     }
 
-    if (!this->_MHManager.dataAddressFound())
-    {
-        Dia->setAttribute(Qt::WA_DeleteOnClose, true);
-        Dia->close();
-        ui->SearchButton->setEnabled(true);
-        DialogWindow *Dia = new DialogWindow(this, "ERROR", "Couldn't Find Save Data Address", Status::ERROR0);
-        Dia->show();
-        ui->SearchButton->setText("Search For MHW Save Data");
-        return;
-    }
     Dia->getOkButton()->setText("Ok");
     Dia->getIconLabel()->clear();
-    Dia->getIconLabel()->setText(PrevText);
-    Dia->getMsgLabel()->setText("MHW Data Found Successfully!");
+    Dia->getIconLabel()->setText(prevText);
+    Dia->getMsgLabel()->setText("MHW Character Data Found Successfully!");
     Dia->setWindowTitle("Succes!!");
-    Dia->setAttribute(Qt::WA_DeleteOnClose, true);
 
+    Dia->setAttribute(Qt::WA_DeleteOnClose, true);
     ui->SearchButton->setText("Ready To Go.");
     ui->SearchButton->setEnabled(false);
 
     ui->FetchButton->setEnabled(true);
     ui->WriteButton->setEnabled(true);
 }
+
 void MainWindow::_fetchData(bool noMessage)
 {
+    if (!this->_MHManager.validateProcess())
+    {
+        this->_setupForSearch(false);
+        return;
+    }
+    
     int slot = std::stoi(ui->comboBox->currentText().toStdString());
-    if (!_MHManager.fetchPlayerData(slot - 1))
+    if (!_MHManager.readArmor(slot - 1))
     {
         DialogWindow *Dia = new DialogWindow(this, "ERROR", "Couldn't Fetch Character Data...", Status::ERROR0);
         Dia->show();
@@ -114,10 +111,16 @@ void MainWindow::_fetchData(bool noMessage)
 
 void MainWindow::_writeData()
 {
+    if (!this->_MHManager.validateProcess())
+    {
+        this->_setupForSearch(false);
+        return;
+    }
+
     if (!this->_parseInputBoxes())
         return;
 
-    int slot = std::stoi(ui->comboBox->currentText().toStdString());
+    u_int slot = ui->comboBox->currentText().toUInt();
     if (!_MHManager.writeArmor(slot - 1, _Settings["Safe Mode"]))
     {
         DialogWindow *Dia = new DialogWindow(this, "ERROR", "Couldn't Write Save Data!", Status::ERROR0);
@@ -127,9 +130,20 @@ void MainWindow::_writeData()
     {
         DialogWindow *Dia = new DialogWindow(this, "Success!!", "Success writing to Game!!"
                                                                 "\nYou may preview the appearance by checking your Guild Card"
-                                                                "\nBut be sure to reload by entering another area.",
+                                                                "\nBut be sure to reload by entering another area before saving the game.",
                                              Status::SUCCESS);
         Dia->show();
     }
     this->_fetchData(true);
+}
+
+void MainWindow::_setupForSearch(bool silent)
+{
+    ui->SearchButton->setText("Search MHW Character Data");
+    ui->SearchButton->setEnabled(true);
+    ui->FetchButton->setEnabled(false);
+    ui->WriteButton->setEnabled(false);
+    if (silent)
+        return;
+    
 }

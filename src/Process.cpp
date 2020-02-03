@@ -12,32 +12,42 @@ std::ostream &operator<<(std::ostream &out, Module &Mod)
 }
 
 /// Start Process Class Member Definitions
-
-Process::Process(const std::string &processName)
+bool Process::open(const std::string &process_name)
 {
     PROCESSENTRY32 entry;
     entry.dwSize = sizeof(PROCESSENTRY32);
 
     HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-
     if (Process32First(snapshot, &entry) == TRUE)
     {
         while (Process32Next(snapshot, &entry) == TRUE)
         {
-            if (stricmp(entry.szExeFile, processName.c_str()) == 0)
+            if (std::string(entry.szExeFile) == process_name)
             {
                 this->_id = entry.th32ProcessID;
-                this->_handleProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, entry.th32ProcessID);
+                this->_processHandler = OpenProcess(PROCESS_ALL_ACCESS, FALSE, entry.th32ProcessID);
             }
         }
     }
     CloseHandle(snapshot);
+    return this->isOpen();
 }
 
-Process::Process(const DWORD64 &processID)
+bool Process::open(const DWORD64 &processID)
 {
     this->_id = processID;
-    this->_handleProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, processID);
+    this->_processHandler = OpenProcess(PROCESS_ALL_ACCESS, FALSE, processID);
+    return this->isOpen();
+}
+
+bool Process::isOpen() const
+{
+    if (!this->_id || !this->_processHandler)
+        return false;
+    DWORD exit_code;
+    if (GetExitCodeProcess(this->_processHandler, &exit_code) == 0)
+        return false;
+    return exit_code == STILL_ACTIVE;
 }
 
 std::vector<Module> Process::getModuleList() const 
@@ -49,12 +59,12 @@ std::vector<Module> Process::getModuleList() const
     if (!this->isOpen())
         return _Modules;
 
-    if (EnumProcessModules(this->_handleProcess, hMods, sizeof(hMods), &cbNeeded))
+    if (EnumProcessModules(this->_processHandler, hMods, sizeof(hMods), &cbNeeded))
     {
         for (int i = 0; i < (cbNeeded / sizeof(HMODULE)); ++i)
         {
             char Buffer[MAX_PATH];
-            if (GetModuleBaseNameA(this->_handleProcess, hMods[i], Buffer, MAX_PATH)!= 0)
+            if (GetModuleBaseNameA(this->_processHandler, hMods[i], Buffer, MAX_PATH)!= 0)
             {
 
                 _Modules.emplace_back(hMods[i], std::string(Buffer));
@@ -64,103 +74,90 @@ std::vector<Module> Process::getModuleList() const
     return _Modules;
 }
 
-bool Process::isOpen() const
+void Process::close()
 {
-    if (!this->_id || !this->_handleProcess)
-        return false;
-    return true;
+    CloseHandle(this->_processHandler);
+    this->_processHandler = 0;
 }
 
+Process::Process() {}
 Process::~Process()
 {
-    CloseHandle(Process::_handleProcess);
+    this->close();
 }
 
 // -------- READ THINGS ---------------
-
-byte* Process::readMemory(DWORD64 address, int bytesToRead) const
+byte* Process::readMemory(LPVOID address, int num_bytes) const 
 {
-    byte *buffer = new byte[bytesToRead];
-    if (ReadProcessMemory(this->_handleProcess, (LPVOID)address, buffer, bytesToRead, nullptr))
+    byte* buffer = new byte[num_bytes] ;
+    if (ReadProcessMemory(this->_processHandler, address, buffer, num_bytes, nullptr))
         return buffer;
     delete[] buffer;
     return nullptr;
 }
-
-byte* Process::readMemory(LPVOID address, int bytesToRead) const 
+byte* Process::readMemory(DWORD64 address, int num_bytes) const
 {
-    byte* buffer = new byte[bytesToRead] ;
-    if (ReadProcessMemory(this->_handleProcess, address, buffer, bytesToRead, nullptr))
-        return buffer;
-    delete[] buffer;
-    return nullptr;
+   return this->readMemory((LPVOID) address, num_bytes);
+}
+u_int Process::readMemoryUInt(DWORD64 address) const
+{
+    u_int value;
+    if (ReadProcessMemory(this->_processHandler, (LPVOID)address, &value, 4, nullptr))
+        return value;
+    return 0;
 }
 
-int Process::readMemoryInt(DWORD64 address) const
+// -------- WRITE THINGS ---------------
+bool Process::writeMemory(LPVOID address, byte buffer[], int num_bytes)
 {
-    byte *buffer = this->readMemory( address, 4);
-    if ( !buffer )
-        return 0;
-    int Val = BytesToInt(buffer);
-    delete[] buffer;
-    return Val;
+    return WriteProcessMemory(this->_processHandler, address, buffer, num_bytes, nullptr);
 }
-
-// -------- Write THINGS ---------------
-
-bool Process::writeMemory(DWORD64 address, byte Buffer[], int bytesToWrite)
+bool Process::writeMemory(DWORD64 address, byte buffer[], int num_bytes)
 {
-    return WriteProcessMemory(this->_handleProcess, (LPVOID)address, Buffer, bytesToWrite, nullptr);
-}
-bool Process::writeMemoryInt(DWORD64 address, int value)
-{
-    return WriteProcessMemory(this->_handleProcess, (LPVOID)address, &value, 4, nullptr);
+    return this->writeMemory((LPVOID)address, buffer, num_bytes);
 }
 bool Process::writeMemoryUInt(DWORD64 address, u_int value)
 {
-    return WriteProcessMemory(this->_handleProcess, (LPVOID)address, &value, 4, nullptr);
+    return WriteProcessMemory(this->_processHandler, (LPVOID)address, &value, 4, nullptr);
 }
 
-Module Process::getModuleByName(const std::string &ModuleName) const
+Module Process::getModuleByName(const std::string &module_name) const
 {
     for (auto Mod : this->getModuleList())
-        if (Mod.getName() == ModuleName)
+        if (Mod.getName() == module_name)
             return Mod;
     return Module();
 }
 
 /// Start Misc Functions Definitions
-
-int BytesToInt(const byte buffer[4] )
+u_int BytesToUInt(const byte buffer[4])
 {
-    return int(buffer[3] << 24 | buffer[2] << 16 | buffer[1] << 8 | buffer[0] );
+    return int(buffer[3] << 24 | buffer[2] << 16 | buffer[1] << 8 | buffer[0]);
 }
 
-int BytesToInt(const std::array<byte,4> &buffer)
+u_int BytesToUInt(const std::array<byte,4> &buffer)
 {
-    return int(buffer[3] << 24 | buffer[2] << 16 | buffer[1] << 8 | buffer[0] );
+    return int(buffer[3] << 24 | buffer[2] << 16 | buffer[1] << 8 | buffer[0]);
 }
 
-byte* IntToBytes(const int val )
+std::string get_reg_value(HKEY root_key, const std::string &sub_key, const std::string &Value)
 {
-    byte* buffer = new byte[4];
-    buffer[3] = val >> 24;
-    buffer[2] = val >> 16;
-    buffer[1] = val >> 8;
-    buffer[0] = (byte)val;
-    return buffer;
-}
-
-
-std::string GetRegKeyValue(HKEY RootKey, const std::string &SubKey, const std::string &Value)
-{
-    char value[255];
+    char result[255];
     DWORD BufferSize = 255;
-    auto status = RegGetValueA(RootKey, SubKey.c_str(), Value.c_str(), RRF_RT_REG_SZ, NULL, (PVOID)&value, &BufferSize);
+    auto status = RegGetValueA(root_key, sub_key.c_str(), Value.c_str(), RRF_RT_REG_SZ, NULL,
+                               (PVOID)&result, &BufferSize);
     if (status != ERROR_SUCCESS)
     {
-        DEBUG_LOG_HEX(ERROR,"Couldn't Get Registry value with error code : " << status);
+        LOG_ENTRY(ERROR,"Couldn't Get Registry value with error code : " << status);
         return std::string();
     }
-    return std::string(value);
+    return std::string(result);
+}
+
+std::wstring to_wstring(const std::string &str)
+{
+    int size = MultiByteToWideChar(CP_UTF8, 0, &str[0], (u_int)str.size(), NULL, 0);
+    std::wstring result(size, 0);
+    MultiByteToWideChar(CP_UTF8, 0, &str[0], (u_int)str.size(), &result[0], size);
+    return result;
 }

@@ -7,6 +7,7 @@
 #include "ui_MainWindow.h"
 #include "AboutWindow.hpp"
 #include "DialogWindow.hpp"
+#include "UpdaterGithub.hpp"
 
 #include "MHMemory.hpp"
 #include "json.hpp"
@@ -20,46 +21,49 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    MainWindow(QString github_repo, QString current_version, QWidget *parent=0);
     ~MainWindow();
 
-    void debugPrints() const ;
     void show();
-    void _showTestGui();
 
-    fs::Path settingsFile = CurrentExecutableDir().append("Settings.json");
-    fs::Path savedSetsFile = CurrentExecutableDir().append("SavedSets.json");
-    fs::Path armorDataFile = CurrentExecutableDir().append("ArmorData.json");
+    QFile settingsFile = get_appdata_dir().absoluteFilePath("Settings.json");
+    QFile savedSetsFile = get_appdata_dir().absoluteFilePath("SavedSets.json");
+    QFile armorDataFile = QFile(":/ArmorData.json");
 
-  private:
+private:
     Ui::MainWindow *ui;
     QActionGroup *_versionGroup = nullptr;
     QActionGroup *_langGroup = nullptr;
+    QActionGroup *_logGroup = nullptr;
     MH_Memory _MHManager;
     json _Settings;
     json _SavedSets;
     json _ArmorData;
-    bool _armorDataFound;
     std::array<QComboBox*,5> _inputBoxes = {nullptr,nullptr,nullptr,nullptr,nullptr};
     std::vector<QAction*> _versionActions;
     std::vector<QAction*> _langActions;
     std::set<std::string> _unsafeArmors;
     std::array<int,5> _safeCount = {0,0,0,0,0};
     json _transArmorData;
+    UpdaterGithub _updater;
 
-  private slots:
+private slots:
     // Inits
-    bool _loadConfigFiles();
+    void _loadConfigFiles();
     void _populateComboBoxes();
     void _populateVersionSelector();
     void _populateLanguages();
+    void _setDefaultSettings();
+    void _updateSelectedLogLevel();
     // Dialogs
     void _instructions();
+    void _checkForUpdates();
     void _aboutInfo();
     void _unsafeWarning();
     void _notImplemented();
     // Memory
-    void _findAddr();
+    void _setupForSearch(bool silent);
+    void _findAddress();
     void _writeData();
     void _fetchData(bool noMessage = false);
     //Settings
@@ -67,6 +71,8 @@ public:
     bool _flushSettings();
     void _getCustomSteamPath();
     void _toggleSafe();
+    void _setAutoSteam();
+    void _toggleAutoUpdates();
     //Saved Sets
     bool _flushSavedSets();
     void _saveCurrentSet();

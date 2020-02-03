@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UpdaterDialog</class>
+ <widget class="QDialog" name="UpdaterDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>641</width>
+    <height>488</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Update Available</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton:hover:!pressed:enabled
+{
+	background-color :rgb(66, 192, 251);
+	border: 3px solid rgb(48, 73, 157);
+}
+
+QPushButton
+{
+font: 11pt &quot;MS Shell Dlg 2&quot;;
+border: 3px solid #42c0fb;
+background-color: rgb(50, 50, 50);
+ border-radius: 6px;
+}
+
+QPushButton:pressed {
+background-color :rgb(48, 73, 157);
+border: 3px solid rgb(26, 40, 86);
+
+}
+
+QPushButton:disabled {
+background-color : rgba(50, 50, 50, 150);
+border: 1px solid rgba(66, 192, 251, 150);
+color: rgba(255,255,255,100);
+
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="updateName">
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>New Update Available</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTextEdit" name="changeLogViewer">
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="undoRedoEnabled">
+      <bool>false</bool>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1,0">
+     <item>
+      <widget class="QLabel" name="lblOperationInProgress">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Downloading update...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QProgressBar" name="progressBar">
+       <property name="value">
+        <number>0</number>
+       </property>
+       <property name="textVisible">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblPercentage">
+       <property name="text">
+        <string notr="true">0.0 %</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

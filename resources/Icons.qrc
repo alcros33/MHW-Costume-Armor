@@ -23,5 +23,6 @@
     <file>app_icon.ico</file>
     <file>Icon.png</file>
     <file>MIT_License.png</file>
+    <file>ArmorData.json</file>
   </qresource>
 </RCC>

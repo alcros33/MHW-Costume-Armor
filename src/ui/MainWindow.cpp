@@ -9,14 +9,20 @@
 /// These file contains Member definitions of the MainWindow class
 /// Related to initiliaze things before GUI is showed.
 
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(QString github_repo, QString current_version, QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    _updater(this, github_repo, current_version)
 {
     ui->setupUi(this);
     this->setWindowTitle(PROJECT_NAME);
     ui->FetchButton->setEnabled(false);
     ui->WriteButton->setEnabled(false);
+
+    auto appData = get_appdata_dir();
+    auto fName = appData.dirName();
+    appData.cdUp();
+    appData.mkpath(fName);
 
     ui->toolBar->insertSeparator(ui->actionLoad_Armor_Toolbar);
     ui->toolBar->insertWidget(ui->actionLoad_Armor_Toolbar, ui->savedSetsLabel);
@@ -29,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionSafe_Mode, QAction::triggered, this, _toggleSafe);
     connect(ui->actionExit, QAction::triggered, this, close);
 
-    connect(ui->SearchButton, QPushButton::released, this, _findAddr);
+    connect(ui->SearchButton, QPushButton::released, this, _findAddress);
     connect(ui->FetchButton, SIGNAL(released()), this, SLOT(_fetchData()));
     connect(ui->WriteButton, QPushButton::released, this, _writeData);
     connect(ui->ClearButton, QPushButton::released, this, _clearArmor);
@@ -41,6 +47,16 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionLoad_Armor, QAction::triggered, this, _loadSavedSetPopup);
     connect(ui->actionDelete_Armor, QAction::triggered, this, _deleteCurrentSet);
     connect(ui->actionChange_Steam_Path, QAction::triggered, this, _getCustomSteamPath);
+    connect(ui->actionAutoSteam, QAction::triggered, this, _setAutoSteam);
+    connect(ui->actionAutomatically_Check_for_Updates, QAction::triggered, this, _toggleAutoUpdates);
+    connect(ui->actionCheck_for_Updates, QAction::triggered, this, _checkForUpdates);
+
+    _logGroup = new QActionGroup(this);
+    _logGroup->addAction(ui->actionLevelError);
+    _logGroup->addAction(ui->actionLevelWarning);
+    _logGroup->addAction(ui->actionLevelDebug);
+    for (auto act : _logGroup->actions())
+        connect(act, QAction::triggered, this, _updateSelectedLogLevel);
 
     _inputBoxes[0] = ui->headEdit ;
     _inputBoxes[1] = ui->bodyEdit ;
@@ -48,28 +64,42 @@ MainWindow::MainWindow(QWidget *parent) :
     _inputBoxes[3] = ui->waistEdit;
     _inputBoxes[4] = ui->legsEdit ;
 
-    this->_armorDataFound = _loadConfigFiles();
+    _loadConfigFiles();
 
-    if (_Settings.find("Safe Mode") == _Settings.end())
-        _Settings["Safe Mode"] = true;
-
-    if (_Settings.find("Game Version") == _Settings.end())
-        _Settings["Game Version"] = "Latest";
-    
-    if (_Settings.find("Language") == _Settings.end())
-        _Settings["Language"] = "English";
-
-    if (_Settings.find("Steam Path") != _Settings.end())
+    if (_Settings.find("Auto Steam Path")!= _Settings.end())
     {
-        std::string SteamPath = _Settings["Steam Path"].get<std::string>();
-        _MHManager.setSteamDirectory(SteamPath);
-        ui->actionSteam_Current->setText(("Current : " + SteamPath).c_str());
+        if (!_Settings["Auto Steam Path"] && _Settings.find("Steam Path") != _Settings.end())
+        {
+            QString SteamPath = QString::fromStdWString(_Settings["Steam Path"].get<std::wstring>());
+            _MHManager.setSteamDirectory(SteamPath);
+            ui->actionSteam_Current->setText(SteamPath.prepend("Current : "));
+            ui->actionAutoSteam->setChecked(false);
+        }
     }
+
+    if(_Settings.find("Log Level") != _Settings.end())
+    {
+        std::string logLevel = _Settings["Log Level"];
+        if (LOG_NAMES.find(logLevel) != LOG_NAMES.end())
+            _Settings.erase("Log Level");
+        else
+        {
+            for (auto act : _logGroup->actions())
+                if (act->text() == QString::fromStdString(logLevel))
+                    act->setChecked(true);
+        }
+    }
+
+    _setDefaultSettings();
 
     _populateVersionSelector();
     _populateSavedSets();
     _populateLanguages();
     _translateArmorData();
+    _updateSelectedLogLevel();
+
+    if (_Settings["Auto Updates"])
+        _updater.checkForUpdates(true);
 }
 
 MainWindow::~MainWindow()
@@ -79,54 +109,54 @@ MainWindow::~MainWindow()
 
 void MainWindow::show()
 {
-    if (!this->_armorDataFound)
+    QMainWindow::show();
+    if (!_Settings["Safe Mode"])
     {
-        DEBUG_LOG(ERROR, "Armor Data json file searched at " << armorDataFile<< " and not found");
-        DialogWindow *Dia = new DialogWindow(nullptr, "ERROR FATAL", "Couldn't find " +
-            armorDataFile.filename() +
-            "\nIf It was deleted, re-download the program.", Status::ERROR0);
-        Dia->getOkButton()->setStyleSheet("");
-        Dia->show();
-        this->close();
-    }
-    else if (!this->_MHManager.processOpen())
-    {
-        DialogWindow *Dia = new DialogWindow(nullptr, "ERROR", "MHW is Closed\nPlease open it before starting.", Status::ERROR0);
-        Dia->getOkButton()->setStyleSheet("");
-        Dia->show();
-        this->close();
-    }
-    else
-    {
-        QMainWindow::show();
-        if (!_Settings["Safe Mode"])
-        {
-            this->_unsafeWarning();
-            ui->actionSafe_Mode->setChecked(false);
-        }
+        this->_unsafeWarning();
+        ui->actionSafe_Mode->setChecked(false);
     }
 }
 
-void MainWindow::_showTestGui() {QMainWindow::show();}
-
-bool MainWindow::_loadConfigFiles()
+void MainWindow::_loadConfigFiles()
 {
     if (settingsFile.exists())
     {
-        std::ifstream i(settingsFile.str());
+        std::ifstream i(settingsFile.fileName().toStdString());
         i >> _Settings;
     }
     if (savedSetsFile.exists())
     {
-        std::ifstream i(savedSetsFile.str());
+        std::ifstream i(savedSetsFile.fileName().toStdString());
         i >> _SavedSets;
     }
-    if(!armorDataFile.exists())
-        return false;
+
+    armorDataFile.open(QIODevice::ReadOnly);
+    _ArmorData = json::parse(armorDataFile.readAll());
+    armorDataFile.close();
+}
+
+void MainWindow::_setDefaultSettings()
+{
+    if (_Settings.find("Safe Mode") == _Settings.end())
+        _Settings["Safe Mode"] = true;
+
+    if (_Settings.find("Game Version") == _Settings.end())
+        _Settings["Game Version"] = "Latest";
+
+    if (_Settings.find("Language") == _Settings.end())
+        _Settings["Language"] = "English";
     
-    std::ifstream i(armorDataFile.str());
-    i >> _ArmorData;
-    return true;
+    if (_Settings.find("Auto Steam Path") == _Settings.end())
+        _Settings["Auto Steam Path"] = true;
+        
+    if (_Settings.find("Auto Updates") == _Settings.end())
+        _Settings["Auto Updates"] = true;
+
+    if (_Settings.find("Log Level") == _Settings.end())
+    {
+        _Settings["Log Level"] = "Debug";
+        ui->actionLevelDebug->setChecked(true);
+    }
 }
 
 void MainWindow::_populateVersionSelector()
@@ -141,9 +171,9 @@ void MainWindow::_populateVersionSelector()
     QFont font;
     font.setBold(true);
 
-    _versionActions.reserve(MH_Memory::Versions.size());
+    _versionActions.reserve(MH_Memory::versions.size());
     std::string TargetVersion = _Settings["Game Version"];
-    for (auto it=MH_Memory::Versions.begin(); it!=MH_Memory::Versions.end(); ++it)
+    for (auto it=MH_Memory::versions.begin(); it!=MH_Memory::versions.end(); ++it)
     {
         QAction *tmp = new QAction(this);
         connect(tmp, QAction::triggered, this, _updateSelectedVersion);
@@ -160,7 +190,7 @@ void MainWindow::_populateVersionSelector()
     }
     if (_versionGroup->checkedAction() == 0)
     {
-        DEBUG_LOG(ERROR, "Encountered unknown game version " << TargetVersion << " setting it to 'Latest'");
+        LOG_ENTRY(ERROR, "Encountered unknown game version " << TargetVersion << " setting it to 'Latest'");
         _versionActions.back()->setChecked(true);
         _versionActions.back()->setFont(font);
     }
@@ -201,7 +231,7 @@ void MainWindow::_populateLanguages()
     }
     if (_langGroup->checkedAction() == 0)
     {
-        DEBUG_LOG(ERROR, "Encountered unknown language " << TargetLang << " setting it to 'English'");
+        LOG_ENTRY(ERROR, "Encountered unknown language " << TargetLang << " setting it to 'English'");
         _langActions.back()->setChecked(true);
         _langActions.back()->setFont(font);
     }

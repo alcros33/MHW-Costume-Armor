@@ -33,13 +33,13 @@ void MainWindow::_loadSavedSet()
     try
     {
         for (int i = 0; i < 5; ++i)
-            _MHManager.getPlayerData().setArmorPiece(i, _SavedSets[currentText][i]);
+            _MHManager.getPlayerData()[i] = _SavedSets[currentText][i];
     }
     catch (std::exception &e)
     {
         DialogWindow *Dia = new DialogWindow(this, "ERROR", "Invalid Value for armor", Status::ERROR0);
         Dia->show();
-        DEBUG_LOG(ERROR, "Invalid value at saved sets json file. Error " << e.what());
+        LOG_ENTRY(ERROR, "Invalid value at saved sets json file. Error " << e.what());
         return;
     }
     this->_updateArmorValues();
@@ -67,13 +67,13 @@ void MainWindow::_loadSavedSetPopup()
     try
     {
         for (int i = 0; i < 5; ++i)
-            _MHManager.getPlayerData().setArmorPiece(i, _SavedSets[text.toStdString()][i]);
+            _MHManager.getPlayerData()[i] = _SavedSets[text.toStdString()][i];
     }
     catch (std::exception &e)
     {
         DialogWindow *Dia = new DialogWindow(this, "ERROR", "Invalid Value for armor", Status::ERROR0);
         Dia->show();
-        DEBUG_LOG(ERROR, "Invalid value at saved sets json file. Error " << e.what());
+        LOG_ENTRY(ERROR, "Invalid value at saved sets json file. Error " << e.what());
         return;
     }
     this->_updateArmorValues();
@@ -88,7 +88,7 @@ void MainWindow::_saveCurrentSet()
     if (_SavedSets.find(currentText) == _SavedSets.end())
         ui->savedComboBox->insertItem(0, currentText.data());
 
-    auto Data = _MHManager.getPlayerData().getData();
+    auto Data = _MHManager.getPlayerData();
     _SavedSets[currentText] = Data;
 
     if (!this->_flushSavedSets())
@@ -127,10 +127,10 @@ void MainWindow::_deleteCurrentSet()
 
 bool MainWindow::_flushSavedSets()
 {
-    std::ofstream Out(savedSetsFile.str());
+    std::ofstream Out(savedSetsFile.fileName().toStdString());
     if (!Out)
     {
-        DEBUG_LOG(ERROR, "Couldn't open " << savedSetsFile);
+        LOG_ENTRY(ERROR, "Couldn't open " << savedSetsFile);
         Out.close();
         return false;
     }

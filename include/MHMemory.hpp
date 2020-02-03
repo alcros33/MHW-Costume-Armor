@@ -1,47 +1,73 @@
 #pragma once
-#include "filesystem.hpp"
+#include <array>
+#include <QCoreApplication>
+#include "Process.hpp"
+#include "file_helpers.hpp"
 
-#include "PlayerData.hpp"
+namespace Armor
+{
+    const int HEAD = 0;
+    const int BODY = 1;
+    const int ARMS = 2;
+    const int WAIST = 3;
+    const int LEGS = 4;
+    const std::array<std::string, 5> NAMES{"Head", "Body", "Arms", "Waist", "Legs"};
 
-namespace fs = filesystem;
+    const u_int NOTHING = 512;
+} // namespace Armor
 
-fs::Path CurrentExecutableDir();
+struct SearchPattern
+{
+    u_int uintPattern;
+    u_int lastBits;
+};
+
+using PlayerData = std::array<u_int, 5>;
 
 class MH_Memory
 {
 public:
-    MH_Memory(const std::string &ProcName = "MonsterHunterWorld.exe", const std::string &SteamDLL = "steam_api64.dll");
+    MH_Memory();
 
-    bool processOpen() const { return _MHProcess.isOpen(); }
+    bool processIsOpen() const { return _MHProcess.isOpen(); }
     bool steamFound() const { return _steamFound; }
     bool dataAddressFound() const { return _dataPtr != 0; }
+    
+    bool validateProcess();
 
-    int getSteamID() const { return _steamID;}
-    fs::Path getSteamPath() const { return _steamPath; }
-    PlayerData getPlayerData() const { return _Data; }
-    PlayerData& getPlayerData() { return _Data; }
+    PlayerData getPlayerData() const { return _data; }
+    PlayerData& getPlayerData() { return _data; }
     Process getProcess() const { return _MHProcess; }
+    int getSteamID() const { return _steamID;}
+    QDir getSteamPath() const { return _steamPath; }
 
-    void setSteamDirectory(const fs::Path &Path);
+    void setSteamDirectory(const QDir &p);
+    void unSetSteamDirectory();
 
-    bool fetchPlayerData(int slot);
-    void findAddress(std::string Ver="Latest");
-    bool backupSaveData() const ;
+    bool openProcess();
+    void findSteamPath();
+    void findDataAddress(std::string selected_version="Latest");
+    bool backupSaveData() const;
+
+    bool readArmor(int slot);
     bool writeArmor(int CharSlot, bool isSafe = true);
 
-    fs::Path exeFilePath = CurrentExecutableDir();
-    fs::Path backupDir = CurrentExecutableDir().append("Backups");
-    fs::Path logPath = CurrentExecutableDir().append("CostumeArmor.log");
+    const QDir exeDir = QCoreApplication::applicationDirPath();
+    const QDir backupDir = QCoreApplication::applicationDirPath() + "\\Backups";
+    const std::string procName = "MonsterHunterWorld.exe";
+    const std::string steamDLL = "steam_api64.dll";
 
-    static std::map<std::string, SearchPattern> Versions;
-    static std::map<std::string, int> CharSlotDist;
+    static std::map<std::string, SearchPattern> versions;
+    static std::map<std::string, int> charSlotDist;
 
   private:
     Process _MHProcess;
     int _steamID = 0;
-    fs::Path _steamPath;
-    PlayerData _Data;
-    DWORD64 _dataPtr = 0;
+    QDir _steamPath;
     bool _steamFound = false;
+    DWORD64 _dataPtr = 0;
     int _slotDist;
+    PlayerData _data{Armor::NOTHING};
 };
+
+DWORD64 find_data_address(Process &Proc, SearchPattern Pa);
