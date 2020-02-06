@@ -1,8 +1,6 @@
 #pragma once
-#include <algorithm>
 #include <string>
 #include <iostream>
-#include <windows.h>
 #include <QDir>
 #include <QFile>
 #include <QStandardPaths>

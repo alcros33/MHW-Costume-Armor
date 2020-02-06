@@ -24,10 +24,7 @@ Checkout the compiled binaries on the latest [Release](https://github.com/alcros
 Add the following folders to Path `C:\Qt\Tools\mingw730_64\bin` and `C:\Qt\{VERSION}\mingw73_64\bin` (Guide [Info](https://www.computerhope.com/issues/ch000549.htm)).
 
 ## Extra Libraries that I include
-Logging powered by EasyLogging++ [Available here](https://github.com/zuhd-org/easyloggingpp)
-
-Json powered by nholmannJson [Available here](https://github.com/nlohmann/json)
-
+Logging powered by EasyLogging++ [Available here](https://github.com/amrayn/easyloggingpp)
 Sorry I'm to lazy to do the git submodule sutff.
 
 ## Building Using MinGW

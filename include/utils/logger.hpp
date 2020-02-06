@@ -19,10 +19,10 @@ inline void INIT_LOGGER(const std::string &Name)
 {
     el::Configurations logConfig;
     logConfig.setGlobally(el::ConfigurationType::Enabled, "true");
-    logConfig.setGlobally(el::ConfigurationType::Format, "(%datetime) [%level] %msg");
+    logConfig.setGlobally(el::ConfigurationType::Format, "%datetime [%level] %msg");
     LOGGER_SETTINGS(Name);
     logConfig.setGlobally(el::ConfigurationType::LogFlushThreshold, "1");
-    logConfig.setGlobally(el::ConfigurationType::SubsecondPrecision, "2");
+    logConfig.setGlobally(el::ConfigurationType::SubsecondPrecision, "1");
     // default logger uses default configurations
     el::Loggers::reconfigureLogger("default", logConfig);
 }

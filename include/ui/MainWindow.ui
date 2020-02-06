@@ -937,6 +937,7 @@ All</string>
      <addaction name="actionLevelDebug"/>
     </widget>
     <addaction name="menuLog_Level"/>
+    <addaction name="actionShow_Log"/>
     <addaction name="actionManually_Input_ID"/>
    </widget>
    <addaction name="menuArchivo"/>
@@ -1133,6 +1134,11 @@ All</string>
    </property>
    <property name="text">
     <string>Automatic</string>
+   </property>
+  </action>
+  <action name="actionShow_Log">
+   <property name="text">
+    <string>Log Viewer</string>
    </property>
   </action>
  </widget>

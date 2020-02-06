@@ -13,6 +13,8 @@ UpdaterGithub::UpdaterGithub(QWidget* parent, const QString &repo_url, const QSt
 
 void UpdaterGithub::checkForUpdates(bool silent)
 {
+    _isSilent = silent;
+    
     auto req = QNetworkRequest(QUrl(_updatePageAddress.arg("latest")));
     req.setAttribute(QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::SameOriginRedirectPolicy);
     req.setSslConfiguration(QSslConfiguration::defaultConfiguration()); // HTTPS
@@ -23,19 +25,18 @@ void UpdaterGithub::checkForUpdates(bool silent)
         return;
 	}
 
-    connect(this->_reply, SIGNAL(QNetworkReply::finished()), this, SLOT(this->_onUpdateCheckFinished()),
+    connect(this->_reply, _reply->finished, this, _onUpdateCheckFinished,
             Qt::UniqueConnection);
 }
 
-void UpdaterGithub::_onUpdateCheckFinished(bool silent)
+void UpdaterGithub::_onUpdateCheckFinished()
 {
-
     this->_reply->deleteLater();
 
     if (this->_reply->error() != QNetworkReply::NoError)
     {
         LOG_ENTRY(ERROR, "QNetwork returned errror " << this->_reply->errorString());
-        if (silent)
+        if (_isSilent)
             return;
         auto dia = new DialogWindow(this->_parent, "Update",
                                     "Error while searching for updates", Status::ERROR0);
@@ -46,7 +47,7 @@ void UpdaterGithub::_onUpdateCheckFinished(bool silent)
     if (this->_reply->bytesAvailable() <= 0)
     {
         LOG_ENTRY(ERROR, "No data downloaded");
-        if (silent)
+        if (_isSilent)
             return;
         auto dia = new DialogWindow(this->_parent, "Update",
                                     "Error while searching for updates", Status::ERROR0);
@@ -65,7 +66,7 @@ void UpdaterGithub::_onUpdateCheckFinished(bool silent)
 
     if (QVersionNumber::fromString(_latestVersionString) <= _currentVersion)
     {
-        if (silent)
+        if (_isSilent)
             return;
         auto dia = new DialogWindow(this->_parent, "Update",
                                     "Application is up-to-date", Status::SUCCESS);

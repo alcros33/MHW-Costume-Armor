@@ -23,7 +23,7 @@ public slots:
     void installUpdate();
 
 private slots:
-    void _onUpdateCheckFinished(bool silent=true);
+    void _onUpdateCheckFinished();
     void _onNewDataDownloaded();
     void _onDownloadFinished();
 
@@ -36,4 +36,5 @@ private:
     QNetworkReply* _reply;
     const QVersionNumber _currentVersion;
     QString _latestVersionString;
+    bool _isSilent{true};
 };

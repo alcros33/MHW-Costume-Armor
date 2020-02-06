@@ -8,12 +8,14 @@ All notable changes to this project will be documented in this file.
 - An option to select the level of the log
 - Now the program can be opened before MHW and does not need to be closed if the game is restarted
 - An checkable option to write without backup save file
+- A Log viewer option under the Debug Menu
 
 ### Changed
 - Restructured the entire file tree
 - Manually Input ID moved to the Debug Menu
 - ArmorData.json is now embeded in the executable
 - Changed own implementation of filesystem to use Qt's QDir and QFile
+- Changed nlohmann implementation of json to use Qt's QJsonObject
 - Settings is now a .ini file and almost every setting has changed its name, but currently there are no hidden settings that cannot be changed using the graphical interface
 
 ### Removed

@@ -25,27 +25,31 @@ MainWindow::MainWindow(QString github_repo, QString current_version, QWidget *pa
     ui->toolBar->insertSeparator(ui->actionLoad_Armor_Toolbar);
     ui->toolBar->insertWidget(ui->actionLoad_Armor_Toolbar, ui->savedComboBox);
     ui->toolBar->insertSeparator(ui->actionLoad_Armor_Toolbar);
-
-    connect(ui->actionAbout, QAction::triggered, this, _aboutInfo);
-    connect(ui->actionTutorial, QAction::triggered, this, _instructions);
-    connect(ui->actionNo_Backup_Ok, QAction::triggered, this, _toggleNoBackup);
-    connect(ui->actionExit, QAction::triggered, this, close);
-
+    //Buttons
     connect(ui->SearchButton, QPushButton::released, this, _findAddress);
     connect(ui->FetchButton, SIGNAL(released()), this, SLOT(_fetchData()));
     connect(ui->WriteButton, QPushButton::released, this, _writeData);
     connect(ui->ClearButton, QPushButton::released, this, _clearArmor);
     connect(ui->ChangeAllButton, QPushButton::released, this, _changeAll);
-    connect(ui->actionManually_Input_ID, QAction::triggered, this, _manualInputValue);
-
+    // File
     connect(ui->actionSave_Current_Armor, QAction::triggered, this, _saveCurrentSet);
     connect(ui->actionLoad_Armor_Toolbar, QAction::triggered, this, _loadSavedSet);
     connect(ui->actionLoad_Armor, QAction::triggered, this, _loadSavedSetPopup);
     connect(ui->actionDelete_Armor, QAction::triggered, this, _deleteCurrentSet);
+    connect(ui->actionExit, QAction::triggered, this, close);
+    // Options
     connect(ui->actionChange_Steam_Path, QAction::triggered, this, _getCustomSteamPath);
     connect(ui->actionAutoSteam, QAction::triggered, this, _setAutoSteam);
     connect(ui->actionAutomatically_Check_for_Updates, QAction::triggered, this, _toggleAutoUpdates);
     connect(ui->actionCheck_for_Updates, QAction::triggered, this, _checkForUpdates);
+    connect(ui->actionNo_Backup_Ok, QAction::triggered, this, _toggleNoBackup);
+    // Debug
+    connect(ui->actionManually_Input_ID, QAction::triggered, this, _manualInputValue);
+    connect(ui->actionShow_Log, QAction::triggered, this, _showLog);
+    // Help
+    connect(ui->actionAbout, QAction::triggered, this, _aboutInfo);
+    connect(ui->actionTutorial, QAction::triggered, this, _instructions);
+
 
     _logGroup = new QActionGroup(this);
     _logGroup->addAction(ui->actionLevelError);
@@ -60,7 +64,7 @@ MainWindow::MainWindow(QString github_repo, QString current_version, QWidget *pa
     _inputBoxes[3] = ui->waistEdit;
     _inputBoxes[4] = ui->legsEdit ;
 
-    _loadConfigFiles();
+    _loadJsonFiles();
 
     if (!_settings.value("SteamPath/Auto", true).toBool())
     {
@@ -100,16 +104,22 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::_loadConfigFiles()
+void MainWindow::_loadJsonFiles()
 {
     if (savedSetsFile.exists())
     {
-        std::ifstream i(savedSetsFile.fileName().toStdString());
-        i >> _SavedSets;
+        if(!savedSetsFile.open(QIODevice::ReadOnly))
+        {
+            savedSetsFile.close();
+            return;
+        }
+        _savedSetsDocument = QJsonDocument::fromJson(savedSetsFile.readAll());
+        savedSetsFile.close();
+        _savedSets = _savedSetsDocument.object().toVariantMap();
     }
 
     armorDataFile.open(QIODevice::ReadOnly);
-    _ArmorData = json::parse(armorDataFile.readAll());
+    _armorData = QJsonDocument::fromJson(armorDataFile.readAll()).object().toVariantMap();
     armorDataFile.close();
 }
 
@@ -125,7 +135,6 @@ void MainWindow::_populateVersionSelector()
     QFont font;
     font.setBold(true);
 
-    _versionActions.reserve(MH_Memory::versions.size());
     auto targetVersion = _settings.value("General/GameVersion", "Latest").toString();
     for (auto it=MH_Memory::versions.begin(); it!=MH_Memory::versions.end(); ++it)
     {
@@ -140,13 +149,13 @@ void MainWindow::_populateVersionSelector()
             tmp->setChecked(true);
             tmp->setFont(font);
         }
-        _versionActions.push_back(tmp);
     }
     if (_versionGroup->checkedAction() == 0)
     {
         LOG_ENTRY(ERROR, "Encountered unknown game version " << targetVersion << " setting it to 'Latest'");
-        _versionActions.back()->setChecked(true);
-        _versionActions.back()->setFont(font);
+        _settings.setValue("General/GameVersion", "Latest");
+        _versionGroup->actions().back()->setChecked(true);
+        _versionGroup->actions().back()->setFont(font);
     }
 }
 
@@ -161,12 +170,11 @@ void MainWindow::_populateLanguages()
 
     QFont font; font.setBold(true);
 
-    std::vector<QString> Langs;
-    for (const auto &el :_ArmorData.front().items())
-        if (el.key() != "Mode" && el.key() != "Danger")
-            Langs.push_back(QString::fromStdString(el.key()));
+    QStringList Langs;
+    for (const auto &key :_armorData.first().toMap().keys())
+        if (key != "Mode")
+            Langs << key;
 
-    _langActions.reserve(Langs.size());
     auto targetLang = _settings.value("General/Language", "English").toString();
     for (const auto &la : Langs)
     {
@@ -181,36 +189,30 @@ void MainWindow::_populateLanguages()
             tmp->setChecked(true);
             tmp->setFont(font);
         }
-        _langActions.push_back(tmp);
     }
     if (_langGroup->checkedAction() == 0)
     {
         LOG_ENTRY(ERROR, "Encountered unknown language " << targetLang << " setting it to 'English'");
-        _langActions.back()->setChecked(true);
-        _langActions.back()->setFont(font);
+        _settings.setValue("General/Language", "English");
+        _langGroup->actions().back()->setChecked(true);
+        _langGroup->actions().back()->setFont(font);
     }
 }
 
 void MainWindow::_populateComboBoxes()
 {
-    int ID;
-    std::string Mode;
-
+    QString mode;
     for (int i = 0; i < 5; ++i)
         this->_inputBoxes[i]->addItem("Nothing", Armor::NOTHING);
 
-    for (auto &el : _transArmorData.items())
+    for (const auto &key : _transArmorData.keys())
     {
-        ID = el.value()["ID"];
+        mode = _transArmorData[key].toMap()["Mode"].toString();
 
-        Mode = el.value()["Mode"];
-        
         for (int i = 0; i < 5; ++i)
         {
-            if (Mode[i] == '1')
-                this->_inputBoxes[i]->addItem(el.key().c_str(), ID);
+            if (mode[i] == '1')
+                this->_inputBoxes[i]->addItem(key, _transArmorData[key].toMap()["ID"].toUInt());
         }
     }
-    for (int i = 0; i < 5; ++i)
-        _safeCount[i] = this->_inputBoxes[i]->count();
 }

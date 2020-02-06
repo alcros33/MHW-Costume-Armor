@@ -15,7 +15,7 @@ void MainWindow::_updateSelectedVersion()
     _settings.setValue("General/GameVersion",checked->text());
 
     QFont font;
-    for (auto verAction : _versionActions)
+    for (auto verAction : _versionGroup->actions())
         verAction->setFont(font);
 
     font.setBold(true);

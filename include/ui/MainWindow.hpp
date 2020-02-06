@@ -2,6 +2,8 @@
 #include <set>
 #include <iomanip>
 #include <map>
+#include <QJsonObject>
+#include <QJsonDocument>
 #include <QMainWindow>
 #include <QSettings>
 #include "ui_MainWindow.h"
@@ -9,10 +11,6 @@
 #include "DialogWindow.hpp"
 #include "UpdaterGithub.hpp"
 #include "MHMemory.hpp"
-#include "json.hpp"
-
-// for convenience
-using json = nlohmann::json;
 
 
 class MainWindow : public QMainWindow
@@ -34,23 +32,22 @@ private:
     QActionGroup *_logGroup = nullptr;
     MH_Memory _MHManager;
     QSettings _settings;
-    json _SavedSets;
-    json _ArmorData;
-    std::array<QComboBox*,5> _inputBoxes = {nullptr,nullptr,nullptr,nullptr,nullptr};
-    std::vector<QAction*> _versionActions;
-    std::vector<QAction*> _langActions;
-    std::array<int,5> _safeCount = {0,0,0,0,0};
-    json _transArmorData;
+    QJsonDocument _savedSetsDocument;
+    QVariantMap _savedSets;
+    QVariantMap _armorData;
+    QVariantMap _transArmorData;
+    std::array<QComboBox*,5> _inputBoxes{nullptr};
     UpdaterGithub _updater;
 
 private slots:
     // Inits
-    void _loadConfigFiles();
+    void _loadJsonFiles();
     void _populateComboBoxes();
     void _populateVersionSelector();
     void _populateLanguages();
     // Dialogs
     void _instructions();
+    void _showLog();
     void _checkForUpdates();
     void _aboutInfo();
     void _notImplemented();

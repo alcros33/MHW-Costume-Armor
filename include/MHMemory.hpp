@@ -1,5 +1,8 @@
 #pragma once
 #include <array>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
 #include <QCoreApplication>
 #include "Process.hpp"
 #include "file_helpers.hpp"

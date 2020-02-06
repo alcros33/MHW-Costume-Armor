@@ -93,7 +93,7 @@ void MainWindow::_fetchData(bool noMessage)
         return;
     }
     
-    int slot = std::stoi(ui->comboBox->currentText().toStdString());
+    int slot = ui->comboBox->currentText().toInt();
     if (!_MHManager.readArmor(slot - 1))
     {
         DialogWindow *Dia = new DialogWindow(this, "ERROR", "Couldn't Fetch Character Data...", Status::ERROR0);
@@ -101,10 +101,10 @@ void MainWindow::_fetchData(bool noMessage)
         return;
     }
     this->_updateArmorValues();
-    std::string msg = "Successfully fetched Data for Character Slot " + std::to_string(slot);
+    QString msg = "Successfully fetched Data for Character Slot %1";
     if (!noMessage)
     {
-        DialogWindow *Dia = new DialogWindow(this, "Success!!", msg, Status::SUCCESS);
+        DialogWindow *Dia = new DialogWindow(this, "Success!!", msg.arg(slot), Status::SUCCESS);
         Dia->show();
     }
 }

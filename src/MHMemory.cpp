@@ -1,7 +1,3 @@
-#include <iomanip>
-#include <ctime>
-#include <sstream>
-
 #include "MHMemory.hpp"
 INITIALIZE_EASYLOGGINGPP
 

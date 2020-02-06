@@ -14,10 +14,10 @@ void MainWindow::_translateArmorData()
 {
     QAction *checked = _langGroup->checkedAction();
     _settings.setValue("General/Language", checked->text());
-    auto Lang = checked->text().toStdString();
+    auto Lang = checked->text();
 
     QFont font;
-    for (auto lAction : _langActions)
+    for (auto lAction : _langGroup->actions())
         lAction->setFont(font);
 
     font.setBold(true);
@@ -25,17 +25,20 @@ void MainWindow::_translateArmorData()
 
     _transArmorData.clear();
 
-    for(const auto &el : _ArmorData.items())
+    for(const auto &key : _armorData.keys())
     {
-        _transArmorData[el.value()[Lang].get<std::string>()] = el.value();
-        _transArmorData[el.value()[Lang].get<std::string>()]["ID"] = std::stoi(el.key());
+        auto transArmorName = _armorData[key].toMap()[Lang].toString();
+        _transArmorData[transArmorName] = QVariantMap({
+            {"Mode", _armorData[key].toMap()["Mode"]},
+            {"ID", QVariant(key)}
+        });
     }
     for (int i = 0; i < 5; ++i)
     {
         this->_inputBoxes[i]->clear();
     }
-    _populateComboBoxes();
     this->_settings.sync();
+    _populateComboBoxes();
 }
 
 void MainWindow::_updateArmorValues()
@@ -84,17 +87,17 @@ void MainWindow::_changeAll()
 {
     QStringList items;
     int i = 0;
-    for (auto &it : _transArmorData.items())
-        if (it.value()["Mode"] == "11111") // Means its a set
-            items << it.key().c_str();
+    for (auto it = _transArmorData.begin(); it!=_transArmorData.end(); ++it)
+        if (it.value().toMap()["Mode"].toString() == "11111") // Means its a set
+            items << it.key();
 
     bool ok;
     QString text = getItemInputDialog(this, "Change All Armor", "Select set: ", items, &ok);
     if (!ok)
         return;
-    json Selected = _transArmorData[text.toStdString()];
+    auto selected = _transArmorData[text].toMap();
     for (i = 0; i < 5; ++i)
-        _MHManager.getPlayerData()[i] = Selected["ID"];
+        _MHManager.getPlayerData()[i] = selected["ID"].toUInt();
 
     this->_updateArmorValues();
 }

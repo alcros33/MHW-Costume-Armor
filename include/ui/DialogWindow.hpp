@@ -22,7 +22,7 @@ class DialogWindow : public QDialog
 {
     Q_OBJECT
   public:
-    DialogWindow(QWidget *parent, const std::string &Title, const std::string &Message, int Status);
+    DialogWindow(QWidget *parent, const QString &Title, const QString &Message, int Status);
     ~DialogWindow();
 
     QLabel* getIconLabel() { return ui->_iconLabel; }
@@ -33,5 +33,5 @@ class DialogWindow : public QDialog
     Ui::DialogWindow *ui;
 };
 
-QString getTextInputDialog(QWidget* parent, const std::string &Title, const std::string &Message, bool* ok);
-QString getItemInputDialog(QWidget* parent, const std::string &Title, const std::string &Message, const QStringList &items, bool* ok);
+QString getTextInputDialog(QWidget* parent, const QString &Title, const QString &Message, bool* ok);
+QString getItemInputDialog(QWidget* parent, const QString &Title, const QString &Message, const QStringList &items, bool* ok);

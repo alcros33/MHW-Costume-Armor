@@ -12,70 +12,44 @@
 
 void MainWindow::_populateSavedSets()
 {
-    QStringList items;
-    for (const auto &it : _SavedSets.items())
-        items << it.key().c_str();
-    
-    ui->savedComboBox->addItems(items);
+    ui->savedComboBox->addItems(_savedSets.keys());
 }
 
 void MainWindow::_loadSavedSet()
 {
-    int currentIdx = ui->savedComboBox->currentIndex();
-
-    if (currentIdx == -1)
+    if (ui->savedComboBox->currentIndex() == -1)
     {
         DialogWindow *Dia = new DialogWindow(this, "Warning", "No saved set selected", Status::WARNING);
         Dia->show();
         return;
     }
-    std::string currentText = ui->savedComboBox->currentText().toStdString();
-    try
-    {
-        for (int i = 0; i < 5; ++i)
-            _MHManager.getPlayerData()[i] = _SavedSets[currentText][i];
-    }
-    catch (std::exception &e)
-    {
-        DialogWindow *Dia = new DialogWindow(this, "ERROR", "Invalid Value for armor", Status::ERROR0);
-        Dia->show();
-        LOG_ENTRY(ERROR, "Invalid value at saved sets json file. Error " << e.what());
-        return;
-    }
+    auto currentText = ui->savedComboBox->currentText();
+
+    for (int i = 0; i < 5; ++i)
+        _MHManager.getPlayerData()[i] = _savedSets[currentText].toList()[i].toUInt();
+    
     this->_updateArmorValues();
 }
 
 void MainWindow::_loadSavedSetPopup()
 {
-    if (_SavedSets.empty())
+    if (_savedSets.empty())
     {
         DialogWindow *Dia = new DialogWindow(this, "Warning", "There are no saved sets", Status::WARNING);
         Dia->show();
         return;
     }
-
-    QStringList items;
-    for (const auto &it : _SavedSets.items())
-        items << it.key().c_str();
     
     bool ok;
-    QString text = getItemInputDialog(this, "Select Saved Set", "Select set: ", items, &ok);
+    QString currentText = getItemInputDialog(this, "Select Saved Set", "Select set: ",
+                                            _savedSets.keys(), &ok);
     if (!ok)
         return;
-    int newIndex = std::max(0, ui->savedComboBox->findText(text));
+    int newIndex = std::max(0, ui->savedComboBox->findText(currentText));
     ui->savedComboBox->setCurrentIndex(newIndex);
-    try
-    {
-        for (int i = 0; i < 5; ++i)
-            _MHManager.getPlayerData()[i] = _SavedSets[text.toStdString()][i];
-    }
-    catch (std::exception &e)
-    {
-        DialogWindow *Dia = new DialogWindow(this, "ERROR", "Invalid Value for armor", Status::ERROR0);
-        Dia->show();
-        LOG_ENTRY(ERROR, "Invalid value at saved sets json file. Error " << e.what());
-        return;
-    }
+
+    for (int i = 0; i < 5; ++i)
+        _MHManager.getPlayerData()[i] = _savedSets[currentText].toList()[i].toUInt();
     this->_updateArmorValues();
 }
 
@@ -84,12 +58,15 @@ void MainWindow::_saveCurrentSet()
     if (!this->_parseInputBoxes())
         return;
 
-    std::string currentText = ui->savedComboBox->currentText().toStdString();
-    if (_SavedSets.find(currentText) == _SavedSets.end())
-        ui->savedComboBox->insertItem(0, currentText.data());
-
-    auto Data = _MHManager.getPlayerData();
-    _SavedSets[currentText] = Data;
+    auto currentText = ui->savedComboBox->currentText();
+    if (_savedSets.find(currentText) == _savedSets.end())
+        ui->savedComboBox->insertItem(0, currentText);
+    
+    auto data = _MHManager.getPlayerData();
+    QVariantList dataVariant;
+    for(const auto &v : data)
+        dataVariant << QVariant(v);
+    _savedSets[currentText] = dataVariant;
 
     if (!this->_flushSavedSets())
     {
@@ -111,12 +88,12 @@ void MainWindow::_deleteCurrentSet()
         Dia->show();
         return;
     }
-    std::string currentText = ui->savedComboBox->currentText().toStdString();
+    auto currentText = ui->savedComboBox->currentText();
     ui->savedComboBox->removeItem(currentIdx);
-    if (_SavedSets.find(currentText) == _SavedSets.end())
+    if (_savedSets.find(currentText) == _savedSets.end())
         return;
-    _SavedSets.erase(currentText);
-    
+    _savedSets.erase(_savedSets.find(currentText));
+
     if (!this->_flushSavedSets())
     {
         DialogWindow *Dia = new DialogWindow(this, "ERROR", "Couldn't save to file.", Status::ERROR0);
@@ -127,14 +104,20 @@ void MainWindow::_deleteCurrentSet()
 
 bool MainWindow::_flushSavedSets()
 {
-    std::ofstream Out(savedSetsFile.fileName().toStdString());
-    if (!Out)
+    if (!savedSetsFile.open(QIODevice::WriteOnly))
     {
         LOG_ENTRY(ERROR, "Couldn't open " << savedSetsFile);
-        Out.close();
+        savedSetsFile.close();
         return false;
     }
-    Out << std::setw(2) << _SavedSets << std::endl;
-    Out.close();
+
+    _savedSetsDocument.setObject(QJsonObject::fromVariantMap(_savedSets));
+    auto data = _savedSetsDocument.toJson(QJsonDocument::Indented);
+    if (savedSetsFile.write(data) == -1)
+    {
+        savedSetsFile.close();
+        return false;
+    }
+    savedSetsFile.close();
     return true;
 }
