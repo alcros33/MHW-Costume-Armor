@@ -1,8 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [0.16.0] - UNRELEASED
+## [0.16.0] - 2020 - 02 - 06
 ### Added
+- Compatibility with game version 402862
+- Rajang A+ and B+ armors
 - Option to re-turn on Steam path automatic search
 - Added an auto-updater feature and a Search for Updates option
 - An option to select the level of the log
@@ -88,9 +90,9 @@ the one under the File menu and also the ctrl+d hotkey one will now pop a window
 ### Added
 - Origin Layered and Kulve Y armors.
 - A global exception handler to print crash reasons in the log.
+- Support for game version 167541
 - The entry for Queen Beetle Armor (Note that Butterfly and Queen Beetle are the same armor). After some experiments we determined what happens if you equip King or Queen Beetle Armors if your character is Male or Female.
 The armor displayed in game is as follows:
-- Support for game version 167541
 
 If your character is Male:
 * if yoy equip King Beetle -> The Game Displays King Beetle.
