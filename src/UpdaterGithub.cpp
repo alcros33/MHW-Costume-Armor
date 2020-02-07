@@ -56,20 +56,22 @@ void UpdaterGithub::_onUpdateCheckFinished()
     }
 
     _latestVersionString = this->_reply->url().url().split("/", QString::SkipEmptyParts).last();
-    if (_latestVersionString.contains("major"))
-    {
-        auto dia = new DialogWindow(this->_parent, "Update",
-                                    "There's an update available, but i'ts major release, please re-download the entire folder for the application again", Status::WARNING);
-        dia->show();
-        return;
-    }
-
     if (QVersionNumber::fromString(_latestVersionString) <= _currentVersion)
     {
         if (_isSilent)
             return;
         auto dia = new DialogWindow(this->_parent, "Update",
                                     "Application is up-to-date", Status::SUCCESS);
+        dia->show();
+        return;
+    }
+
+    if (_latestVersionString.contains("major"))
+    {
+        if (_isSilent)
+            return;
+        auto dia = new DialogWindow(this->_parent, "Update",
+                                    "There's an update available, but i'ts major release, please re-download the entire folder for the application again", Status::WARNING);
         dia->show();
         return;
     }

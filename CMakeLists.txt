@@ -12,7 +12,7 @@ enable_language(C CXX)
 # These definitions are available by including "Config.h" in the source. 
 set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_VERSION_MINOR 16)
-set(PROJECT_VERSION_PATCH 0)
+set(PROJECT_VERSION_PATCH 1)
 # No in-source builds
 if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
     message(FATAL_ERROR "In-source builds not allowed. Please make a new directory (called a build directory) and run CMake from there.")
@@ -37,6 +37,9 @@ set(CMAKE_AUTOUIC ON)
 SET(CMAKE_AUTORCC ON)
 # Windows API Stuff
 find_library (PSAPI Psapi)
+# OpenSSL Dlls
+# Set the OPENSSL_ROOT_DIR in your envrionment
+file(GLOB OPENSSL_DLLS "$ENV{OPENSSL_ROOT_DIR}/bin/*.dll")
 
 # --------------------------------------------------------------------------------
 #                          Set binary output dir
@@ -117,9 +120,8 @@ if(CMAKE_BUILD_TYPE STREQUAL "Release")
 endif()
 
 if (CMAKE_BUILD_TYPE STREQUAL "Release")
-    configure_file (
-    "${PROJECT_SOURCE_DIR}/CHANGELOG.md"
-    "${CMAKE_BINARY_DIR}/CHANGELOG.txt")
+    configure_file("${PROJECT_SOURCE_DIR}/CHANGELOG.md" "${CMAKE_BINARY_DIR}/CHANGELOG.txt" COPYONLY)
+    file(COPY ${OPENSSL_DLLS} DESTINATION ${CMAKE_BINARY_DIR})
 endif()
 
 # --------------------------------------------------------------------------------

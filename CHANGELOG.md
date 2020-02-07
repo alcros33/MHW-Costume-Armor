@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.16.1] - 2020 - 02 - 06
+### Fixed
+- An error with the version number check
+- Added a command to copy openSSL at release Build
+- Added Leon and Claire Armors
+
 ## [0.16.0] - 2020 - 02 - 06
 ### Added
 - Compatibility with game version 402862
