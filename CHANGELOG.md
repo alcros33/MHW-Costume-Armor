@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.16.2] - 2020 - 02 - 08
+### Added
+- Chinese Iceborne Armor Names
+
 ## [0.16.1] - 2020 - 02 - 06
 ### Fixed
 - An error with the version number check
