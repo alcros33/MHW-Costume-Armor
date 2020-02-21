@@ -16,7 +16,6 @@ _updater(updater)
     ui->lblPercentage->setVisible(false);
     ui->lblOperationInProgress->setVisible(false);
     ui->progressBar->setVisible(false);
-    this->setAttribute(Qt::WA_DeleteOnClose, true);
 }
 
 UpdaterDialog::~UpdaterDialog()
@@ -31,6 +30,7 @@ void UpdaterDialog::close()
     if (_updater->_downloadedBinaryFile.isOpen())
         _updater->_downloadedBinaryFile.close();
     QDialog::close();
+    this->deleteLater();
 }
 
 void UpdaterDialog::onUpdateAvailable(QString changelog)

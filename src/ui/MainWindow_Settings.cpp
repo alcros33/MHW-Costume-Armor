@@ -66,9 +66,8 @@ void MainWindow::_setAutoSteam()
     }
 
     _settings.setValue("SteamPath/Auto", true);
-    ui->actionAutoSteam->setChecked(true);
-    this->_MHManager.unSetSteamDirectory();
     this->_settings.sync();
+    this->_MHManager.unSetSteamDirectory();
     if (!this->_MHManager.processIsOpen())
     {
         auto Dia = new DialogWindow(this, "Automatic Steam Path", "Steam path has been set to automatic, but MHW seems to be closed. Open it and press Search MHW Character Data.", Status::WARNING);
