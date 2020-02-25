@@ -65,7 +65,7 @@ public:
 
   private:
     Process _MHProcess;
-    int _steamID = 0;
+    u_int _steamID = 0;
     QDir _steamPath;
     bool _steamFound = false;
     DWORD64 _dataPtr = 0;

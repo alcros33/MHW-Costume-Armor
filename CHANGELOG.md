@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.16.4] - 2020 - 02 - 25
+### Fixed
+- steamID is now of type u_int instead of int
+
 ## [0.16.3] - 2020 - 02 - 20
 ### Added
 - Compatibility with version 404549
