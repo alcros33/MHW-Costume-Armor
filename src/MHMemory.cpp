@@ -184,7 +184,8 @@ std::map<QString, SearchPattern> MH_Memory::versions{
     {"401727", {BytesToUInt({224, 241, 66, 1}), (0x4B4) + 29}},
     {"402862", {BytesToUInt({100,   0, 67, 1}), (0x4B4) + 29}},
     {"404549", {BytesToUInt({148,   0, 67, 1}), (0x4B4) + 29}},
-    {"Latest", {BytesToUInt({148,   0, 67, 1}), (0x4B4) + 29}},
+    {"406510", {BytesToUInt({188,  11, 67, 1}), (0x4B4) + 29}},
+    {"Latest", {BytesToUInt({188,  11, 67, 1}), (0x4B4) + 29}},
 };
 
 // The distance between the address of the data of the character slots
@@ -200,7 +201,8 @@ std::map<QString, int> MH_Memory::charSlotDist{
     {"400974", 2615792},
     {"401727", 2615792},
     {"402862", 2615792},
-//     {"404549", 2615792},
+    {"404549", 2615792},
+    {"406510", 2615792},
     {"Latest", 2615792},
 };
 

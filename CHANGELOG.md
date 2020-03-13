@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.16.5] - 2020 - 03 - 12
+### Added
+- Compatibility with version 406510
+- Stygian Zinogre and Safi'jiva
+
 ## [0.16.4] - 2020 - 02 - 25
 ### Fixed
 - steamID is now of type u_int instead of int
