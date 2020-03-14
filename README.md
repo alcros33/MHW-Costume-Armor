@@ -19,7 +19,7 @@ Checkout the compiled binaries on the latest [Release](https://github.com/alcros
 * CMake # [Download Link!](https://cmake.org/download/)
 * QT5 (Select MinGW 7.30)# [Download Link!](https://www.qt.io/download)
 * MinGW 7.30 # When installing QT5 pick the actual MinGW compiler from the "tools" section
-* Python 3 and `openpyxl` (`pip install openpyxl`)
+* Python 3 (to transform csv file to json)
 
 Add the following folders to Path `C:\Qt\Tools\mingw730_64\bin` and `C:\Qt\{VERSION}\mingw73_64\bin` (Guide [Info](https://www.computerhope.com/issues/ch000549.htm)).
 

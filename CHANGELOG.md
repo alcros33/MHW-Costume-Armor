@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 ## [0.16.6] - 2020 - 03 - 14
 ### Fixed
 - Leon and Claire armor were not showing up
+### Changed
+- Armor data spreadsheet is now a csv file
+### Removed
+- All the low rank armors
+
 
 ## [0.16.5] - 2020 - 03 - 12
 ### Added
