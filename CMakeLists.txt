@@ -12,7 +12,7 @@ enable_language(C CXX)
 # These definitions are available by including "Config.h" in the source. 
 set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_VERSION_MINOR 16)
-set(PROJECT_VERSION_PATCH 5)
+set(PROJECT_VERSION_PATCH 6)
 # No in-source builds
 if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
     message(FATAL_ERROR "In-source builds not allowed. Please make a new directory (called a build directory) and run CMake from there.")

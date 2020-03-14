@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.16.6] - 2020 - 03 - 14
+### Fixed
+- Leon and Claire armor were not showing up
+
 ## [0.16.5] - 2020 - 03 - 12
 ### Added
 - Compatibility with version 406510
