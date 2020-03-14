@@ -1,7 +1,7 @@
 import os, json, sys, argparse, csv
 
 parser = argparse.ArgumentParser(description='Generates .json configuration file using a copy of the MHW Layered Armor spreadsheet, downloaded as an .csv file')
-parser.add_argument('--source', type=str, default="scripts/MHW_Armor_Data.csv",help='The .csv file')
+parser.add_argument('--source', type=str, default="scripts/MHW_Armor_Data - MHW Layered Armor.csv",help='The .csv file')
 parser.add_argument('--dest', type=str, default="resources/ArmorData.json",help='The where to write the .json file')
 
 ArmorNames = ["Head", "Body","Arms", "Waist", "Legs"] #Names of the armor pieces
