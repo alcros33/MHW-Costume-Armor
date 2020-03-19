@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.16.7] - 2020 - 03 - 19
+### Fixed
+- Orion armors
+
 ## [0.16.6] - 2020 - 03 - 14
 ### Fixed
 - Leon, Claire and Rajang armors were missing

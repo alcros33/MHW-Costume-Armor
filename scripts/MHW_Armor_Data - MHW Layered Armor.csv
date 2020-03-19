@@ -112,7 +112,7 @@ ID,Head,Body,Arms,Waist,Legs,English,Traditional Chinese,Simplified Chinese,Kore
 147,Ok,Ok,Ok,Ok,Ok,Blossom Layered,【巴魯特】服裝,【巴鲁特】服装,블로섬 의상 
 148,Ok,Ok,Ok,Ok,Ok,Diver Layered,【潛水夫】服裝,【潜水员】服装,다이버 의상 
 149,Ok,Ok,Ok,Ok,Ok,Harvest Layered,【收穫】服裝,【收获】服装,하베스트 의상 
-150,Ok,Ok,Ok,Ok,Ok,Orion α,獵戶星α,猎户星α,오리온 α
+150,Ok,Ok,Ok,Ok,Ok,Orion Layered,【獵戶星】服裝,【猎户星】服装,오리온 의상 
 151,Ok,?,?,?,?,Faux Felyne α,艾路頭套α,艾露猫头套α,아이루페이크 α
 152,Ok,?,?,?,?,Mosswine Mask α,菌豬頭套α,菌猪头套α,모스페이크 α
 153,Ok,Ok,Ok,Ok,Ok,Gala Suit Layered,【盛裝】服裝,【盛装】服装,풀드레스 의상 
@@ -143,7 +143,6 @@ ID,Head,Body,Arms,Waist,Legs,English,Traditional Chinese,Simplified Chinese,Kore
 182,?,?,?,?,?,?,,, 
 183,Ok,Ok,Ok,Ok,Ok,Kulve Taroth α,絢輝龍鎧羅α,绚辉龙α,맘가이라 α
 184,Ok,Ok,Ok,Ok,Ok,Kulve Taroth β,絢輝龍鎧羅β,绚辉龙β,맘가이라 β
-188,Ok,Ok,Ok,Ok,Ok,Orion Layered,【獵戶星】服裝,【猎户星】服装,오리온 의상 
 190,Ok,Ok,Ok,Ok,Ok,Samurai Layered,【鎧武者】服裝,【铠武者】服装,갑옷무사 의상 
 191,Ok,Ok,Ok,Ok,Ok,Vangis α,殘虐α,残虐α,반기스 α
 192,Ok,Ok,Ok,Ok,Ok,Vangis β,殘虐β,残虐β,반기스 β
@@ -153,6 +152,7 @@ ID,Head,Body,Arms,Waist,Legs,English,Traditional Chinese,Simplified Chinese,Kore
 196,Ok,Ok,Ok,Ok,Ok,Drachen α,騰龍α,腾龙α,용기사 α
 197,Ok,Ok,Ok,Ok,Ok,Blossom α,巴魯特α,巴鲁特α,블로섬 α
 198,Ok,Ok,Ok,Ok,Ok,Diver α,潛水夫α,潜水员α,다이버 α
+200,Ok,Ok,Ok,Ok,Ok,Orion α,獵戶星α,猎户星α,오리온 α
 199,Ok,Ok,Ok,Ok,Ok,Harvest α,收穫α,收获α,하베스트 α
 201,Ok,Ok,Ok,Ok,Ok,Gala Suit α,盛裝α,盛装α,풀드레스 α
 203,Ok,Ok,Ok,Ok,Ok,Butterfly (M) α,燕尾蝶 (男) α,燕尾蝶 (男) α,파피옴 α
