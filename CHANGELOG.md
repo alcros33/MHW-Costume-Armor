@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.16.8] - 2020 - 03 - 29
+### Added
+- Compatibility with version 408899
+
 ## [0.16.7] - 2020 - 03 - 19
 ### Fixed
 - Orion armors
