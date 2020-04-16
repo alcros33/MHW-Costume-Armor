@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.16.9] - 2020 - 04 - 16
+### Added
+- Compatibility with version 410013
+- Furious Rajang and Raging Brachydios
+
 ## [0.16.8] - 2020 - 03 - 29
 ### Added
 - Compatibility with version 408899
