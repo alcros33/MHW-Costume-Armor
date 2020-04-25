@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.16.10] - 2020 - 04 - 25
+### Added
+- Compatibility with version 410014
+- AT Namielle and MR Kulve Taroth
+
 ## [0.16.9] - 2020 - 04 - 16
 ### Added
 - Compatibility with version 410013

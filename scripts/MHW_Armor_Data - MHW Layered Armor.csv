@@ -307,8 +307,8 @@ ID,Head,Body,Arms,Waist,Legs,English,Traditional Chinese,Simplified Chinese,Kore
 353,Ok,Ok,Ok,Ok,Ok,Fulgur αnja β+,精英·雷顎β,精英·雷颚β,EX쟈나르β
 354,?,?,?,?,?,?,,,
 355,?,?,?,?,?,?,,,
-356,Ok,Ok,Ok,Ok,Ok,Black Belt α+,精英·鬥技場獎賞１α,精英·斗技场奖赏１α,EX검은띠α
-357,Ok,Ok,Ok,Ok,Ok,Black Belt β+,精英·鬥技場獎賞１β,精英·斗技场奖赏１β,EX검은띠β
+356,Ok,Ok,Ok,Ok,Ok,Black Belt α+,精英·黑帶α,精英·斗技场奖赏１α,EX검은띠α
+357,Ok,Ok,Ok,Ok,Ok,Black Belt β+,精英·黑帶β,精英·斗技场奖赏１β,EX검은띠β
 358,Ok,?,?,?,?,Dragonking Eyepatch Layered,【龍王的獨眼】服裝,【龙王的独眼】服装,【용왕의 척안】의상
 359,Ok,?,?,?,?,Strategist Spectacles Layered,【知性眼鏡】服裝,【知性眼镜】服装,【지략의 안경】의상
 360,Ok,?,?,?,?,Pulverizing Feather Layered,【羽毛裝飾】服裝,【羽毛装饰】服装,【깃털장식】의상
@@ -373,20 +373,20 @@ ID,Head,Body,Arms,Waist,Legs,English,Traditional Chinese,Simplified Chinese,Kore
 419,?,?,?,?,?,?,,,
 420,Ok,Ok,Ok,Ok,Ok,Zinogre α+,精英·雷狼龍α,精英·雷狼龙α,EX진오우α
 421,Ok,Ok,Ok,Ok,Ok,Zinogre β+,精英·雷狼龍β,精英·雷狼龙β,EX진오우β
-422,Ok,Ok,Ok,Ok,Ok,Stygian Zinogre α+,	精英·獄狼龍 α+,精英·狱狼龙 α+,EX극오우 α+
-423,Ok,Ok,Ok,Ok,Ok,Stygian Zinogre β+,	精英·獄狼龍 β+,精英·狱狼龙 β+,EX극오우 β+
+422,Ok,Ok,Ok,Ok,Ok,Stygian Zinogre α+,精英·獄狼龍α,精英·狱狼龙 α+,EX극오우 α+
+423,Ok,Ok,Ok,Ok,Ok,Stygian Zinogre β+,精英·獄狼龍β,精英·狱狼龙 β+,EX극오우 β+
 424,Ok,Ok,Ok,Ok,Ok,Yian Garuga α+,精英·黑狼鳥α,精英·黑狼鸟α,EX가루루가α
 425,Ok,Ok,Ok,Ok,Ok,Yian Garuga β+,精英·黑狼鳥β,精英·黑狼鸟β,EX가루루가β
 426,Ok,Ok,Ok,Ok,Ok,Zorah α+,精英·鑄島熔岩α,精英·铸岛熔岩α,EX조라마그나α
 427,Ok,Ok,Ok,Ok,Ok,Zorah β+,精英·鑄島熔岩β,精英·铸岛熔岩β,EX조라마그나β
 428,Ok,Ok,Ok,Ok,Ok,Rajang α+,精英·金色α,精英·金色阿尔法,EX금빛α
 429,Ok,Ok,Ok,Ok,Ok,Rajang β+,精英·金色β,精英·金色贝塔,EX금빛β
-430,Ok,Ok,Ok,Ok,Ok,Furious Rajang α+,Furious Rajang α+,Furious Rajang α+,Furious Rajang α+
-431,Ok,Ok,Ok,Ok,Ok,Furious Rajang β+,Furious Rajang β+,Furious Rajang β+,Furious Rajang β+
-432,Ok,Ok,Ok,Ok,Ok,Raging Brachydios α+,Raging Brachydios α+,Raging Brachydios α+,Raging Brachydios α+
-433,Ok,Ok,Ok,Ok,Ok,Raging Brachydios β+,Raging Brachydios β+,Raging Brachydios β+,Raging Brachydios β+
-434,Ok,Ok,Ok,Ok,Ok,Safi'jiiva α+,精英‧龍紋 α+, 冥赤龙 α+,EX용문 α+
-435,Ok,Ok,Ok,Ok,Ok,Safi'jiiva β+,精英‧龍紋 β+, 冥赤龙 β+,EX용문 β+
+430,Ok,Ok,Ok,Ok,Ok,Furious Rajang α+,精英·齊天α,精英·齐天阿尔法,	EX제천α
+431,Ok,Ok,Ok,Ok,Ok,Furious Rajang β+,精英·齊天β,精英·齐天贝塔,EX제천β
+432,Ok,Ok,Ok,Ok,Ok,Raging Brachydios α+,精英·鐵腕α,精英·铁腕阿尔法,	EX브라키움α
+433,Ok,Ok,Ok,Ok,Ok,Raging Brachydios β+,精英·鐵腕β,精英·铁腕贝塔,EX브라키움β
+434,Ok,Ok,Ok,Ok,Ok,Safi'jiiva α+,精英·龍紋α, 冥赤龙 α+,EX용문 α+
+435,Ok,Ok,Ok,Ok,Ok,Safi'jiiva β+,精英·龍紋β, 冥赤龙 β+,EX용문 β+
 436,?,?,?,?,?,?,,,
 437,?,?,?,?,?,?,,,
 438,Ok,?,?,?,?,Sealed Dragon Cloth α+,精英‧封印的龍骸布α,精英‧封印的龙骸布α,EX봉인의 용해포α
@@ -395,9 +395,9 @@ ID,Head,Body,Arms,Waist,Legs,English,Traditional Chinese,Simplified Chinese,Kore
 441,Ok,?,?,?,?,Duffel Penguin Mask α+,精英‧企鵝頭套α,精英‧企鹅头套α,EX껴입기펭귄페이크α
 442,Ok,Ok,Ok,Ok,Ok,Lunastra α+,精英·皇后α,精英·皇后α,EX엠프리스α
 443,Ok,Ok,Ok,Ok,Ok,Lunastra β+,精英·皇后β,精英·皇后β,EX엠프리스β
-444,?,?,?,?,?,?,,,
-445,?,?,?,?,?,?,,,
-446,?,?,?,?,?,?,,,
+444,Ok,Ok,Ok,Ok,Ok,Kulve Taroth α+,精英·絢輝龍鎧羅α,精英·绚辉龙铠罗阿尔法,EX맘가이라α
+445,Ok,Ok,Ok,Ok,Ok,Kulve Taroth β+,	精英·絢輝龍鎧羅β,	精英·绚辉龙铠罗贝塔,	EX맘가이라β
+446,Ok,Ok,Ok,Ok,Ok,Rose α+,精英‧薔薇α,	精英·蔷薇阿尔法,	EX로제α
 447,?,?,?,?,?,?,,,
 448,?,?,?,?,?,?,,,
 449,?,?,?,?,?,?,,,
@@ -425,7 +425,7 @@ ID,Head,Body,Arms,Waist,Legs,English,Traditional Chinese,Simplified Chinese,Kore
 471,Ok,Ok,Ok,Ok,Ok,Yukumo Layered,【結雲】服裝,【结云】服装,【유쿠모】의상
 472,Ok,Ok,Ok,Ok,Ok,Silver Knight Layered,【銀騎士】服裝,【银骑士】服装,【은기사】의상
 473,?,?,?,?,?,?,,,
-474,?,?,?,?,?,?,,,
+474,Ok,Ok,Ok,Ok,Ok,Namielle Y+,精英·觸角 Y+,精英·触角伽马,EX텐터클γ
 475,?,?,?,?,?,?,,,
 476,?,?,?,?,?,?,,,
 477,?,?,?,?,?,?,,,
