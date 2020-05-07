@@ -16,7 +16,7 @@ namespace Armor
     const int LEGS = 4;
     const std::array<std::string, 5> NAMES{"Head", "Body", "Arms", "Waist", "Legs"};
 
-    const u_int NOTHING = 512;
+    constexpr u_int NOTHING = (255 << 24) | (255 << 16) | (255 << 8) | (255);
 } // namespace Armor
 
 struct SearchPattern
@@ -69,7 +69,7 @@ public:
     QDir _steamPath;
     bool _steamFound = false;
     DWORD64 _dataPtr = 0;
-    int _slotDist;
+    u_int _slotDist;
     PlayerData _data{Armor::NOTHING};
 };
 

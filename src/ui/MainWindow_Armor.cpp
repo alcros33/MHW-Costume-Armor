@@ -47,11 +47,11 @@ void MainWindow::_updateArmorValues()
     int index;
     for (int i = 0; i < 5; ++i)
     {
-        index = _inputBoxes[i]->findData((int)Data[i]);
+        index = _inputBoxes[i]->findData(Data[i]);
         if (index < 0)
         {
             index = 0;
-            LOG_ENTRY(WARNING, "Encountered unknown value (" << (int)Data[i] << ") changing it to "
+            LOG_ENTRY(WARNING, "Encountered unknown value (" << Data[i] << ") changing it to "
                      << Armor::NOTHING << " for safety");
         }
         _inputBoxes[i]->setCurrentIndex(index);
@@ -70,7 +70,7 @@ bool MainWindow::_parseInputBoxes()
     int Val;
     for (int i = 0; i < 5; ++i)
     {
-        Val = _inputBoxes[i]->currentData().toInt();
+        Val = _inputBoxes[i]->currentData().toUInt();
         if (Val == 0) // Means Error btw
         {
             DialogWindow *Dia = new DialogWindow(this, "ERROR", "Invalid Value for armor", Status::ERROR0);

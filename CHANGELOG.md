@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.16.11] - 2020 - 05 - 06
+### Added
+- Fixed "Nothing" and "Clear" actually being Deviljho
+
 ## [0.16.10] - 2020 - 04 - 25
 ### Added
 - Compatibility with version 410014
