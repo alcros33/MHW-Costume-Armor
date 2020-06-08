@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.16.12] - 2020 - 06 - 07
+### Added
+- Compatibility with version 410918
+- French armor names
+
 ## [0.16.11] - 2020 - 05 - 06
 ### Added
 - Fixed "Nothing" and "Clear" actually being Deviljho
