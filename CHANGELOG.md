@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.16.13] - 2020 - 07 - 10
+### Added
+- Compatibility with version 413161
+- Alatreon
+
 ## [0.16.12] - 2020 - 06 - 07
 ### Added
 - Compatibility with version 410918
