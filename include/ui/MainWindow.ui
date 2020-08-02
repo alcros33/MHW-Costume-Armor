@@ -920,9 +920,17 @@ All</string>
      <addaction name="actionAutoSteam"/>
      <addaction name="actionChange_Steam_Path"/>
     </widget>
+    <widget class="QMenu" name="menuScale">
+     <property name="title">
+      <string>Scale</string>
+     </property>
+     <addaction name="actionFont_Scale_Factor"/>
+     <addaction name="actionWindow_Scale_Factor"/>
+    </widget>
     <addaction name="actionAutomatically_Check_for_Updates"/>
     <addaction name="actionNo_Backup_Ok"/>
     <addaction name="menuSteam_Path"/>
+    <addaction name="menuScale"/>
    </widget>
    <widget class="QMenu" name="menuDebug">
     <property name="title">
@@ -1139,6 +1147,16 @@ All</string>
   <action name="actionShow_Log">
    <property name="text">
     <string>Log Viewer</string>
+   </property>
+  </action>
+  <action name="actionFont_Scale_Factor">
+   <property name="text">
+    <string>Font Scale Factor</string>
+   </property>
+  </action>
+  <action name="actionWindow_Scale_Factor">
+   <property name="text">
+    <string>Window Scale Factor</string>
    </property>
   </action>
  </widget>

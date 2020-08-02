@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.16.14] - 2020 - 08 - 01
+### Added
+- Functionality to scale up and down font and window size
+- Frostfang Barrioth, Innerwear, Passion
+
 ## [0.16.13] - 2020 - 07 - 10
 ### Added
 - Compatibility with version 413161

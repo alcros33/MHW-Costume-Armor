@@ -18,10 +18,8 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QString github_repo, QString current_version, QWidget *parent=0);
+    MainWindow(QString github_repo, QString current_version, QSettings &settings, QWidget *parent=0);
     ~MainWindow();
-
-    QFile settingsFile = QCoreApplication::applicationDirPath() + "\\settings.ini";
     QFile savedSetsFile = QCoreApplication::applicationDirPath() + "\\SavedSets.json";
     QFile armorDataFile = QFile(":/ArmorData.json");
 
@@ -31,7 +29,7 @@ private:
     QActionGroup *_langGroup = nullptr;
     QActionGroup *_logGroup = nullptr;
     MH_Memory _MHManager;
-    QSettings _settings;
+    QSettings &_settings;
     QJsonDocument _savedSetsDocument;
     QVariantMap _savedSets;
     QVariantMap _armorData;
@@ -63,6 +61,8 @@ private slots:
     void _toggleNoBackup();
     void _setAutoSteam();
     void _toggleAutoUpdates();
+    void _fontScale();
+    void _windowScale();
     //Saved Sets
     bool _flushSavedSets();
     void _saveCurrentSet();

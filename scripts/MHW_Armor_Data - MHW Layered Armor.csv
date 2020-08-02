@@ -397,9 +397,9 @@ ID,Head,Body,Arms,Waist,Legs,English,Traditional Chinese,Simplified Chinese,Kore
 443,Ok,Ok,Ok,Ok,Ok,Lunastra β+,精英·皇后β,精英·皇后β,EX엠프리스β,Lunastra β+
 444,Ok,Ok,Ok,Ok,Ok,Kulve Taroth α+,精英·絢輝龍鎧羅α,精英·绚辉龙铠罗α,EX맘가이라α,Kulve Taroth α+
 445,Ok,Ok,Ok,Ok,Ok,Kulve Taroth β+,        精英·絢輝龍鎧羅β,精英·绚辉龙铠罗β,	EX맘가이라β,Kulve Taroth β+
-446,Ok,Ok,Ok,Ok,Ok,Rose α+,精英‧薔薇α,        精英·蔷薇α,	EX로제α,Rose α+
+446,Ok,Ok,Ok,Ok,Ok,Rose α+,精英‧薔薇α,精英·蔷薇α,	EX로제α,Rose α+
 447,?,?,?,?,?,?,,,,?
-448,?,?,?,?,?,?,,,,?
+448,Ok,Ok,Ok,Ok,Ok,Passion α+,精英·熱情α,精英·熱情α,	EX패션α,Passion α+
 449,?,?,?,?,?,?,,,,?
 450,?,?,?,?,?,?,,,,?
 451,?,?,?,?,?,?,,,,?
@@ -429,8 +429,8 @@ ID,Head,Body,Arms,Waist,Legs,English,Traditional Chinese,Simplified Chinese,Kore
 475,?,?,?,?,?,?,,,,?
 476,?,?,?,?,?,?,,,,?
 477,?,?,?,?,?,?,,,,?
-478,?,?,?,?,?,?,,,,?
-479,?,?,?,?,?,?,,,,?
+478,Ok,Ok,Ok,Ok,Ok,Frostfang Barioth α+,精英·霜刃冰牙龍α,精英·霜刃冰牙龙α,EX오르문그α,Frostfang Barioth α+
+479,Ok,Ok,Ok,Ok,Ok,Frostfang Barioth β+,	精英·霜刃冰牙龍β,精英·霜刃冰牙龙β,EX오르문그β,Frostfang Barioth β+
 480,?,?,?,?,?,?,,,,?
 481,?,?,?,?,?,?,,,,?
 482,?,?,?,?,?,?,,,,?
@@ -463,3 +463,5 @@ ID,Head,Body,Arms,Waist,Legs,English,Traditional Chinese,Simplified Chinese,Kore
 509,?,?,?,?,?,?,,,,
 510,?,?,?,?,?,?,,,,
 511,?,?,?,?,?,?,,,,
+673,?,Ok,Ok,Ok,Ok,Innerwear α,        【內衣α】服裝,【内衣α】服装,	【이너α】의상,Innerwear α
+675,?,Ok,Ok,Ok,Ok,Innerwear β,        【內衣β】服裝,        【内衣β】服装,【이너β】의상,Innerwear β

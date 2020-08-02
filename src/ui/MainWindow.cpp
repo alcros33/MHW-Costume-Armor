@@ -9,10 +9,10 @@
 /// These file contains Member definitions of the MainWindow class
 /// Related to initiliaze things before GUI is showed.
 
-MainWindow::MainWindow(QString github_repo, QString current_version, QWidget *parent) :
+MainWindow::MainWindow(QString github_repo, QString current_version, QSettings &settings, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    _settings(settingsFile.fileName(), QSettings::IniFormat, this),
+    _settings(settings),
     _updater(this, github_repo, current_version)
 {
     ui->setupUi(this);
@@ -43,6 +43,8 @@ MainWindow::MainWindow(QString github_repo, QString current_version, QWidget *pa
     connect(ui->actionAutomatically_Check_for_Updates, QAction::triggered, this, _toggleAutoUpdates);
     connect(ui->actionCheck_for_Updates, QAction::triggered, this, _checkForUpdates);
     connect(ui->actionNo_Backup_Ok, QAction::triggered, this, _toggleNoBackup);
+    connect(ui->actionFont_Scale_Factor, QAction::triggered, this, _fontScale);
+    connect(ui->actionWindow_Scale_Factor, QAction::triggered, this, _windowScale);
     // Debug
     connect(ui->actionManually_Input_ID, QAction::triggered, this, _manualInputValue);
     connect(ui->actionShow_Log, QAction::triggered, this, _showLog);
@@ -97,6 +99,11 @@ MainWindow::MainWindow(QString github_repo, QString current_version, QWidget *pa
 
     if (_settings.value("General/AutoUpdates", true).toBool())
         _updater.checkForUpdates(true);
+
+    float fontScale = _settings.value("General/FontScaleFactor", 1.0f).toFloat();
+    float winScale = _settings.value("General/WindowScaleFactor", 1.0f).toFloat();
+    ui->actionFont_Scale_Factor->setText(QString("Font Scale Factor. Current: %1").arg(fontScale));
+    ui->actionWindow_Scale_Factor->setText(QString("Window Scale Factor. Current: %1").arg(winScale));
 }
 
 MainWindow::~MainWindow()

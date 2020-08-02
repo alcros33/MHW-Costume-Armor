@@ -82,3 +82,39 @@ void MainWindow::_toggleAutoUpdates()
     _settings.setValue("SteamPath/Auto", !_settings.value("SteamPath/Auto", true).toBool());
     this->_settings.sync();
 }
+
+void MainWindow::_fontScale()
+{
+    bool ok;
+    auto s = QInputDialog::getText(this, "Enter font scale factor", "Font Factor",
+                                   QLineEdit::EchoMode::Normal,
+                                   _settings.value("General/FontScaleFactor", 1.0f).toString(), &ok);
+    if (!ok)
+        return;
+    float f = s.toFloat(&ok);
+    if (!ok)
+        return;
+    f = (0.1f <= f) ? f: 0.1f;
+    f = (10.0f >= f) ? f : 10.0f;
+    _settings.setValue("General/FontScaleFactor", QString::number(f));
+    DialogWindow *Dia = new DialogWindow(this, "Warning", "You need to restart application for the changes to apply", Status::WARNING);
+    Dia->show();
+}
+
+void MainWindow::_windowScale()
+{
+    bool ok;
+    auto s = QInputDialog::getText(this, "Enter window scale factor", "Window Factor",
+                                    QLineEdit::EchoMode::Normal,
+                                    _settings.value("General/WindowScaleFactor", 1.0f).toString(), &ok);
+    if (!ok)
+        return;
+    float f = s.toFloat(&ok);
+    if (!ok)
+        return;
+    f = (0.1f <= f) ? f : 0.1f;
+    f = (10.0f >= f) ? f : 10.0f;
+    _settings.setValue("General/WindowScaleFactor", QString::number(f));
+    DialogWindow *Dia = new DialogWindow(this, "Warning", "You need to restart application for the changes to apply", Status::WARNING);
+    Dia->show();
+}

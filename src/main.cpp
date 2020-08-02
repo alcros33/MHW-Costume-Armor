@@ -5,15 +5,30 @@
 #include "MHMemory.hpp"
 #include "Config.h"
 
+QString dir_path(int argc, char *argv[])
+{
+    QApplication dummy(argc, argv);
+    return QCoreApplication::applicationDirPath();
+}
+
 int main(int argc, char *argv[])
 {
+    auto dp = dir_path(argc, argv);
+    qDebug() << (dp + "\\settings.ini");
+    QSettings settings(dp + "\\settings.ini", QSettings::IniFormat);
+
+    float fontScale = settings.value("General/FontScaleFactor", 1.0f).toFloat();
+    float winScale = settings.value("General/WindowScaleFactor", 1.0f).toFloat();
+    qputenv("QT_SCALE_FACTOR", QString::number(fontScale).toUtf8());
+    qputenv("QT_SCREEN_SCALE_FACTORS", QString::number(winScale/fontScale).toUtf8());
+    
     QApplication app(argc, argv);
     QCoreApplication::addLibraryPath("./plugins");
 
     QString project = PROJECT_NAME;
     QVersionNumber version(PROJECT_VERSION_MAJOR, PROJECT_VERSION_MINOR, PROJECT_VERSION_PATCH);
     project += " " + version.toString();
-    MainWindow w("https://github.com/alcros33/MHW-Costume-Armor", version.toString());
+    MainWindow w("https://github.com/alcros33/MHW-Costume-Armor", version.toString(), settings);
 
     LOG_ENTRY(INFO, project);
     
