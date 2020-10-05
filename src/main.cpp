@@ -14,7 +14,6 @@ QString dir_path(int argc, char *argv[])
 int main(int argc, char *argv[])
 {
     auto dp = dir_path(argc, argv);
-    qDebug() << (dp + "\\settings.ini");
     QSettings settings(dp + "\\settings.ini", QSettings::IniFormat);
 
     float fontScale = settings.value("General/FontScaleFactor", 1.0f).toFloat();

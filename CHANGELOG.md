@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.16.15] - 2020 - 10 - 05
+### Added
+- Compatibility with version 419914
+- Fatalis, Azure Age, Velkhana Y
+
 ## [0.16.14] - 2020 - 08 - 01
 ### Added
 - Functionality to scale up and down font and window size
