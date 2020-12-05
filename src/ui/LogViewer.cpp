@@ -15,14 +15,14 @@ void ThreadLogReader::run()
     QString data = _file.readAll();
     _file.close();
 
-    auto logEntrys = data.split("\n", QString::SkipEmptyParts);
+    auto logEntrys = data.split("\n",  Qt::SkipEmptyParts);
     if (_currentRows == logEntrys.length())
         return;
     
     QList<QStringList> logs;
     for (const auto &entry : logEntrys.mid(_currentRows))
     {
-        auto splitted = entry.split(" ", QString::SkipEmptyParts);
+        auto splitted = entry.split(" ",  Qt::SkipEmptyParts);
         QStringList joined = splitted.mid(0, _numFields - 1);
         joined.append(QStringList(splitted.mid(_numFields - 1)).join(" "));
         logs << joined;

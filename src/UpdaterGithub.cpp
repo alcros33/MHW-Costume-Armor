@@ -55,7 +55,7 @@ void UpdaterGithub::_onUpdateCheckFinished()
         return;
     }
 
-    _latestVersionString = this->_reply->url().url().split("/", QString::SkipEmptyParts).last();
+    _latestVersionString = this->_reply->url().url().split("/",  Qt::SkipEmptyParts).last();
     if (QVersionNumber::fromString(_latestVersionString) <= _currentVersion)
     {
         if (_isSilent)
@@ -185,7 +185,7 @@ void UpdaterGithub::installUpdate()
     
     _downloadedBinaryFile.rename(QCoreApplication::applicationFilePath());
 
-    if (!QProcess::startDetached('\"' + _downloadedBinaryFile.fileName() + '\"'))
+    if (!QProcess::startDetached('\"' + _downloadedBinaryFile.fileName() + '\"', {}))
     {
         LOG_ENTRY(ERROR, "Failed to launch the downloaded update.");
         return;

@@ -132,12 +132,12 @@ Module Process::getModuleByName(const std::string &module_name) const
 /// Start Misc Functions Definitions
 u_int BytesToUInt(const byte buffer[4])
 {
-    return int(buffer[3] << 24 | buffer[2] << 16 | buffer[1] << 8 | buffer[0]);
+    return u_int(buffer[3] << 24 | buffer[2] << 16 | buffer[1] << 8 | buffer[0]);
 }
 
 u_int BytesToUInt(const std::array<byte,4> &buffer)
 {
-    return int(buffer[3] << 24 | buffer[2] << 16 | buffer[1] << 8 | buffer[0]);
+    return u_int(buffer[3] << 24 | buffer[2] << 16 | buffer[1] << 8 | buffer[0]);
 }
 
 std::string get_reg_value(HKEY root_key, const std::string &sub_key, const std::string &Value)

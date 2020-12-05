@@ -12,7 +12,7 @@ enable_language(C CXX)
 # These definitions are available by including "Config.h" in the source. 
 set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_VERSION_MINOR 16)
-set(PROJECT_VERSION_PATCH 15)
+set(PROJECT_VERSION_PATCH 16)
 # No in-source builds
 if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
     message(FATAL_ERROR "In-source builds not allowed. Please make a new directory (called a build directory) and run CMake from there.")
@@ -64,7 +64,6 @@ if (NOT MSVC)
     set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
     # Static libs
     set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
-    set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++ -static")
 endif()
 message(STATUS "Building with the following extra flags: ${CMAKE_CXX_FLAGS}")
 
@@ -116,7 +115,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "Release")
     add_custom_command(
         TARGET ${PROJECT_NAME}
         POST_BUILD
-        COMMAND windeployqt --release $<TARGET_FILE:${PROJECT_NAME}> --no-translations --plugindir ${EXPORT_LIB_DIR} --no-opengl-sw --no-system-d3d-compiler)
+        COMMAND windeployqt $<TARGET_FILE:${PROJECT_NAME}> --no-translations --plugindir ${EXPORT_LIB_DIR} --no-opengl-sw --no-system-d3d-compiler)
 endif()
 
 if (CMAKE_BUILD_TYPE STREQUAL "Release")
