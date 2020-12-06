@@ -7,8 +7,6 @@ All notable changes to this project will be documented in this file.
 - Added Ryu, Sakura and Demonlord
 ### Fixed
 - Starting whitespaces in armor names
-
-## [0.16.16]
 ### Changed
 - Migrated to QT 5.15
 
