@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Compatibility with version 421409
 - Added Ryu, Sakura and Demonlord
+### Fixed
+- Starting whitespaces in armor names
 
 ## [0.16.16]
 ### Changed
