@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.16.16] - 2020 - 12 - 05
+### Added
+- Compatibility with version 421409
+- Added Ryu, Sakura and Demonlord
+
+## [0.16.16]
+### Changed
+- Migrated to QT 5.15
+
 ## [0.16.15] - 2020 - 10 - 05
 ### Added
 - Compatibility with version 419914
