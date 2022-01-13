@@ -6,7 +6,6 @@
     <file>icons8-about-104.png</file>
     <file>icons8-save-52(1).png</file>
     <file>visored-helm.png</file>
-    <file>nergigante.png</file>
     <file>ajax-loader.gif</file>
     <file>error.png</file>
     <file>success.png</file>
@@ -22,7 +21,5 @@
     <file>Gato_MH.png</file>
     <file>app_icon.ico</file>
     <file>Icon.png</file>
-    <file>MIT_License.png</file>
-    <file>ArmorData.json</file>
   </qresource>
 </RCC>

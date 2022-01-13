@@ -15,12 +15,6 @@ int main(int argc, char *argv[])
 {
     auto dp = dir_path(argc, argv);
     QSettings settings(dp + "\\settings.ini", QSettings::IniFormat);
-
-    float fontScale = settings.value("General/FontScaleFactor", 1.0f).toFloat();
-    float winScale = settings.value("General/WindowScaleFactor", 1.0f).toFloat();
-    qputenv("QT_SCALE_FACTOR", QString::number(fontScale).toUtf8());
-    qputenv("QT_SCREEN_SCALE_FACTORS", QString::number(winScale/fontScale).toUtf8());
-    
     QApplication app(argc, argv);
     QCoreApplication::addLibraryPath("./plugins");
 
@@ -39,17 +33,17 @@ int main(int argc, char *argv[])
     }
     catch (const std::exception &ex)
     {
-        LOG_ENTRY(ERROR,"Application crashed due to "<< ex.what());
+        LOG_ENTRY(FATAL,"Application crashed due to "<< ex.what());
         return -1;
     }
     catch (const std::string &ex)
     {
-        LOG_ENTRY(ERROR,"Application crashed due to "<< ex);
+        LOG_ENTRY(FATAL,"Application crashed due to "<< ex);
         return -1;
     }
     catch (...)
     {
-        LOG_ENTRY(ERROR,"Application crashed due to unknwon exception.");
+        LOG_ENTRY(FATAL,"Application crashed due to unknwon exception.");
         return -1;
     }
 }

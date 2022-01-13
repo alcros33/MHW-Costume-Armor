@@ -16,16 +16,16 @@ namespace Armor
     const int LEGS = 4;
     const std::array<std::string, 5> NAMES{"Head", "Body", "Arms", "Waist", "Legs"};
 
-    constexpr u_int NOTHING = (255 << 24) | (255 << 16) | (255 << 8) | (255);
+    constexpr uint NOTHING = (255 << 24) | (255 << 16) | (255 << 8) | (255);
 } // namespace Armor
 
 struct SearchPattern
 {
-    u_int uintPattern;
-    u_int lastBits;
+    uint uintPattern;
+    uint lastBits;
 };
 
-using PlayerData = std::array<u_int, 5>;
+using PlayerData = std::array<uint, 5>;
 
 class MH_Memory
 {
@@ -65,11 +65,11 @@ public:
 
   private:
     Process _MHProcess;
-    u_int _steamID = 0;
+    uint _steamID = 0;
     QDir _steamPath;
     bool _steamFound = false;
     DWORD64 _dataPtr = 0;
-    u_int _slotDist;
+    uint _slotDist;
     PlayerData _data{Armor::NOTHING};
 };
 

@@ -1,10 +1,12 @@
 #pragma once
+#include <QObject>
 #include <QMainWindow>
 #include "ui_DialogWindow.h"
 
 #include <QInputDialog>
 #include <array>
 #include <string>
+#include <tuple>
 
 namespace Status
 {
@@ -34,4 +36,6 @@ class DialogWindow : public QDialog
 };
 
 QString getTextInputDialog(QWidget* parent, const QString &Title, const QString &Message, bool* ok);
-QString getItemInputDialog(QWidget* parent, const QString &Title, const QString &Message, const QStringList &items, bool* ok);
+// QString getItemInputDialog(QWidget* parent, const QString &Title, const QString &Message, const QStringList &items, bool* ok);
+std::tuple<QString, unsigned int, bool>
+getItemInputDialog(QWidget *parent, const QString &title, const QString &message, const QStringList &items, const QList<uint> &datas);

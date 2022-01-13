@@ -1,0 +1,635 @@
+ID,Head,Chest,Arm,Waist,Leg,US English,TW 繁體中文,JA 日本語,CN 簡体中文,KR 한국어,RU Русский,DE Deutsch,FR Français,IT Italiano,PL Polski,PO Português do Brasil,AR ﺎﻠﻋﺮﺒﻳﺓ
+1,Ok,Ok,Ok,Ok,Ok,Leather,【皮製】服裝,【レザー】衣装,【皮制】服装,【레더】의상,Кожа,Leder,Cuir,Cuoio,Skórzany,Couro,جلد
+2,Ok,Ok,Ok,Ok,Ok,Hunter's,獵人,ハンター,猎人,헌터,Охотничий,Jäger-Set,Chasseur,Cacciatore,Łowcy,do Caçador,خاص بالصيّاد
+3,Ok,Ok,Ok,Ok,Ok,Anja,蠻顎龍,ジャナフ,蛮颚龙,쟈나프,Анджи,Anjanath-Set,Anjanath,Anja,Anja,Anja,أنجا
+4,Ok,Ok,Ok,Ok,Ok,Jagras,【凶豺龍】服裝,【ジャグラス】衣装,【贼龙】服装,【쟈그라스】의상,Яграс,Jagras,Jagras,Jagras,Jagrasa,Jagras,جاغراس
+5,Ok,Ok,Ok,Ok,Ok,Bone,【骨製】服裝,【ボーン】衣装,【骨制】服装,【본】의상,Кость,Knochen,Os,Osso,Kościany,Ósseo,عظمي
+6,Ok,Ok,Ok,Ok,Ok,Alloy,【合金】服裝,【アロイ】衣装,【合金】服装,【얼로이】의상,Литье,Legierungs,Alliage,Lega,Stopu,Liga Leve,خليط معدني
+7,,,Ok,,,Kestodon,【冠突龍】服裝,【ケスト】衣装,【冠突龙】服装,【케스토】의상,Кестодон,Kestodon,Kestodon,Kestodon,Kestodona,Kestodonte,كيستودون
+8,,,,,Ok,Gajau,【咬魚】服裝,【ガライー】衣装,【咬鱼】服装,【가쟈우】의상,Гаджау,Gajau,Gajau,Gajau,Gajau,Gajau,غاجاو
+9,Ok,Ok,Ok,Ok,Ok,Vespoid,【巨蜂】服裝,【ランゴ】衣装,【巨蜂】服装,【랑고】의상,Осоид,Vespoid,Vespoid,Vespoid,Vespoida,Vespoidea,فيسبويد
+10,Ok,Ok,Ok,Ok,Ok,Kulu,搔鳥,クルル,搔鸟,쿠루루,Кулу,Kulu-Set,Kulu-Ya-Ku,Kulu,Kulu,Kulu,كولو
+11,Ok,Ok,Ok,Ok,Ok,Pukei,毒妖鳥,プケプケ,毒妖鸟,푸케푸케,Поки,Pukei-Set,Pukei-Pukei,Pukei,Pukei,Pukei,بوكي
+12,Ok,Ok,Ok,Ok,Ok,Jyura,泥魚龍,ジュラ,泥鱼龙,쥬라,Юратод,Jyuratodus-Set,Jyuratodus,Jyura,Jyura,Jyura,جيورا
+13,Ok,Ok,Ok,Ok,Ok,Barroth,【土砂龍】服裝,【ボロス】衣装,【土砂龙】服装,【보로스】의상,Баррот,Barroth,Barroth,Barroth,Barrotha,Barroth,باروث
+14,Ok,Ok,Ok,Ok,Ok,Kadachi,飛雷龍,カガチ,飞雷龙,카가치,Кадачи,Kadachi-Set,Tobi-Kadachi,Kadachi,Kadachi,Kadachi,كاداتشي
+15,Ok,Ok,Ok,Ok,Ok,Chainmail,鎖甲,チェーン,锁甲,체인,Кольчужный,Ketten-Set,Mailles,Maglia,Kolczy,Cota de Malha,فولاذي
+17,Ok,Ok,Ok,Ok,Ok,Hornetaur,【巨甲】服裝,【タロス】衣装,【巨甲】服装,【타로스】의상,Роготавр,Hornetaur,Hornetaur,Hornetaur,Hornetaura,Chifrotauro,هورنتور
+19,Ok,Ok,Ok,Ok,Ok,King BeetleM,獨角仙M,オウビートM,独角仙M,킹비트M,Королевский жукM,Königskäfer-SetM,ScarabéeM,ScarabeoM,Żuka królewskiegoM,Besouro-reiM,الخنفساء الملكM
+20,Ok,Ok,Ok,Ok,Ok,Rathian,雌火龍,レイア,雌火龙,레이아,Ратиана,Rathian-Set,Rathian,Rathian,Rathiany,Rathian,راثيان
+21,Ok,Ok,Ok,Ok,Ok,Girros,凶顎龍,ギルオス,痹贼龙,기르오스,Гиррос,Girros-Set,Girros,Girros,Girrosa,Girros,غيروس
+22,Ok,Ok,Ok,Ok,Ok,Tzitzi,眩鳥,ツィツィ,眩鸟,치치,Цици,Tzitzi-Set,Tzitzi-Ya-Ku,Tzitzi,Tzitzi,Tzitzi,تسيتسي
+23,Ok,Ok,Ok,Ok,Ok,Lumu,浮空龍,ウルムー,浮空龙,우르무,Луму,Paolumu-Set,Paolumu,Lumu,Lumu,Lumu,لومو
+24,Ok,Ok,Ok,Ok,Ok,High Metal,【礦石】服裝,【ハイメタ】衣装,【矿石】服装,【하이메탈】의상,Высший металл,Hochmetall,Haut-métal,Ipermetallo,Metalu,Metal Denso,معدن قوي
+25,Ok,Ok,Ok,Ok,Ok,Death Stench,【死神】服裝,【デスギア】衣装,【死神】服装,【데스기어】 의상,Зловоние смерти,Todesgestank,Putride,Putrefatto,Rozkładu,Putrefato,رائحة الموت
+26,Ok,Ok,Ok,Ok,Ok,Legiana,風漂龍,ギエナ,风漂龙,기에나,Легиана,Legiana-Set,Legiana,Legiana,Legiany,Legiana,ليغيانا
+27,Ok,Ok,Ok,Ok,Ok,Baan,骨鎚龍,バルキン,骨锤龙,발킨,Баан,Baan-Set,Radobaan,Baan,Baana,Baan,بان
+28,Ok,Ok,Ok,Ok,Ok,Odogaron,慘爪龍,ガロン,惨爪龙,가론,Одогарон,Odogaron-Set,Odogaron,Odogaron,Odogarona,Odogaron,أودوغارون
+30,Ok,Ok,Ok,Ok,Ok,Ingot,【鑄鐵】服裝,【インゴット】衣装,【铸铁】服装,【잉곳】의상,Драгоценный,Guss,Lingot,Lingotto,Sztabek,Lingote,إنغوت
+32,Ok,Ok,Ok,Ok,Ok,Rathalos,火龍,レウス,火龙,레우스,Раталос,Rathalos-Set,Rathalos,Rathalos,Rathalosa,Rathalos,راذالوس
+33,Ok,Ok,Ok,Ok,Ok,Diablos,角龍,ディアブロ,角龙,디아블로,Диаблос,Diablos-Set,Diablos,Diablos,Diablosa,Diablos,ديابلوس
+34,Ok,Ok,Ok,Ok,Ok,Kirin,麒麟,キリン,麒麟,키린,Кирин,Kirin-Set,Kirin,Kirin,Kirina,Kirin,كيرين
+35,Ok,Ok,Ok,Ok,Ok,Brigade,【旅團】服裝,【ブリゲイド】衣装,【旅团】服装,【브리게이드】 의상,Почетный,Brigade,Brigade,Brigata,Brygady,Brigada,السرية
+37,Ok,Ok,Ok,Ok,Ok,Leather α,皮製α,レザーα,皮制阿尔法,레더α,Кожаныйα,Leder-Set α,Cuir α,Cuoio α,Skórzanyα,Couroα,جلديα
+38,Ok,Ok,Ok,Ok,Ok,Leather β,皮製β,レザーβ,皮制贝塔,레더β,Кожаныйβ,Leder-Set β,Cuir β,Cuoio β,Skórzanyβ,Couroβ,جلديβ
+39,Ok,Ok,Ok,Ok,Ok,Chainmail α,鎖甲α,チェーンα,锁甲阿尔法,체인α,Кольчужныйα,Ketten-Set α,Mailles α,Maglia α,Kolczyα,Cota de Malhaα,فولاذيα
+40,Ok,Ok,Ok,Ok,Ok,Chainmail β,鎖甲β,チェーンβ,锁甲贝塔,체인β,Кольчужныйβ,Ketten-Set β,Mailles β,Maglia β,Kolczyβ,Cota de Malhaβ,فولاذيβ
+41,Ok,Ok,Ok,Ok,Ok,Hunter's α,獵人α,ハンターα,猎人阿尔法,헌터α,Охотничийα,Jäger-Set α,Chasseur α,Cacciatore α,Łowcyα,do Caçadorα,خاص بالصيّادα
+42,Ok,Ok,Ok,Ok,Ok,Hunter's β,獵人β,ハンターβ,猎人贝塔,헌터β,Охотничийβ,Jäger-Set β,Chasseur β,Cacciatore β,Łowcyβ,do Caçadorβ,خاص بالصيّادβ
+43,Ok,Ok,Ok,Ok,Ok,Bone α,骨製α,ボーンα,骨制阿尔法,본α,Костянойα,Knochen-Set α,Os α,Osso α,Kościanyα,Ossoα,عظميα
+44,Ok,Ok,Ok,Ok,Ok,Bone β,骨製β,ボーンβ,骨制贝塔,본β,Костянойβ,Knochen-Set β,Os β,Osso β,Kościanyβ,Ossoβ,عظميβ
+45,Ok,Ok,Ok,Ok,Ok,Alloy α,合金α,アロイα,合金阿尔法,얼로이α,Литойα,Legierungs-Set α,Alliage α,Lega α,Stopuα,Liga Leveα,خليط معدنيα
+46,Ok,Ok,Ok,Ok,Ok,Alloy β,合金β,アロイβ,合金贝塔,얼로이β,Литойβ,Legierungs-Set β,Alliage β,Lega β,Stopuβ,Liga Leveβ,خليط معدنيβ
+47,,,,,Ok,Gajau α,咬魚α,ガライーα,咬鱼阿尔法,가쟈우α,Гаджауα,Gajau-Set α,Gajau α,Gajau α,Gajauα,Gajauα,غاجاوα
+48,,,,,Ok,Gajau β,咬魚β,ガライーβ,咬鱼贝塔,가쟈우β,Гаджауβ,Gajau-Set β,Gajau β,Gajau β,Gajauβ,Gajauβ,غاجاوβ
+49,,,Ok,,,Kestodon α,冠突龍α,ケストα,冠突龙阿尔法,케스토α,Кестодонα,Kestodon-Set α,Kestodon α,Kestodon α,Kestodonaα,Kestodonteα,كيستودونα
+50,,,Ok,,,Kestodon β,冠突龍β,ケストβ,冠突龙贝塔,케스토β,Кестодонβ,Kestodon-Set β,Kestodon β,Kestodon β,Kestodonaβ,Kestodonteβ,كيستودونβ
+51,Ok,Ok,Ok,Ok,Ok,Vespoid α,巨蜂α,ランゴα,巨蜂阿尔法,랑고α,Осоидα,Vespoid-Set α,Vespoid α,Vespoid α,Vespoidaα,Vespoideaα,فيسبويدα
+52,Ok,Ok,Ok,Ok,Ok,Vespoid β,巨蜂β,ランゴβ,巨蜂贝塔,랑고β,Осоидβ,Vespoid-Set β,Vespoid β,Vespoid β,Vespoidaβ,Vespoideaβ,فيسبويدβ
+53,Ok,,,,,Gastodon α,突擊龍α,ガストα,突击龙阿尔法,가스토α,Гастодонα,Gastodon-Set α,Gastodon α,Gastodon α,Gastodonaα,Gastodonteα,غاستودونα
+54,Ok,,,,,Gastodon β,突擊龍β,ガストβ,突击龙贝塔,가스토β,Гастодонβ,Gastodon-Set β,Gastodon β,Gastodon β,Gastodonaβ,Gastodonteβ,غاستودونβ
+55,,Ok,,,,Barnos α,酸翼龍α,バルノスα,酸翼龙阿尔法,바르노스α,Барносα,Barnos-Set α,Barnos α,Barnos α,Barnosaα,Barnosα,بارنوسα
+56,,Ok,,,,Barnos β,酸翼龍β,バルノスβ,酸翼龙贝塔,바르노스β,Барносβ,Barnos-Set β,Barnos β,Barnos β,Barnosaβ,Barnosβ,بارنوسβ
+57,Ok,Ok,Ok,Ok,Ok,Hornetaur α,巨甲蟲α,タロスα,巨甲虫阿尔法,타로스α,Роготаврα,Hornetaur-Set α,Hornetaur α,Hornetaur α,Hornetauraα,Chifrotauroα,هورنتورα
+58,Ok,Ok,Ok,Ok,Ok,Hornetaur β,巨甲蟲β,タロスβ,巨甲虫贝塔,타로스β,Роготаврβ,Hornetaur-Set β,Hornetaur β,Hornetaur β,Hornetauraβ,Chifrotauroβ,هورنتورβ
+61,Ok,Ok,Ok,Ok,Ok,Jagras α,凶豺龍α,ジャグラスα,贼龙阿尔法,쟈그라스α,Яграсα,Jagras-Set α,Jagras α,Jagras α,Jagrasaα,Jagrasα,جاغراسα
+62,Ok,Ok,Ok,Ok,Ok,Jagras β,凶豺龍β,ジャグラスβ,贼龙贝塔,쟈그라스β,Яграсβ,Jagras-Set β,Jagras β,Jagras β,Jagrasaβ,Jagrasβ,جاغراسβ
+63,Ok,Ok,Ok,Ok,Ok,Kulu α,搔鳥α,クルルα,搔鸟阿尔法,쿠루루α,Кулуα,Kulu-Set α,Kulu-Ya-Ku α,Kulu α,Kuluα,Kuluα,كولوα
+64,Ok,Ok,Ok,Ok,Ok,Kulu β,搔鳥β,クルルβ,搔鸟贝塔,쿠루루β,Кулуβ,Kulu-Set β,Kulu-Ya-Ku β,Kulu β,Kuluβ,Kuluβ,كولوβ
+65,Ok,Ok,Ok,Ok,Ok,Pukei α,毒妖鳥α,プケプケα,毒妖鸟阿尔法,푸케푸케α,Покиα,Pukei-Set α,Pukei-Pukei α,Pukei α,Pukeiα,Pukeiα,بوكيα
+66,Ok,Ok,Ok,Ok,Ok,Pukei β,毒妖鳥β,プケプケβ,毒妖鸟贝塔,푸케푸케β,Покиβ,Pukei-Set β,Pukei-Pukei β,Pukei β,Pukeiβ,Pukeiβ,بوكيβ
+67,Ok,Ok,Ok,Ok,Ok,Jyura α,泥魚龍α,ジュラα,泥鱼龙阿尔法,쥬라α,Юратодα,Jyuratodus-Set α,Jyuratodus α,Jyura α,Jyuraα,Jyuraα,جيوراα
+68,Ok,Ok,Ok,Ok,Ok,Jyura β,泥魚龍β,ジュラβ,泥鱼龙贝塔,쥬라β,Юратодβ,Jyuratodus-Set β,Jyuratodus β,Jyura β,Jyuraβ,Jyuraβ,جيوراβ
+69,Ok,Ok,Ok,Ok,Ok,Barroth α,土砂龍α,ボロスα,土砂龙阿尔法,보로스α,Барротα,Barroth-Set α,Barroth α,Barroth α,Barrothaα,Barrothα,باروثα
+70,Ok,Ok,Ok,Ok,Ok,Barroth β,土砂龍β,ボロスβ,土砂龙贝塔,보로스β,Барротβ,Barroth-Set β,Barroth β,Barroth β,Barrothaβ,Barrothβ,باروثβ
+71,Ok,Ok,Ok,Ok,Ok,Kadachi α,飛雷龍α,カガチα,飞雷龙阿尔法,카가치α,Кадачиα,Kadachi-Set α,Tobi-Kadachi α,Kadachi α,Kadachiα,Kadachiα,كاداتشيα
+72,Ok,Ok,Ok,Ok,Ok,Kadachi β,飛雷龍β,カガチβ,飞雷龙贝塔,카가치β,Кадачиβ,Kadachi-Set β,Tobi-Kadachi β,Kadachi β,Kadachiβ,Kadachiβ,كاداتشيβ
+73,Ok,Ok,Ok,Ok,Ok,Rathian α,【雌火龍α】服裝,【レイアα】衣装,【雌火龙阿尔法】服装,【레이아α】의상,Ратианаα,Rathian-α,Rathian α,Rathian α,Rathianyα,Rathianα,راثيانα
+74,Ok,Ok,Ok,Ok,Ok,Rathian β,【雌火龍β】服裝,【レイアβ】衣装,【雌火龙贝塔】服装,【레이아β】의상,Ратианаβ,Rathian-β,Rathian β,Rathian β,Rathianyβ,Rathianβ,راثيانβ
+75,Ok,Ok,Ok,Ok,Ok,Girros α,凶顎龍α,ギルオスα,痹贼龙阿尔法,기르오스α,Гирросα,Girros-Set α,Girros α,Girros α,Girrosaα,Girrosα,غيروسα
+76,Ok,Ok,Ok,Ok,Ok,Girros β,凶顎龍β,ギルオスβ,痹贼龙贝塔,기르오스β,Гирросβ,Girros-Set β,Girros β,Girros β,Girrosaβ,Girrosβ,غيروسβ
+77,Ok,Ok,Ok,Ok,Ok,Tzitzi α,眩鳥α,ツィツィα,眩鸟阿尔法,치치α,Цициα,Tzitzi-Set α,Tzitzi-Ya-Ku α,Tzitzi α,Tzitziα,Tzitziα,تسيتسيα
+78,Ok,Ok,Ok,Ok,Ok,Tzitzi β,眩鳥β,ツィツィβ,眩鸟贝塔,치치β,Цициβ,Tzitzi-Set β,Tzitzi-Ya-Ku β,Tzitzi β,Tzitziβ,Tzitziβ,تسيتسيβ
+79,Ok,Ok,Ok,Ok,Ok,Lumu α,浮空龍α,ウルムーα,浮空龙阿尔法,우르무α,Лумуα,Paolumu-Set α,Paolumu α,Lumu α,Lumuα,Lumuα,لوموα
+80,Ok,Ok,Ok,Ok,Ok,Lumu β,浮空龍β,ウルムーβ,浮空龙贝塔,우르무β,Лумуβ,Paolumu-Set β,Paolumu β,Lumu β,Lumuβ,Lumuβ,لوموβ
+81,Ok,Ok,Ok,Ok,Ok,Odogaron α,【慘爪龍α】服裝,【ガロンα】衣装,【惨爪龙阿尔法】服装,【가론α】의상,Одогаронα,Odogaron α,Odogaron α,Odogaron α,Odogaronaα,Odogaronα,أودوغارونα
+82,Ok,Ok,Ok,Ok,Ok,Odogaron β,【慘爪龍β】服裝,【ガロンβ】衣装,【惨爪龙贝塔】服装,【가론β】의상,Одогаронβ,Odogaron β,Odogaron β,Odogaron β,Odogaronaβ,Odogaronβ,أودوغارونβ
+83,Ok,Ok,Ok,Ok,Ok,Dodogama α,岩賊龍α,ガマルα,岩贼龙阿尔法,가마루α,Додогамаα,Dodogama-Set α,Dodogama α,Dodogama α,Dodogamyα,Dodogamaα,دودوغماα
+84,Ok,Ok,Ok,Ok,Ok,Dodogama β,岩賊龍β,ガマルβ,岩贼龙贝塔,가마루β,Додогамаβ,Dodogama-Set β,Dodogama β,Dodogama β,Dodogamyβ,Dodogamaβ,دودوغماβ
+85,Ok,Ok,Ok,Ok,Ok,Lavasioth α,【熔岩龍α】服裝,【ラヴァα】衣装,【熔岩龙阿尔法】服装,【라바α】의상,Лавасиотα,Lavasioth α,Lavasioth α,Lavasioth α,Lavasiothaα,Lavasiothα,لافاسيوثα
+86,Ok,Ok,Ok,Ok,Ok,Lavasioth β,【熔岩龍β】服裝,【ラヴァβ】衣装,【熔岩龙贝塔】服装,【라바β】의상,Лавасиотβ,Lavasioth β,Lavasioth β,Lavasioth β,Lavasiothaβ,Lavasiothβ,لافاسيوثβ
+87,Ok,Ok,Ok,Ok,Ok,Rath Heart α,【火龍心α】服裝,【リオハートα】衣装,【火龙心阿尔法】服装,【리오하트α】의상,Сердце ратыα,Rathianherz α,Cœur Rathian α,Cuore di Rath α,Serca Rathaα,Coração Rathα,قلب راثα
+88,Ok,Ok,Ok,Ok,Ok,Rath Heart β,【火龍心β】服裝,【リオハートβ】衣装,【火龙心贝塔】服装,【리오하트β】의상,Сердце ратыβ,Rathianherz β,Cœur Rathian β,Cuore di Rath β,Serca Rathaβ,Coração Rathβ,قلب راثβ
+89,Ok,Ok,Ok,Ok,Ok,High Metal α,礦石α,ハイメタα,矿石阿尔法,하이메탈α,Высший металлα,Hochmetall-Set α,Haut-métal α,Ipermetallo α,Metaluα,Metal Densoα,معدن قويα
+90,Ok,Ok,Ok,Ok,Ok,High Metal β,礦石β,ハイメタβ,矿石贝塔,하이메탈β,Высший металлβ,Hochmetall-Set β,Haut-métal β,Ipermetallo β,Metaluβ,Metal Densoβ,معدن قويβ
+91,Ok,Ok,Ok,Ok,Ok,Ingot α,鑄鐵α,インゴットα,铸铁阿尔法,잉곳α,Драгоценныйα,Guss-Set α,Lingot α,Lingotto α,Sztabekα,Lingoteα,إنغوتα
+92,Ok,Ok,Ok,Ok,Ok,Ingot β,鑄鐵β,インゴットβ,铸铁贝塔,잉곳β,Драгоценныйβ,Guss-Set β,Lingot β,Lingotto β,Sztabekβ,Lingoteβ,إنغوتβ
+93,Ok,Ok,Ok,Ok,Ok,Anja α,蠻顎龍α,ジャナフα,蛮颚龙阿尔法,쟈나프α,Анджиα,Anjanath-Set α,Anjanath α,Anja α,Anjaα,Anjaα,أنجاα
+94,Ok,Ok,Ok,Ok,Ok,Anja β,蠻顎龍β,ジャナフβ,蛮颚龙贝塔,쟈나프β,Анджиβ,Anjanath-Set β,Anjanath β,Anja β,Anjaβ,Anjaβ,أنجاβ
+95,Ok,Ok,Ok,Ok,Ok,Legiana α,【風漂龍α】服裝,【ギエナα】衣装,【风漂龙阿尔法】服装,【기에나α】의상,Легианаα,Legiana α,Legiana α,Legiana α,Legianyα,Legianaα,ليغياناα
+96,Ok,Ok,Ok,Ok,Ok,Legiana β,【風漂龍β】服裝,【ギエナβ】衣装,【风漂龙贝塔】服装,【기에나β】의상,Легианаβ,Legiana β,Legiana β,Legiana β,Legianyβ,Legianaβ,ليغياناβ
+97,Ok,Ok,Ok,Ok,Ok,Baan α,骨鎚龍α,バルキンα,骨锤龙阿尔法,발킨α,Баанα,Baan-Set α,Radobaan α,Baan α,Baanaα,Baanα,بانα
+98,Ok,Ok,Ok,Ok,Ok,Baan β,骨鎚龍β,バルキンβ,骨锤龙贝塔,발킨β,Баанβ,Baan-Set β,Radobaan β,Baan β,Baanaβ,Baanβ,بانβ
+99,Ok,Ok,Ok,Ok,Ok,Vaal Hazak α,【烏爾德α】服裝,【ウルズα】衣装,【乌尔德阿尔法】服装,【우르즈α】의상,Ваал-хазакα,Vaal Hazak α,Vaal Hazak α,Vaal Hazak α,Vaal Hazakaα,Vaal Hazakα,فال هازاكα
+100,Ok,Ok,Ok,Ok,Ok,Vaal Hazak β,【烏爾德β】服裝,【ウルズβ】衣装,【乌尔德贝塔】服装,【우르즈β】의상,Ваал-хазакβ,Vaal Hazak β,Vaal Hazak β,Vaal Hazak β,Vaal Hazakaβ,Vaal Hazakβ,فال هازاكβ
+101,Ok,Ok,Ok,Ok,Ok,Rathalos α,【火龍α】服裝,【レウスα】衣装,【火龙阿尔法】服装,【레우스α】의상,Раталосα,Rathalos α,Rathalos α,Rathalos α,Rathalosaα,Rathalosα,راذالوسα
+102,Ok,Ok,Ok,Ok,Ok,Rathalos β,【火龍β】服裝,【レウスβ】衣装,【火龙贝塔】服装,【레우스β】의상,Раталосβ,Rathalos β,Rathalos β,Rathalos β,Rathalosaβ,Rathalosβ,راذالوسβ
+103,Ok,Ok,Ok,Ok,Ok,Diablos α,【角龍α】服裝,【ディアブロα】衣装,【角龙阿尔法】服装,【디아블로α】의상,Диаблосα,Diablos α,Diablos α,Diablos α,Diablosaα,Diablosα,ديابلوسα
+104,Ok,Ok,Ok,Ok,Ok,Diablos β,【角龍β】服裝,【ディアブロβ】衣装,【角龙贝塔】服装,【디아블로β】의상,Диаблосβ,Diablos β,Diablos β,Diablos β,Diablosaβ,Diablosβ,ديابلوسβ
+105,Ok,Ok,Ok,Ok,Ok,Kirin α,【麒麟α】服裝,【キリンα】衣装,【麒麟阿尔法】服装,【키린α】의상,Киринα,Kirin α,Kirin α,Kirin α,Kirinaα,Kirinα,كيرينα
+106,Ok,Ok,Ok,Ok,Ok,Kirin β,【麒麟β】服裝,【キリンβ】衣装,【麒麟贝塔】服装,【키린β】의상,Киринβ,Kirin β,Kirin β,Kirin β,Kirinaβ,Kirinβ,كيرينβ
+107,Ok,Ok,Ok,Ok,Ok,Nergigante α,【戰紋α】服裝,【オーグα】衣装,【战纹阿尔法】服装,【오그α】의상,Нергигантα,Nergigante α,Nergigante α,Nergigante α,Nergigantaα,Nergiganteα,نيرغيα
+108,Ok,Ok,Ok,Ok,Ok,Nergigante β,【戰紋β】服裝,【オーグβ】衣装,【战纹贝塔】服装,【오그β】의상,Нергигантβ,Nergigante β,Nergigante β,Nergigante β,Nergigantaβ,Nergiganteβ,نيرغيβ
+109,Ok,Ok,Ok,Ok,Ok,Uragaan α,【爆鎚龍α】服裝,【ガンキンα】衣装,【爆锤龙阿尔法】服装,【간킨α】의상,Урагаанα,Uragaan α,Uragaan α,Uragaan α,Uragaanaα,Uragaanα,أوراغانα
+110,Ok,Ok,Ok,Ok,Ok,Uragaan β,【爆鎚龍β】服裝,【ガンキンβ】衣装,【爆锤龙贝塔】服装,【간킨β】의상,Урагаанβ,Uragaan β,Uragaan β,Uragaan β,Uragaanaβ,Uragaanβ,أوراغانβ
+111,Ok,Ok,Ok,Ok,Ok,Rath Soul α,【火龍魂α】服裝,【リオソウルα】衣装,【火龙魂阿尔法】服装,【리오소울α】의상,Душа ратыα,Rathalosseelen α,Âme Rathalos α,Anima di Rath α,Duszy Rathaα,Alma de Rathα,روح راثα
+112,Ok,Ok,Ok,Ok,Ok,Rath Soul β,【火龍魂β】服裝,【リオソウルβ】衣装,【火龙魂贝塔】服装,【리오소울β】의상,Душа ратыβ,Rathalosseelen β,Âme Rathalos β,Anima di Rath β,Duszy Rathaβ,Alma de Rathβ,روح راثβ
+113,Ok,Ok,Ok,Ok,Ok,Diablos Nero α,【暴君角龍α】服裝,【ディアネロα】衣装,【暴君角龙阿尔法】服装,【디아네로α】의상,Жуткая диаблосα,Diablos-Nero α,Diablos noire α,Diablos nera α,Czarnej Diabliα,Diablos Negraα,نيرو ديابلوسα
+114,Ok,Ok,Ok,Ok,Ok,Diablos Nero β,【暴君角龍β】服裝,【ディアネロβ】衣装,【暴君角龙贝塔】服装,【디아네로β】의상,Жуткая диаблосβ,Diablos-Nero β,Diablos noire β,Diablos nera β,Czarnej Diabliβ,Diablos Negraβ,نيرو ديابلوسβ
+115,Ok,Ok,Ok,Ok,Ok,Bazel α,爆鱗龍α,バゼルα,爆鳞龙阿尔法,바젤α,Базельα,Bazel-Set α,Bazelgeuse α,Bazel α,Bazelaα,Bazelα,بازيلα
+116,Ok,Ok,Ok,Ok,Ok,Bazel β,爆鱗龍β,バゼルβ,爆鳞龙贝塔,바젤β,Базельβ,Bazel-Set β,Bazelgeuse β,Bazel β,Bazelaβ,Bazelβ,بازيلβ
+117,Ok,Ok,Ok,Ok,Ok,King Beetle αM,獨角仙αM,オウビートαM,独角仙阿尔法M,킹비트αM,Королевский жукαM,Königskäfer-Set αM,Scarabée αM,Scarabeo αM,Żuka królewskiegoαM,Besouro-reiαM,الخنفساء الملكαM
+118,Ok,Ok,Ok,Ok,Ok,King Beetle βM,獨角仙βM,オウビートβM,独角仙贝塔M,킹비트βM,Королевский жукβM,Königskäfer-Set βM,Scarabée βM,Scarabeo βM,Żuka królewskiegoβM,Besouro-reiβM,الخنفساء الملكβM
+119,Ok,Ok,Ok,Ok,Ok,Brigade α,旅團α,ブリゲイドα,旅团阿尔法,브리게이드α,Почетныйα,Brigade-Set α,Brigade α,Brigata α,Brygadyα,Brigadaα,السريةα
+120,Ok,Ok,Ok,Ok,Ok,Brigade β,旅團β,ブリゲイドβ,旅团贝塔,브리게이드β,Почетныйβ,Brigade-Set β,Brigade β,Brigata β,Brygadyβ,Brigadaβ,السريةβ
+121,Ok,Ok,Ok,Ok,Ok,Damascus α,【大馬士革α】服裝,【ダマスクα】衣装,【大马士革阿尔法】服装,【다마스크α】의상,Дамасскα,Damaskus α,Damascus α,Damasco α,Damasceńskiα,Damascusα,دمشقα
+122,Ok,Ok,Ok,Ok,Ok,Damascus β,【大馬士革β】服裝,【ダマスクβ】衣装,【大马士革贝塔】服装,【다마스크β】의상,Дамасскβ,Damaskus β,Damascus β,Damasco β,Damasceńskiβ,Damascusβ,دمشقβ
+123,Ok,Ok,Ok,Ok,Ok,Dober α,【杜賓α】服裝,【ドーベルα】衣装,【杜宾阿尔法】服装,【도베르α】의상,Доберα,Dober α,Dober α,Dober α,Doberaα,Doberα,دوبرα
+124,Ok,Ok,Ok,Ok,Ok,Dober β,【杜賓β】服裝,【ドーベルβ】衣装,【杜宾贝塔】服装,【도베르β】의상,Доберβ,Dober β,Dober β,Dober β,Doberaβ,Doberβ,دوبرβ
+125,Ok,Ok,Ok,Ok,Ok,Xeno'jiiva α,冥燈幽火α,ゼノラージα,冥灯幽火阿尔法,제노라지α,Ксено'джииваα,Xeno'jiiva-Set α,Xeno'jiiva α,Xeno'jiiva α,Xeno'jiivaα,Xeno'jiivaα,زينوجيفاα
+126,Ok,Ok,Ok,Ok,Ok,Xeno'jiiva β,冥燈幽火β,ゼノラージβ,冥灯幽火贝塔,제노라지β,Ксено'джииваβ,Xeno'jiiva-Set β,Xeno'jiiva β,Xeno'jiiva β,Xeno'jiivaβ,Xeno'jiivaβ,زينوجيفاβ
+127,Ok,Ok,Ok,Ok,Ok,Teostra α,【帝王α】服裝,【カイザーα】衣装,【帝王阿尔法】服装,【카이저α】의상,Теостраα,Teostra α,Kaiser α,Kaiser α,Teostryα,Teostraα,تيوستراα
+128,Ok,Ok,Ok,Ok,Ok,Teostra β,【帝王β】服裝,【カイザーβ】衣装,【帝王贝塔】服装,【카이저β】의상,Теостраβ,Teostra β,Kaiser β,Kaiser β,Teostryβ,Teostraβ,تيوستراβ
+129,Ok,Ok,Ok,Ok,Ok,Kushala α,【鋼龍α】服裝,【クシャナα】衣装,【钢龙阿尔法】服装,【크샤나α】의상,Кушалаα,Kushala α,Kushala Daora α,Kushala α,Kushaliα,Kushalaα,كوشالاα
+130,Ok,Ok,Ok,Ok,Ok,Kushala β,【鋼龍β】服裝,【クシャナβ】衣装,【钢龙贝塔】服装,【크샤나β】의상,Кушалаβ,Kushala β,Kushala Daora β,Kushala β,Kushaliβ,Kushalaβ,كوشالاβ
+131,Ok,,,,,Skull α,骷髏α,スカルα,骷髅阿尔法,스컬α,Черепα,Schädel-Set α,Crâne α,Scheletrico α,Czaszkiα,Caveiraα,الجمجمةα
+133,Ok,Ok,Ok,Ok,Ok,Death Stench α,死神α,デスギアα,死神阿尔法,데스기어α,Зловоние смертиα,Todesgestank-Set α,Putride α,Putrefatto α,Rozkładuα,Putrefatoα,رائحة الموتα
+134,Ok,Ok,Ok,Ok,Ok,Death Stench β,死神β,デスギアβ,死神贝塔,데스기어β,Зловоние смертиβ,Todesgestank-Set β,Putride β,Putrefatto β,Rozkładuβ,Putrefatoβ,رائحة الموتβ
+135,Ok,Ok,Ok,Ok,Ok,Guild Cross α,公會十字α,ギルドクロスα,公会十字阿尔法,길드크로스α,Крест гильдииα,Gildenkreuz-Set α,Croix de Guilde α,Gilda α,Krzyża Gildiiα,Cruz de Guildaα,شكل للنقابةα
+136,Ok,Ok,Ok,Ok,Ok,Guild Cross β,公會十字β,ギルドクロスβ,公会十字贝塔,길드크로스β,Крест гильдииβ,Gildenkreuz-Set β,Croix de Guilde β,Gilda β,Krzyża Gildiiβ,Cruz de Guildaβ,شكل للنقابةβ
+139,Ok,Ok,Ok,Ok,Ok,Zorah α,【鑄島熔岩α】服裝,【ゾラマグナα】衣装,【铸岛熔岩阿尔法】服装,【조라마그나α】의상,Дзораα,Zorah α,Zorah Magdaros α,Zorah α,Zorahaα,Zorahα,زوراهα
+140,Ok,Ok,Ok,Ok,Ok,Zorah β,【鑄島熔岩β】服裝,【ゾラマグナβ】衣装,【铸岛熔岩贝塔】服装,【조라마그나β】의상,Дзораβ,Zorah β,Zorah Magdaros β,Zorah β,Zorahaβ,Zorahβ,زوراهβ
+141,Ok,Ok,Ok,Ok,Ok,Commission α,追蹤者α,シーカーα,追踪者阿尔法,시커α,Экспедицияα,Kommissionsset α,Commission α,Commissione α,Komisjiα,Comissãoα,اللجنةα
+142,Ok,Ok,Ok,Ok,Ok,Commission β,追蹤者β,シーカーβ,追踪者贝塔,시커β,Экспедицияβ,Kommissionsset β,Commission β,Commissione β,Komisjiβ,Comissãoβ,اللجنةβ
+145,Ok,Ok,Ok,Ok,Ok,Brigade,【旅團】服裝,【ブリゲイド】衣装,【旅团】服装,【브리게이드】 의상,Почетный,Brigade,Brigade,Brigata,Brygady,Brigada,السرية
+146,Ok,Ok,Ok,Ok,Ok,Guild Cross,【公會十字】服裝,【ギルドクロス】衣装,【公会十字】服装,【길드크로스】 의상,Крест гильдии,Gildenkreuz,Croix de Guilde,Gilda,Krzyża Gildii,Cruz de Guilda,شكل النقابة
+147,Ok,Ok,Ok,Ok,Ok,Blossom,巴魯特,ブロッサム,盛开,블로섬,Цветок,Blüten-Set,Printemps,Floreale,Kwiecia,Florescer,الربيع
+148,Ok,Ok,Ok,Ok,Ok,Diver,潛水夫,ダイバー,潜水员,다이버,Ныряльщик,Taucher-Set,Plongée,Sommozzatore,Nurka,Mergulhador,الغواص
+149,Ok,Ok,Ok,Ok,Ok,Harvest,收穫,ハーベスト,收获,하베스트,Урожай,Ernte-Set,Récolte,Raccolto,Zbiorów,Safra,الحصاد
+150,Ok,Ok,Ok,Ok,Ok,Orion,獵戶星,オリオン,猎户星,오리온,Орион,Orion-Set,Orion,Orione,Oriona,Órion,أوريون
+151,Ok,,,,,Faux Felyne α,艾路頭套α,アイルーフェイクα,艾露猫头套阿尔法,아이루페이크α,Фальшивый коттα,Falscher-Felyne-Set α,Faux Felyne α,Felyne fasullo α,Pseudofelinaα,Felyno Falsoα,فيلاين مزيفα
+152,Ok,,,,,Mosswine Mask α,菌豬頭套α,モスフェイクα,蘑菇猪头套阿尔法,모스페이크α,Маска мохосвинаα,Mosswine-Set α,Mosswine α,Mosswine α,Mchoświniα,Máscara Musgoínoα,قناع موسواينα
+153,Ok,Ok,Ok,Ok,Ok,Gala Suit,盛裝,フルドレス,盛装,풀드레스,Костюм гала-концерта,Galaanzug-Set,Gala,Gran galà,Strój galowy,Traje de Gala,بذلة المهرجان
+155,Ok,Ok,Ok,Ok,Ok,Ryu,RYU,リュウ,隆,Ryu,Ryu,Ryu,Ryu,Ryu,Ryu,Ryu,Ryu
+156,Ok,Ok,Ok,Ok,Ok,Sakura,【SAKURA】服裝,【さくら】衣装,【樱】服装,【Sakura】 의상,Sakura,Sakura,Sakura,Sakura,Sakury,Sakura,Sakura
+159,Ok,Ok,Ok,Ok,Ok,Bayek,【巴耶克】服裝,【バエク】衣装,【巴耶克】服装,【바예크】의상,Байек,Bayek,Bayek,Bayek,Bayeka,Bayek,بايك
+161,Ok,,,,,Shamos,【貓蜥龍】服裝,【シャム】衣装,【猫蜥龙】服装,【샤무】의상,Шамос,Shamos,Shamos,Shamos,Shamosa,Shamos,شاموس
+162,Ok,,,,,Shamos α,貓蜥龍α,シャムα,猫蜥龙阿尔法,샤무α,Шамосα,Shamos-Set α,Shamos α,Shamos α,Shamosaα,Shamosα,شاموسα
+163,Ok,,,,,Shamos β,貓蜥龍β,シャムβ,猫蜥龙贝塔,샤무β,Шамосβ,Shamos-Set β,Shamos β,Shamos β,Shamosaβ,Shamosβ,شاموسβ
+164,Ok,Ok,Ok,Ok,Ok,ButterflyF,【蝴蝶】服裝F,【パピヨン】衣装F,【蝴蝶】服装F,【파피용】 의상F,БабочкаF,SchmetterlingF,PapillonF,FarfallaF,MotylaF,BorboletaF,الفراشةF
+165,Ok,Ok,Ok,Ok,Ok,Butterfly αF,燕尾蝶男αF,パピオムαF,燕尾蝶男阿尔法F,파피옴αF,БабочкаαF,Schmetterling-Set αF,Papillon αF,Farfalla αF,MotylaαF,BorboletaαF,الفراشةαF
+166,Ok,Ok,Ok,Ok,Ok,Butterfly βF,燕尾蝶男βF,パピオムβF,燕尾蝶男贝塔F,파피옴βF,БабочкаβF,Schmetterling-Set βF,Papillon βF,Farfalla βF,MotylaβF,BorboletaβF,الفراشةβF
+169,Ok,Ok,Ok,Ok,Ok,Origin,【原型】服裝,【オリジン】衣装,【原型】服装,【오리진】 의상,Исток,Ursprung,Héritage,Origini,Źródła,Origem,الأصلي
+174,Ok,,,,,"Bushi ""Homare""",黎明武士【譽】,暁ノ武士【誉】,黎明武士【誉】,새벽무사【예】,Буси Хомарэ,"Bushi ""Homare""",Honneur du shogun,"Bushi ""Homare""",Bushi „Homare”,Bushi Homare,"بوشي ""هوماري"""
+176,Ok,,,,,Strategist α,知性眼鏡α,知略の眼鏡α,知性眼镜阿尔法,지략의안경α,Стратегα,Strategiker-Set α,Stratège α,Stratega α,Strategaα,Estrategistaα,استراتيجيα
+178,Ok,,,,,Dragonking α,龍王的獨眼α,竜王の隻眼α,龙王的独眼阿尔法,용왕의 척안α,Драконий корольα,Drachenkönig-Set α,Roi-Dragon α,Re drago α,Smoczego królaα,Dragão-reiα,الملك التنينα
+183,Ok,Ok,Ok,Ok,Ok,Kulve Taroth α,絢輝龍鎧羅α,マムガイラα,绚辉龙铠罗阿尔法,맘가이라α,Кулве таротα,Kulve-Taroth-Set α,Kulve Taroth α,Kulve Taroth α,Kulve Tarothα,Kulve Tarothα,كولف تاروثα
+184,Ok,Ok,Ok,Ok,Ok,Kulve Taroth β,絢輝龍鎧羅β,マムガイラβ,绚辉龙铠罗贝塔,맘가이라β,Кулве таротβ,Kulve-Taroth-Set β,Kulve Taroth β,Kulve Taroth β,Kulve Tarothβ,Kulve Tarothβ,كولف تاروثβ
+185,Ok,Ok,Ok,Ok,Ok,Blossom,巴魯特,ブロッサム,盛开,블로섬,Цветок,Blüten-Set,Printemps,Floreale,Kwiecia,Florescer,الربيع
+186,Ok,Ok,Ok,Ok,Ok,Diver,潛水夫,ダイバー,潜水员,다이버,Ныряльщик,Taucher-Set,Plongée,Sommozzatore,Nurka,Mergulhador,الغواص
+187,Ok,Ok,Ok,Ok,Ok,Harvest,收穫,ハーベスト,收获,하베스트,Урожай,Ernte-Set,Récolte,Raccolto,Zbiorów,Safra,الحصاد
+188,Ok,Ok,Ok,Ok,Ok,Orion,獵戶星,オリオン,猎户星,오리온,Орион,Orion-Set,Orion,Orione,Oriona,Órion,أوريون
+189,Ok,Ok,Ok,Ok,Ok,Gala Suit,盛裝,フルドレス,盛装,풀드레스,Костюм гала-концерта,Galaanzug-Set,Gala,Gran galà,Strój galowy,Traje de Gala,بذلة المهرجان
+190,Ok,Ok,Ok,Ok,Ok,Samurai,鎧武者,鎧武者,铠武者,갑옷무사,Самурай,Samurai,Samouraï,Samurai,Samuraj,Samurai,الساموراي
+191,Ok,Ok,Ok,Ok,Ok,Deviljho α,【殘虐α】服裝,【バンギスα】衣装,【残虐阿尔法】服装,【반기스α】의상,Девильоα,Dämonjho α,Deviljho α,Deviljho α,Deviljhoα,Deviljhoα,ديفيلجوα
+192,Ok,Ok,Ok,Ok,Ok,Deviljho β,【殘虐β】服裝,【バンギスβ】衣装,【残虐贝塔】服装,【반기스β】의상,Девильоβ,Dämonjho β,Deviljho β,Deviljho β,Deviljhoβ,Deviljhoβ,ديفيلجوβ
+194,Ok,Ok,Ok,Ok,Ok,"Bushi ""Sabi""",黎明武士【寂】,暁ノ武士【寂】,黎明武士【寂】,새벽무사【적】,Буси Саби,"Bushi ""Sabi""",Bravoure du bushi,"Bushi ""Sabi""",Bushi „Sabi”,Bushi Sabi,"بوشي ""سابي"""
+195,Ok,Ok,Ok,Ok,Ok,"Bushi ""Homare""",黎明武士【譽】,暁ノ武士【誉】,黎明武士【誉】,새벽무사【예】,Буси Хомарэ,"Bushi ""Homare""",Honneur du shogun,"Bushi ""Homare""",Bushi „Homare”,Bushi Homare,"بوشي ""هوماري"""
+196,Ok,Ok,Ok,Ok,Ok,Drachen α,騰龍α,ドラケンα,腾龙阿尔法,용기사α,Дракенα,Drachenreiter-Set α,Drachen α,Drachen α,Dragońskiα,Drachenα,دراكينα
+197,Ok,Ok,Ok,Ok,Ok,Blossom α,巴魯特α,ブロッサムα,盛开阿尔法,블로섬α,Цветокα,Blüten-Set α,Printemps α,Floreale α,Kwieciaα,Florescerα,الربيعα
+198,Ok,Ok,Ok,Ok,Ok,Diver α,潛水夫α,ダイバーα,潜水员阿尔法,다이버α,Ныряльщикα,Taucher-Set α,Plongée α,Sommozzatore α,Nurkaα,Mergulhadorα,الغواصα
+199,Ok,Ok,Ok,Ok,Ok,Harvest α,收穫α,ハーベストα,收获阿尔法,하베스트α,Урожайα,Ernte-Set α,Récolte α,Raccolto α,Zbiorówα,Safraα,الحصادα
+200,Ok,Ok,Ok,Ok,Ok,Orion α,獵戶星α,オリオンα,猎户星阿尔法,오리온α,Орионα,Orion-Set α,Orion α,Orione α,Orionaα,Órionα,أوريونα
+201,Ok,Ok,Ok,Ok,Ok,Gala Suit α,盛裝α,フルドレスα,盛装阿尔法,풀드레스α,Костюм гала-концертаα,Galaanzug-Set α,Gala α,Gran galà α,Strój galowyα,Traje de Galaα,بذلة المهرجانα
+202,Ok,Ok,Ok,Ok,Ok,ButterflyM,【蝴蝶】服裝M,【パピヨン】衣装M,【蝴蝶】服装M,【파피용】 의상M,БабочкаM,SchmetterlingM,PapillonM,FarfallaM,MotylaM,BorboletaM,الفراشةM
+203,Ok,Ok,Ok,Ok,Ok,Butterfly αM,燕尾蝶男αM,パピオムαM,燕尾蝶男阿尔法M,파피옴αM,БабочкаαM,Schmetterling-Set αM,Papillon αM,Farfalla αM,MotylaαM,BorboletaαM,الفراشةαM
+204,Ok,Ok,Ok,Ok,Ok,Butterfly βM,燕尾蝶男βM,パピオムβM,燕尾蝶男贝塔M,파피옴βM,БабочкаβM,Schmetterling-Set βM,Papillon βM,Farfalla βM,MotylaβM,BorboletaβM,الفراشةβM
+205,Ok,Ok,Ok,Ok,Ok,Queen BeetleF,獨角仙后F,クインビートF,独角仙后F,퀸비트F,Жук-королеваF,Königinnenkäfer-SetF,ScarabéeF,ScarabeoF,Żuka królowejF,Besouro-rainhaF,الخنفساء الملكةF
+206,Ok,Ok,Ok,Ok,Ok,Queen Beetle αF,獨角仙后αF,クインビートαF,独角仙后阿尔法F,퀸비트αF,Жук-королеваαF,Königinnenkäfer-Set αF,Scarabée αF,Scarabeo αF,Żuka królowejαF,Besouro-rainhaαF,الخنفساء الملكةαF
+207,Ok,Ok,Ok,Ok,Ok,Queen Beetle βF,獨角仙后βF,クインビートβF,独角仙后贝塔F,퀸비트βF,Жук-королеваβF,Königinnenkäfer-Set βF,Scarabée βF,Scarabeo βF,Żuka królowejβF,Besouro-rainhaβF,الخنفساء الملكةβF
+208,Ok,Ok,Ok,Ok,Ok,Vaal Hazak γ,【烏爾德γ】服裝,【ウルズγ】衣装,【乌尔德伽马】服装,【우르즈γ】의상,Ваал-хазакγ,Vaal Hazak γ,Vaal Hazak γ,Vaal Hazak γ,Vaal Hazakaγ,Vaal Hazakγ,فال هازاكγ
+209,Ok,Ok,Ok,Ok,Ok,Kirin γ,【麒麟γ】服裝,【キリンγ】衣装,【麒麟伽马】服装,【키린γ】의상,Киринγ,Kirin γ,Kirin γ,Kirin γ,Kirinaγ,Kirinγ,كيرينγ
+210,Ok,Ok,Ok,Ok,Ok,Teostra γ,【帝王γ】服裝,【カイザーγ】衣装,【帝王伽马】服装,【카이저γ】의상,Теостраγ,Teostra γ,Kaiser γ,Kaiser γ,Teostryγ,Teostraγ,تيوستراγ
+211,Ok,Ok,Ok,Ok,Ok,Kushala γ,【鋼龍γ】服裝,【クシャナγ】衣装,【钢龙伽马】服装,【크샤나γ】의상,Кушалаγ,Kushala γ,Kushala Daora γ,Kushala γ,Kushaliγ,Kushalaγ,كوشالاγ
+212,Ok,Ok,Ok,Ok,Ok,Nergigante γ,【戰紋γ】服裝,【オーグγ】衣装,【战纹伽马】服装,【오그γ】의상,Нергигантγ,Nergigante γ,Nergigante γ,Nergigante γ,Nergigantaγ,Nergiganteγ,نيرغيγ
+213,Ok,Ok,Ok,Ok,Ok,Zorah γ,【鑄島熔岩γ】服裝,【ゾラマグナγ】衣装,【铸岛熔岩伽马】服装,【조라마그나γ】의상,Дзораγ,Zorah γ,Zorah Magdaros γ,Zorah γ,Zorahaγ,Zorahγ,زوراهγ
+214,Ok,Ok,Ok,Ok,Ok,Xeno'jiiva γ,冥燈幽火γ,ゼノラージγ,冥灯幽火伽马,제노라지γ,Ксено'джииваγ,Xeno'jiiva-Set γ,Xeno'jiiva γ,Xeno'jiiva γ,Xeno'jiivaγ,Xeno'jiivaγ,زينوجيفاγ
+216,Ok,Ok,Ok,Ok,Ok,Ryu,RYU,リュウ,隆,Ryu,Ryu,Ryu,Ryu,Ryu,Ryu,Ryu,Ryu
+217,Ok,Ok,Ok,Ok,Ok,Ryu α,RYUα,リュウα,隆阿尔法,Ryuα,Ryuα,Ryu α,Ryu α,Ryu α,Ryuα,Ryuα,Ryuα
+218,Ok,Ok,Ok,Ok,Ok,Sakura α,SAKURAα,さくらα,樱阿尔法,Sakuraα,Sakuraα,Sakura α,Sakura α,Sakura α,Sakuryα,Sakuraα,Sakuraα
+219,Ok,Ok,Ok,Ok,Ok,Azure Starlord α,蒼星之將α,蒼星ノ将α,苍星之将阿尔法,파란별 장군α,Звездный лордα,Azurstern-Gebieter-Set α,Paladin des étoiles α,Sommo celeste α,Pan Lazurowej Gwiazdyα,Senhor Estelar Lazúliα,سيد نجوم لازورديα
+220,Ok,Ok,Ok,Ok,Ok,Dante α,但丁α,ダンテα,但丁阿尔法,단테α,Дантеα,Dante-Set α,Dante α,Dante α,Dantegoα,Danteα,دانتيα
+221,Ok,Ok,Ok,Ok,Ok,Lunastra α,【皇后α】服裝,【エンプレスα】衣装,【皇后阿尔法】服装,【엠프리스α】의상,Лунастраα,Lunastra α,Imperatrix α,Imperatrice α,Lunastryα,Lunastraα,لوناستراα
+222,Ok,Ok,Ok,Ok,Ok,Lunastra β,【皇后β】服裝,【エンプレスβ】衣装,【皇后贝塔】服装,【엠프리스β】의상,Лунастраβ,Lunastra β,Imperatrix β,Imperatrice β,Lunastryβ,Lunastraβ,لوناستراβ
+223,Ok,,,,,Sealed Eyepatch α,封印的眼罩α,封印の眼帯α,封印的眼罩阿尔法,봉인의 안대α,Повязка с печатьюα,Dichte Augenklappe α,Cache-œil interdit α,Benda nera α,Zapieczętowana opaskaα,Tapa-olho Seladoα,رقعة عين مذهلةα
+224,Ok,,,,,Shadow Shades α,墨鏡α,シャドウアイα,墨镜阿尔法,섀도우아이α,Теневые очкиα,Schatten-Sonnenbrille α,Lunettes teintées α,Occhiali del buio α,Okulary cieniaα,Ócul. Esc. Sombriosα,ألوان ظلالα
+225,Ok,,,,,Kulu-Ya-Ku Head α,扒手龍頭套α,クルルフェイクα,扒手龙头套阿尔法,쿠루루페이크α,Голова кулу-йа-куα,Kulu-Ya-Ku-Kopf α,Tête Kulu-Ya-Ku α,Testa di Kulu-Ya-Ku α,Głowa Kulu-Ya-Kuα,Elmo Kulu-Ya-Kuα,رأس كولو-يا-كوα
+226,Ok,,,,,Wiggler Head α,搖曳鰻頭套α,ユラユラフェイクα,摇曳鳗头套阿尔法,흔들흔들 페이크α,Голова ползунаα,Wackelwurm-Kopf α,Tête de tortilleur α,Testa di tremogliola α,Głowa pełzaczaα,Cabeça Treme-tremeα,عتاد رأس دودة ضخمةα
+227,Ok,Ok,Ok,Ok,Ok,Butterfly,【蝴蝶】服裝,【パピヨン】衣装,【蝴蝶】服装,【파피용】 의상,Бабочка,Schmetterling,Papillon,Farfalla,Motyla,Borboleta,الفراشة
+228,Ok,Ok,Ok,Ok,Ok,Death Stench,【死神】服裝,【デスギア】衣装,【死神】服装,【데스기어】 의상,Зловоние смерти,Todesgestank,Putride,Putrefatto,Rozkładu,Putrefato,رائحة الموت
+229,Ok,,,,,Shadow Shades,【墨鏡】服裝,【シャドウアイ】衣装,【墨镜】服装,【섀도우아이】 의상,Теневые очки,Schatten-Sonnenbrille,Lunettes teintées,Occhiali del buio,Okulary cienia,Óculos Escuros Sombrios,ألوان ظلال
+230,Ok,Ok,Ok,Ok,Ok,Dante,【但丁】服裝,【ダンテ】衣装,【但丁】服装,【단테】 의상,Данте,Dante,Dante,Dante,Dantego,Dante,دانتي
+231,Ok,Ok,Ok,Ok,Ok,Drachen,【騰龍】服裝,【ドラケン】衣装,【腾龙】服装,【용기사】 의상,Дракен,Drachenreiter,Drachen,Drachen,Dragoński,Drachen,دراكين
+232,Ok,,,,,Mosswine Mask,【菌豬頭套】服裝,【モスフェイク】衣装,【蘑菇猪头套】服装,【모스페이크】의상,Маска мохосвина,Mosswine-Maske,Mosswine,Mosswine,Mchoświni,Máscara Musgoíno,قناع موسواين
+233,Ok,,,,,Faux Felyne,【艾路頭套】服裝,【アイルーフェイク】衣装,【艾露猫头套】服装,【아이루페이크】의상,Фальшивый котт,Falscher Felyne,Faux Felyne,Felyne fasullo,Pseudofelina,Felyno Falso,فيلاين مزيف
+234,Ok,Ok,Ok,Ok,Ok,Commission,【追蹤者】服裝,【シーカー】衣装,【追踪者】服装,【시커】 의상,Экспедиция,Kommission,Commission,Commissione,Komisji,Comissão,اللجنة
+235,Ok,,,,,Sealed Eyepatch,【封印的眼罩】服裝,【封印の眼帯】衣装,【封印的眼罩】服装,【봉인의 안대】 의상,Повязка с печатью,Dichte Augenklappe,Cache-œil interdit,Benda nera,Zapieczętowana opaska,Tapa-olho Selado,رقعة عين مذهلة
+236,Ok,,,,,Wiggler Head,【搖曳鰻頭套】服裝,【ユラユラフェイク】衣装,【摇曳鳗头套】服装,【흔들흔들페이크】의상,Голова ползуна,Wackelwurm-Kopf,Tête de tortilleur,Testa di tremogliola,Głowa pełzacza,Cabeça Treme-treme,عتاد رأس دودة ضخمة
+237,Ok,Ok,Ok,Ok,Ok,Origin,【原型】服裝,【オリジン】衣装,【原型】服装,【오리진】 의상,Исток,Ursprung,Héritage,Origini,Źródła,Origem,الأصلي
+238,Ok,Ok,Ok,Ok,Ok,Beetle,【甲蟲】服裝,【ビートル】衣装,【甲虫】服装,【비틀】의상,Жук,Käfer,Scarabée,Scarabeo,Żuka,Besouro,الخنفساء
+240,Ok,,,,,Skull Mask,【骷髏面罩】服裝,【スカルフェイス】衣装,【骷髅面罩】服装,【스컬페이스】의상,Маска черепа,Totenkopf,Visage de mort,Maschera scheletrica,Maska czaszki,Máscara Craniana,قناع الجمجمة
+241,Ok,,,,,Kulu-Ya-Ku Head,【扒手龍頭套】服裝,【クルルフェイク】衣装,【扒手龙头套】服装,【쿠루루페이크】의상,Голова кулу-йа-ку,Kulu-Ya-Ku-Kopf,Tête Kulu-Ya-Ku,Testa di Kulu-Ya-Ku,Głowa Kulu-Ya-Ku,Cabeça Kulu-Ya-Ku,رأس كولو-يا-كو
+243,Ok,Ok,Ok,Ok,Ok,Lunastra γ,【皇后γ】服裝,【エンプレスγ】衣装,【皇后伽马】服装,【엠프리스γ】의상,Лунастраγ,Lunastra γ,Imperatrix γ,Imperatrice γ,Lunastryγ,Lunastraγ,لوناستراγ
+244,Ok,Ok,Ok,Ok,Ok,Geralt α,傑洛特α,ゲラルトα,杰洛特阿尔法,게롤트α,Геральтα,Geralt α,Geralt α,Geralt α,Geraltaα,Geraltα,‮جيرالتα
+245,Ok,Ok,Ok,Ok,Ok,Ciri α,希里α,シリα,希里阿尔法,시리α,Цириα,Ciri α,Ciri α,Ciri α,Ciriα,Ciriα,‮سيريα
+246,Ok,Ok,Ok,Ok,Ok,Geralt of Rivia,【傑洛特】服裝,【ゲラルト】衣装,【杰洛特】服装,【게롤트】의상,Геральт из Ривии,Geralt von Riva,Geralt de Riv,Geralt di Rivia,Geralt z Rivii,Geralt de Rívia,جيرالت من ريڤيا
+247,Ok,Ok,Ok,Ok,Ok,Ciri,【希里】服裝,【シリ】衣装,【希里】服装,【시리】의상,Цири,Ciri,Ciri,Ciri,Ciri,Ciri,سيري
+248,Ok,Ok,Ok,Ok,Ok,Kulve Taroth γ,絢輝龍鎧羅γ,マムガイラγ,绚辉龙铠罗伽马,맘가이라γ,Кулве таротγ,Kulve-Taroth-Set γ,Kulve Taroth γ,Kulve Taroth γ,Kulve Tarothγ,Kulve Tarothγ,كولف تاروثγ
+249,Ok,Ok,Ok,Ok,Ok,Defender α,防衛隊α,防衛隊α,防卫队阿尔法,수비대α,Защитникα,Verteidiger-Set α,Défenseur α,Difensore α,Obrońcaα,Defensorα,المدافعα
+250,Ok,Ok,Ok,Ok,Ok,Direwolf+,【冰狼】服裝,【ウルファ】衣装,【冰狼】服装,【우르파】의상,Лютоволк+,Schreckenswolf+,Loup blanc,Lupo bianco,Wilkora+,Loborrendo+,الذئب الرهيب+
+252,Ok,Ok,Ok,Ok,Ok,Bone α+,精英·骨製α,EXボーンα,精英·骨制阿尔法,EX본α,Костьα+,Knochen-Set α+,Os α+,Osso α+,Kościanyα+,Ósseaα+,عظميα+
+253,Ok,Ok,Ok,Ok,Ok,Bone β+,精英·骨製β,EXボーンβ,精英·骨制贝塔,EX본β,Костьβ+,Knochen-Set β+,Os β+,Osso β+,Kościanyβ+,Ósseaβ+,عظميβ+
+254,Ok,Ok,Ok,Ok,Ok,Alloy α+,精英·合金α,EXアロイα,精英·合金阿尔法,EX얼로이α,Литьеα+,Legierungs-Set α+,Alliage α+,Lega α+,Stopuα+,Liga Leveα+,خليط معدنيα+
+255,Ok,Ok,Ok,Ok,Ok,Alloy β+,精英·合金β,EXアロイβ,精英·合金贝塔,EX얼로이β,Литьеβ+,Legierungs-Set β+,Alliage β+,Lega β+,Stopuβ+,Liga Leveβ+,خليط معدنيβ+
+256,Ok,Ok,Ok,Ok,Ok,Vespoid α+,精英·巨蜂α,EXランゴα,精英·巨蜂阿尔法,EX랑고α,Осоидα+,Vespoid-Set α+,Vespoid α+,Vespoid α+,Vespoidaα+,Vespoideaα+,فيسبويدα+
+257,Ok,Ok,Ok,Ok,Ok,Vespoid β+,精英·巨蜂β,EXランゴβ,精英·巨蜂贝塔,EX랑고β,Осоидβ+,Vespoid-Set β+,Vespoid β+,Vespoid β+,Vespoidaβ+,Vespoideaβ+,فيسبويدβ+
+258,Ok,Ok,Ok,Ok,Ok,Hornetaur α+,精英·巨甲蟲α,EXタロスα,精英·巨甲虫阿尔法,EX타로스α,Роготаврα+,Hornetaur-Set α+,Hornetaur α+,Hornetaur α+,Hornetauraα+,Chifrotauroα+,هورنتورα+
+259,Ok,Ok,Ok,Ok,Ok,Hornetaur β+,精英·巨甲蟲β,EXタロスβ,精英·巨甲虫贝塔,EX타로스β,Роготаврβ+,Hornetaur-Set β+,Hornetaur β+,Hornetaur β+,Hornetauraβ+,Chifrotauroβ+,هورنتورβ+
+260,,,Ok,,,Kestodon α+,精英·冠突龍α,EXケストα,精英·冠突龙阿尔法,EX케스토α,Кестодонα+,Kestodon-Set α+,Kestodon α+,Kestodon α+,Kestodonaα+,Kestodonteα+,كيستودونα+
+261,,,Ok,,,Kestodon β+,精英·冠突龍β,EXケストβ,精英·冠突龙贝塔,EX케스토β,Кестодонβ+,Kestodon-Set β+,Kestodon β+,Kestodon β+,Kestodonaβ+,Kestodonteβ+,كيستودونβ+
+262,,,,,Ok,Gajau α+,精英·咬魚α,EXガライーα,精英·咬鱼阿尔法,EX가쟈우α,Гаджауα+,Gajau-Set α+,Gajau α+,Gajau α+,Gajauα+,Gajauα+,غاجاوα+
+263,,,,,Ok,Gajau β+,精英·咬魚β,EXガライーβ,精英·咬鱼贝塔,EX가쟈우β,Гаджауβ+,Gajau-Set β+,Gajau β+,Gajau β+,Gajauβ+,Gajauβ+,غاجاوβ+
+264,Ok,,,,,Shamos α+,精英·貓蜥龍α,EXシャムα,精英·猫蜥龙阿尔法,EX샤무α,Шамосα+,Shamos-Set α+,Shamos α+,Shamos α+,Shamosaα+,Shamosα+,شاموسα+
+265,Ok,,,,,Shamos β+,精英·貓蜥龍β,EXシャムβ,精英·猫蜥龙贝塔,EX샤무β,Шамосβ+,Shamos-Set β+,Shamos β+,Shamos β+,Shamosaβ+,Shamosβ+,شاموسβ+
+266,Ok,,,,,Gastodon α+,精英·突擊龍α,EXガストα,精英·突击龙阿尔法,EX가스토α,Гастодонα+,Gastodon-Set α+,Gastodon α+,Gastodon α+,Gastodonaα+,Gastodonteα+,غاستودونα+
+267,Ok,,,,,Gastodon β+,精英·突擊龍β,EXガストβ,精英·突击龙贝塔,EX가스토β,Гастодонβ+,Gastodon-Set β+,Gastodon β+,Gastodon β+,Gastodonaβ+,Gastodonteβ+,غاستودونβ+
+268,,Ok,,,,Barnos α+,精英·酸翼龍α,EXバルノスα,精英·酸翼龙阿尔法,EX바르노스α,Барносα+,Barnos-Set α+,Barnos α+,Barnos α+,Barnosaα+,Barnosα+,بارنوسα+
+269,,Ok,,,,Barnos β+,精英·酸翼龍β,EXバルノスβ,精英·酸翼龙贝塔,EX바르노스β,Барносβ+,Barnos-Set β+,Barnos β+,Barnos β+,Barnosaβ+,Barnosβ+,بارنوسβ+
+270,Ok,,,,,Wulg α+,精英·冰豺龍α,EXウルグα,精英·冰豺龙阿尔法,EX우르그α,Вальгα+,Wulg-Set α+,Wulg α+,Wulg α+,Wulgaα+,Wulgα+,وولغα+
+271,Ok,,,,,Wulg β+,精英·冰豺龍β,EXウルグβ,精英·冰豺龙贝塔,EX우르그β,Вальгβ+,Wulg-Set β+,Wulg β+,Wulg β+,Wulgaβ+,Wulgβ+,وولغβ+
+272,,Ok,,,,Cortos α+,精英·冬翼龍α,EXコルトスα,精英·冬翼龙阿尔法,EX코르토스α,Кортосα+,Cortos-Set α+,Cortos α+,Cortos α+,Cortosaα+,Cortosα+,كورتوسα+
+273,,Ok,,,,Cortos β+,精英·冬翼龍β,EXコルトスβ,精英·冬翼龙贝塔,EX코르토스β,Кортосβ+,Cortos-Set β+,Cortos β+,Cortos β+,Cortosaβ+,Cortosβ+,كورتوسβ+
+274,Ok,Ok,Ok,Ok,Ok,Jagras α+,精英·凶豺龍α,EXジャグラスα,精英·贼龙阿尔法,EX쟈그라스α,Яграсα+,Jagras-Set α+,Jagras α+,Jagras α+,Jagrasaα+,Jagrasα+,جاغراسα+
+275,Ok,Ok,Ok,Ok,Ok,Jagras β+,精英·凶豺龍β,EXジャグラスβ,精英·贼龙贝塔,EX쟈그라스β,Яграсβ+,Jagras-Set β+,Jagras β+,Jagras β+,Jagrasaβ+,Jagrasβ+,جاغراسβ+
+276,Ok,Ok,Ok,Ok,Ok,Tzitzi α+,精英·眩鳥α,EXツィツィα,精英·眩鸟阿尔法,EX치치α,Цициα+,Tzitzi-Set α+,Tzitzi-Ya-Ku α+,Tzitzi α+,Tzitziα+,Tzitziα+,تسيتسيα+
+277,Ok,Ok,Ok,Ok,Ok,Tzitzi β+,精英·眩鳥β,EXツィツィβ,精英·眩鸟贝塔,EX치치β,Цициβ+,Tzitzi-Set β+,Tzitzi-Ya-Ku β+,Tzitzi β+,Tzitziβ+,Tzitziβ+,تسيتسيβ+
+278,Ok,Ok,Ok,Ok,Ok,Girros α+,精英·凶顎龍α,EXギルオスα,精英·痹贼龙阿尔法,EX기르오스α,Гирросα+,Girros-Set α+,Girros α+,Girros α+,Girrosaα+,Girrosα+,غيروسα+
+279,Ok,Ok,Ok,Ok,Ok,Girros β+,精英·凶顎龍β,EXギルオスβ,精英·痹贼龙贝塔,EX기르오스β,Гирросβ+,Girros-Set β+,Girros β+,Girros β+,Girrosaβ+,Girrosβ+,غيروسβ+
+280,Ok,Ok,Ok,Ok,Ok,Dodogama α+,精英·岩賊龍α,EXガマルα,精英·岩贼龙阿尔法,EX가마루α,Додогамаα+,Dodogama-Set α+,Dodogama α+,Dodogama α+,Dodogamyα+,Dodogamaα+,دودوغماα+
+281,Ok,Ok,Ok,Ok,Ok,Dodogama β+,精英·岩賊龍β,EXガマルβ,精英·岩贼龙贝塔,EX가마루β,Додогамаβ+,Dodogama-Set β+,Dodogama β+,Dodogama β+,Dodogamyβ+,Dodogamaβ+,دودوغماβ+
+282,Ok,Ok,Ok,Ok,Ok,Kulu α+,精英·搔鳥α,EXクルルα,精英·搔鸟阿尔法,EX쿠루루α,Кулуα+,Kulu-Set α+,Kulu-Ya-Ku α+,Kulu α+,Kuluα+,Kuluα+,كولوα+
+283,Ok,Ok,Ok,Ok,Ok,Kulu β+,精英·搔鳥β,EXクルルβ,精英·搔鸟贝塔,EX쿠루루β,Кулуβ+,Kulu-Set β+,Kulu-Ya-Ku β+,Kulu β+,Kuluβ+,Kuluβ+,كولوβ+
+284,Ok,Ok,Ok,Ok,Ok,Pukei α+,精英·毒妖鳥α,EXプケプケα,精英·毒妖鸟阿尔法,EX푸케푸케α,Покиα+,Pukei-Set α+,Pukei-Pukei α+,Pukei α+,Pukeiα+,Pukeiα+,بوكيα+
+285,Ok,Ok,Ok,Ok,Ok,Pukei β+,精英·毒妖鳥β,EXプケプケβ,精英·毒妖鸟贝塔,EX푸케푸케β,Покиβ+,Pukei-Set β+,Pukei-Pukei β+,Pukei β+,Pukeiβ+,Pukeiβ+,بوكيβ+
+286,Ok,Ok,Ok,Ok,Ok,Barroth α+,精英·土砂龍α,EXボロスα,精英·土砂龙阿尔法,EX보로스α,Барротα+,Barroth-Set α+,Barroth α+,Barroth α+,Barrothaα+,Barrothα+,باروثα+
+287,Ok,Ok,Ok,Ok,Ok,Barroth β+,精英·土砂龍β,EXボロスβ,精英·土砂龙贝塔,EX보로스β,Барротβ+,Barroth-Set β+,Barroth β+,Barroth β+,Barrothaβ+,Barrothβ+,باروثβ+
+288,Ok,Ok,Ok,Ok,Ok,Jyura α+,精英·泥魚龍α,EXジュラα,精英·泥鱼龙阿尔法,EX쥬라α,Юратодα+,Jyuratodus-Set α+,Jyuratodus α+,Jyura α+,Jyuraα+,Jyuraα+,جيوراα+
+289,Ok,Ok,Ok,Ok,Ok,Jyura β+,精英·泥魚龍β,EXジュラβ,精英·泥鱼龙贝塔,EX쥬라β,Юратодβ+,Jyuratodus-Set β+,Jyuratodus β+,Jyura β+,Jyuraβ+,Jyuraβ+,جيوراβ+
+290,Ok,Ok,Ok,Ok,Ok,Beo α+,精英·冰魚龍α,EXブランα,精英·冰鱼龙阿尔法,EX브란α,Беоα+,Beo-Set α+,Beotodus α+,Beo α+,Beoα+,Beoα+,بيوα+
+291,Ok,Ok,Ok,Ok,Ok,Beo β+,精英·冰魚龍β,EXブランβ,精英·冰鱼龙贝塔,EX브란β,Беоβ+,Beo-Set β+,Beotodus β+,Beo β+,Beoβ+,Beoβ+,بيوβ+
+292,Ok,Ok,Ok,Ok,Ok,Kadachi α+,精英·飛雷龍α,EXカガチα,精英·飞雷龙阿尔法,EX카가치α,Кадачиα+,Kadachi-Set α+,Tobi-Kadachi α+,Kadachi α+,Kadachiα+,Kadachiα+,كاداتشيα+
+293,Ok,Ok,Ok,Ok,Ok,Kadachi β+,精英·飛雷龍β,EXカガチβ,精英·飞雷龙贝塔,EX카가치β,Кадачиβ+,Kadachi-Set β+,Tobi-Kadachi β+,Kadachi β+,Kadachiβ+,Kadachiβ+,كاداتشيβ+
+294,Ok,Ok,Ok,Ok,Ok,High Metal α+,精英·礦石α,EXハイメタα,精英·矿石阿尔法,EX하이메탈α,Высший металлα+,Hochmetall-Set α+,Haut-métal α+,Ipermetallo α+,Metaluα+,Metal Densoα+,معدن قويα+
+295,Ok,Ok,Ok,Ok,Ok,High Metal β+,精英·礦石β,EXハイメタβ,精英·矿石贝塔,EX하이메탈β,Высший металлβ+,Hochmetall-Set β+,Haut-métal β+,Ipermetallo β+,Metaluβ+,Metal Densoβ+,معدن قويβ+
+296,Ok,Ok,Ok,Ok,Ok,Banbaro α+,【精英·猛牛龍α】服裝,【EXバフバロα】衣装,【精英·猛牛龙阿尔法】服装,【EX버프바로α】의상,Банбароα+,Banbaro α+,Banbaro α+,Banbaro α+,Banbaroα+,Banbaroα+,بنباروα+
+297,Ok,Ok,Ok,Ok,Ok,Banbaro β+,【精英·猛牛龍β】服裝,【EXバフバロβ】衣装,【精英·猛牛龙贝塔】服装,【EX버프바로β】의상,Банбароβ+,Banbaro β+,Banbaro β+,Banbaro β+,Banbaroβ+,Banbaroβ+,بنباروβ+
+298,Ok,Ok,Ok,Ok,Ok,Anja α+,精英·蠻顎龍α,EXジャナフα,精英·蛮颚龙阿尔法,EX쟈나프α,Анджиα+,Anjanath-Set α+,Anjanath α+,Anja α+,Anjaα+,Anjaα+,أنجاα+
+299,Ok,Ok,Ok,Ok,Ok,Anja β+,精英·蠻顎龍β,EXジャナフβ,精英·蛮颚龙贝塔,EX쟈나프β,Анджиβ+,Anjanath-Set β+,Anjanath β+,Anja β+,Anjaβ+,Anjaβ+,أنجاβ+
+300,Ok,Ok,Ok,Ok,Ok,Rathian α+,【精英·雌火龍α】服裝,【EXレイアα】衣装,【精英·雌火龙阿尔法】服装,【EX레이아α】의상,Ратианаα+,Rathian α+,Rathian α+,Rathian α+,Rathianaα+,Rathianα+,راثيانα+
+301,Ok,Ok,Ok,Ok,Ok,Rathian β+,【精英·雌火龍β】服裝,【EXレイアβ】衣装,【精英·雌火龙贝塔】服装,【EX레이아β】의상,Ратианаβ+,Rathian β+,Rathian β+,Rathian β+,Rathianaβ+,Rathianβ+,راثيانβ+
+302,Ok,Ok,Ok,Ok,Ok,Rath Heart α+,【精英·火龍心α】服裝,【EXリオハートα】衣装,【精英·火龙心阿尔法】服装,【EX리오하트α】의상,Сердце ратα+,Rathianherz α+,Cœur Rathian α+,Cuore di Rath α+,Serce Rathaα+,Coração Rathα+,قلب راثα+
+303,Ok,Ok,Ok,Ok,Ok,Rath Heart β+,【精英·火龍心β】服裝,【EXリオハートβ】衣装,【精英·火龙心贝塔】服装,【EX리오하트β】의상,Сердце ратβ+,Rathianherz β+,Cœur Rathian β+,Cuore di Rath β+,Serce Rathaβ+,Coração Rathβ+,قلب راثβ+
+304,Ok,Ok,Ok,Ok,Ok,Lumu α+,精英·浮空龍α,EXウルムーα,精英·浮空龙阿尔法,EX우르무α,Лумуα+,Paolumu-Set α+,Paolumu α+,Lumu α+,Lumuα+,Lumuα+,لوموα+
+305,Ok,Ok,Ok,Ok,Ok,Lumu β+,精英·浮空龍β,EXウルムーβ,精英·浮空龙贝塔,EX우르무β,Лумуβ+,Paolumu-Set β+,Paolumu β+,Lumu β+,Lumuβ+,Lumuβ+,لوموβ+
+306,Ok,Ok,Ok,Ok,Ok,Lumu Phantasm α+,精英·浮夢α,EXウルムメアα,精英·浮梦阿尔法,EX우르무메어α,Фантазм лумуα+,Nachtschatten-Set α+,Paolumu belladone α+,Lumu onirico α+,Fantazmat Lumuα+,Ilusão Lumuα+,طيف لوموα+
+307,Ok,Ok,Ok,Ok,Ok,Lumu Phantasm β+,精英·浮夢β,EXウルムメアβ,精英·浮梦贝塔,EX우르무메어β,Фантазм лумуβ+,Nachtschatten-Set β+,Paolumu belladone β+,Lumu onirico β+,Fantazmat Lumuβ+,Ilusão Lumuβ+,طيف لوموβ+
+308,Ok,Ok,Ok,Ok,Ok,Coral Pukei α+,精英·妖水α,EXプケラグーナα,精英·妖水阿尔法,EX푸케라그나α,Коралловый покиα+,Korallen-Set α+,Pukei Corail α+,Pukei corallino α+,Koralowego Pukeiα+,Pukei Coralinoα+,بوكي مرجانيα+
+309,Ok,Ok,Ok,Ok,Ok,Coral Pukei β+,精英·妖水β,EXプケラグーナβ,精英·妖水贝塔,EX푸케라그나β,Коралловый покиβ+,Korallen-Set β+,Pukei Corail β+,Pukei corallino β+,Koralowego Pukeiβ+,Pukei Coralinoβ+,بوكي مرجانيβ+
+310,Ok,Ok,Ok,Ok,Ok,Viper Kadachi α+,精英·朱毒α,EXベニカガチα,精英·朱毒阿尔法,EX베니카가치α,Аспидовый кадачиα+,Viper-Set α+,Kadachi vipère α+,Kadachi vipera α+,Żmijowego Kadachiα+,Kadachi Víperoα+,كاداتشي ثعبانيα+
+311,Ok,Ok,Ok,Ok,Ok,Viper Kadachi β+,精英·朱毒β,EXベニカガチβ,精英·朱毒贝塔,EX베니카가치β,Аспидовый кадачиβ+,Viper-Set β+,Kadachi vipère β+,Kadachi vipera β+,Żmijowego Kadachiβ+,Kadachi Víperoβ+,كاداتشي ثعبانيβ+
+312,Ok,Ok,Ok,Ok,Ok,Baan α+,精英·骨鎚龍α,EXバルキンα,精英·骨锤龙阿尔法,EX발킨α,Баанα+,Baan-Set α+,Radobaan α+,Baan α+,Baanaα+,Baanα+,بانα+
+313,Ok,Ok,Ok,Ok,Ok,Baan β+,精英·骨鎚龍β,EXバルキンβ,精英·骨锤龙贝塔,EX발킨β,Баанβ+,Baan-Set β+,Radobaan β+,Baan β+,Baanaβ+,Baanβ+,بانβ+
+314,Ok,Ok,Ok,Ok,Ok,Leather,【皮製】服裝,【レザー】衣装,【皮制】服装,【레더】의상,Кожа,Leder,Cuir,Cuoio,Skórzany,Couro,جلد
+315,Ok,Ok,Ok,Ok,Ok,Chain,【鎖甲】服裝,【チェーン】衣装,【锁甲】服装,【체인】의상,Кольчуга,Ketten,Mailles,Maglia,Kolczy,Malha,مسلسلة
+316,Ok,Ok,Ok,Ok,Ok,Hunter α,【獵人α】服裝,【ハンターα】衣装,【猎人阿尔法】服装,【헌터α】의상,Охотникα,Jäger-α,Chasseur α,Cacciatore α,Łowcyα,Caçadorα,صيّادα
+317,Ok,Ok,Ok,Ok,Ok,Hunter β,【獵人β】服裝,【ハンターβ】衣装,【猎人贝塔】服装,【헌터β】의상,Охотникβ,Jäger-β,Chasseur β,Cacciatore β,Łowcyβ,Caçadorβ,صيّادβ
+318,Ok,Ok,Ok,Ok,Ok,Bone,【骨製】服裝,【ボーン】衣装,【骨制】服装,【본】의상,Кость,Knochen,Os,Osso,Kościany,Ósseo,عظمي
+319,Ok,Ok,Ok,Ok,Ok,Alloy,【合金】服裝,【アロイ】衣装,【合金】服装,【얼로이】의상,Литье,Legierungs,Alliage,Lega,Stopu,Liga Leve,خليط معدني
+320,Ok,Ok,Ok,Ok,Ok,Vespoid,【巨蜂】服裝,【ランゴ】衣装,【巨蜂】服装,【랑고】의상,Осоид,Vespoid,Vespoid,Vespoid,Vespoida,Vespoidea,فيسبويد
+321,Ok,Ok,Ok,Ok,Ok,Hornetaur,【巨甲】服裝,【タロス】衣装,【巨甲】服装,【타로스】의상,Роготавр,Hornetaur,Hornetaur,Hornetaur,Hornetaura,Chifrotauro,هورنتور
+322,,,Ok,,,Kestodon,【冠突龍】服裝,【ケスト】衣装,【冠突龙】服装,【케스토】의상,Кестодон,Kestodon,Kestodon,Kestodon,Kestodona,Kestodonte,كيستودون
+323,,,,,Ok,Gajau,【咬魚】服裝,【ガライー】衣装,【咬鱼】服装,【가쟈우】의상,Гаджау,Gajau,Gajau,Gajau,Gajau,Gajau,غاجاو
+325,Ok,,,,,Goldspring Macaque,【溫泉金猴】服裝,【キンセンザル】衣装,【温泉金猴】服装,【금천원숭이】의상,Макака золотого источника,Goldquell-Makak,Macaque d'or,Macaco dorato,Złoty makak,Macaco-da-fonte-dourado,مكّاك الينبوع الذهبي
+326,Ok,,,,,Shamos,【貓蜥龍】服裝,【シャム】衣装,【猫蜥龙】服装,【샤무】의상,Шамос,Shamos,Shamos,Shamos,Shamosa,Shamos,شاموس
+327,Ok,,,,,Faux Kelbi,【精靈鹿頭套】服裝,【ケルビフェイク】衣装,【精灵鹿头套】服装,【켈비페이크】의상,Фальшивый келби,Falscher Kelbi,Faux Kelbi,Kelbi fasullo,Pseudokelbi,Kelbi Falso,كيلبي المزيف
+328,Ok,Ok,Ok,Ok,Ok,Ingot α+,精英·鑄鐵α,EXインゴットα,精英·铸铁阿尔法,EX잉곳α,Драгоценностьα+,Guss-Set α+,Lingot α+,Lingotto α+,Sztabekα+,Lingoteα+,إنغوتα+
+329,Ok,Ok,Ok,Ok,Ok,Ingot β+,精英·鑄鐵β,EXインゴットβ,精英·铸铁贝塔,EX잉곳β,Драгоценностьβ+,Guss-Set β+,Lingot β+,Lingotto β+,Sztabekβ+,Lingoteβ+,إنغوتβ+
+330,Ok,Ok,Ok,Ok,Ok,Barioth α+,【精英·冰牙龍α】服裝,【EXベリオα】衣装,【精英·冰牙龙阿尔法】服装,【EX벨리오α】의상,Бариотα+,Barioth α+,Barioth α+,Barioth α+,Bariothα+,Bariothα+,باريوثα+
+331,Ok,Ok,Ok,Ok,Ok,Barioth β+,【精英·冰牙龍β】服裝,【EXベリオβ】衣装,【精英·冰牙龙贝塔】服装,【EX벨리오β】의상,Бариотβ+,Barioth β+,Barioth β+,Barioth β+,Bariothβ+,Bariothβ+,باريوثβ+
+332,Ok,Ok,Ok,Ok,Ok,Rathalos α+,【精英·火龍α】服裝,【EXレウスα】衣装,【精英·火龙阿尔法】服装,【EX레우스α】의상,Раталосα+,Rathalos α+,Rathalos α+,Rathalos α+,Rathalosα+,Rathalosα+,راذالوسα+
+333,Ok,Ok,Ok,Ok,Ok,Rathalos β+,【精英·火龍β】服裝,【EXレウスβ】衣装,【精英·火龙贝塔】服装,【EX레우스β】의상,Раталосβ+,Rathalos β+,Rathalos β+,Rathalos β+,Rathalosβ+,Rathalosβ+,راذالوسβ+
+334,Ok,Ok,Ok,Ok,Ok,Diablos α+,【精英·角龍α】服裝,【EXディアブロα】衣装,【精英·角龙阿尔法】服装,【EX디아블로α】의상,Диаблосα+,Diablos α+,Diablos α+,Diablos α+,Diablosα+,Diablosα+,ديابلوسα+
+335,Ok,Ok,Ok,Ok,Ok,Diablos β+,【精英·角龍β】服裝,【EXディアブロβ】衣装,【精英·角龙贝塔】服装,【EX디아블로β】의상,Диаблосβ+,Diablos β+,Diablos β+,Diablos β+,Diablosβ+,Diablosβ+,ديابلوسβ+
+336,Ok,Ok,Ok,Ok,Ok,Legiana α+,【精英·風漂龍α】服裝,【EXギエナα】衣装,【精英·风漂龙阿尔法】服装,【EX기에나α】의상,Легианаα+,Legiana α+,Legiana α +,Legiaα+,Legianyα+,Legianaα+,ليغياناα+
+337,Ok,Ok,Ok,Ok,Ok,Legiana β+,【精英·風漂龍β】服裝,【EXギエナβ】衣装,【精英·风漂龙贝塔】服装,【EX기에나β】의상,Легианаβ+,Legiana β+,Legiana β +,Legiaβ+,Legianyβ+,Legianaβ+,ليغياناβ+
+338,Ok,Ok,Ok,Ok,Ok,Odogaron α+,【精英·慘爪α】服裝,【EXガロンα】衣装,【精英·惨爪阿尔法】服装,【EX가론α】의상,Одогаронα+,Odogaron α+,Odogaron α+,Odogaron α+,Odogaronα+,Odogaronα+,أودوغارونα+
+339,Ok,Ok,Ok,Ok,Ok,Odogaron β+,【精英·慘爪β】服裝,【EXガロンβ】衣装,【精英·惨爪贝塔】服装,【EX가론β】의상,Одогаронβ+,Odogaron β+,Odogaron β+,Odogaron β+,Odogaronβ+,Odogaronβ+,أودوغارونβ+
+340,Ok,Ok,Ok,Ok,Ok,Lavasioth α+,精英·熔岩龍α,EXラヴァα,精英·熔岩龙阿尔法,EX라바α,Лавасиотα+,Lavasioth-Set α+,Lavasioth α+,Lavasioth α+,Lavasiothaα+,Lavasiothα+,لافاسيوثα+
+341,Ok,Ok,Ok,Ok,Ok,Lavasioth β+,精英·熔岩龍β,EXラヴァβ,精英·熔岩龙贝塔,EX라바β,Лавасиотβ+,Lavasioth-Set β+,Lavasioth β+,Lavasioth β+,Lavasiothaβ+,Lavasiothβ+,لافاسيوثβ+
+342,Ok,Ok,Ok,Ok,Ok,Uragaan α+,精英·爆鎚龍α,EXガンキンα,精英·爆锤龙阿尔法,EX간킨α,Урагаанα+,Uragaan-Set α+,Uragaan α+,Uragaan α+,Uragaanaα+,Uragaanα+,أوراغانα+
+343,Ok,Ok,Ok,Ok,Ok,Uragaan β+,精英·爆鎚龍β,EXガンキンβ,精英·爆锤龙贝塔,EX간킨β,Урагаанβ+,Uragaan-Set β+,Uragaan β+,Uragaan β+,Uragaanaβ+,Uragaanβ+,أوراغانβ+
+344,Ok,Ok,Ok,Ok,Ok,Nargacuga α+,【精英·迅龍α】服裝,【EXナルガα】衣装,【精英·迅龙阿尔法】服装,【EX나르가α】의상,Наргакугаα+,Nargacuga α+,Nargacuga α+,Nargacuga α+,Nargacugaα+,Nargacugaα+,نارغاكوغاα+
+345,Ok,Ok,Ok,Ok,Ok,Nargacuga β+,【精英·迅龍β】服裝,【EXナルガβ】衣装,【精英·迅龙贝塔】服装,【EX나르가β】의상,Наргакугаβ+,Nargacuga β+,Nargacuga β+,Nargacuga β+,Nargacugaβ+,Nargacugaβ+,نارغاكوغاβ+
+346,Ok,Ok,Ok,Ok,Ok,Glavenus α+,【精英·斬龍α】服裝,【EXディノα】衣装,【精英·斩龙阿尔法】服装,【EX디노α】의상,Главенусα+,Glavenus α+,Glavenus α+,Glavenus α+,Glavenusα+,Glavenusα+,غلافنيوسα+
+347,Ok,Ok,Ok,Ok,Ok,Glavenus β+,【精英·斬龍β】服裝,【EXディノβ】衣装,【精英·斩龙贝塔】服装,【EX디노β】의상,Главенусβ+,Glavenus β+,Glavenus β+,Glavenus β+,Glavenusβ+,Glavenusβ+,غلافنيوسβ+
+348,Ok,Ok,Ok,Ok,Ok,Brachydios α+,【精英·碎龍α】服裝,【EXブラキα】衣装,【精英·碎龙阿尔法】服装,【EX브라키α】의상,Брахидиосα+,Brachydios α+,Brachydios α+,Brachydios α+,Brachydiosα+,Brachydiosα+,براكيديوسα+
+349,Ok,Ok,Ok,Ok,Ok,Brachydios β+,【精英·碎龍β】服裝,【EXブラキβ】衣装,【精英·碎龙贝塔】服装,【EX브라키β】의상,Брахидиосβ+,Brachydios β+,Brachydios β+,Brachydios β+,Brachydiosβ+,Brachydiosβ+,براكيديوسβ+
+350,Ok,Ok,Ok,Ok,Ok,Tigrex α+,【精英·轟龍α】服裝,【EXレックスα】衣装,【精英·轰龙阿尔法】服装,【EX렉스α】의상,Тигрексα+,Tigrex α+,Tigrex α+,Tigrex α+,Tigrexα+,Tigrexα+,تغريكسα+
+351,Ok,Ok,Ok,Ok,Ok,Tigrex β+,【精英·轟龍β】服裝,【EXレックスβ】衣装,【精英·轰龙贝塔】服装,【EX렉스β】의상,Тигрексβ+,Tigrex β+,Tigrex β+,Tigrex β+,Tigrexβ+,Tigrexβ+,تغريكسβ+
+352,Ok,Ok,Ok,Ok,Ok,Fulgur Anja α+,【精英·雷顎α】服裝,【EXジャナールα】衣装,【精英·雷颚阿尔法】服装,【EX쟈나르α】의상,Гром. аньянатα+,Fulgur α+,Anjanath tonnerre α+,Anja tonante α+,Piorunowy Anjaα+,Anjanath Fulguranteα+,أنجا رعديα+
+353,Ok,Ok,Ok,Ok,Ok,Fulgur Anja β+,【精英·雷顎β】服裝,【EXジャナールβ】衣装,【精英·雷颚贝塔】服装,【EX쟈나르β】의상,Гром. аньянатβ+,Fulgur β+,Anjanath tonnerre β+,Anja tonante β+,Piorunowy Anjaβ+,Anjanath Fulguranteβ+,أنجا رعديβ+
+354,Ok,Ok,Ok,Ok,Ok,Jagras,【凶豺龍】服裝,【ジャグラス】衣装,【贼龙】服装,【쟈그라스】의상,Яграс,Jagras,Jagras,Jagras,Jagrasa,Jagras,جاغراس
+355,Ok,Ok,Ok,Ok,Ok,Kulu-Ya-Ku,【搔鳥】服裝,【クルル】衣装,【搔鸟】服装,【쿠루루】의상,Кулу-йа-ку,Kulu-Ya-Ku,Kulu-Ya-Ku,Kulu-Ya-Ku,Kulu-Ya-Ku,Kulu-Ya-Ku,كولو-يا-كو
+356,Ok,Ok,Ok,Ok,Ok,Black Belt α+,精英·黑帶α,EXクロオビα,精英·黑带阿尔法,EX검은띠α,Черный поясα+,Schwarzgurt-Set α+,Ceinture noire α+,Cintura nera α+,Czarnego pasaα+,Faixa Pretaα+,الحزام الأسودα+
+357,Ok,Ok,Ok,Ok,Ok,Black Belt β+,精英·黑帶β,EXクロオビβ,精英·黑带贝塔,EX검은띠β,Черный поясβ+,Schwarzgurt-Set β+,Ceinture noire β+,Cintura nera β+,Czarnego pasaβ+,Faixa Pretaβ+,الحزام الأسودβ+
+358,Ok,,,,,Dragonking Eyepatch,【龍王的獨眼】服裝,【竜王の隻眼】衣装,【龙王的独眼】服装,【용왕의 척안】의상,Повязка короля-дракона,Drachenkönig-Augenklappe,Cache-œil Roi-dragon,Benda del re drago,Opaska smoczego króla,Tapa-olho Dragão-rei,رقعة عين الملك التنين
+359,Ok,,,,,Strategist Spectacles,【知性眼鏡】服裝,【知略の眼鏡】衣装,【知性眼镜】服装,【지략의 안경】의상,Очки стратега,Strategiker-Brille,Lunettes de stratège,Occhiali da stratega,Okulary stratega,Óculos de Estrategista,نظارات الاستراتيجي
+360,Ok,,,,,Pulverizing Feather,【羽毛裝飾】服裝,【羽根飾り】衣装,【羽毛装饰】服装,【깃털장식】의상,Рассеивающее перо,Pulverisierungs-Feder,Plume destructrice,Piuma polverizzante,Miażdżące pióro,Pena Pulverizadora,ريش التدمير
+361,Ok,Ok,Ok,Ok,Ok,Tzitzi-Ya-Ku,【眩鳥】服裝,【ツィツィ】衣装,【眩鸟】服装,【치치】의상,Цици-йа-ку,Tzitzi-Ya-Ku,Tzitzi-Ya-Ku,Tzitzi-Ya-Ku,Tzitzi-Ya-Ku,Tzitzi-Ya-Ku,تسيتسي-يا-كو
+362,Ok,Ok,Ok,Ok,Ok,Great Girros,【凶顎龍】服裝,【ギルオス】衣装,【痹贼龙】服装,【기르오스】의상,Большой гиррос,Groß-Girros,Grand Girros,Gran Girros,Wielkiego Girrosa,Grande Girros,غيروس العظيم
+363,Ok,Ok,Ok,Ok,Ok,Shrieking Legia α+,【精英·霜漂α】服裝,【EXブリーナα】衣装,【精英·霜漂阿尔法】服装,【EX브리나α】의상,Визжащая легианаα+,Schneesturm α+,Legiana blizzard α+,Legiana glaciale α+,Wrzeszcząca Legiaα+,Legia Estridenteα+,ليغيا الصارخα+
+364,Ok,Ok,Ok,Ok,Ok,Shrieking Legia β+,【精英·霜漂β】服裝,【EXブリーナβ】衣装,【精英·霜漂贝塔】服装,【EX브리나β】의상,Визжащая легианаβ+,Schneesturm β+,Legiana blizzard β+,Legiana glaciale β+,Wrzeszcząca Legiaβ+,Legia Estridenteβ+,ليغيا الصارخβ+
+365,Ok,Ok,Ok,Ok,Ok,Rath Soul α+,【精英·火龍魂α】服裝,【EXリオソウルα】衣装,【精英·火龙魂阿尔法】服装,【EX리오소울α】의상,Душа ратыα+,Rathalosseelen α+,Âme Rathalos α+,Anima di Rath α+,Dusza Rathaα+,Alma de Rathα+,روح راثα+
+366,Ok,Ok,Ok,Ok,Ok,Rath Soul β+,【精英·火龍魂β】服裝,【EXリオソウルβ】衣装,【精英·火龙魂贝塔】服装,【EX리오소울β】의상,Душа ратыβ+,Rathalosseelen β+,Âme Rathalos β+,Anima di Rath β+,Dusza Rathaβ+,Alma de Rathβ+,روح راثβ+
+367,Ok,Ok,Ok,Ok,Ok,Diablos Nero α+,【精英·暴君角龍α】服裝,【EXディアネロα】衣装,【精英·暴君角龙阿尔法】服装,【EX디아네로α】의상,Жуткая диаблосα+,Diablos-Nero α+,Diablos noire α+,Diablos nera α+,Czarna Diablaα+,Diablos Negraα+,نيرو ديابلوسα+
+368,Ok,Ok,Ok,Ok,Ok,Diablos Nero β+,【精英·暴君角龍β】服裝,【EXディアネロβ】衣装,【精英·暴君角龙贝塔】服装,【EX디아네로β】의상,Жуткая диаблосβ+,Diablos-Nero β+,Diablos noire β+,Diablos nera β+,Czarna Diablaβ+,Diablos Negraβ+,نيرو ديابلوسβ+
+369,Ok,Ok,Ok,Ok,Ok,Death Garon α+,【精英·亡爪α】服裝,【EXデスガロンα】衣装,【精英·亡爪阿尔法】服装,【EX데스가론α】의상,Смертельный гаронα+,Vulkan α+,Odogaron désastre α+,Odogaron d'ebano α+,Garon Śmierciα+,Garon Mortalα+,غارون الموتα+
+370,Ok,Ok,Ok,Ok,Ok,Death Garon β+,【精英·亡爪β】服裝,【EXデスガロンβ】衣装,【精英·亡爪贝塔】服装,【EX데스가론β】의상,Смертельный гаронβ+,Vulkan β+,Odogaron désastre β+,Odogaron d'ebano β+,Garon Śmierciβ+,Garon Mortalβ+,غارون الموتβ+
+371,Ok,Ok,Ok,Ok,Ok,Acidic Glavenus α+,【精英·斬黃α】服裝,【EXディノイエロα】衣装,【精英·斩黄阿尔法】服装,【EX디노이에로α】의상,Кислотный главенусα+,Säure α+,Glavenus acide α+,Glavenus caustico α+,Kwasowy Glavenusα+,Glavenus Ácidoα+,غلافنيوس حمضيα+
+372,Ok,Ok,Ok,Ok,Ok,Acidic Glavenus β+,【精英·斬黃β】服裝,【EXディノイエロβ】衣装,【精英·斩黄贝塔】服装,【EX디노이에로β】의상,Кислотный главенусβ+,Säure β+,Glavenus acide β+,Glavenus caustico β+,Kwasowy Glavenusβ+,Glavenus Ácidoβ+,غلافنيوس حمضيβ+
+373,Ok,Ok,Ok,Ok,Ok,Artian α+,精英·機械α,EXアーティアα,精英·机械阿尔法,EX아티어α,Артианα+,Artian-Set α+,Artian α+,Artian α+,Artianuα+,Artianα+,القطعة الفنيةα+
+374,Ok,Ok,Ok,Ok,Ok,Artian β+,精英·機械β,EXアーティアβ,精英·机械贝塔,EX아티어β,Артианβ+,Artian-Set β+,Artian β+,Artian β+,Artianuβ+,Artianβ+,القطعة الفنيةβ+
+375,Ok,,,,,Skull Scarf,【骷髏領巾】服裝,【スカルスカーフ】衣装,【骷髅方巾】服装,【스컬스카프】의상,Шарф черепа,Schädelbandana,Foulard tête de mort,Bandana con teschio,Szal czaszki,Echarpe Craniana,وشاح الجمجمة
+376,Ok,Ok,Ok,Ok,Ok,Pukei-Pukei α,【毒妖鳥α】服裝,【プケプケα】衣装,【毒妖鸟阿尔法】服装,【푸케푸케α】의상,Поки-покиα,Pukei-Pukei-α,Pukei-Pukei α,Pukei-Pukei α,Pukei-Pukeiα,Pukei-Pukeiα,بوكي-بوكيα
+377,Ok,Ok,Ok,Ok,Ok,Pukei-Pukei β,【毒妖鳥β】服裝,【プケプケβ】衣装,【毒妖鸟贝塔】服装,【푸케푸케β】의상,Поки-покиβ,Pukei-Pukei-β,Pukei-Pukei β,Pukei-Pukei β,Pukei-Pukeiβ,Pukei-Pukeiβ,بوكي-بوكيβ
+378,Ok,Ok,Ok,Ok,Ok,Dober α+,精英·杜賓α,EXドーベルα,精英·杜宾阿尔法,EX도베르α,Доберα+,Dober-Set α+,Dober α+,Dober α+,Doberaα+,Doberα+,دوبرα+
+379,Ok,Ok,Ok,Ok,Ok,Dober β+,精英·杜賓β,EXドーベルβ,精英·杜宾贝塔,EX도베르β,Доберβ+,Dober-Set β+,Dober β+,Dober β+,Doberaβ+,Doberβ+,دوبرβ+
+380,Ok,Ok,Ok,Ok,Ok,Damascus α+,精英·大馬士革α,EXダマスクα,精英·大马士革阿尔法,EX다마스크α,Дамаскα+,Damaskus-Set α+,Damascus α+,Damasco α+,Damasceńskiα+,Damascusα+,دمشقα+
+381,Ok,Ok,Ok,Ok,Ok,Damascus β+,精英·大馬士革β,EXダマスクβ,精英·大马士革贝塔,EX다마스크β,Дамаскβ+,Damaskus-Set β+,Damascus β+,Damasco β+,Damasceńskiβ+,Damascusβ+,دمشقβ+
+382,Ok,Ok,Ok,Ok,Ok,Velkhana α+,【精英·雪崩α】服裝,【EXラヴィーナα】衣装,【精英·雪崩阿尔法】服装,【EX라비나α】의상,Велханаα+,Velkhana α+,Velkhana α+,Velkhana α+,Velkhanyα+,Velkhanaα+,فيلكاناα+
+383,Ok,Ok,Ok,Ok,Ok,Velkhana β+,【精英·雪崩β】服裝,【EXラヴィーナβ】衣装,【精英·雪崩贝塔】服装,【EX라비나β】의상,Велханаβ+,Velkhana β+,Velkhana β+,Velkhana β+,Velkhanyβ+,Velkhanaβ+,فيلكاناβ+
+384,Ok,Ok,Ok,Ok,Ok,Seething Bazel α+,【精英·矜持α】服裝,【EXプライドα】衣装,【精英·矜持阿尔法】服装,【EX프라이드α】의상,Вспыльчивый базельгейсα+,Brodelnder α+,Bazelgeuse vulcan α+,Bazel vulcanico α+,Rozzłoszczonego Bazelaα+,Bazel Vulcânicoα+,بازيل متأججα+
+385,Ok,Ok,Ok,Ok,Ok,Seething Bazel β+,【精英·矜持β】服裝,【EXプライドβ】衣装,【精英·矜持贝塔】服装,【EX프라이드β】의상,Вспыльчивый базельгейсβ+,Brodelnder β+,Bazelgeuse vulcan β+,Bazel vulcanico β+,Rozzłoszczonego Bazelaβ+,Bazel Vulcânicoβ+,بازيل متأججβ+
+386,Ok,Ok,Ok,Ok,Ok,Blackveil Hazak α+,【精英·死滅α】服裝,【EXヴァルファーα】衣装,【精英·死灭阿尔法】服装,【EX바르퍼α】의상,Тленный ваал-хазакα+,Velum α+,Vaal Hazak fléau α+,Vaal funereo α+,Welonowego Vaal Hazakaα+,Hazak Veladoα+,هازاك الستار الأسودα+
+387,Ok,Ok,Ok,Ok,Ok,Blackveil Hazak β+,【精英·死滅β】服裝,【EXヴァルファーβ】衣装,【精英·死灭贝塔】服装,【EX바르퍼β】의상,Тленный ваал-хазакβ+,Velum β+,Vaal Hazak fléau β+,Vaal funereo β+,Welonowego Vaal Hazakaβ+,Hazak Veladoβ+,هازاك الستار الأسودβ+
+388,Ok,Ok,Ok,Ok,Ok,Teostra α+,【精英·帝王α】服裝,【EXカイザーα】衣装,【精英·帝王阿尔法】服装,【EX카이저α】의상,Теостраα+,Teostra α+,Kaiser α+,Kaiser α+,Teostryα+,Teostraα+,تيوستراα+
+389,Ok,Ok,Ok,Ok,Ok,Teostra β+,【精英·帝王β】服裝,【EXカイザーβ】衣装,【精英·帝王贝塔】服装,【EX카이저β】의상,Теостраβ+,Teostra β+,Kaiser β+,Kaiser β+,Teostryβ+,Teostraβ+,تيوستراβ+
+390,Ok,Ok,Ok,Ok,Ok,Kushala α+,【精英·鋼龍α】服裝,【EXクシャナα】衣装,【精英·钢龙阿尔法】服装,【EX크샤나α】의상,Кушалаα+,Kushala α+,Kushala α+,Kushala α+,Kushaliα+,Kushalaα+,كوشالاα+
+391,Ok,Ok,Ok,Ok,Ok,Kushala β+,【精英·鋼龍β】服裝,【EXクシャナβ】衣装,【精英·钢龙贝塔】服装,【EX크샤나β】의상,Кушалаβ+,Kushala β+,Kushala β+,Kushala β+,Kushaliβ+,Kushalaβ+,كوشالاβ+
+392,Ok,Ok,Ok,Ok,Ok,Kirin α+,【精英·麒麟α】服裝,【EXキリンα】衣装,【精英·麒麟阿尔法】服装,【EX키린α】의상,Киринα+,Kirin α+,Kirin α+,Kirin α+,Kirinaα+,Kirinα+,كيرينα+
+393,Ok,Ok,Ok,Ok,Ok,Kirin β+,【精英·麒麟β】服裝,【EXキリンβ】衣装,【精英·麒麟贝塔】服装,【EX키린β】의상,Киринβ+,Kirin β+,Kirin β+,Kirin β+,Kirinaβ+,Kirinβ+,كيرينβ+
+394,Ok,Ok,Ok,Ok,Ok,Namielle α+,【精英·觸角α】服裝,【EXテンタクルα】衣装,【精英·触角阿尔法】服装,【EX텐터클α】의상,Намиэльα+,Namielle α+,Namielle α+,Namielle α+,Namiellaα+,Namielleα+,ناميالα+
+395,Ok,Ok,Ok,Ok,Ok,Namielle β+,【精英·觸角β】服裝,【EXテンタクルβ】衣装,【精英·触角贝塔】服装,【EX텐터클β】의상,Намиэльβ+,Namielle β+,Namielle β+,Namielle β+,Namiellaβ+,Namielleβ+,ناميالβ+
+396,Ok,Ok,Ok,Ok,Ok,Clockwork α+,精英·蒸汽貴族α,EXアークロックα,精英·蒸汽贵族阿尔法,EX아크로크α,Часовыеα+,Steampunk-Set α+,Steampunk α+,Vapore α+,Zegarowyα+,Mecânicoα+,تروسα+
+397,Ok,Ok,Ok,Ok,Ok,Barroth,【土砂龍】服裝,【ボロス】衣装,【土砂龙】服装,【보로스】의상,Баррот,Barroth,Barroth,Barroth,Barrotha,Barroth,باروث
+398,Ok,Ok,Ok,Ok,Ok,Guild Palace α+,精英·公會宮殿α,EXギルドパレスα,精英·公会宫殿阿尔法,EX길드팰리스α,Гильдейский дворецα+,Palast-Set α+,Palais de la Guilde α+,Palatium α+,Pałacu Gildiiα+,Palácio da Guildaα+,قصر النقابةα+
+399,Ok,Ok,Ok,Ok,Ok,Guild Palace β+,精英·公會宮殿β,EXギルドパレスβ,精英·公会宫殿贝塔,EX길드팰리스β,Гильдейский дворецβ+,Palast-Set β+,Palais de la Guilde β+,Palatium β+,Pałacu Gildiiβ+,Palácio da Guildaβ+,قصر النقابةβ+
+400,Ok,Ok,Ok,Ok,Ok,Clockwork α+,精英·蒸汽貴族α,EXアークロックα,精英·蒸汽贵族阿尔法,EX아크로크α,Часовыеα+,Steampunk-Set α+,Steampunk α+,Vapore α+,Zegarowyα+,Mecânicoα+,تروسα+
+401,Ok,Ok,Ok,Ok,Ok,Clockwork β+,【蒸汽貴族β】服裝,【アークロックβ】衣装,【蒸汽贵族贝塔】服装,【아크로크β】의상,Часовыеβ+,Steampunk β+,Steampunk β+,Vapore β+,Zegarowyβ+,Mecânicoβ+,تروسβ+
+402,Ok,,,,,Crystal Earring,【水晶耳環】服裝,【水晶のピアス】衣装,【水晶耳环】服装,【수정피어스】의상,Кристальная серьга,Kristallohrring,Boucle de cristal,Orecchino di cristallo,Kryształowy kolczyk,Brinco de Cristal,قرط بلوري
+403,Ok,Ok,Ok,Ok,Ok,Ruiner Nergi α+,【精英·狂紋α】服裝,【EXゾークα】衣装,【精英·狂纹阿尔法】服装,【EX조크α】의상,Нергигант-губительα+,Ruinen α+,Nergigante chaos α+,Nergigante razziatore α+,Niszczycielskiego Nergiα+,Nergi Ferrenhoα+,نيرغي المخرّبα+
+404,Ok,Ok,Ok,Ok,Ok,Ruiner Nergi β+,【精英·狂紋β】服裝,【EXゾークβ】衣装,【精英·狂纹贝塔】服装,【EX조크β】의상,Нергигант-губительβ+,Ruinen β+,Nergigante chaos β+,Nergigante razziatore β+,Niszczycielskiego Nergiβ+,Nergi Ferrenhoβ+,نيرغي المخرّبβ+
+405,Ok,Ok,Ok,Ok,Ok,Shara Ishvalda α+,【精英·迦樓羅α】服裝,【EXアンガルダα】衣装,【精英·迦楼罗阿尔法】服装,【EX안가루다α】의상,Шара-ишвалдаα+,Shara Ishvalda α+,Shara Ishvalda α +,Shara Ishvalda α+,Shar Ishvaldaα+,Shara Ishvaldaα+,شارا إشفالداα+
+406,Ok,Ok,Ok,Ok,Ok,Shara Ishvalda β+,【精英·迦樓羅β】服裝,【EXアンガルダβ】衣装,【精英·迦楼罗贝塔】服装,【EX안가루다β】의상,Шара-ишвалдаβ+,Shara Ishvalda β+,Shara Ishvalda β +,Shara Ishvalda β+,Shar Ishvaldaβ+,Shara Ishvaldaβ+,شارا إشفالداβ+
+407,Ok,Ok,Ok,Ok,Ok,Savage Jho α+,【精英·貪欲α】服裝,【EXグリードα】衣装,【精英·贪欲阿尔法】服装,【EX그리드α】의상,Лютый девильоα+,Wilder Jho α+,Deviljho carnage α+,Deviljho selvaggio α+,Dzikiego Jhoα+,Jho Selvagemα+,ديفيلجو الهمجيα+
+408,Ok,Ok,Ok,Ok,Ok,Savage Jho β+,【精英·貪欲β】服裝,【EXグリードβ】衣装,【精英·贪欲贝塔】服装,【EX그리드β】의상,Лютый девильоβ+,Wilder Jho β+,Deviljho carnage β+,Deviljho selvaggio β+,Dzikiego Jhoβ+,Jho Selvagemβ+,ديفيلجو الهمجيβ+
+409,Ok,Ok,Ok,Ok,Ok,Anjanath α,【蠻顎龍α】服裝,【ジャナフα】衣装,【蛮颚龙阿尔法】服装,【쟈나프α】의상,Аньянатα,Anjanath-α,Anjanath α,Anjanath α,Anjanathaα,Anjanathα,أنجاناثα
+410,Ok,Ok,Ok,Ok,Ok,Anjanath β,【蠻顎龍β】服裝,【ジャナフβ】衣装,【蛮颚龙贝塔】服装,【쟈나프β】의상,Аньянатβ,Anjanath-β,Anjanath β,Anjanath β,Anjanathaβ,Anjanathβ,أنجاناثβ
+411,Ok,Ok,Ok,Ok,Ok,Guildwork α+,精英·公會成果α,EXギルドワークα,精英·公会成果阿尔法,EX길드워크α,Гильдейскийα+,Gildenuniform-Set α+,Taverne Clair de Lune α+,Adiutor α+,Gildiiα+,Guildofícioα+,عمل النقابةα+
+412,Ok,Ok,Ok,Ok,Ok,Guildwork β+,精英·公會成果β,EXギルドワークβ,精英·公会成果贝塔,EX길드워크β,Гильдейскийβ+,Gildenuniform-Set β+,Taverne Clair de Lune β+,Adiutor β+,Gildiiβ+,Guildofícioβ+,عمل النقابةβ+
+414,Ok,Ok,Ok,Ok,Ok,Golden Lune α+,【精英·金黃澄月α】服裝,【EXゴールドルナα】衣装,【精英·金黄澄月阿尔法】服装,【EX골드루나α】의상,Золотая лунаα+,Gold-Mond α+,Lunedor α+,Doriluna α+,Złotego księżycaα+,Luna Douradaα+,القمر الذهبيα+
+415,Ok,Ok,Ok,Ok,Ok,Golden Lune β+,【精英·金黃澄月β】服裝,【EXゴールドルナβ】衣装,【精英·金黄澄月贝塔】服装,【EX골드루나β】의상,Золотая лунаβ+,Gold-Mond β+,Lunedor β+,Doriluna β+,Złotego księżycaβ+,Luna Douradaβ+,القمر الذهبيβ+
+416,Ok,Ok,Ok,Ok,Ok,Silver Sol α+,【精英·銀白耀日α】服裝,【EXシルバーソルα】衣装,【精英·银白耀日阿尔法】服装,【EX실버솔α】의상,Серебряная ратианаα+,Silber-Sonnen α+,Solargent α+,Solargento α+,Srebrnego słońcaα+,Sol Prateadoα+,الشمس الفضيةα+
+417,Ok,Ok,Ok,Ok,Ok,Silver Sol β+,【精英·銀白耀日β】服裝,【EXシルバーソルβ】衣装,【精英·银白耀日贝塔】服装,【EX실버솔β】의상,Серебряная ратианаβ+,Silber-Sonnen β+,Solargent β+,Solargento β+,Srebrnego słońcaβ+,Sol Prateadoβ+,الشمس الفضيةβ+
+418,Ok,Ok,Ok,Ok,Ok,Jyuratodus,【泥魚龍】服裝,【ジュラ】衣装,【泥鱼龙】服装,【쥬라】의상,Юратод,Jyuratodus,Jyuratodus,Jyuratodus,Jyuratodusa,Jyuratodus,جيوراتودوس
+419,Ok,Ok,Ok,Ok,Ok,Tobi-Kadachi,【飛雷龍】服裝,【カガチ】衣装,【飞雷龙】服装,【카가치】의상,Тоби-кадачи,Tobi-Kadachi,Tobi-Kadachi,Tobi-Kadachi,Tobi-Kadachi,Tobi-Kadachi,توبي-كاداتشي
+420,Ok,Ok,Ok,Ok,Ok,Zinogre α+,【精英·雷狼龍α】服裝,【EXジンオウα】衣装,【精英·雷狼龙阿尔法】服装,【EX진오우α】의상,Зиногрα+,Zinogre α+,Zinogre α+,Zinogre α+,Zinograα+,Zinogreα+,زينغرα+
+421,Ok,Ok,Ok,Ok,Ok,Zinogre β+,【精英·雷狼龍β】服裝,【EXジンオウβ】衣装,【精英·雷狼龙贝塔】服装,【EX진오우β】의상,Зиногрβ+,Zinogre β+,Zinogre β+,Zinogre β+,Zinograβ+,Zinogreβ+,زينغرβ+
+422,Ok,Ok,Ok,Ok,Ok,Stygian Zin α+,【精英·獄狼龍α】服裝,【EXゴクオウα】衣装,【精英·狱狼龙阿尔法】服装,【EX극오우α】의상,Стигийский зиногрα+,Höllen-Zinogre α+,Zinogre stygien α+,Zinogre stigeo α+,Stygijskiego Zinaα+,Zin Tenebrosoα+,زينغر جهنميα+
+423,Ok,Ok,Ok,Ok,Ok,Stygian Zin β+,【精英·獄狼龍β】服裝,【EXゴクオウβ】衣装,【精英·狱狼龙贝塔】服装,【EX극오우β】의상,Стигийский зиногрβ+,Höllen-Zinogre β+,Zinogre stygien β+,Zinogre stigeo β+,Stygijskiego Zinaβ+,Zin Tenebrosoβ+,زينغر جهنميβ+
+424,Ok,Ok,Ok,Ok,Ok,Yian Garuga α+,【精英·黑狼鳥α】服裝,【EXガルルガα】衣装,【精英·黑狼鸟阿尔法】服装,【EX가루루가α】의상,Йан-гаругаα+,Yian Garuga α+,Yian Garuga α+,Yian Garuga α+,Yian Garugiα+,Yian Garugaα+,إيان غاروغاα+
+425,Ok,Ok,Ok,Ok,Ok,Yian Garuga β+,【精英·黑狼鳥β】服裝,【EXガルルガβ】衣装,【精英·黑狼鸟贝塔】服装,【EX가루루가β】의상,Йан-гаругаβ+,Yian Garuga β+,Yian Garuga β+,Yian Garuga β+,Yian Garugiβ+,Yian Garugaβ+,إيان غاروغاβ+
+426,Ok,Ok,Ok,Ok,Ok,Zorah α+,精英·鑄島熔岩α,EXゾラマグナα,精英·铸岛熔岩阿尔法,EX조라마그나α,Дзораα+,Zorah-Set α+,Zorah Magdaros α+,Zorah α+,Zorahaα+,Zorahα+,زوراهα+
+427,Ok,Ok,Ok,Ok,Ok,Zorah β+,精英·鑄島熔岩β,EXゾラマグナβ,精英·铸岛熔岩贝塔,EX조라마그나β,Дзораβ+,Zorah-Set β+,Zorah Magdaros β+,Zorah β+,Zorahaβ+,Zorahβ+,زوراهβ+
+428,Ok,Ok,Ok,Ok,Ok,Rajang α+,【精英·金色α】服裝,【EX金色α】衣装,【精英·金色阿尔法】服装,【EX금빛α】의상,Раянгα+,Rajang α+,Rajang α+,Rajang α+,Rajangaα+,Rajangα+,راجانغα+
+429,Ok,Ok,Ok,Ok,Ok,Rajang β+,【精英·金色β】服裝,【EX金色β】衣装,【精英·金色贝塔】服装,【EX금빛β】의상,Раянгβ+,Rajang β+,Rajang β+,Rajang β+,Rajangaβ+,Rajangβ+,راجانغβ+
+430,Ok,Ok,Ok,Ok,Ok,Furious Rajang α+,【精英·齊天α】服裝,【EX斉天α】衣装,【精英·齐天阿尔法】服装,【EX제천α】의상,Взбешенный раянгα+,Zorniger Rajang α+,Rajang orage α+,Rajang furioso α+,Wściekłego Rajangaα+,Rajang Furiosoα+,راجانغ الغاضبα+
+431,Ok,Ok,Ok,Ok,Ok,Furious Rajang β+,【精英·齊天β】服裝,【EX斉天β】衣装,【精英·齐天贝塔】服装,【EX제천β】의상,Взбешенный раянгβ+,Zorniger Rajang β+,Rajang orage β+,Rajang furioso β+,Wściekłego Rajangaβ+,Rajang Furiosoβ+,راجانغ الغاضبβ+
+432,Ok,Ok,Ok,Ok,Ok,Raging Brachy α+,【精英·鐵腕α】服裝,【EXブラキウムα】衣装,【精英·铁腕阿尔法】服装,【EX브라키움α】의상,Неистовый брахидиосα+,Wütiger Brachydium α+,Brachydios tempête α+,Brachydios rabbioso α+,Rozgniewanego Brachydiosaα+,Brachy Coléricoα+,براكيديوس الحانقα+
+433,Ok,Ok,Ok,Ok,Ok,Raging Brachy β+,【精英·鐵腕β】服裝,【EXブラキウムβ】衣装,【精英·铁腕贝塔】服装,【EX브라키움β】의상,Неистовый брахидиосβ+,Wütiger Brachydium β+,Brachydios tempête β+,Brachydios rabbioso β+,Rozgniewanego Brachydiosaβ+,Brachy Coléricoβ+,براكيديوس الحانقβ+
+434,Ok,Ok,Ok,Ok,Ok,Safi'jiiva α+,【精英‧龍紋α】服裝,【EX龍紋α】衣装,【精英·龙纹阿尔法】服装,【EX용문α】의상,Сафи'джииваα+,Safi'jiiva α+,Safi'jiiva α+,Safi'jiiva α+,Safi'jiivaα+,Safi'jiivaα+,صافيجيفاα+
+435,Ok,Ok,Ok,Ok,Ok,Safi'jiiva β+,【精英‧龍紋β】服裝,【EX龍紋β】衣装,【精英·龙纹贝塔】服装,【EX용문β】의상,Сафи'джииваβ+,Safi'jiiva β+,Safi'jiiva β+,Safi'jiiva β+,Safi'jiivaβ+,Safi'jiivaβ+,صافيجيفاβ+
+436,Ok,Ok,Ok,Ok,Ok,Alatreon α+,【精英·煌黑龍α】服裝,【EXエスカドラα】衣装,【精英·煌黑龙阿尔法】服装,【EX에스카드라α】의상,Алатреонα+,Alatreon α+,Alatreon α+,Alatreon α+,Alatreonaα+,Alatreonα+,ألاتريونα+
+437,Ok,Ok,Ok,Ok,Ok,Alatreon β+,【精英·煌黑龍β】服裝,【EXエスカドラβ】衣装,【精英·煌黑龙贝塔】服装,【EX에스카드라β】의상,Алатреонβ+,Alatreon β+,Alatreon β+,Alatreon β+,Alatreonaβ+,Alatreonβ+,ألاتريونβ+
+438,Ok,,,,,Sealed Dragon Cloth α+,精英‧封印的龍骸布α,EX封印の龍骸布α,精英·封印的龙骸布阿尔法,EX봉인의 용해포α,Ткань печати драконаα+,Drachenstoff-Schal α+,Châle-dragon interdit α+,Velo nero α+,Tkanina zapiecz. smokaα+,Tecido de Dragão Seladoα+,قماش التنين المختومα+
+439,Ok,,,,,Wyverian Ears α+,精英‧龍人族之耳α,EX竜人族の耳α,精英·龙人族之耳阿尔法,EX용인족의 귀α,Уши виверианцаα+,Wyverianer-Ohren α+,Oreilles de Wyvérien α+,Orecchie wyverniane α+,Wiweriańskie uszyα+,Orelhas Serperianasα+,أذنا التنين المجنحα+
+440,Ok,,,,,Faux Aptonoth,【草食龍頭套】服裝,【アプトフェイク】衣装,【草食龙头套】服装,【아프토페이크】의상,Фальшивый аптонот,Falscher Aptonoth,Faux Aptonoth,Aptonoth fasullo,Pseudoaptonoth,Aptonote Falso,أبتونوث المزيف
+441,Ok,,,,,Duffel Penguin Mask α+,精英‧企鵝頭套α,EXキブクレフェイクα,精英·企鹅头套阿尔法,EX껴입기펭귄페이크α,Маска пингвина-полярникаα+,Bauschpinguin-Maske α+,Masque de manchot α+,Maschera da pinguino α+,Maska pingwina bajowegoα+,Máscara de Pinguim Felpudoα+,قناع البطريق المنفوشα+
+442,Ok,Ok,Ok,Ok,Ok,Lunastra α+,【精英·皇后α】服裝,【EXエンプレスα】衣装,【精英·皇后阿尔法】服装,【EX엠프리스α】의상,Лунастраα+,Lunastra α+,Imperatrix α+,Imperatrice α+,Lunastryα+,Lunastraα+,لوناستراα+
+443,Ok,Ok,Ok,Ok,Ok,Lunastra β+,【精英·皇后β】服裝,【EXエンプレスβ】衣装,【精英·皇后贝塔】服装,【EX엠프리스β】의상,Лунастраβ+,Lunastra β+,Imperatrix β+,Imperatrice β+,Lunastryβ+,Lunastraβ+,لوناستراβ+
+444,Ok,Ok,Ok,Ok,Ok,Kulve Taroth α+,【精英·絢輝龍鎧羅α】服裝,【EXマムガイラα】衣装,【精英·绚辉龙铠罗阿尔法】服装,【EX맘가이라α】의상,Кулве таротα+,Kulve α+,Kulve Taroth α+,Kulve Taroth α+,Kulve Tarothα+,Kulve Tarothα+,كولف تاروثα+
+445,Ok,Ok,Ok,Ok,Ok,Kulve Taroth β+,【精英·絢輝龍鎧羅β】服裝,【EXマムガイラβ】衣装,【精英·绚辉龙铠罗贝塔】服装,【EX맘가이라β】의상,Кулве таротβ+,Kulve β+,Kulve Taroth β+,Kulve Taroth β+,Kulve Tarothβ+,Kulve Tarothβ+,كولف تاروثβ+
+446,Ok,Ok,Ok,Ok,Ok,Rose α+,精英‧薔薇α,EXローゼα,精英·蔷薇阿尔法,EX로제α,Розаα+,Rosen-Set α+,Rose α+,Rosa α+,Różaα+,Rosaα+,ورديα+
+447,Ok,Ok,Ok,Ok,Ok,Paolumu,【浮空龍】服裝,【ウルムー】衣装,【浮空龙】服装,【우르무】의상,Паолуму,Paolumu,Paolumu,Paolumu,Paolumu,Paolumu,باولومو
+448,Ok,Ok,Ok,Ok,Ok,Passion α+,精英·熱情α,EXパッションα,精英·热情阿尔法,EX패션α,Страстьα+,Leidenschaft-Set α+,Passion α+,Passionale α+,Żarliwośćα+,Paixãoα+,الشغفα+
+449,Ok,Ok,Ok,Ok,Ok,Rathian α,【雌火龍α】服裝,【レイアα】衣装,【雌火龙阿尔法】服装,【레이아α】의상,Ратианаα,Rathian-α,Rathian α,Rathian α,Rathianyα,Rathianα,راثيانα
+450,Ok,Ok,Ok,Ok,Ok,Demonlord α+,精英·魔界之主α,EX魔界ノ主α,精英·魔界之主阿尔法,EX마계의 주인α,Владыка демоновα+,Dämonenfürst-Set α+,Roi-démon α+,Signore oscuro α+,Władcy demonówα+,Demolordeα+,العفريت السيدα+
+451,Ok,Ok,Ok,Ok,Ok,Rathian β,【雌火龍β】服裝,【レイアβ】衣装,【雌火龙贝塔】服装,【레이아β】의상,Ратианаβ,Rathian-β,Rathian β,Rathian β,Rathianyβ,Rathianβ,راثيانβ
+452,Ok,Ok,Ok,Ok,Ok,Oolong α+,精英‧風火輪α,EXウーロンα,精英·风火轮阿尔法,EX우론α,Улунα+,Oolong-Set α+,Oolong α+,Oolong α+,Oolongα+,Oolongα+,أولونغα+
+453,Ok,Ok,Ok,Ok,Ok,Radobaan α,【骨鎚龍α】服裝,【バルキンα】衣装,【骨锤龙阿尔法】服装,【발킨α】의상,Радобаанα,Radobaan-α,Radobaan α,Radobaan α,Radobaanaα,Radobaanα,رادوبانα
+454,Ok,Ok,Ok,Ok,Ok,Astral α+,精英‧阿斯特拉α,EXアストラα,精英·阿斯特拉阿尔法,EX아스트라α,Астралα+,Astral-Set α+,Astral α+,Astrale α+,Gwiezdnyα+,Astralα+,أسترالα+
+455,Ok,Ok,Ok,Ok,Ok,Radobaan β,【骨鎚龍β】服裝,【バルキンβ】衣装,【骨锤龙贝塔】服装,【발킨β】의상,Радобаанβ,Radobaan-β,Radobaan β,Radobaan β,Radobaanaβ,Radobaanβ,رادوبانβ
+456,Ok,Ok,Ok,Ok,Ok,Rose,【薔薇】服裝,【ローゼ】衣装,【蔷薇】服装,【로제】의상,Роза,Rosen,Rose,Rosa,Róża,Rosa,وردي
+457,Ok,Ok,Ok,Ok,Ok,Passion,【熱情】服裝,【パッション】衣装,【热情】服装,【패션】의상,Страсть,Leidenschaft,Passion,Passionale,Żarliwość,Paixão,الشغف
+458,Ok,Ok,Ok,Ok,Ok,Demonlord,【魔界之主】服裝,【魔界ノ主】衣装,【魔界之主】服装,【마계의 주인】의상,Владыка демонов,Dämonenfürst,Roi-démon,Signore oscuro,Władca demonów,Demolorde,العفريت السيد
+459,Ok,Ok,Ok,Ok,Ok,Oolong,【風火輪】服裝,【ウーロン】衣装,【风火轮】服装,【우론】의상,Улун,Oolong,Oolong,Oolong,Ulung,Oolong,أولونغ
+460,Ok,Ok,Ok,Ok,Ok,Astral,【阿斯特拉】服裝,【アストラ】衣装,【阿斯特拉】服装,【아스트라】의상,Астрал,Astral,Astral,Astrale,Gwiezdny,Astral,أسترال
+461,Ok,Ok,Ok,Ok,Ok,High Metal,【礦石】服裝,【ハイメタ】衣装,【矿石】服装,【하이메탈】의상,Высший металл,Hochmetall,Haut-métal,Ipermetallo,Metalu,Metal Denso,معدن قوي
+462,Ok,Ok,Ok,Ok,Ok,Thermae,【浴場】服裝,【テルマエ】衣装,【浴场】服装,【테르마이】의상,Термо,Thermen,Thermae,Terme,Term,Thermae,ثيرماي
+463,Ok,,,,,Hare Band,【兔耳朵】服裝,【ウサミミバンド】衣装,【兔耳朵】服装,【토끼귀】의상,Кроличьи ушки,Hasen-Haarreif,Oreilles de lapin,Lepre pilota,Zajęcza opaska,Orelhas de Lebre,قطيع الأرانب
+464,Ok,,,,,Downy Crake,【柔毛秧雞】服裝,【フワフワクイナ】衣装,【柔毛秧鸡】服装,【폭신폭신 뜸부기】의상,Пуховый коростель,Flauschhuhn,Marouette douce,Rallus mollis,Derkacz puchaty,Saracura Plumosa,كراك ناعم
+465,Ok,,,,,Pearlspring α+,精英·溫泉銀猴α,EXギンセンザルα,精英·温泉银猴阿尔法,EX은천원숭이α,Жемчужный источникα+,Perlenquell-Set α+,Singe d'argent α +,Macaco argentato α+,Perłowyα+,Fonte-pérolaα+,ينبوع اللؤلؤα+
+466,Ok,,,,,Kadachi Scarf,【飛雷龍圍巾】服裝,【カガチのエリマキ】衣装,【飞雷龙围巾】服装,【카가치의목도리】의상,Шарф кадачи,Kadachi-Stola,Écharpe Kadachi,Sciarpa di Kadachi,Szal z Kadachi,Echarpe de Kadachi,وشاح كاداتشي
+467,,Ok,Ok,Ok,Ok,Buff Body α+,【健美α】服裝,【マッスルα】衣装,【健美阿尔法】服装,【머슬α】의상,Мускулыα+,Kräftiger Körper α+,Fitness α+,Corpo palestrato α+,Niezła rzeźbaα+,Corpo Saradoα+,هيكل التقويةα+
+468,Ok,Ok,Ok,Ok,Ok,Brute Tigrex α+,【精英·轟吼α】服裝,【EXレックスロアα】衣装,【精英·轰吼阿尔法】服装,【EX렉스로어α】의상,Свирепый тигрексα+,Brachial α+,Tigrex berserk α+,Tigrex brutale α+,Zwalistego Tigrexaα+,Tigrex Brutoα+,تغريكس غاشمα+
+469,Ok,Ok,Ok,Ok,Ok,Brute Tigrex β+,【精英·轟吼β】服裝,【EXレックスロアβ】衣装,【精英·轰吼贝塔】服装,【EX렉스로어β】의상,Свирепый тигрексβ+,Brachial β+,Tigrex berserk β+,Tigrex brutale β+,Zwalistego Tigrexaβ+,Tigrex Brutoβ+,تغريكس غاشمβ+
+470,Ok,Ok,Ok,Ok,Ok,Guardian α+,守護者α,ガーディアンα,守护者阿尔法,가디언α,Стражα+,Wächter-Set α+,Gardien α+,Guardiano α+,Strażnikα+,Guardiãoα+,الحارسα+
+471,Ok,Ok,Ok,Ok,Ok,Yukumo,【結雲】服裝,【ユクモノ】衣装,【结云】服装,【유쿠모】의상,Юкумо,Yukumo,Yukumo,Yukumo,Yukumo,Yukumo,يوكومو
+472,Ok,Ok,Ok,Ok,Ok,Silver Knight,【銀騎士】服裝,【銀騎士】衣装,【银骑士】服装,【은기사】의상,Серебряный рыцарь,Silberritter,Chevalier d'argent,Cavaliere d’argento,Srebrnego Rycerza,Cavaleiro Prateado,فارس فضي
+474,Ok,Ok,Ok,Ok,Ok,Namielle γ+,【精英·觸角γ】服裝,【EXテンタクルγ】衣装,【精英·触角伽马】服装,【EX텐터클γ】의상,Намиэльγ+,Namielle γ+,Namielle γ+,Namielle γ+,Namiellaγ+,Namielleγ+,ناميالγ+
+475,Ok,Ok,Ok,Ok,Ok,Azure Starlord,【蒼星之將】服裝,【蒼星ノ将】衣装,【苍星之将】服装,【파란별 장군】의상,Лазурный звездный лорд,Azurstern-Gebieter,Paladin des étoiles,Sommo celeste,Pan Lazurowej Gwiazdy,Senhor Estelar Lazúli,سيد نجوم لازوردي
+476,Ok,Ok,Ok,Ok,Ok,Azure Age α+,精英‧蒼世武士α,EX蒼世ノ侍α,精英·苍世武士阿尔法,EX푸른빛무사α,Лазурный воинα+,Azurära-Set α+,Âge d'azur α+,Epoca celeste α+,Lazurowa Eryα+,Samurai Lazúliα+,عصر اللازورديα+
+477,Ok,Ok,Ok,Ok,Ok,Velkhana γ+,【精英·雪崩γ】服裝,【EXラヴィーナγ】衣装,【精英·雪崩伽马】服装,【EX라비나γ】의상,Велханаγ+,Velkhana γ+,Velkhana γ+,Velkhana γ+,Velkhanyγ+,Velkhanaγ+,فيلكاناγ+
+478,Ok,Ok,Ok,Ok,Ok,Frostfang Barioth α+,【精英·霜刃冰牙龍α】服裝,【EXオルムングα】衣装,【精英·霜刃冰牙龙阿尔法】服装,【EX오르문그α】의상,Ледозубый бариотα+,Frosthauer-Barioth α+,Barioth crocgivre α+,Barioth assiderato α+,Bariotha Mrozokłaα+,Barioth Presagélidaα+,باريوث أنياب الصقيعα+
+479,Ok,Ok,Ok,Ok,Ok,Frostfang Barioth β+,【精英·霜刃冰牙龍β】服裝,【EXオルムングβ】衣装,【精英·霜刃冰牙龙贝塔】服装,【EX오르문그β】의상,Ледозубый бариотβ+,Frosthauer-Barioth β+,Barioth crocgivre β+,Barioth assiderato β+,Bariotha Mrozokłaβ+,Barioth Presagélidaβ+,باريوث أنياب الصقيعβ+
+480,Ok,Ok,Ok,Ok,Ok,Fatalis α+,【精英‧龍α】服裝,【EXドラゴンα】衣装,【精英·龙阿尔法】服装,【EX드래곤α】의상 ,Фаталисα+,Fatalis α+,Fatalis α+,Fatalis α+,Fatalisα+,Fatalisα+,فاتاليسα+
+481,Ok,Ok,Ok,Ok,Ok,Fatalis β+,【精英‧龍β】服裝,【EXドラゴンβ】衣装,【精英·龙贝塔】服装,【EX드래곤β】의상 ,Фаталисβ+,Fatalis β+,Fatalis β+,Fatalis β+,Fatalisβ+,Fatalisβ+,فاتاليسβ+
+484,Ok,Ok,Ok,Ok,Ok,Leon α+,精英‧里昂α,EXレオンα,精英·里昂阿尔法,EX레온α,Леон α+,Leon α+,Leon α+,Leon α+,Leon α+,Leon α+,ليون α+
+485,Ok,Ok,Ok,Ok,Ok,Claire α+,精英‧克蕾兒α,EXクレアα,精英·克莱尔阿尔法,EX클레어α,Клэр α+,Claire α+,Claire α+,Claire α+,Claire α+,Claire α+,كلير α+
+486,Ok,Ok,Ok,Ok,Ok,Leon+,【里昂】服裝,【レオン】衣装,【里昂】服装,【레온】의상,Леон+,Leon+,Leon +,Leon+,Leon+,Leon+,ليون+
+487,Ok,Ok,Ok,Ok,Ok,Claire+,【克蕾兒】服裝,【クレア】衣装,【克莱尔】服装,【클레어】의상,Клэр+,Claire+,Claire +,Claire+,Claire+,Claire+,كلير+
+488,Ok,,,,,Gastodon,【突擊龍】服裝,【ガスト】衣装,【突击龙】服装,【가스토】의상,Гастодон,Gastodon,Gastodon,Gastodon,Gastodona,Gastodonte,غاستودون
+489,,Ok,,,,Barnos,【酸翼龍】服裝,【バルノス】衣装,【酸翼龙】服装,【바르노스】의상,Барнос,Barnos,Barnos,Barnos,Barnosa,Barnos,بارنوس
+490,Ok,Ok,Ok,Ok,Ok,Dodogama,【岩賊龍】服裝,【ガマル】衣装,【岩贼龙】服装,【가마루】의상,Додогама,Dodogama,Dodogama,Dodogama,Dodogamy,Dodogama,دودوغما
+491,Ok,Ok,Ok,Ok,Ok,Ingot,【鑄鐵】服裝,【インゴット】衣装,【铸铁】服装,【잉곳】의상,Драгоценный,Guss,Lingot,Lingotto,Sztabek,Lingote,إنغوت
+492,Ok,Ok,Ok,Ok,Ok,Rath Heart α,【火龍心α】服裝,【リオハートα】衣装,【火龙心阿尔法】服装,【리오하트α】의상,Сердце ратыα,Rathianherz α,Cœur Rathian α,Cuore di Rath α,Serca Rathaα,Coração Rathα,قلب راثα
+493,Ok,Ok,Ok,Ok,Ok,Rath Heart β,【火龍心β】服裝,【リオハートβ】衣装,【火龙心贝塔】服装,【리오하트β】의상,Сердце ратыβ,Rathianherz β,Cœur Rathian β,Cuore di Rath β,Serca Rathaβ,Coração Rathβ,قلب راثβ
+494,Ok,Ok,Ok,Ok,Ok,Lavasioth α,【熔岩龍α】服裝,【ラヴァα】衣装,【熔岩龙阿尔法】服装,【라바α】의상,Лавасиотα,Lavasioth α,Lavasioth α,Lavasioth α,Lavasiothaα,Lavasiothα,لافاسيوثα
+495,Ok,Ok,Ok,Ok,Ok,Lavasioth β,【熔岩龍β】服裝,【ラヴァβ】衣装,【熔岩龙贝塔】服装,【라바β】의상,Лавасиотβ,Lavasioth β,Lavasioth β,Lavasioth β,Lavasiothaβ,Lavasiothβ,لافاسيوثβ
+496,Ok,Ok,Ok,Ok,Ok,Legiana α,【風漂龍α】服裝,【ギエナα】衣装,【风漂龙阿尔法】服装,【기에나α】의상,Легианаα,Legiana α,Legiana α,Legiana α,Legianyα,Legianaα,ليغياناα
+497,Ok,Ok,Ok,Ok,Ok,Legiana β,【風漂龍β】服裝,【ギエナβ】衣装,【风漂龙贝塔】服装,【기에나β】의상,Легианаβ,Legiana β,Legiana β,Legiana β,Legianyβ,Legianaβ,ليغياناβ
+498,Ok,Ok,Ok,Ok,Ok,Odogaron α,【慘爪龍α】服裝,【ガロンα】衣装,【惨爪龙阿尔法】服装,【가론α】의상,Одогаронα,Odogaron α,Odogaron α,Odogaron α,Odogaronaα,Odogaronα,أودوغارونα
+499,Ok,Ok,Ok,Ok,Ok,Odogaron β,【慘爪龍β】服裝,【ガロンβ】衣装,【惨爪龙贝塔】服装,【가론β】의상,Одогаронβ,Odogaron β,Odogaron β,Odogaron β,Odogaronaβ,Odogaronβ,أودوغارونβ
+500,Ok,Ok,Ok,Ok,Ok,Rathalos α,【火龍α】服裝,【レウスα】衣装,【火龙阿尔法】服装,【레우스α】의상,Раталосα,Rathalos α,Rathalos α,Rathalos α,Rathalosaα,Rathalosα,راذالوسα
+501,Ok,Ok,Ok,Ok,Ok,Rathalos β,【火龍β】服裝,【レウスβ】衣装,【火龙贝塔】服装,【레우스β】의상,Раталосβ,Rathalos β,Rathalos β,Rathalos β,Rathalosaβ,Rathalosβ,راذالوسβ
+502,Ok,Ok,Ok,Ok,Ok,Rath Soul α,【火龍魂α】服裝,【リオソウルα】衣装,【火龙魂阿尔法】服装,【리오소울α】의상,Душа ратыα,Rathalosseelen α,Âme Rathalos α,Anima di Rath α,Duszy Rathaα,Alma de Rathα,روح راثα
+503,Ok,Ok,Ok,Ok,Ok,Rath Soul β,【火龍魂β】服裝,【リオソウルβ】衣装,【火龙魂贝塔】服装,【리오소울β】의상,Душа ратыβ,Rathalosseelen β,Âme Rathalos β,Anima di Rath β,Duszy Rathaβ,Alma de Rathβ,روح راثβ
+504,Ok,Ok,Ok,Ok,Ok,Diablos α,【角龍α】服裝,【ディアブロα】衣装,【角龙阿尔法】服装,【디아블로α】의상,Диаблосα,Diablos α,Diablos α,Diablos α,Diablosaα,Diablosα,ديابلوسα
+505,Ok,Ok,Ok,Ok,Ok,Diablos β,【角龍β】服裝,【ディアブロβ】衣装,【角龙贝塔】服装,【디아블로β】의상,Диаблосβ,Diablos β,Diablos β,Diablos β,Diablosaβ,Diablosβ,ديابلوسβ
+506,Ok,Ok,Ok,Ok,Ok,Diablos Nero α,【暴君角龍α】服裝,【ディアネロα】衣装,【暴君角龙阿尔法】服装,【디아네로α】의상,Жуткая диаблосα,Diablos-Nero α,Diablos noire α,Diablos nera α,Czarnej Diabliα,Diablos Negraα,نيرو ديابلوسα
+507,Ok,Ok,Ok,Ok,Ok,Diablos Nero β,【暴君角龍β】服裝,【ディアネロβ】衣装,【暴君角龙贝塔】服装,【디아네로β】의상,Жуткая диаблосβ,Diablos-Nero β,Diablos noire β,Diablos nera β,Czarnej Diabliβ,Diablos Negraβ,نيرو ديابلوسβ
+508,Ok,Ok,Ok,Ok,Ok,Uragaan α,【爆鎚龍α】服裝,【ガンキンα】衣装,【爆锤龙阿尔法】服装,【간킨α】의상,Урагаанα,Uragaan α,Uragaan α,Uragaan α,Uragaanaα,Uragaanα,أوراغانα
+509,Ok,Ok,Ok,Ok,Ok,Uragaan β,【爆鎚龍β】服裝,【ガンキンβ】衣装,【爆锤龙贝塔】服装,【간킨β】의상,Урагаанβ,Uragaan β,Uragaan β,Uragaan β,Uragaanaβ,Uragaanβ,أوراغانβ
+510,Ok,Ok,Ok,Ok,Ok,Bazelgeuse α,【爆鱗龍α】服裝,【バゼルα】衣装,【爆鳞龙阿尔法】服装,【바젤α】의상,Базельгейсα,Bazelgeuse α,Bazelgeuse α,Bazelgeuse α,Bazelgezaα,Bazelgeuseα,بازيلα
+511,Ok,Ok,Ok,Ok,Ok,Bazelgeuse β,【爆鱗龍β】服裝,【バゼルβ】衣装,【爆鳞龙贝塔】服装,【바젤β】의상,Базельгейсβ,Bazelgeuse β,Bazelgeuse β,Bazelgeuse β,Bazelgezaβ,Bazelgeuseβ,بازيلβ
+512,Ok,Ok,Ok,Ok,Ok,Deviljho α,【殘虐α】服裝,【バンギスα】衣装,【残虐阿尔法】服装,【반기스α】의상,Девильоα,Dämonjho α,Deviljho α,Deviljho α,Deviljhoα,Deviljhoα,ديفيلجوα
+513,Ok,Ok,Ok,Ok,Ok,Deviljho β,【殘虐β】服裝,【バンギスβ】衣装,【残虐贝塔】服装,【반기스β】의상,Девильоβ,Dämonjho β,Deviljho β,Deviljho β,Deviljhoβ,Deviljhoβ,ديفيلجوβ
+514,Ok,Ok,Ok,Ok,Ok,Dober α,【杜賓α】服裝,【ドーベルα】衣装,【杜宾阿尔法】服装,【도베르α】의상,Доберα,Dober α,Dober α,Dober α,Doberaα,Doberα,دوبرα
+515,Ok,Ok,Ok,Ok,Ok,Dober β,【杜賓β】服裝,【ドーベルβ】衣装,【杜宾贝塔】服装,【도베르β】의상,Доберβ,Dober β,Dober β,Dober β,Doberaβ,Doberβ,دوبرβ
+516,Ok,Ok,Ok,Ok,Ok,Damascus α,【大馬士革α】服裝,【ダマスクα】衣装,【大马士革阿尔法】服装,【다마스크α】의상,Дамасскα,Damaskus α,Damascus α,Damasco α,Damasceńskiα,Damascusα,دمشقα
+517,Ok,Ok,Ok,Ok,Ok,Damascus β,【大馬士革β】服裝,【ダマスクβ】衣装,【大马士革贝塔】服装,【다마스크β】의상,Дамасскβ,Damaskus β,Damascus β,Damasco β,Damasceńskiβ,Damascusβ,دمشقβ
+518,Ok,Ok,Ok,Ok,Ok,Zorah α,【鑄島熔岩α】服裝,【ゾラマグナα】衣装,【铸岛熔岩阿尔法】服装,【조라마그나α】의상,Дзораα,Zorah α,Zorah Magdaros α,Zorah α,Zorahaα,Zorahα,زوراهα
+519,Ok,Ok,Ok,Ok,Ok,Zorah β,【鑄島熔岩β】服裝,【ゾラマグナβ】衣装,【铸岛熔岩贝塔】服装,【조라마그나β】의상,Дзораβ,Zorah β,Zorah Magdaros β,Zorah β,Zorahaβ,Zorahβ,زوراهβ
+520,Ok,Ok,Ok,Ok,Ok,Zorah γ,【鑄島熔岩γ】服裝,【ゾラマグナγ】衣装,【铸岛熔岩伽马】服装,【조라마그나γ】의상,Дзораγ,Zorah γ,Zorah Magdaros γ,Zorah γ,Zorahaγ,Zorahγ,زوراهγ
+521,Ok,Ok,Ok,Ok,Ok,Nergigante α,【戰紋α】服裝,【オーグα】衣装,【战纹阿尔法】服装,【오그α】의상,Нергигантα,Nergigante α,Nergigante α,Nergigante α,Nergigantaα,Nergiganteα,نيرغيα
+522,Ok,Ok,Ok,Ok,Ok,Nergigante β,【戰紋β】服裝,【オーグβ】衣装,【战纹贝塔】服装,【오그β】의상,Нергигантβ,Nergigante β,Nergigante β,Nergigante β,Nergigantaβ,Nergiganteβ,نيرغيβ
+523,Ok,Ok,Ok,Ok,Ok,Nergigante γ,【戰紋γ】服裝,【オーグγ】衣装,【战纹伽马】服装,【오그γ】의상,Нергигантγ,Nergigante γ,Nergigante γ,Nergigante γ,Nergigantaγ,Nergiganteγ,نيرغيγ
+524,Ok,Ok,Ok,Ok,Ok,Teostra α,【帝王α】服裝,【カイザーα】衣装,【帝王阿尔法】服装,【카이저α】의상,Теостраα,Teostra α,Kaiser α,Kaiser α,Teostryα,Teostraα,تيوستراα
+525,Ok,Ok,Ok,Ok,Ok,Teostra β,【帝王β】服裝,【カイザーβ】衣装,【帝王贝塔】服装,【카이저β】의상,Теостраβ,Teostra β,Kaiser β,Kaiser β,Teostryβ,Teostraβ,تيوستراβ
+526,Ok,Ok,Ok,Ok,Ok,Teostra γ,【帝王γ】服裝,【カイザーγ】衣装,【帝王伽马】服装,【카이저γ】의상,Теостраγ,Teostra γ,Kaiser γ,Kaiser γ,Teostryγ,Teostraγ,تيوستراγ
+527,Ok,Ok,Ok,Ok,Ok,Kushala α,【鋼龍α】服裝,【クシャナα】衣装,【钢龙阿尔法】服装,【크샤나α】의상,Кушалаα,Kushala α,Kushala Daora α,Kushala α,Kushaliα,Kushalaα,كوشالاα
+528,Ok,Ok,Ok,Ok,Ok,Kushala β,【鋼龍β】服裝,【クシャナβ】衣装,【钢龙贝塔】服装,【크샤나β】의상,Кушалаβ,Kushala β,Kushala Daora β,Kushala β,Kushaliβ,Kushalaβ,كوشالاβ
+529,Ok,Ok,Ok,Ok,Ok,Kushala γ,【鋼龍γ】服裝,【クシャナγ】衣装,【钢龙伽马】服装,【크샤나γ】의상,Кушалаγ,Kushala γ,Kushala Daora γ,Kushala γ,Kushaliγ,Kushalaγ,كوشالاγ
+530,Ok,Ok,Ok,Ok,Ok,Vaal Hazak α,【烏爾德α】服裝,【ウルズα】衣装,【乌尔德阿尔法】服装,【우르즈α】의상,Ваал-хазакα,Vaal Hazak α,Vaal Hazak α,Vaal Hazak α,Vaal Hazakaα,Vaal Hazakα,فال هازاكα
+531,Ok,Ok,Ok,Ok,Ok,Vaal Hazak β,【烏爾德β】服裝,【ウルズβ】衣装,【乌尔德贝塔】服装,【우르즈β】의상,Ваал-хазакβ,Vaal Hazak β,Vaal Hazak β,Vaal Hazak β,Vaal Hazakaβ,Vaal Hazakβ,فال هازاكβ
+532,Ok,Ok,Ok,Ok,Ok,Vaal Hazak γ,【烏爾德γ】服裝,【ウルズγ】衣装,【乌尔德伽马】服装,【우르즈γ】의상,Ваал-хазакγ,Vaal Hazak γ,Vaal Hazak γ,Vaal Hazak γ,Vaal Hazakaγ,Vaal Hazakγ,فال هازاكγ
+533,Ok,Ok,Ok,Ok,Ok,Kirin α,【麒麟α】服裝,【キリンα】衣装,【麒麟阿尔法】服装,【키린α】의상,Киринα,Kirin α,Kirin α,Kirin α,Kirinaα,Kirinα,كيرينα
+534,Ok,Ok,Ok,Ok,Ok,Kirin β,【麒麟β】服裝,【キリンβ】衣装,【麒麟贝塔】服装,【키린β】의상,Киринβ,Kirin β,Kirin β,Kirin β,Kirinaβ,Kirinβ,كيرينβ
+535,Ok,Ok,Ok,Ok,Ok,Kirin γ,【麒麟γ】服裝,【キリンγ】衣装,【麒麟伽马】服装,【키린γ】의상,Киринγ,Kirin γ,Kirin γ,Kirin γ,Kirinaγ,Kirinγ,كيرينγ
+536,Ok,Ok,Ok,Ok,Ok,Xeno α,【冥燈幽火α】服裝,【ゼノラージα】衣装,【冥灯幽火阿尔法】服装,【제노라지α】의상,Ксеноα,Xeno α,Xeno'jiiva α,Xeno α,Xenoα,Xenoα,زينوα
+537,Ok,Ok,Ok,Ok,Ok,Xeno β,【冥燈幽火β】服裝,【ゼノラージβ】衣装,【冥灯幽火贝塔】服装,【제노라지β】의상,Ксеноβ,Xeno β,Xeno'jiiva β,Xeno β,Xenoβ,Xenoβ,زينوβ
+538,Ok,Ok,Ok,Ok,Ok,Xeno γ,【冥燈幽火γ】服裝,【ゼノラージγ】衣装,【冥灯幽火伽马】服装,【제노라지γ】의상,Ксеноγ,Xeno γ,Xeno'jiiva γ,Xeno γ,Xenoγ,Xenoγ,زينوγ
+539,Ok,Ok,Ok,Ok,Ok,Lunastra α,【皇后α】服裝,【エンプレスα】衣装,【皇后阿尔法】服装,【엠프리스α】의상,Лунастраα,Lunastra α,Imperatrix α,Imperatrice α,Lunastryα,Lunastraα,لوناستراα
+540,Ok,Ok,Ok,Ok,Ok,Lunastra β,【皇后β】服裝,【エンプレスβ】衣装,【皇后贝塔】服装,【엠프리스β】의상,Лунастраβ,Lunastra β,Imperatrix β,Imperatrice β,Lunastryβ,Lunastraβ,لوناستراβ
+541,Ok,Ok,Ok,Ok,Ok,Lunastra γ,【皇后γ】服裝,【エンプレスγ】衣装,【皇后伽马】服装,【엠프리스γ】의상,Лунастраγ,Lunastra γ,Imperatrix γ,Imperatrice γ,Lunastryγ,Lunastraγ,لوناستراγ
+542,Ok,Ok,Ok,Ok,Ok,Kulve α,【絢輝龍鎧羅α】服裝,【マムガイラα】衣装,【绚辉龙铠罗阿尔法】服装,【맘가이라α】의상,Кулвеα,Kulve α,Kulve Taroth α,Kulve α,Kulveα,Kulveα,كولفα
+543,Ok,Ok,Ok,Ok,Ok,Kulve β,【絢輝龍鎧羅β】服裝,【マムガイラβ】衣装,【绚辉龙铠罗贝塔】服装,【맘가이라β】의상,Кулвеβ,Kulve β,Kulve Taroth β,Kulve β,Kulveβ,Kulveβ,كولفβ
+544,Ok,Ok,Ok,Ok,Ok,Kulve γ,【絢輝龍鎧羅γ】服裝,【マムガイラγ】衣装,【绚辉龙铠罗伽马】服装,【맘가이라γ】의상,Кулвеγ,Kulve γ,Kulve Taroth γ,Kulve γ,Kulveγ,Kulveγ,كولفγ
+545,Ok,Ok,Ok,Ok,Ok,Guardian,【守護者】服裝,【ガーディアン】衣装,【守护者】服装,【가디언】의상,Страж,Wächter,Gardien,Guardiano,Strażnik,Guardião,الحارس
+546,Ok,Ok,Ok,Ok,Ok,Vespoid+,【精英·巨蜂】服裝,【EXランゴ】衣装,【精英·巨蜂】服装,【EX랑고】의상,Осоид+,Vespoid+,Vespoid +,Vespoid+,Vespoid+,Vespoidea+,فيسبويد+
+547,Ok,Ok,Ok,Ok,Ok,Hornetaur+,【精英·巨甲蟲】服裝,【EXタロス】衣装,【精英·巨甲虫】服装,【EX타로스】의상,Роготавр+,Hornetaur+,Hornetaur +,Hornetaur+,Hornetaur+,Chifrotauro+,هورنتور+
+548,Ok,,,,,Wulg+,【精英·冰豺龍】服裝,【EXウルグ】衣装,【精英·冰豺龙】服装,【EX우르그】의상,Вальг+,Wulg+,Wulg +,Wulg+,Wulg+,Wulg+,وولغ+
+549,,Ok,,,,Cortos+,【精英·冬翼龍】服裝,【EXコルトス】衣装,【精英·冬翼龙】服装,【EX코르토스】의상,Кортос+,Cortos+,Cortos +,Cortos+,Cortos+,Cortos+,كورتوس+
+550,Ok,Ok,Ok,Ok,Ok,Jagras+,【精英·凶豺龍】服裝,【EXジャグラス】衣装,【精英·贼龙】服装,【EX쟈그라스】의상,Яграс+,Jagras+,Jagras +,Jagras+,Jagras+,Jagras+,جاغراس+
+551,Ok,Ok,Ok,Ok,Ok,Tzitzi-Ya-Ku+,【精英·眩鳥】服裝,【EXツィツィ】衣装,【精英·眩鸟】服装,【EX치치】의상,Цици-йа-ку+,Tzitzi-Ya-Ku+,Tzitzi-Ya-Ku +,Tzitzi+,Tzitzi-Ya-Ku+,Tzitzi-Ya-Ku+,تسيتسي-يا-كو+
+552,Ok,Ok,Ok,Ok,Ok,Great Girros+,【精英·凶顎龍】服裝,【EXギルオス】衣装,【精英·痹贼龙】服装,【EX기르오스】의상,Большой гиррос+,Groß-Girros+,Grand Girros +,Girros+,Wielkiego Girrosa+,Grande Girros+,غيروس العظيم+
+553,Ok,Ok,Ok,Ok,Ok,Dodogama+,【精英·岩賊龍】服裝,【EXガマル】衣装,【精英·岩贼龙】服装,【EX가마루】의상,Додогама+,Dodogama+,Dodogama +,Dodogama+,Dodogama+,Dodogama+,دودوغما+
+554,Ok,Ok,Ok,Ok,Ok,Kulu-Ya-Ku+,【精英·搔鳥】服裝,【EXクルル】衣装,【精英·搔鸟】服装,【EX쿠루루】의상,Кулу-йа-ку+,Kulu-Ya-Ku+,Kulu-Ya-Ku +,Kulu+,Kulu-Ya-Ku+,Kulu-Ya-Ku+,كولو-يا-كو+
+555,Ok,Ok,Ok,Ok,Ok,Pukei-Pukei+,【精英·毒妖鳥】服裝,【EXプケプケ】衣装,【精英·毒妖鸟】服装,【EX푸케푸케】의상,Поки-поки+,Pukei-Pukei+,Pukei-Pukei +,Pukei+,Pukei-Pukei+,Pukei-Pukei+,بوكي-بوكي+
+556,Ok,Ok,Ok,Ok,Ok,Coral Pukei+,【精英·妖水】服裝,【EXプケラグーナ】衣装,【精英·妖水】服装,【EX푸케라그나】의상,Коралловый поки+,Korallen-Pukei+,Pukei-Pukei corail +,Pukei corallino+,Koralowy Pukei+,Pukei Coralino+,بوكي مرجاني+
+557,Ok,Ok,Ok,Ok,Ok,Barroth+,【精英·土砂龍】服裝,【EXボロス】衣装,【精英·土砂龙】服装,【EX보로스】의상,Баррот+,Barroth+,Barroth +,Barroth+,Barroth+,Barroth+,باروث+
+558,Ok,Ok,Ok,Ok,Ok,Jyuratodus+,【精英·泥魚龍】服裝,【EXジュラ】衣装,【精英·泥鱼龙】服装,【EX쥬라】의상,Юратод+,Jyuratodus+,Jyuratodus +,Jyura+,Jyuratodusa+,Jyuratodus+,جيوراتودوس+
+559,Ok,Ok,Ok,Ok,Ok,Beotodus+,【精英·冰魚龍】服裝,【EXブラン】衣装,【精英·冰鱼龙】服装,【EX브란】의상,Беотод+,Beotodus+,Beotodus +,Beotodus+,Beotodusa+,Beotodus+,بيوتودس+
+560,Ok,Ok,Ok,Ok,Ok,Tobi-Kadachi+,【精英·飛雷龍】服裝,【EXカガチ】衣装,【精英·飞雷龙】服装,【EX카가치】의상,Тоби-кадачи+,Tobi-Kadachi+,Tobi-Kadachi +,Kadachi+,Tobi-Kadachi+,Tobi-Kadachi+,توبي-كاداتشي+
+561,Ok,Ok,Ok,Ok,Ok,Viper Kadachi+,【精英·朱毒】服裝,【EXベニカガチ】衣装,【精英·朱毒】服装,【EX베니카가치】의상,Аспидовый кадачи+,Viper+,Tobi-Kadachi vipère +,Kadachi vipera+,Żmijowy Kadachi+,Kadachi Vípero+,كاداتشي ثعباني+
+562,Ok,Ok,Ok,Ok,Ok,Banbaro α+,【精英·猛牛龍α】服裝,【EXバフバロα】衣装,【精英·猛牛龙阿尔法】服装,【EX버프바로α】의상,Банбароα+,Banbaro α+,Banbaro α+,Banbaro α+,Banbaroα+,Banbaroα+,بنباروα+
+563,Ok,Ok,Ok,Ok,Ok,Banbaro β+,【精英·猛牛龍β】服裝,【EXバフバロβ】衣装,【精英·猛牛龙贝塔】服装,【EX버프바로β】의상,Банбароβ+,Banbaro β+,Banbaro β+,Banbaro β+,Banbaroβ+,Banbaroβ+,بنباروβ+
+564,Ok,Ok,Ok,Ok,Ok,Anjanath α+,【精英·蠻顎龍α】服裝,【EXジャナフα】衣装,【精英·蛮颚龙阿尔法】服装,【EX쟈나프α】의상,Аньянатα+,Anjanath α+,Anjanath α+,Anjanath α+,Anjanathaα+,Anjanathα+,أنجاناثα+
+565,Ok,Ok,Ok,Ok,Ok,Anjanath β+,【精英·蠻顎龍β】服裝,【EXジャナフβ】衣装,【精英·蛮颚龙贝塔】服装,【EX쟈나프β】의상,Аньянатβ+,Anjanath β+,Anjanath β+,Anjanath β+,Anjanathaβ+,Anjanathβ+,أنجاناثβ+
+566,Ok,Ok,Ok,Ok,Ok,Fulgur Anja α+,【精英·雷顎α】服裝,【EXジャナールα】衣装,【精英·雷颚阿尔法】服装,【EX쟈나르α】의상,Гром. аньянатα+,Fulgur α+,Anjanath tonnerre α+,Anja tonante α+,Piorunowy Anjaα+,Anjanath Fulguranteα+,أنجا رعديα+
+567,Ok,Ok,Ok,Ok,Ok,Fulgur Anja β+,【精英·雷顎β】服裝,【EXジャナールβ】衣装,【精英·雷颚贝塔】服装,【EX쟈나르β】의상,Гром. аньянатβ+,Fulgur β+,Anjanath tonnerre β+,Anja tonante β+,Piorunowy Anjaβ+,Anjanath Fulguranteβ+,أنجا رعديβ+
+568,Ok,Ok,Ok,Ok,Ok,Rathian α+,【精英·雌火龍α】服裝,【EXレイアα】衣装,【精英·雌火龙阿尔法】服装,【EX레이아α】의상,Ратианаα+,Rathian α+,Rathian α+,Rathian α+,Rathianaα+,Rathianα+,راثيانα+
+569,Ok,Ok,Ok,Ok,Ok,Rathian β+,【精英·雌火龍β】服裝,【EXレイアβ】衣装,【精英·雌火龙贝塔】服装,【EX레이아β】의상,Ратианаβ+,Rathian β+,Rathian β+,Rathian β+,Rathianaβ+,Rathianβ+,راثيانβ+
+570,Ok,Ok,Ok,Ok,Ok,Rath Heart α+,【精英·火龍心α】服裝,【EXリオハートα】衣装,【精英·火龙心阿尔法】服装,【EX리오하트α】의상,Сердце ратα+,Rathianherz α+,Cœur Rathian α+,Cuore di Rath α+,Serce Rathaα+,Coração Rathα+,قلب راثα+
+571,Ok,Ok,Ok,Ok,Ok,Rath Heart β+,【精英·火龍心β】服裝,【EXリオハートβ】衣装,【精英·火龙心贝塔】服装,【EX리오하트β】의상,Сердце ратβ+,Rathianherz β+,Cœur Rathian β+,Cuore di Rath β+,Serce Rathaβ+,Coração Rathβ+,قلب راثβ+
+572,Ok,Ok,Ok,Ok,Ok,Paolumu+,【精英·浮空龍】服裝,【EXウルムー】衣装,【精英·浮空龙】服装,【EX우르무】의상,Паолуму+,Paolumu+,Paolumu +,Paolumu+,Paolumu+,Paolumu+,باولومو+
+573,Ok,Ok,Ok,Ok,Ok,Lumu Phantasm+,【精英·浮夢】服裝,【EXウルムメア】衣装,【精英·浮梦】服装,【EX우르무메어】의상,Фантазм луму+,Nachtschatten+,Paolumu belladone +,Paulumu onirico+,Fantazmat z Lumu+,Ilusão Lumu+,طيف لومو+
+574,Ok,Ok,Ok,Ok,Ok,Radobaan+,【精英·骨鎚龍】服裝,【EXバルキン】衣装,【精英·骨锤龙】服装,【EX발킨】의상,Радобаан+,Radobaan+,Radobaan +,Baan+,Radobaana+,Radobaan+,رادوبان+
+575,Ok,Ok,Ok,Ok,Ok,Artian,【機械】服裝,【アーティア】衣装,【机械】服装,【아티어】의상,Артиан,Artian,Artian,Artian,Artian,Artian,تحفة فنية
+576,Ok,Ok,Ok,Ok,Ok,Barioth α+,【精英·冰牙龍α】服裝,【EXベリオα】衣装,【精英·冰牙龙阿尔法】服装,【EX벨리오α】의상,Бариотα+,Barioth α+,Barioth α+,Barioth α+,Bariothα+,Bariothα+,باريوثα+
+577,Ok,Ok,Ok,Ok,Ok,Barioth β+,【精英·冰牙龍β】服裝,【EXベリオβ】衣装,【精英·冰牙龙贝塔】服装,【EX벨리오β】의상,Бариотβ+,Barioth β+,Barioth β+,Barioth β+,Bariothβ+,Bariothβ+,باريوثβ+
+578,Ok,Ok,Ok,Ok,Ok,Rathalos α+,【精英·火龍α】服裝,【EXレウスα】衣装,【精英·火龙阿尔法】服装,【EX레우스α】의상,Раталосα+,Rathalos α+,Rathalos α+,Rathalos α+,Rathalosα+,Rathalosα+,راذالوسα+
+579,Ok,Ok,Ok,Ok,Ok,Rathalos β+,【精英·火龍β】服裝,【EXレウスβ】衣装,【精英·火龙贝塔】服装,【EX레우스β】의상,Раталосβ+,Rathalos β+,Rathalos β+,Rathalos β+,Rathalosβ+,Rathalosβ+,راذالوسβ+
+580,Ok,Ok,Ok,Ok,Ok,Rath Soul α+,【精英·火龍魂α】服裝,【EXリオソウルα】衣装,【精英·火龙魂阿尔法】服装,【EX리오소울α】의상,Душа ратыα+,Rathalosseelen α+,Âme Rathalos α+,Anima di Rath α+,Dusza Rathaα+,Alma de Rathα+,روح راثα+
+581,Ok,Ok,Ok,Ok,Ok,Rath Soul β+,【精英·火龍魂β】服裝,【EXリオソウルβ】衣装,【精英·火龙魂贝塔】服装,【EX리오소울β】의상,Душа ратыβ+,Rathalosseelen β+,Âme Rathalos β+,Anima di Rath β+,Dusza Rathaβ+,Alma de Rathβ+,روح راثβ+
+582,Ok,Ok,Ok,Ok,Ok,Diablos α+,【精英·角龍α】服裝,【EXディアブロα】衣装,【精英·角龙阿尔法】服装,【EX디아블로α】의상,Диаблосα+,Diablos α+,Diablos α+,Diablos α+,Diablosα+,Diablosα+,ديابلوسα+
+583,Ok,Ok,Ok,Ok,Ok,Diablos β+,【精英·角龍β】服裝,【EXディアブロβ】衣装,【精英·角龙贝塔】服装,【EX디아블로β】의상,Диаблосβ+,Diablos β+,Diablos β+,Diablos β+,Diablosβ+,Diablosβ+,ديابلوسβ+
+584,Ok,Ok,Ok,Ok,Ok,Diablos Nero α+,【精英·暴君角龍α】服裝,【EXディアネロα】衣装,【精英·暴君角龙阿尔法】服装,【EX디아네로α】의상,Жуткая диаблосα+,Diablos-Nero α+,Diablos noire α+,Diablos nera α+,Czarna Diablaα+,Diablos Negraα+,نيرو ديابلوسα+
+585,Ok,Ok,Ok,Ok,Ok,Diablos Nero β+,【精英·暴君角龍β】服裝,【EXディアネロβ】衣装,【精英·暴君角龙贝塔】服装,【EX디아네로β】의상,Жуткая диаблосβ+,Diablos-Nero β+,Diablos noire β+,Diablos nera β+,Czarna Diablaβ+,Diablos Negraβ+,نيرو ديابلوسβ+
+586,Ok,Ok,Ok,Ok,Ok,Legiana α+,【精英·風漂龍α】服裝,【EXギエナα】衣装,【精英·风漂龙阿尔法】服装,【EX기에나α】의상,Легианаα+,Legiana α+,Legiana α +,Legiaα+,Legianyα+,Legianaα+,ليغياناα+
+587,Ok,Ok,Ok,Ok,Ok,Legiana β+,【精英·風漂龍β】服裝,【EXギエナβ】衣装,【精英·风漂龙贝塔】服装,【EX기에나β】의상,Легианаβ+,Legiana β+,Legiana β +,Legiaβ+,Legianyβ+,Legianaβ+,ليغياناβ+
+588,Ok,Ok,Ok,Ok,Ok,Shrieking Legia α+,【精英·霜漂α】服裝,【EXブリーナα】衣装,【精英·霜漂阿尔法】服装,【EX브리나α】의상,Визжащая легианаα+,Schneesturm α+,Legiana blizzard α+,Legiana glaciale α+,Wrzeszcząca Legiaα+,Legia Estridenteα+,ليغيا الصارخα+
+589,Ok,Ok,Ok,Ok,Ok,Shrieking Legia β+,【精英·霜漂β】服裝,【EXブリーナβ】衣装,【精英·霜漂贝塔】服装,【EX브리나β】의상,Визжащая легианаβ+,Schneesturm β+,Legiana blizzard β+,Legiana glaciale β+,Wrzeszcząca Legiaβ+,Legia Estridenteβ+,ليغيا الصارخβ+
+590,Ok,Ok,Ok,Ok,Ok,Odogaron α+,【精英·慘爪α】服裝,【EXガロンα】衣装,【精英·惨爪阿尔法】服装,【EX가론α】의상,Одогаронα+,Odogaron α+,Odogaron α+,Odogaron α+,Odogaronα+,Odogaronα+,أودوغارونα+
+591,Ok,Ok,Ok,Ok,Ok,Odogaron β+,【精英·慘爪β】服裝,【EXガロンβ】衣装,【精英·惨爪贝塔】服装,【EX가론β】의상,Одогаронβ+,Odogaron β+,Odogaron β+,Odogaron β+,Odogaronβ+,Odogaronβ+,أودوغارونβ+
+592,Ok,Ok,Ok,Ok,Ok,Death Garon α+,【精英·亡爪α】服裝,【EXデスガロンα】衣装,【精英·亡爪阿尔法】服装,【EX데스가론α】의상,Смертельный гаронα+,Vulkan α+,Odogaron désastre α+,Odogaron d'ebano α+,Garon Śmierciα+,Garon Mortalα+,غارون الموتα+
+593,Ok,Ok,Ok,Ok,Ok,Death Garon β+,【精英·亡爪β】服裝,【EXデスガロンβ】衣装,【精英·亡爪贝塔】服装,【EX데스가론β】의상,Смертельный гаронβ+,Vulkan β+,Odogaron désastre β+,Odogaron d'ebano β+,Garon Śmierciβ+,Garon Mortalβ+,غارون الموتβ+
+594,Ok,Ok,Ok,Ok,Ok,Lavasioth+,【精英·熔岩龍】服裝,【EXラヴァ】衣装,【精英·熔岩龙】服装,【EX라바】의상,Лавасиот+,Lavasioth+,Lavasioth +,Lavasioth+,Lavasioth+,Lavasioth+,لافاسيوث+
+595,Ok,Ok,Ok,Ok,Ok,Uragaan+,【精英·爆鎚龍】服裝,【EXガンキン】衣装,【精英·爆锤龙】服装,【EX간킨】의상,Урагаан+,Uragaan+,Uragaan +,Uragaan+,Uragaan+,Uragaan+,أوراغان+
+596,Ok,Ok,Ok,Ok,Ok,Nargacuga α+,【精英·迅龍α】服裝,【EXナルガα】衣装,【精英·迅龙阿尔法】服装,【EX나르가α】의상,Наргакугаα+,Nargacuga α+,Nargacuga α+,Nargacuga α+,Nargacugaα+,Nargacugaα+,نارغاكوغاα+
+597,Ok,Ok,Ok,Ok,Ok,Nargacuga β+,【精英·迅龍β】服裝,【EXナルガβ】衣装,【精英·迅龙贝塔】服装,【EX나르가β】의상,Наргакугаβ+,Nargacuga β+,Nargacuga β+,Nargacuga β+,Nargacugaβ+,Nargacugaβ+,نارغاكوغاβ+
+598,Ok,Ok,Ok,Ok,Ok,Glavenus α+,【精英·斬龍α】服裝,【EXディノα】衣装,【精英·斩龙阿尔法】服装,【EX디노α】의상,Главенусα+,Glavenus α+,Glavenus α+,Glavenus α+,Glavenusα+,Glavenusα+,غلافنيوسα+
+599,Ok,Ok,Ok,Ok,Ok,Glavenus β+,【精英·斬龍β】服裝,【EXディノβ】衣装,【精英·斩龙贝塔】服装,【EX디노β】의상,Главенусβ+,Glavenus β+,Glavenus β+,Glavenus β+,Glavenusβ+,Glavenusβ+,غلافنيوسβ+
+600,Ok,Ok,Ok,Ok,Ok,Acidic Glavenus α+,【精英·斬黃α】服裝,【EXディノイエロα】衣装,【精英·斩黄阿尔法】服装,【EX디노이에로α】의상,Кислотный главенусα+,Säure α+,Glavenus acide α+,Glavenus caustico α+,Kwasowy Glavenusα+,Glavenus Ácidoα+,غلافنيوس حمضيα+
+601,Ok,Ok,Ok,Ok,Ok,Acidic Glavenus β+,【精英·斬黃β】服裝,【EXディノイエロβ】衣装,【精英·斩黄贝塔】服装,【EX디노이에로β】의상,Кислотный главенусβ+,Säure β+,Glavenus acide β+,Glavenus caustico β+,Kwasowy Glavenusβ+,Glavenus Ácidoβ+,غلافنيوس حمضيβ+
+602,Ok,Ok,Ok,Ok,Ok,Brachydios α+,【精英·碎龍α】服裝,【EXブラキα】衣装,【精英·碎龙阿尔法】服装,【EX브라키α】의상,Брахидиосα+,Brachydios α+,Brachydios α+,Brachydios α+,Brachydiosα+,Brachydiosα+,براكيديوسα+
+603,Ok,Ok,Ok,Ok,Ok,Brachydios β+,【精英·碎龍β】服裝,【EXブラキβ】衣装,【精英·碎龙贝塔】服装,【EX브라키β】의상,Брахидиосβ+,Brachydios β+,Brachydios β+,Brachydios β+,Brachydiosβ+,Brachydiosβ+,براكيديوسβ+
+604,Ok,Ok,Ok,Ok,Ok,Tigrex α+,【精英·轟龍α】服裝,【EXレックスα】衣装,【精英·轰龙阿尔法】服装,【EX렉스α】의상,Тигрексα+,Tigrex α+,Tigrex α+,Tigrex α+,Tigrexα+,Tigrexα+,تغريكسα+
+605,Ok,Ok,Ok,Ok,Ok,Tigrex β+,【精英·轟龍β】服裝,【EXレックスβ】衣装,【精英·轰龙贝塔】服装,【EX렉스β】의상,Тигрексβ+,Tigrex β+,Tigrex β+,Tigrex β+,Tigrexβ+,Tigrexβ+,تغريكسβ+
+606,Ok,Ok,Ok,Ok,Ok,Brute Tigrex α+,【精英·轟吼α】服裝,【EXレックスロアα】衣装,【精英·轰吼阿尔法】服装,【EX렉스로어α】의상,Свирепый тигрексα+,Brachial α+,Tigrex berserk α+,Tigrex brutale α+,Zwalistego Tigrexaα+,Tigrex Brutoα+,تغريكس غاشمα+
+607,Ok,Ok,Ok,Ok,Ok,Brute Tigrex β+,【精英·轟吼β】服裝,【EXレックスロアβ】衣装,【精英·轰吼贝塔】服装,【EX렉스로어β】의상,Свирепый тигрексβ+,Brachial β+,Tigrex berserk β+,Tigrex brutale β+,Zwalistego Tigrexaβ+,Tigrex Brutoβ+,تغريكس غاشمβ+
+608,Ok,Ok,Ok,Ok,Ok,Black Belt,【黑帶】服裝,【クロオビ】衣装,【黑带】服装,【검은띠】의상,Черный пояс,Schwarzgurt,Ceinture noire,Cintura nera,Czarny pas,Faixa Preta,حزام أسود
+609,Ok,Ok,Ok,Ok,Ok,Seething Bazel α+,【精英·矜持α】服裝,【EXプライドα】衣装,【精英·矜持阿尔法】服装,【EX프라이드α】의상,Вспыльчивый базельгейсα+,Brodelnder α+,Bazelgeuse vulcan α+,Bazel vulcanico α+,Rozzłoszczonego Bazelaα+,Bazel Vulcânicoα+,بازيل متأججα+
+610,Ok,Ok,Ok,Ok,Ok,Seething Bazel β+,【精英·矜持β】服裝,【EXプライドβ】衣装,【精英·矜持贝塔】服装,【EX프라이드β】의상,Вспыльчивый базельгейсβ+,Brodelnder β+,Bazelgeuse vulcan β+,Bazel vulcanico β+,Rozzłoszczonego Bazelaβ+,Bazel Vulcânicoβ+,بازيل متأججβ+
+611,Ok,Ok,Ok,Ok,Ok,Savage Jho α+,【精英·貪欲α】服裝,【EXグリードα】衣装,【精英·贪欲阿尔法】服装,【EX그리드α】의상,Лютый девильоα+,Wilder Jho α+,Deviljho carnage α+,Deviljho selvaggio α+,Dzikiego Jhoα+,Jho Selvagemα+,ديفيلجو الهمجيα+
+612,Ok,Ok,Ok,Ok,Ok,Savage Jho β+,【精英·貪欲β】服裝,【EXグリードβ】衣装,【精英·贪欲贝塔】服装,【EX그리드β】의상,Лютый девильоβ+,Wilder Jho β+,Deviljho carnage β+,Deviljho selvaggio β+,Dzikiego Jhoβ+,Jho Selvagemβ+,ديفيلجو الهمجيβ+
+613,Ok,Ok,Ok,Ok,Ok,Velkhana α+,【精英·雪崩α】服裝,【EXラヴィーナα】衣装,【精英·雪崩阿尔法】服装,【EX라비나α】의상,Велханаα+,Velkhana α+,Velkhana α+,Velkhana α+,Velkhanyα+,Velkhanaα+,فيلكاناα+
+614,Ok,Ok,Ok,Ok,Ok,Velkhana β+,【精英·雪崩β】服裝,【EXラヴィーナβ】衣装,【精英·雪崩贝塔】服装,【EX라비나β】의상,Велханаβ+,Velkhana β+,Velkhana β+,Velkhana β+,Velkhanyβ+,Velkhanaβ+,فيلكاناβ+
+615,Ok,Ok,Ok,Ok,Ok,Blackveil Hazak α+,【精英·死滅α】服裝,【EXヴァルファーα】衣装,【精英·死灭阿尔法】服装,【EX바르퍼α】의상,Тленный ваал-хазакα+,Velum α+,Vaal Hazak fléau α+,Vaal funereo α+,Welonowego Vaal Hazakaα+,Hazak Veladoα+,هازاك الستار الأسودα+
+616,Ok,Ok,Ok,Ok,Ok,Blackveil Hazak β+,【精英·死滅β】服裝,【EXヴァルファーβ】衣装,【精英·死灭贝塔】服装,【EX바르퍼β】의상,Тленный ваал-хазакβ+,Velum β+,Vaal Hazak fléau β+,Vaal funereo β+,Welonowego Vaal Hazakaβ+,Hazak Veladoβ+,هازاك الستار الأسودβ+
+617,Ok,Ok,Ok,Ok,Ok,Teostra α+,【精英·帝王α】服裝,【EXカイザーα】衣装,【精英·帝王阿尔法】服装,【EX카이저α】의상,Теостраα+,Teostra α+,Kaiser α+,Kaiser α+,Teostryα+,Teostraα+,تيوستراα+
+618,Ok,Ok,Ok,Ok,Ok,Teostra β+,【精英·帝王β】服裝,【EXカイザーβ】衣装,【精英·帝王贝塔】服装,【EX카이저β】의상,Теостраβ+,Teostra β+,Kaiser β+,Kaiser β+,Teostryβ+,Teostraβ+,تيوستراβ+
+619,Ok,Ok,Ok,Ok,Ok,Kushala α+,【精英·鋼龍α】服裝,【EXクシャナα】衣装,【精英·钢龙阿尔法】服装,【EX크샤나α】의상,Кушалаα+,Kushala α+,Kushala α+,Kushala α+,Kushaliα+,Kushalaα+,كوشالاα+
+620,Ok,Ok,Ok,Ok,Ok,Kushala β+,【精英·鋼龍β】服裝,【EXクシャナβ】衣装,【精英·钢龙贝塔】服装,【EX크샤나β】의상,Кушалаβ+,Kushala β+,Kushala β+,Kushala β+,Kushaliβ+,Kushalaβ+,كوشالاβ+
+621,Ok,Ok,Ok,Ok,Ok,Kirin α+,【精英·麒麟α】服裝,【EXキリンα】衣装,【精英·麒麟阿尔法】服装,【EX키린α】의상,Киринα+,Kirin α+,Kirin α+,Kirin α+,Kirinaα+,Kirinα+,كيرينα+
+622,Ok,Ok,Ok,Ok,Ok,Kirin β+,【精英·麒麟β】服裝,【EXキリンβ】衣装,【精英·麒麟贝塔】服装,【EX키린β】의상,Киринβ+,Kirin β+,Kirin β+,Kirin β+,Kirinaβ+,Kirinβ+,كيرينβ+
+623,Ok,Ok,Ok,Ok,Ok,Namielle α+,【精英·觸角α】服裝,【EXテンタクルα】衣装,【精英·触角阿尔法】服装,【EX텐터클α】의상,Намиэльα+,Namielle α+,Namielle α+,Namielle α+,Namiellaα+,Namielleα+,ناميالα+
+624,Ok,Ok,Ok,Ok,Ok,Namielle β+,【精英·觸角β】服裝,【EXテンタクルβ】衣装,【精英·触角贝塔】服装,【EX텐터클β】의상,Намиэльβ+,Namielle β+,Namielle β+,Namielle β+,Namiellaβ+,Namielleβ+,ناميالβ+
+625,Ok,Ok,Ok,Ok,Ok,Guild Palace+,【公會宮殿】服裝,【ギルドパレス】衣装,【公会宫殿】服装,【길드팰리스】의상,Дворец гильдии+,Palast+,Palazzo +,Palatium+,Pałac Gildii+,Palácio da Guilda+,قصر النقابة+
+626,Ok,,,,,Acrobat,【敏捷耳飾】服裝,【身軽さの耳飾り】衣装,【敏捷耳饰】服装,【날렵함의귀걸이】의상,Акробат,Akrobat,Acrobate,Acrobata,Akrobata,Acrobata,بهلوان
+627,Ok,,,,,Showman,【佯動耳飾】服裝,【陽動の耳飾り】衣装,【佯动耳饰】服装,【양동의귀걸이】의상,Артист,Unterhalter,Virtuose,Showman,Showman,Artista,استعراضي
+628,Ok,Ok,Ok,Ok,Ok,Shara Ishvalda α+,【精英·迦樓羅α】服裝,【EXアンガルダα】衣装,【精英·迦楼罗阿尔法】服装,【EX안가루다α】의상,Шара-ишвалдаα+,Shara Ishvalda α+,Shara Ishvalda α +,Shara Ishvalda α+,Shar Ishvaldaα+,Shara Ishvaldaα+,شارا إشفالداα+
+629,Ok,Ok,Ok,Ok,Ok,Shara Ishvalda β+,【精英·迦樓羅β】服裝,【EXアンガルダβ】衣装,【精英·迦楼罗贝塔】服装,【EX안가루다β】의상,Шара-ишвалдаβ+,Shara Ishvalda β+,Shara Ishvalda β +,Shara Ishvalda β+,Shar Ishvaldaβ+,Shara Ishvaldaβ+,شارا إشفالداβ+
+630,Ok,Ok,Ok,Ok,Ok,Yian Garuga α+,【精英·黑狼鳥α】服裝,【EXガルルガα】衣装,【精英·黑狼鸟阿尔法】服装,【EX가루루가α】의상,Йан-гаругаα+,Yian Garuga α+,Yian Garuga α+,Yian Garuga α+,Yian Garugiα+,Yian Garugaα+,إيان غاروغاα+
+631,Ok,Ok,Ok,Ok,Ok,Yian Garuga β+,【精英·黑狼鳥β】服裝,【EXガルルガβ】衣装,【精英·黑狼鸟贝塔】服装,【EX가루루가β】의상,Йан-гаругаβ+,Yian Garuga β+,Yian Garuga β+,Yian Garuga β+,Yian Garugiβ+,Yian Garugaβ+,إيان غاروغاβ+
+632,Ok,Ok,Ok,Ok,Ok,Zinogre α+,【精英·雷狼龍α】服裝,【EXジンオウα】衣装,【精英·雷狼龙阿尔法】服装,【EX진오우α】의상,Зиногрα+,Zinogre α+,Zinogre α+,Zinogre α+,Zinograα+,Zinogreα+,زينغرα+
+633,Ok,Ok,Ok,Ok,Ok,Zinogre β+,【精英·雷狼龍β】服裝,【EXジンオウβ】衣装,【精英·雷狼龙贝塔】服装,【EX진오우β】의상,Зиногрβ+,Zinogre β+,Zinogre β+,Zinogre β+,Zinograβ+,Zinogreβ+,زينغرβ+
+634,Ok,Ok,Ok,Ok,Ok,Golden Lune α+,【精英·金黃澄月α】服裝,【EXゴールドルナα】衣装,【精英·金黄澄月阿尔法】服装,【EX골드루나α】의상,Золотая лунаα+,Gold-Mond α+,Lunedor α+,Doriluna α+,Złotego księżycaα+,Luna Douradaα+,القمر الذهبيα+
+635,Ok,Ok,Ok,Ok,Ok,Golden Lune β+,【精英·金黃澄月β】服裝,【EXゴールドルナβ】衣装,【精英·金黄澄月贝塔】服装,【EX골드루나β】의상,Золотая лунаβ+,Gold-Mond β+,Lunedor β+,Doriluna β+,Złotego księżycaβ+,Luna Douradaβ+,القمر الذهبيβ+
+636,Ok,Ok,Ok,Ok,Ok,Silver Sol α+,【精英·銀白耀日α】服裝,【EXシルバーソルα】衣装,【精英·银白耀日阿尔法】服装,【EX실버솔α】의상,Серебряная ратианаα+,Silber-Sonnen α+,Solargent α+,Solargento α+,Srebrnego słońcaα+,Sol Prateadoα+,الشمس الفضيةα+
+637,Ok,Ok,Ok,Ok,Ok,Silver Sol β+,【精英·銀白耀日β】服裝,【EXシルバーソルβ】衣装,【精英·银白耀日贝塔】服装,【EX실버솔β】의상,Серебряная ратианаβ+,Silber-Sonnen β+,Solargent β+,Solargento β+,Srebrnego słońcaβ+,Sol Prateadoβ+,الشمس الفضيةβ+
+638,Ok,Ok,Ok,Ok,Ok,Lunastra α+,【精英·皇后α】服裝,【EXエンプレスα】衣装,【精英·皇后阿尔法】服装,【EX엠프리스α】의상,Лунастраα+,Lunastra α+,Imperatrix α+,Imperatrice α+,Lunastryα+,Lunastraα+,لوناستراα+
+639,Ok,Ok,Ok,Ok,Ok,Lunastra β+,【精英·皇后β】服裝,【EXエンプレスβ】衣装,【精英·皇后贝塔】服装,【EX엠프리스β】의상,Лунастраβ+,Lunastra β+,Imperatrix β+,Imperatrice β+,Lunastryβ+,Lunastraβ+,لوناستراβ+
+640,Ok,Ok,Ok,Ok,Ok,Ruiner Nergi α+,【精英·狂紋α】服裝,【EXゾークα】衣装,【精英·狂纹阿尔法】服装,【EX조크α】의상,Нергигант-губительα+,Ruinen α+,Nergigante chaos α+,Nergigante razziatore α+,Niszczycielskiego Nergiα+,Nergi Ferrenhoα+,نيرغي المخرّبα+
+641,Ok,Ok,Ok,Ok,Ok,Ruiner Nergi β+,【精英·狂紋β】服裝,【EXゾークβ】衣装,【精英·狂纹贝塔】服装,【EX조크β】의상,Нергигант-губительβ+,Ruinen β+,Nergigante chaos β+,Nergigante razziatore β+,Niszczycielskiego Nergiβ+,Nergi Ferrenhoβ+,نيرغي المخرّبβ+
+642,Ok,Ok,Ok,Ok,Ok,Guildwork+,【公會成果】服裝,【ギルドワーク】衣装,【公会成果】服装,【길드워크】의상,Гильдейский+,Gildenuniform+,Clair de Lune +,Adiutor+,Gildia+,Guildofício+,عمل النقابة+
+643,Ok,Ok,Ok,Ok,Ok,Rajang α+,【精英·金色α】服裝,【EX金色α】衣装,【精英·金色阿尔法】服装,【EX금빛α】의상,Раянгα+,Rajang α+,Rajang α+,Rajang α+,Rajangaα+,Rajangα+,راجانغα+
+644,Ok,Ok,Ok,Ok,Ok,Rajang β+,【精英·金色β】服裝,【EX金色β】衣装,【精英·金色贝塔】服装,【EX금빛β】의상,Раянгβ+,Rajang β+,Rajang β+,Rajang β+,Rajangaβ+,Rajangβ+,راجانغβ+
+645,Ok,Ok,Ok,Ok,Ok,Stygian Zin α+,【精英·獄狼龍α】服裝,【EXゴクオウα】衣装,【精英·狱狼龙阿尔法】服装,【EX극오우α】의상,Стигийский зиногрα+,Höllen-Zinogre α+,Zinogre stygien α+,Zinogre stigeo α+,Stygijskiego Zinaα+,Zin Tenebrosoα+,زينغر جهنميα+
+646,Ok,Ok,Ok,Ok,Ok,Stygian Zin β+,【精英·獄狼龍β】服裝,【EXゴクオウβ】衣装,【精英·狱狼龙贝塔】服装,【EX극오우β】의상,Стигийский зиногрβ+,Höllen-Zinogre β+,Zinogre stygien β+,Zinogre stigeo β+,Stygijskiego Zinaβ+,Zin Tenebrosoβ+,زينغر جهنميβ+
+647,Ok,Ok,Ok,Ok,Ok,Safi'jiiva α+,【精英‧龍紋α】服裝,【EX龍紋α】衣装,【精英·龙纹阿尔法】服装,【EX용문α】의상,Сафи'джииваα+,Safi'jiiva α+,Safi'jiiva α+,Safi'jiiva α+,Safi'jiivaα+,Safi'jiivaα+,صافيجيفاα+
+648,Ok,Ok,Ok,Ok,Ok,Safi'jiiva β+,【精英‧龍紋β】服裝,【EX龍紋β】衣装,【精英·龙纹贝塔】服装,【EX용문β】의상,Сафи'джииваβ+,Safi'jiiva β+,Safi'jiiva β+,Safi'jiiva β+,Safi'jiivaβ+,Safi'jiivaβ+,صافيجيفاβ+
+649,Ok,Ok,Ok,Ok,Ok,Furious Rajang α+,【精英·齊天α】服裝,【EX斉天α】衣装,【精英·齐天阿尔法】服装,【EX제천α】의상,Взбешенный раянгα+,Zorniger Rajang α+,Rajang orage α+,Rajang furioso α+,Wściekłego Rajangaα+,Rajang Furiosoα+,راجانغ الغاضبα+
+650,Ok,Ok,Ok,Ok,Ok,Furious Rajang β+,【精英·齊天β】服裝,【EX斉天β】衣装,【精英·齐天贝塔】服装,【EX제천β】의상,Взбешенный раянгβ+,Zorniger Rajang β+,Rajang orage β+,Rajang furioso β+,Wściekłego Rajangaβ+,Rajang Furiosoβ+,راجانغ الغاضبβ+
+651,Ok,Ok,Ok,Ok,Ok,Raging Brachy α+,【精英·鐵腕α】服裝,【EXブラキウムα】衣装,【精英·铁腕阿尔法】服装,【EX브라키움α】의상,Неистовый брахидиосα+,Wütiger Brachydium α+,Brachydios tempête α+,Brachydios rabbioso α+,Rozgniewanego Brachydiosaα+,Brachy Coléricoα+,براكيديوس الحانقα+
+652,Ok,Ok,Ok,Ok,Ok,Raging Brachy β+,【精英·鐵腕β】服裝,【EXブラキウムβ】衣装,【精英·铁腕贝塔】服装,【EX브라키움β】의상,Неистовый брахидиосβ+,Wütiger Brachydium β+,Brachydios tempête β+,Brachydios rabbioso β+,Rozgniewanego Brachydiosaβ+,Brachy Coléricoβ+,براكيديوس الحانقβ+
+653,Ok,Ok,Ok,Ok,Ok,Frostfang Barioth α+,【精英·霜刃冰牙龍α】服裝,【EXオルムングα】衣装,【精英·霜刃冰牙龙阿尔法】服装,【EX오르문그α】의상,Ледозубый бариотα+,Frosthauer-Barioth α+,Barioth crocgivre α+,Barioth assiderato α+,Bariotha Mrozokłaα+,Barioth Presagélidaα+,باريوث أنياب الصقيعα+
+654,Ok,Ok,Ok,Ok,Ok,Frostfang Barioth β+,【精英·霜刃冰牙龍β】服裝,【EXオルムングβ】衣装,【精英·霜刃冰牙龙贝塔】服装,【EX오르문그β】의상,Ледозубый бариотβ+,Frosthauer-Barioth β+,Barioth crocgivre β+,Barioth assiderato β+,Bariotha Mrozokłaβ+,Barioth Presagélidaβ+,باريوث أنياب الصقيعβ+
+655,Ok,Ok,Ok,Ok,Ok,Alatreon α+,【精英·煌黑龍α】服裝,【EXエスカドラα】衣装,【精英·煌黑龙阿尔法】服装,【EX에스카드라α】의상,Алатреонα+,Alatreon α+,Alatreon α+,Alatreon α+,Alatreonaα+,Alatreonα+,ألاتريونα+
+656,Ok,Ok,Ok,Ok,Ok,Alatreon β+,【精英·煌黑龍β】服裝,【EXエスカドラβ】衣装,【精英·煌黑龙贝塔】服装,【EX에스카드라β】의상,Алатреонβ+,Alatreon β+,Alatreon β+,Alatreon β+,Alatreonaβ+,Alatreonβ+,ألاتريونβ+
+657,Ok,Ok,Ok,Ok,Ok,Fatalis α+,【精英‧龍α】服裝,【EXドラゴンα】衣装,【精英·龙阿尔法】服装,【EX드래곤α】의상 ,Фаталисα+,Fatalis α+,Fatalis α+,Fatalis α+,Fatalisα+,Fatalisα+,فاتاليسα+
+658,Ok,Ok,Ok,Ok,Ok,Fatalis β+,【精英‧龍β】服裝,【EXドラゴンβ】衣装,【精英·龙贝塔】服装,【EX드래곤β】의상 ,Фаталисβ+,Fatalis β+,Fatalis β+,Fatalis β+,Fatalisβ+,Fatalisβ+,فاتاليسβ+
+659,Ok,Ok,Ok,Ok,Ok,Kulve Taroth α+,【精英·絢輝龍鎧羅α】服裝,【EXマムガイラα】衣装,【精英·绚辉龙铠罗阿尔法】服装,【EX맘가이라α】의상,Кулве таротα+,Kulve α+,Kulve Taroth α+,Kulve Taroth α+,Kulve Tarothα+,Kulve Tarothα+,كولف تاروثα+
+660,Ok,Ok,Ok,Ok,Ok,Kulve Taroth β+,【精英·絢輝龍鎧羅β】服裝,【EXマムガイラβ】衣装,【精英·绚辉龙铠罗贝塔】服装,【EX맘가이라β】의상,Кулве таротβ+,Kulve β+,Kulve Taroth β+,Kulve Taroth β+,Kulve Tarothβ+,Kulve Tarothβ+,كولف تاروثβ+
+661,Ok,,,,,Sealed Dragon Cloth,【封印的龍骸布】服裝,【封印の龍骸布】衣装,【封印的龙骸布】服装,【봉인의 용해포】의상,Ткань печати дракона,Drachenstoff-Schal,Châle-dragon interdit,Velo nero,Tkanina zapieczętowanego smoka,Tecido de Dragão Selado,قماش تغطية التنين
+662,Ok,,,,,Wyverian Ears,【龍人族之耳】服裝,【竜人族の耳】衣装,【龙人族之耳】服装,【용인족의 귀】의상,Уши виверианца,Wyverianer-Ohren,Oreilles de Wyvérien,Orecchie wyverniane,Wiweriańskie uszy,Orelhas Serperianas,أذنا البشري التنين
+663,Ok,,,,,Duffel Penguin+,【企鵝頭套】服裝,【キブクレフェイク】衣装,【企鹅头套】服装,【껴입기펭귄페이크】의상,Пингвин-полярник+,Bauschpinguin+,Masque de manchot +,Pinguino+,Pingwin bajowy+,Pinguim Felpudo+,البطريق المنفوش+
+664,Ok,,,,,Pearlspring+,【溫泉銀猴】服裝,【ギンセンザル】衣装,【温泉银猴】服装,【은천원숭이】의상,Жемчужный источник+,Perlenquell+,Singe d'argent +,Macaco argentato+,Perłowy+,Fonte-pérola+,ينبوع اللؤلؤ+
+665,,Ok,Ok,Ok,Ok,Buff Body α+,【健美α】服裝,【マッスルα】衣装,【健美阿尔法】服装,【머슬α】의상,Мускулыα+,Kräftiger Körper α+,Fitness α+,Corpo palestrato α+,Niezła rzeźbaα+,Corpo Saradoα+,هيكل التقويةα+
+666,Ok,Ok,Ok,Ok,Ok,Azure Age,【蒼世武士】服裝,【蒼世ノ侍】衣装,【苍世武士】服装,【푸른빛무사】의상,Лазурный воин,Azurära,Âge d'azur,Epoca celeste,Lazurowa Era,Samurai Lazúli,عصر اللازورد
+669,Ok,Ok,Ok,Ok,Ok,Velkhana γ+,【精英·雪崩γ】服裝,【EXラヴィーナγ】衣装,【精英·雪崩伽马】服装,【EX라비나γ】의상,Велханаγ+,Velkhana γ+,Velkhana γ+,Velkhana γ+,Velkhanyγ+,Velkhanaγ+,فيلكاناγ+
+670,Ok,Ok,Ok,Ok,Ok,Namielle γ+,【精英·觸角γ】服裝,【EXテンタクルγ】衣装,【精英·触角伽马】服装,【EX텐터클γ】의상,Намиэльγ+,Namielle γ+,Namielle γ+,Namielle γ+,Namiellaγ+,Namielleγ+,ناميالγ+
+672,,Ok,Ok,Ok,Ok,Buff Body γ+,【健美γ】服裝,【マッスルγ】衣装,【健美伽马】服装,【머슬γ】의상,Мускулыγ+,Kräftiger Körper γ+,Fitness γ+,Corpo palestrato γ+,Niezła rzeźbaγ+,Corpo Saradoγ+,هيكل التقويةγ+
+673,,Ok,Ok,Ok,Ok,Innerwear α,【內衣α】服裝,【インナーα】衣装,【内衣阿尔法】服装,【이너α】의상,Белье α,Merino α,Sous-vêtements α,Intimo α,Bieliźnianyα,Roupa Íntimaα,α الزي الداخلي
+674,Ok,Ok,Ok,Ok,Ok,Clockwork β+,【蒸汽貴族β】服裝,【アークロックβ】衣装,【蒸汽贵族贝塔】服装,【아크로크β】의상,Часовыеβ+,Steampunk β+,Steampunk β+,Vapore β+,Zegarowyβ+,Mecânicoβ+,تروسβ+
+675,,Ok,Ok,Ok,Ok,Innerwear β,【內衣β】服裝,【インナーβ】衣装,【内衣贝塔】服装,【이너β】의상,Белье β,Merino β,Sous-vêtements β,Intimo β,Bieliźnianyβ,Roupa Íntimaβ,β الزي الداخلي

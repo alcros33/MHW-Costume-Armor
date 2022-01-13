@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.0] - 2022 - 01 - 13
+### Added
+- Low-Rank Armors and an option to disable them
+- Translations for Japanese, Russian, Deutsch, French, Polski, Portuguese and Arabic. Downloaded from poedb
+- Special thanks in the about tab
+- New logo :)
+### Fixed
+- Window is now resizable properly
+### Changed
+- Armor Data is now directly compiled as a `std::map<QString, std::array<QString>>`
+- Buttons are now squares for them to be better resizable
+### Removed
+- The Instructions tab
+- The log viewer
+
 ## [0.16.16] - 2020 - 12 - 05
 ### Added
 - Compatibility with version 421409

@@ -1,7 +1,8 @@
 #include "UpdaterDialog.hpp"
 #include "UpdaterGithub.hpp"
 
-UpdaterDialog::UpdaterDialog(QWidget *parent, UpdaterGithub* updater) : QDialog(parent),
+UpdaterDialog::UpdaterDialog(QWidget *parent, UpdaterGithub* updater,float font_size) :
+QDialog(parent),
 ui(new Ui::UpdaterDialog),
 _updater(updater)
 {
@@ -16,6 +17,11 @@ _updater(updater)
     ui->lblPercentage->setVisible(false);
     ui->lblOperationInProgress->setVisible(false);
     ui->progressBar->setVisible(false);
+    static const auto qssTemplate = QStringLiteral("QWidget{font-size:%1pt;}"
+                                                   "QLabel#lblOperationInProgress{font-size : %2pt; }"
+                                                   "QTextEdit{font-size : %3pt;}"
+                                                   "QLabe#updateName{font-size : %4pt;}");
+    this->setStyleSheet(qssTemplate.arg(font_size).arg(font_size * 1.25).arg(font_size * 1.5).arg(font_size * 1.75));
 }
 
 UpdaterDialog::~UpdaterDialog()

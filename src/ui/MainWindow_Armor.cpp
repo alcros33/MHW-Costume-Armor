@@ -22,23 +22,31 @@ void MainWindow::_translateArmorData()
 
     font.setBold(true);
     checked->setFont(font);
-
-    _transArmorData.clear();
-
-    for(const auto &key : _armorData.keys())
-    {
-        auto transArmorName = _armorData[key].toMap()[Lang].toString();
-        _transArmorData[transArmorName] = QVariantMap({
-            {"Mode", _armorData[key].toMap()["Mode"]},
-            {"ID", QVariant(key)}
-        });
-    }
     for (int i = 0; i < 5; ++i)
-    {
         this->_inputBoxes[i]->clear();
-    }
     this->_settings.sync();
-    _populateComboBoxes();
+
+    bool lr = _settings.value("General/LRArmors", false).toBool();
+
+    // translate comboboxes
+    auto &tArmorData = armorData.at(_langGroup->checkedAction()->text());
+    for (uint id = 0; id < armor_count(); id++)
+    {
+        if (id < 37 && !lr)
+            continue;
+        uint mode = armorMode.at(id);
+        auto &name = tArmorData.at(id);
+        for (int i = 0; i < 5; i++)
+            if (mode & (1 << i))
+                this->_inputBoxes[i]->addItem(name, id);
+    }
+    for (int i = 0; i < 5; i++)
+    {
+        this->_inputBoxes[i]->model()->sort(0);
+        // todo translate "nothing" too
+        this->_inputBoxes[i]->insertItem(0, "Nothing", Armor::NOTHING);
+        this->_inputBoxes[i]->setCurrentIndex(0);
+    }
 }
 
 void MainWindow::_updateArmorValues()
@@ -85,19 +93,23 @@ bool MainWindow::_parseInputBoxes()
 
 void MainWindow::_changeAll()
 {
-    QStringList items;
-    int i = 0;
-    for (auto it = _transArmorData.begin(); it!=_transArmorData.end(); ++it)
-        if (it.value().toMap()["Mode"].toString() == "11111") // Means its a set
-            items << it.key();
-
-    bool ok;
-    QString text = getItemInputDialog(this, "Change All Armor", "Select set: ", items, &ok);
+    QStringList names;
+    QList<uint> idx;
+    uint i;
+    bool lr = _settings.value("General/LRArmors", false).toBool();
+    auto& tArmorData = armorData.at(_langGroup->checkedAction()->text());
+    for (i = 0; i<armor_count(); i++)
+        if (armorMode.at(i) == 31 && (i>37||lr)) // Means its a set
+        {
+            names << tArmorData.at(i);
+            idx << i;
+        }
+    
+    auto [aName, aId, ok] = getItemInputDialog(this, "Change All Armor", "Select set: ", names, idx);
     if (!ok)
         return;
-    auto selected = _transArmorData[text].toMap();
     for (i = 0; i < 5; ++i)
-        _MHManager.getPlayerData()[i] = selected["ID"].toUInt();
+        _MHManager.getPlayerData()[i] = aId;
 
     this->_updateArmorValues();
 }
@@ -106,12 +118,21 @@ void MainWindow::_manualInputValue()
 {
     bool ok;
     int id = QInputDialog::getInt(this, "Manually Input ID",
-                                 "Input Armor ID", Armor::NOTHING, 1, Armor::NOTHING, 1, &ok);
+                                  "Input Armor ID", 1, 1, 2147483647, 1, &ok);
     if (!ok)
         return;
+    static auto customValue = QStringLiteral("Custom ID : %1");
+    auto cid = customValue.arg(id);
     for (int i = 0; i < 5; ++i)
     {
-        this->_inputBoxes[i]->insertItem(0, QString("Custom ID : %1").arg(id), id);
+        this->_inputBoxes[i]->insertItem(0, cid, id);
         this->_inputBoxes[i]->setCurrentIndex(0);
     }
+}
+
+void MainWindow::_toggleLRArmors()
+{
+    _settings.setValue("General/LRArmors", !_settings.value("General/LRArmors", false).toBool());
+    _settings.sync();
+    _translateArmorData();
 }

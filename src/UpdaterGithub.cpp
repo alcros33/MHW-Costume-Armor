@@ -11,7 +11,7 @@ UpdaterGithub::UpdaterGithub(QWidget* parent, const QString &repo_url, const QSt
 	_updatePageAddress(repo_url + "/releases/%1"),
 	_currentVersion(QVersionNumber::fromString(current_version)) {}
 
-void UpdaterGithub::checkForUpdates(bool silent)
+void UpdaterGithub::checkForUpdates(bool silent, float font_size)
 {
     _isSilent = silent;
     
@@ -27,6 +27,7 @@ void UpdaterGithub::checkForUpdates(bool silent)
 
     connect(this->_reply, _reply->finished, this, _onUpdateCheckFinished,
             Qt::UniqueConnection);
+    fontSize = font_size;
 }
 
 void UpdaterGithub::_onUpdateCheckFinished()
@@ -82,7 +83,7 @@ void UpdaterGithub::_onUpdateCheckFinished()
     const auto text = QString(this->_reply->readAll());
 
     int left = text.indexOf(patternL);
-    _dia = new UpdaterDialog(this->_parent, this);
+    _dia = new UpdaterDialog(this->_parent, this, fontSize);
     if (left == -1)
     {
         LOG_ENTRY(ERROR, "Could not retrieve changelog");

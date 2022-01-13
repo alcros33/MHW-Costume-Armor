@@ -13,7 +13,7 @@ class UpdaterDialog : public QDialog
 {
     Q_OBJECT
 public:
-    UpdaterDialog(QWidget *parent, UpdaterGithub *updater);
+    UpdaterDialog(QWidget *parent, UpdaterGithub *updater, float fontsize);
     ~UpdaterDialog();
 
 public slots:

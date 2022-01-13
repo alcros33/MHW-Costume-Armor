@@ -1,10 +1,10 @@
 #include "MainWindow.hpp"
 #include "Config.h"
-#include <QThread>
-#include <QMovie>
-#include <QInputDialog>
-#include <QFileDialog>
 #include <QActionGroup>
+#include <QFileDialog>
+#include <QInputDialog>
+#include <QMovie>
+#include <QThread>
 
 /// These file contains Member definitions of the MainWindow class
 /// Related to initiliaze things before GUI is showed.
@@ -43,14 +43,12 @@ MainWindow::MainWindow(QString github_repo, QString current_version, QSettings &
     connect(ui->actionAutomatically_Check_for_Updates, QAction::triggered, this, _toggleAutoUpdates);
     connect(ui->actionCheck_for_Updates, QAction::triggered, this, _checkForUpdates);
     connect(ui->actionNo_Backup_Ok, QAction::triggered, this, _toggleNoBackup);
-    connect(ui->actionFont_Scale_Factor, QAction::triggered, this, _fontScale);
-    connect(ui->actionWindow_Scale_Factor, QAction::triggered, this, _windowScale);
+    connect(ui->actionFont_Size, QAction::triggered, this, _fontScale);
+    connect(ui->actionShow_Low_Rank_Armors, QAction::triggered, this, _toggleLRArmors);
     // Debug
     connect(ui->actionManually_Input_ID, QAction::triggered, this, _manualInputValue);
-    connect(ui->actionShow_Log, QAction::triggered, this, _showLog);
     // Help
     connect(ui->actionAbout, QAction::triggered, this, _aboutInfo);
-    connect(ui->actionTutorial, QAction::triggered, this, _instructions);
 
 
     _logGroup = new QActionGroup(this);
@@ -66,6 +64,7 @@ MainWindow::MainWindow(QString github_repo, QString current_version, QSettings &
     _inputBoxes[3] = ui->waistEdit;
     _inputBoxes[4] = ui->legsEdit ;
 
+    ui->actionShow_Low_Rank_Armors->setChecked(_settings.value("General/LRArmors", false).toBool());
     _loadJsonFiles();
 
     if (!_settings.value("SteamPath/Auto", true).toBool())
@@ -91,19 +90,28 @@ MainWindow::MainWindow(QString github_repo, QString current_version, QSettings &
 
     ui->actionNo_Backup_Ok->setChecked(_settings.value("General/NoBackupOk", false).toBool());
 
-    _populateVersionSelector();
-    _populateSavedSets();
-    _populateLanguages();
+    ui->savedComboBox->addItems(_savedSets.keys());
+    _initVersionSelector();
+    _initLanguages();
     _translateArmorData();
     _updateSelectedLogLevel();
 
     if (_settings.value("General/AutoUpdates", true).toBool())
-        _updater.checkForUpdates(true);
+        _updater.checkForUpdates(true, _settings.value("General/FontBaseSize", 1.0F).toFloat());
 
-    float fontScale = _settings.value("General/FontScaleFactor", 1.0f).toFloat();
-    float winScale = _settings.value("General/WindowScaleFactor", 1.0f).toFloat();
-    ui->actionFont_Scale_Factor->setText(QString("Font Scale Factor. Current: %1").arg(fontScale));
-    ui->actionWindow_Scale_Factor->setText(QString("Window Scale Factor. Current: %1").arg(winScale));
+    _qssLen = this->styleSheet().length();
+
+    _setFontSize();
+
+    // Window size
+    _childCache = this->centralWidget()->findChildren<QWidget *>(QString(), Qt::FindDirectChildrenOnly);
+    for (auto c : _childCache)
+        _baseGeo[c] = {c->size(), c->pos()};
+    _baseGeo[ui->savedComboBox] = {ui->savedComboBox->minimumSize(), ui->savedComboBox->pos()};
+
+    float scaleF = _settings.value("General/WindowScaleFactor", 1.0F).toFloat();
+    this->resize(1040.0F * scaleF, 650.0F * scaleF);
+    _resizeWidgets();
 }
 
 MainWindow::~MainWindow()
@@ -124,13 +132,9 @@ void MainWindow::_loadJsonFiles()
         savedSetsFile.close();
         _savedSets = _savedSetsDocument.object().toVariantMap();
     }
-
-    armorDataFile.open(QIODevice::ReadOnly);
-    _armorData = QJsonDocument::fromJson(armorDataFile.readAll()).object().toVariantMap();
-    armorDataFile.close();
 }
 
-void MainWindow::_populateVersionSelector()
+void MainWindow::_initVersionSelector()
 {
     QMenu *menuVersions = new QMenu(ui->menuOptions);
     menuVersions->setObjectName(QString::fromUtf8("menu_Versions"));
@@ -159,39 +163,33 @@ void MainWindow::_populateVersionSelector()
     }
     if (_versionGroup->checkedAction() == 0)
     {
-        LOG_ENTRY(ERROR, "Encountered unknown game version " << targetVersion << " setting it to 'Latest'");
+        LOG_ENTRY(WARNING, "Encountered unknown game version " << targetVersion << " setting it to 'Latest'");
         _settings.setValue("General/GameVersion", "Latest");
         _versionGroup->actions().back()->setChecked(true);
         _versionGroup->actions().back()->setFont(font);
     }
 }
 
-void MainWindow::_populateLanguages()
+void MainWindow::_initLanguages()
 {
     QMenu *menuLangs = new QMenu(ui->menuOptions);
-    menuLangs->setObjectName(QString::fromUtf8("menu_Langs"));
+    menuLangs->setObjectName(QStringLiteral("menu_Langs"));
     menuLangs->setTitle("Language");
     ui->menuOptions->addAction(menuLangs->menuAction());
 
     _langGroup = new QActionGroup(this);
-
     QFont font; font.setBold(true);
 
-    QStringList Langs;
-    for (const auto &key :_armorData.first().toMap().keys())
-        if (key != "Mode")
-            Langs << key;
-
-    auto targetLang = _settings.value("General/Language", "English").toString();
-    for (const auto &la : Langs)
+    auto targetLang = _settings.value("General/Language", "US English").toString();
+    for (const auto &it : armorData)
     {
         QAction *tmp = new QAction(this);
         connect(tmp, QAction::triggered, this, _translateArmorData);
-        tmp->setText(la);
+        tmp->setText(it.first);
         tmp->setCheckable(true);
         menuLangs->addAction(tmp);
         _langGroup->addAction(tmp);
-        if (la == targetLang)
+        if (it.first == targetLang)
         {
             tmp->setChecked(true);
             tmp->setFont(font);
@@ -199,27 +197,14 @@ void MainWindow::_populateLanguages()
     }
     if (_langGroup->checkedAction() == 0)
     {
-        LOG_ENTRY(ERROR, "Encountered unknown language " << targetLang << " setting it to 'English'");
-        _settings.setValue("General/Language", "English");
-        _langGroup->actions().back()->setChecked(true);
-        _langGroup->actions().back()->setFont(font);
-    }
-}
-
-void MainWindow::_populateComboBoxes()
-{
-    QString mode;
-    for (int i = 0; i < 5; ++i)
-        this->_inputBoxes[i]->addItem("Nothing", Armor::NOTHING);
-
-    for (const auto &key : _transArmorData.keys())
-    {
-        mode = _transArmorData[key].toMap()["Mode"].toString();
-
-        for (int i = 0; i < 5; ++i)
+        LOG_ENTRY(WARNING, "Encountered unknown language " << targetLang << " setting it to 'US English'");
+        _settings.setValue("General/Language", "US English");
+        for (auto ac : _langGroup->actions())
         {
-            if (mode[i] == '1')
-                this->_inputBoxes[i]->addItem(key, _transArmorData[key].toMap()["ID"].toUInt());
+            if (ac->text() != "US English")
+                continue;
+            _langGroup->actions().back()->setChecked(true);
+            _langGroup->actions().back()->setFont(font);
         }
     }
 }

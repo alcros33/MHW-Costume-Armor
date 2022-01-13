@@ -46,11 +46,11 @@ public:
 
     byte* readMemory(DWORD64 address, int num_bytes) const;
     byte* readMemory(LPVOID address, int num_bytes) const;
-    u_int readMemoryUInt(DWORD64 address) const;
+    uint readMemoryUInt(DWORD64 address) const;
 
     bool writeMemory(DWORD64 address, byte buffer[], int num_bytes);
     bool writeMemory(LPVOID address, byte buffer[], int num_bytes);
-    bool writeMemoryUInt(DWORD64 address, u_int value);
+    bool writeMemoryUInt(DWORD64 address, uint value);
 
     std::vector<Module> getModuleList() const;
     Module getModuleByName(const std::string &ModuleName) const;
@@ -65,5 +65,5 @@ private:
 std::wstring to_wstring(const std::string &str);
 std::string get_reg_value(HKEY root_key, const std::string &sub_key, const std::string &value);
 
-u_int BytesToUInt(const byte[4]);
-u_int BytesToUInt(const std::array<byte,4> &buffer);
+uint BytesToUInt(const byte[4]);
+uint BytesToUInt(const std::array<byte,4> &buffer);

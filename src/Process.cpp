@@ -99,9 +99,9 @@ byte* Process::readMemory(DWORD64 address, int num_bytes) const
 {
    return this->readMemory((LPVOID) address, num_bytes);
 }
-u_int Process::readMemoryUInt(DWORD64 address) const
+uint Process::readMemoryUInt(DWORD64 address) const
 {
-    u_int value;
+    uint value;
     if (ReadProcessMemory(this->_processHandler, (LPVOID)address, &value, 4, nullptr))
         return value;
     return 0;
@@ -116,7 +116,7 @@ bool Process::writeMemory(DWORD64 address, byte buffer[], int num_bytes)
 {
     return this->writeMemory((LPVOID)address, buffer, num_bytes);
 }
-bool Process::writeMemoryUInt(DWORD64 address, u_int value)
+bool Process::writeMemoryUInt(DWORD64 address, uint value)
 {
     return WriteProcessMemory(this->_processHandler, (LPVOID)address, &value, 4, nullptr);
 }
@@ -130,14 +130,14 @@ Module Process::getModuleByName(const std::string &module_name) const
 }
 
 /// Start Misc Functions Definitions
-u_int BytesToUInt(const byte buffer[4])
+uint BytesToUInt(const byte buffer[4])
 {
-    return u_int(buffer[3] << 24 | buffer[2] << 16 | buffer[1] << 8 | buffer[0]);
+    return uint(buffer[3] << 24 | buffer[2] << 16 | buffer[1] << 8 | buffer[0]);
 }
 
-u_int BytesToUInt(const std::array<byte,4> &buffer)
+uint BytesToUInt(const std::array<byte,4> &buffer)
 {
-    return u_int(buffer[3] << 24 | buffer[2] << 16 | buffer[1] << 8 | buffer[0]);
+    return uint(buffer[3] << 24 | buffer[2] << 16 | buffer[1] << 8 | buffer[0]);
 }
 
 std::string get_reg_value(HKEY root_key, const std::string &sub_key, const std::string &Value)
@@ -156,8 +156,8 @@ std::string get_reg_value(HKEY root_key, const std::string &sub_key, const std::
 
 std::wstring to_wstring(const std::string &str)
 {
-    int size = MultiByteToWideChar(CP_UTF8, 0, &str[0], (u_int)str.size(), NULL, 0);
+    int size = MultiByteToWideChar(CP_UTF8, 0, &str[0], (uint)str.size(), NULL, 0);
     std::wstring result(size, 0);
-    MultiByteToWideChar(CP_UTF8, 0, &str[0], (u_int)str.size(), &result[0], size);
+    MultiByteToWideChar(CP_UTF8, 0, &str[0], (uint)str.size(), &result[0], size);
     return result;
 }

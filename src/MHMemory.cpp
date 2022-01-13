@@ -228,8 +228,8 @@ std::map<QString, int> MH_Memory::charSlotDist{
 DWORD64 find_data_address(Process &Proc, SearchPattern Pa)
 {
     byte PatternBuffer[4];
-    u_int lastBits = Pa.lastBits;
-    u_int uintPattern = Pa.uintPattern;
+    uint lastBits = Pa.lastBits;
+    uint uintPattern = Pa.uintPattern;
 
     DWORD64 baseAddr = 0;
     byte *readBuffer = nullptr;

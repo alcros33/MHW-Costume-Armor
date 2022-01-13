@@ -10,11 +10,6 @@
 /// Related to the saving, loading and management of saved Armor Sets
 /// Also restoring backup
 
-void MainWindow::_populateSavedSets()
-{
-    ui->savedComboBox->addItems(_savedSets.keys());
-}
-
 void MainWindow::_loadSavedSet()
 {
     if (ui->savedComboBox->currentIndex() == -1)
@@ -39,17 +34,23 @@ void MainWindow::_loadSavedSetPopup()
         Dia->show();
         return;
     }
-    
-    bool ok;
-    QString currentText = getItemInputDialog(this, "Select Saved Set", "Select set: ",
-                                            _savedSets.keys(), &ok);
+    int count = ui->savedComboBox->count();
+    QStringList names; names.reserve(count);
+    QList<uint> idx; idx.reserve(count);
+    for (uint i = 0; i < count; i++)
+    {
+        names << ui->savedComboBox->itemText(i);
+        idx << i;
+    }
+
+    auto [setName, setIdx, ok] = getItemInputDialog(this, "Select Saved Set", "Select set: ",
+                                                    names, idx);
     if (!ok)
         return;
-    int newIndex = std::max(0, ui->savedComboBox->findText(currentText));
-    ui->savedComboBox->setCurrentIndex(newIndex);
-
+    ui->savedComboBox->setCurrentIndex(setIdx);
+    auto selectedSet = _savedSets[setName].toList();
     for (int i = 0; i < 5; ++i)
-        _MHManager.getPlayerData()[i] = _savedSets[currentText].toList()[i].toUInt();
+        _MHManager.getPlayerData()[i] = selectedSet[i].toUInt();
     this->_updateArmorValues();
 }
 

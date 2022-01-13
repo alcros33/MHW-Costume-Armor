@@ -1,5 +1,6 @@
 #include "DialogWindow.hpp"
 #include <QDialogButtonBox>
+#include <QComboBox>
 #include <iostream>
 /// Begin Dialog Message Member definitions
 
@@ -34,7 +35,34 @@ QString getTextInputDialog(QWidget *parent, const QString &Title, const QString 
     return QInputDialog::getText(parent, Title, Message, QLineEdit::Normal, "", ok, Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint);
 }
 
-QString getItemInputDialog(QWidget *parent, const QString &Title, const QString &Message, const QStringList &items, bool *ok)
+std::tuple<QString, uint, bool>
+getItemInputDialog(QWidget *parent, const QString &title, const QString &message, const QStringList &items, const QList<uint> &datas)
 {
-    return QInputDialog::getItem(parent, Title, Message, items, 0, false, ok, Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint);
+    auto text = items.value(0);
+    auto dialog = new QInputDialog(parent,
+                                    Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint);
+    dialog->setWindowTitle(title);
+    dialog->setLabelText(message);
+    dialog->setComboBoxItems(QStringList());
+
+    auto cB = dialog->findChild<QComboBox *>();
+    {
+        const QSignalBlocker blocker(cB);
+        cB->clear();
+        for (int i = 0; i < items.size(); i++)
+        {
+            cB->addItem(items[i], datas[i]);
+        }
+    }
+    dialog->setTextValue(text);
+    dialog->setComboBoxEditable(false);
+    dialog->setInputMethodHints(Qt::ImhNone);
+    cB->model()->sort(0);
+
+    const int ret = dialog->exec();
+    bool ok = !!ret;
+    if (ret)
+        return std::make_tuple(dialog->textValue(), cB->currentData().toUInt(), ok);
+    else
+        return std::make_tuple(text, 0, ok);
 }

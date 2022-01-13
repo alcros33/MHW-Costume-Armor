@@ -17,7 +17,7 @@ public:
     friend class UpdaterDialog;
 
 public slots:
-    void checkForUpdates(bool silent);
+    void checkForUpdates(bool silent, float font_size);
     void downloadChangelog();
     void downloadUpdate();
     void installUpdate();
@@ -28,6 +28,7 @@ private slots:
     void _onDownloadFinished();
 
 private:
+    float fontSize;
     QWidget* _parent;
     UpdaterDialog* _dia;
     QFile _downloadedBinaryFile;

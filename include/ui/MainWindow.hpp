@@ -11,7 +11,7 @@
 #include "DialogWindow.hpp"
 #include "UpdaterGithub.hpp"
 #include "MHMemory.hpp"
-
+#include "ArmorData.hpp"
 
 class MainWindow : public QMainWindow
 {
@@ -21,7 +21,7 @@ public:
     MainWindow(QString github_repo, QString current_version, QSettings &settings, QWidget *parent=0);
     ~MainWindow();
     QFile savedSetsFile = QCoreApplication::applicationDirPath() + "\\SavedSets.json";
-    QFile armorDataFile = QFile(":/ArmorData.json");
+    inline static constexpr float sizeRatio{1.6};
 
 private:
     Ui::MainWindow *ui;
@@ -32,20 +32,25 @@ private:
     QSettings &_settings;
     QJsonDocument _savedSetsDocument;
     QVariantMap _savedSets;
-    QVariantMap _armorData;
-    QVariantMap _transArmorData;
     std::array<QComboBox*,5> _inputBoxes{nullptr};
     UpdaterGithub _updater;
+    QMap<QWidget *, QPair<QSize, QPoint>> _baseGeo;
+    void _setFontSize();
+    QWidgetList _childCache;
+    uint _qssLen;
+
+
+protected:
+    bool _ensureSizeRatio(QResizeEvent *event);
+    void _resizeWidgets();
+    void resizeEvent(QResizeEvent *event) final;
 
 private slots:
     // Inits
     void _loadJsonFiles();
-    void _populateComboBoxes();
-    void _populateVersionSelector();
-    void _populateLanguages();
+    void _initVersionSelector();
+    void _initLanguages();
     // Dialogs
-    void _instructions();
-    void _showLog();
     void _checkForUpdates();
     void _aboutInfo();
     void _notImplemented();
@@ -62,14 +67,13 @@ private slots:
     void _setAutoSteam();
     void _toggleAutoUpdates();
     void _fontScale();
-    void _windowScale();
+    void _toggleLRArmors();
     //Saved Sets
     bool _flushSavedSets();
     void _saveCurrentSet();
     void _deleteCurrentSet();
     void _loadSavedSet();
     void _loadSavedSetPopup();
-    void _populateSavedSets();
     //Armor
     void _translateArmorData();
     bool _parseInputBoxes();
