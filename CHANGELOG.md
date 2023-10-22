@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.1] - 2023 - 10 - 21
+### Added
+- Compatibility with version 421631
+
 ## [1.0.0] - 2022 - 01 - 13
 ### Added
 - Low-Rank Armors and an option to disable them

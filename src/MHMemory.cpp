@@ -18,7 +18,7 @@ void MH_Memory::findSteamPath()
 {
     if (!_MHProcess.isOpen())
         return;
-    
+
     auto Mod = _MHProcess.getModuleByName(this->steamDLL);
     if (Mod.isEmpty())
     {
@@ -58,7 +58,7 @@ void MH_Memory::findDataAddress(QString selected_version)
     _dataPtr -= 29;
     _slotDist = MH_Memory::charSlotDist[selected_version];
 
-    LOG_ENTRY_HEX(DEBUG,"Address of the Characters Data : "<< _dataPtr);
+    LOG_ENTRY_HEX(DEBUG, "Address of the Characters Data : " << _dataPtr);
 }
 
 bool MH_Memory::validateProcess()
@@ -74,7 +74,7 @@ bool MH_Memory::readArmor(int slot)
 {
     if (!this->_MHProcess.isOpen() || !this->dataAddressFound())
         return false;
-    
+
     byte *charDataBuffer = _MHProcess.readMemory(_dataPtr + _slotDist * slot, 20);
 
     if (charDataBuffer)
@@ -113,7 +113,7 @@ bool MH_Memory::writeArmor(int char_slot, bool no_backup_ok)
     std::stringstream S;
     for (const auto d : _data)
         S << d << ", ";
-    LOG_ENTRY(DEBUG, "Written (" << S.str() << ") to slot " << char_slot+1);
+    LOG_ENTRY(DEBUG, "Written (" << S.str() << ") to slot " << char_slot + 1);
 
     return status;
 }
@@ -146,13 +146,13 @@ bool MH_Memory::backupSaveData() const
 {
     if (!this->_steamFound)
     {
-        LOG_ENTRY(ERROR,"Steam Dir was not Found");
+        LOG_ENTRY(ERROR, "Steam Dir was not Found");
         return false;
     }
 
     if (!this->backupDir.exists())
     {
-        LOG_ENTRY(ERROR,"Backup Dir was not Found and couldn't created");
+        LOG_ENTRY(ERROR, "Backup Dir was not Found and couldn't created");
         return false;
     }
 
@@ -161,7 +161,7 @@ bool MH_Memory::backupSaveData() const
 
     if (!sourcePath.exists("SAVEDATA1000"))
     {
-        LOG_ENTRY(ERROR,"Couldn't Find Save Data");
+        LOG_ENTRY(ERROR, "Couldn't Find Save Data");
         return false;
     }
     QString saveFileName("Backup ");
@@ -174,25 +174,26 @@ bool MH_Memory::backupSaveData() const
 std::map<QString, SearchPattern> MH_Memory::versions{
     {"163956", {BytesToUInt({231, 188, 66, 1}), (0x68C) + 29}},
     {"165889", {BytesToUInt({174, 190, 66, 1}), (0x68C) + 29}},
-    {"166849", {BytesToUInt({ 47, 192, 66, 1}), (0x68C) + 29}},
-    {"167353", {BytesToUInt({ 55, 193, 66, 1}), (0x68C) + 29}},
+    {"166849", {BytesToUInt({47, 192, 66, 1}), (0x68C) + 29}},
+    {"167353", {BytesToUInt({55, 193, 66, 1}), (0x68C) + 29}},
     {"167541", {BytesToUInt({214, 199, 66, 1}), (0x6AC) + 29}},
-    {"167796", {BytesToUInt({ 87, 200, 66, 1}), (0x6AC) + 29}},
+    {"167796", {BytesToUInt({87, 200, 66, 1}), (0x6AC) + 29}},
     {"167898", {BytesToUInt({103, 200, 66, 1}), (0x6AC) + 29}},
     {"168030", {BytesToUInt({119, 200, 66, 1}), (0x6AC) + 29}},
-    {"400974", {BytesToUInt({ 32, 246, 66, 1}), (0x4B4) + 29}},
+    {"400974", {BytesToUInt({32, 246, 66, 1}), (0x4B4) + 29}},
     {"401727", {BytesToUInt({224, 241, 66, 1}), (0x4B4) + 29}},
-    {"402862", {BytesToUInt({100,   0, 67, 1}), (0x4B4) + 29}},
-    {"404549", {BytesToUInt({148,   0, 67, 1}), (0x4B4) + 29}},
-    {"406510", {BytesToUInt({188,  11, 67, 1}), (0x4B4) + 29}},
-    {"408899", {BytesToUInt({204,  11, 67, 1}), (0x4B4) + 29}},
-    {"410013", {BytesToUInt({232,  16, 67, 1}), (0x4B4) + 29}},
-    {"410014", {BytesToUInt({250,  18, 67, 1}), (0x4B4) + 29}},
-    {"410918", {BytesToUInt({234,  18, 67, 1}), (0x4B4) + 29}},
-    {"413161", {BytesToUInt({119,  24, 67, 1}), (0x4B4) + 29}},
-    {"419914", {BytesToUInt({ 75,  34, 67, 1}), (0x4B4) + 29}},
-    {"421409", {BytesToUInt({210,  34, 67, 1}), (0x4B4) + 29}},
-    {"Latest", {BytesToUInt({210,  34, 67, 1}), (0x4B4) + 29}},
+    {"402862", {BytesToUInt({100, 0, 67, 1}), (0x4B4) + 29}},
+    {"404549", {BytesToUInt({148, 0, 67, 1}), (0x4B4) + 29}},
+    {"406510", {BytesToUInt({188, 11, 67, 1}), (0x4B4) + 29}},
+    {"408899", {BytesToUInt({204, 11, 67, 1}), (0x4B4) + 29}},
+    {"410013", {BytesToUInt({232, 16, 67, 1}), (0x4B4) + 29}},
+    {"410014", {BytesToUInt({250, 18, 67, 1}), (0x4B4) + 29}},
+    {"410918", {BytesToUInt({234, 18, 67, 1}), (0x4B4) + 29}},
+    {"413161", {BytesToUInt({119, 24, 67, 1}), (0x4B4) + 29}},
+    {"419914", {BytesToUInt({75, 34, 67, 1}), (0x4B4) + 29}},
+    {"421409", {BytesToUInt({210, 34, 67, 1}), (0x4B4) + 29}},
+    {"421631", {BytesToUInt({46, 29, 67, 1}), (0x4B4) + 29}},
+    {"Latest", {BytesToUInt({46, 29, 67, 1}), (0x4B4) + 29}},
 };
 
 // The distance between the address of the data of the character slots
@@ -217,7 +218,8 @@ std::map<QString, int> MH_Memory::charSlotDist{
     {"413161", 2615792},
     {"419914", 2615792},
     {"421409", 2615792},
-    {"Latest", 2615792},
+    {"421631", 2542592},
+    {"Latest", 2542592},
 };
 
 /// End MH_Memory Member definitions
