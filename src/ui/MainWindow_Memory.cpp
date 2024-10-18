@@ -121,7 +121,7 @@ void MainWindow::_writeData()
         return;
 
     uint slot = ui->comboBox->currentText().toUInt();
-    if (!_MHManager.writeArmor(slot - 1, _settings.value("General/NoBackupOk", false).toBool()))
+    if (!_MHManager.writeArmor(slot - 1, _settings.value("General/NoBackupOk", true).toBool()))
     {
         DialogWindow *Dia = new DialogWindow(this, "ERROR", "Couldn't Write Save Data!", Status::ERROR0);
         Dia->show();

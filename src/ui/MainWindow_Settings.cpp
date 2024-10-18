@@ -41,7 +41,7 @@ void MainWindow::_updateSelectedLogLevel()
 
 void MainWindow::_toggleNoBackup()
 {
-    _settings.setValue("General/NoBackupOk", !_settings.value("General/NoBackupOk",false).toBool());
+    _settings.setValue("General/NoBackupOk", !_settings.value("General/NoBackupOk",true).toBool());
     _settings.sync();
 }
 

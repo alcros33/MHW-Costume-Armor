@@ -88,7 +88,7 @@ MainWindow::MainWindow(QString github_repo, QString current_version, QSettings &
         if (act->text() == _settings.value("Debug/LogLevel").toString())
             act->setChecked(true);
 
-    ui->actionNo_Backup_Ok->setChecked(_settings.value("General/NoBackupOk", false).toBool());
+    ui->actionNo_Backup_Ok->setChecked(_settings.value("General/NoBackupOk", true).toBool());
 
     ui->savedComboBox->addItems(_savedSets.keys());
     _initVersionSelector();

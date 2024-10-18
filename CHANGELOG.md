@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.2] - 2024 - 10 - 17
+### Added
+- Compatibility with version 421810
+### Changed
+- No Backup is now the default
+
 ## [1.0.1] - 2023 - 10 - 21
 ### Added
 - Compatibility with version 421631
